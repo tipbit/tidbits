@@ -1,7 +1,7 @@
-tidbits
+Tidbits
 =======
 
-Tipbit's tidbits.  Helper libraries for iOS.
+Tipbit's Tidbits.  Helper libraries for iOS.
 
 
 Most code here is Copyright (c) Tipbit Inc, and licensed under the terms of
