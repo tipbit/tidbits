@@ -40,6 +40,8 @@
 		408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89021768FCA6001B61E6 /* NSData+Base64.m */; };
 		408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89011768FCA6001B61E6 /* NSData+Base64.h */; };
+		408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89061768FD68001B61E6 /* NSString+Misc.m */; };
+		408E89081768FD82001B61E6 /* NSString+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89051768FD68001B61E6 /* NSString+Misc.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				408E89081768FD82001B61E6 /* NSString+Misc.h in CopyFiles */,
 				408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */,
 				408E88CF1768E6AC001B61E6 /* GTMObjC2Runtime.h in CopyFiles */,
 				408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */,
@@ -115,6 +118,8 @@
 		408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+XML.m"; sourceTree = "<group>"; };
 		408E89011768FCA6001B61E6 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		408E89021768FCA6001B61E6 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		408E89051768FD68001B61E6 /* NSString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Misc.h"; sourceTree = "<group>"; };
+		408E89061768FD68001B61E6 /* NSString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Misc.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +188,8 @@
 				408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */,
 				408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */,
 				408E88B61768E37E001B61E6 /* NSString+IsNotWhitespace.m */,
+				408E89051768FD68001B61E6 /* NSString+Misc.h */,
+				408E89061768FD68001B61E6 /* NSString+Misc.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
 			);
 			path = Tidbits;
@@ -348,6 +355,7 @@
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
+				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
