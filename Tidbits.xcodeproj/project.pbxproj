@@ -38,6 +38,8 @@
 		408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C41768E3A7001B61E6 /* GTMLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89021768FCA6001B61E6 /* NSData+Base64.m */; };
+		408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89011768FCA6001B61E6 /* NSData+Base64.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */,
 				408E88CF1768E6AC001B61E6 /* GTMObjC2Runtime.h in CopyFiles */,
 				408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */,
 				408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */,
@@ -110,6 +113,8 @@
 		408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMGarbageCollection.h; sourceTree = "<group>"; };
 		408E88C91768E3A7001B61E6 /* GTMNSString+XML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+XML.h"; sourceTree = "<group>"; };
 		408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+XML.m"; sourceTree = "<group>"; };
+		408E89011768FCA6001B61E6 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		408E89021768FCA6001B61E6 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,8 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
+				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
+				408E89021768FCA6001B61E6 /* NSData+Base64.m */,
 				408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */,
 				408E88901768E2BA001B61E6 /* NSMutableArray+Stack.m */,
 				408E88911768E2BA001B61E6 /* NSMutableData+UTF8.h */,
@@ -340,6 +347,7 @@
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */,
+				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
