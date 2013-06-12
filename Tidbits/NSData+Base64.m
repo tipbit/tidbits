@@ -21,6 +21,11 @@
 //     distribution.
 //
 
+//
+// This file includes modifications by Tipbit.  Copyright (c) Tipbit, Inc.  Licensed as above.
+//
+
+
 #import "NSData+Base64.h"
 #import <stdio.h>
 #import <stdlib.h>
@@ -348,13 +353,20 @@ char *NewBase64Encode(
 		NewBase64Encode([self bytes], [self length], false, &outputLength);
 	
 	NSString *result =
-		[[[NSString alloc]
+		[[NSString alloc]
 			initWithBytes:outputBuffer
 			length:outputLength
-			encoding:NSASCIIStringEncoding]
-		autorelease];
+			encoding:NSASCIIStringEncoding];
 	free(outputBuffer);
 	return result;
+}
+
+- (NSData *)base64EncodedData
+{
+	size_t outputLength = 0;
+	char *outputBuffer = NewBase64Encode([self bytes], [self length], false, &outputLength);
+
+	return [[NSData alloc] initWithBytesNoCopy:outputBuffer length:outputLength];
 }
 
 @end

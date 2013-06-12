@@ -21,6 +21,11 @@
 //     distribution.
 //
 
+//
+// This file includes modifications by Tipbit.  Copyright (c) Tipbit, Inc.  Licensed as above.
+//
+
+
 #import <Foundation/Foundation.h>
 
 void *NewBase64Decode(
@@ -38,6 +43,7 @@ char *NewBase64Encode(
 
 + (NSData *)dataFromBase64String:(NSString *)aString;
 - (NSString *)base64EncodedString;
+- (NSData *)base64EncodedData;
 
 @end
 
