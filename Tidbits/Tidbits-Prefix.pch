@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Tidbits' target in the 'Tidbits' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
