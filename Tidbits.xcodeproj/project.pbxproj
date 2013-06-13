@@ -66,6 +66,7 @@
 		408E89A5176A4801001B61E6 /* NSUserDefaults+Default.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */; };
 		408E89A6176A4801001B61E6 /* SynthesizeAssociatedObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */; };
 		408E89A7176A4801001B61E6 /* TBAsserts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E8990176A47D4001B61E6 /* TBAsserts.h */; };
+		408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89A8176A5339001B61E6 /* TBPCH.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */,
 				408E899B176A4801001B61E6 /* BlockWithResultOperation.h in CopyFiles */,
 				408E899C176A4801001B61E6 /* Dispatch.h in CopyFiles */,
 				408E899D176A4801001B61E6 /* LoggingMacros.h in CopyFiles */,
@@ -182,6 +184,7 @@
 		408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Default.m"; sourceTree = "<group>"; };
 		408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeAssociatedObject.h; sourceTree = "<group>"; };
 		408E8990176A47D4001B61E6 /* TBAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAsserts.h; sourceTree = "<group>"; };
+		408E89A8176A5339001B61E6 /* TBPCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPCH.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,7 @@
 				408E8958176A2B03001B61E6 /* StandardBlocks.h */,
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
+				408E89A8176A5339001B61E6 /* TBPCH.h */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
 			);
 			path = Tidbits;
