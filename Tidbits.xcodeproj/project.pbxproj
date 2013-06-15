@@ -67,6 +67,8 @@
 		408E89A6176A4801001B61E6 /* SynthesizeAssociatedObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */; };
 		408E89A7176A4801001B61E6 /* TBAsserts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E8990176A47D4001B61E6 /* TBAsserts.h */; };
 		408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89A8176A5339001B61E6 /* TBPCH.h */; };
+		408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F4662176CD7D900C468EB /* NSInputStream+Misc.m */; };
+		408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4661176CD7D900C468EB /* NSInputStream+Misc.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */,
 				408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */,
 				408E899B176A4801001B61E6 /* BlockWithResultOperation.h in CopyFiles */,
 				408E899C176A4801001B61E6 /* Dispatch.h in CopyFiles */,
@@ -185,6 +188,8 @@
 		408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeAssociatedObject.h; sourceTree = "<group>"; };
 		408E8990176A47D4001B61E6 /* TBAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAsserts.h; sourceTree = "<group>"; };
 		408E89A8176A5339001B61E6 /* TBPCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPCH.h; sourceTree = "<group>"; };
+		408F4661176CD7D900C468EB /* NSInputStream+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInputStream+Misc.h"; sourceTree = "<group>"; };
+		408F4662176CD7D900C468EB /* NSInputStream+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInputStream+Misc.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +263,8 @@
 				408E8984176A47D4001B61E6 /* NSDictionary+Map.m */,
 				408E8985176A47D4001B61E6 /* NSDictionary+Misc.h */,
 				408E8986176A47D4001B61E6 /* NSDictionary+Misc.m */,
+				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
+				408F4662176CD7D900C468EB /* NSInputStream+Misc.m */,
 				408E8987176A47D4001B61E6 /* NSMutableArray+Sorted.h */,
 				408E8988176A47D4001B61E6 /* NSMutableArray+Sorted.m */,
 				408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */,
@@ -456,6 +463,7 @@
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				408E8999176A47D4001B61E6 /* NSString+URL.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
+				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

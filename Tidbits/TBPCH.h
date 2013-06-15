@@ -16,6 +16,7 @@
 #import "NSDate+ISO8601.h"
 #import "NSDictionary+Map.h"
 #import "NSDictionary+Misc.h"
+#import "NSInputStream+Misc.h"
 #import "NSMutableData+AppendByte.h"
 #import "NSMutableData+UTF8.h"
 #import "NSMutableDictionary+Misc.h"
