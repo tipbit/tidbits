@@ -26,4 +26,6 @@
 
 -(NSString*)trim;
 
++(NSString*)stringWithUTF8Data:(NSData*)data;
+
 @end
