@@ -11,15 +11,14 @@
 @implementation NSInputStream (Misc)
 
 -(NSInteger)readUint32:(uint32_t*)result {
-    return readLen(self, 4);
+    return readLen(self, (u_int8_t*)result, 4);
 }
 
 
-static NSInteger readLen(NSInputStream* is, int len) {
-    u_int8_t buf[len];
+static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     int n = 0;
     while (true) {
-        int i = [is read:(buf + n) maxLength:len - n];
+        int i = [is read:(dest + n) maxLength:len - n];
         if (i <= 0)
             return i;
 
