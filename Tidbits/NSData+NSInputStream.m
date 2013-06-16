@@ -17,7 +17,7 @@
     uint8_t* buf = malloc(bufsize);
     NSMutableData* result = [NSMutableData dataWithCapacity:capacity];
     while (true) {
-        int n = [input read:buf maxLength:bufsize];
+        NSInteger n = [input read:buf maxLength:bufsize];
         if (n < 0) {
             result = nil;
             break;
