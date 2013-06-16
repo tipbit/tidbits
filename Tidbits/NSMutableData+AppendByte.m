@@ -14,4 +14,12 @@
     [self appendBytes:&b length:1];
 }
 
+-(void) appendUint16:(u_int16_t)i {
+    [self appendBytes:&i length:2];
+}
+
+-(void) appendUint32:(u_int32_t)i {
+    [self appendBytes:&i length:4];
+}
+
 @end

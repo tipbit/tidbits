@@ -11,5 +11,7 @@
 @interface NSMutableData (AppendByte)
 
 -(void) appendByte:(u_int8_t)b;
+-(void) appendUint16:(u_int16_t)i;
+-(void) appendUint32:(u_int32_t)i;
 
 @end
