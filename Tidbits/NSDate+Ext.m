@@ -10,6 +10,12 @@
 
 @implementation NSDate (Ext)
 
+
++(NSDate *)year2038 {
+    return [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
+}
+
+
 + (NSDate*) dateFromServerString:(NSString*)dateStr {
     if ([dateStr rangeOfString:@"Z"].location != NSNotFound)
         dateStr = [dateStr substringToIndex:19];

@@ -10,6 +10,8 @@
 
 @interface NSDate (Ext)
 
++(NSDate*)year2038;
+
 -(NSString*)userShortDateString;
 -(NSString*)userYearlessDateString;
 -(NSString*)userShortTimeString;
