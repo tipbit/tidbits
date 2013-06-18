@@ -11,6 +11,7 @@
 
 typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSDataBlock)(NSData* data);
+typedef void (^NSDataNSErrorBlock)(NSData* data, NSError* error);
 typedef void (^NSDictionaryBlock)(NSDictionary* dict);
 typedef void (^NSErrorBlock)(NSError* error);
 typedef void (^NSStringBlock)(NSString* str);
