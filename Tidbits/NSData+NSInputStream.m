@@ -26,7 +26,7 @@
             break;
         }
         else {
-            [result appendBytes:buf length:bufsize];
+            [result appendBytes:buf length:n];
         }
     }
 
