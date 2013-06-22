@@ -77,7 +77,7 @@
 
         NSData* data = buffer[0];
         NSUInteger data_len = data.length;
-        if (data_len < destlen) {
+        if (data_len <= destlen) {
             n = data_len;
             [buffer removeObjectAtIndex:0];
         }
