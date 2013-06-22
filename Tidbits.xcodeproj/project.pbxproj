@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
+		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886B1768DEF7001B61E6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E886A1768DEF6001B61E6 /* SenTestingKit.framework */; };
 		408E886D1768DEF7001B61E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E886C1768DEF7001B61E6 /* UIKit.framework */; };
@@ -94,6 +96,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40612674177634200085CEED /* StreamPair.h in CopyFiles */,
 				40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */,
 				40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */,
 				408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */,
@@ -134,6 +137,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
+		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
@@ -305,6 +310,8 @@
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
 				408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */,
 				408E8958176A2B03001B61E6 /* StandardBlocks.h */,
+				40612671177625420085CEED /* StreamPair.h */,
+				40612672177625420085CEED /* StreamPair.m */,
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
 				408E89A8176A5339001B61E6 /* TBPCH.h */,
@@ -488,6 +495,7 @@
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
+				40612673177625420085CEED /* StreamPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
