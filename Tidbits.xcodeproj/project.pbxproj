@@ -73,6 +73,8 @@
 		408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4661176CD7D900C468EB /* NSInputStream+Misc.h */; };
 		408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F4666176CE4F400C468EB /* LimitedInputStream.m */; };
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
+		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
+		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */; };
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
@@ -96,6 +98,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */,
 				40612674177634200085CEED /* StreamPair.h in CopyFiles */,
 				40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */,
 				40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */,
@@ -206,6 +209,8 @@
 		408F4662176CD7D900C468EB /* NSInputStream+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInputStream+Misc.m"; sourceTree = "<group>"; };
 		408F4665176CE4F400C468EB /* LimitedInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitedInputStream.h; sourceTree = "<group>"; };
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
+		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
+		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSInputStream.h"; sourceTree = "<group>"; };
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
@@ -315,6 +320,8 @@
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
 				408E89A8176A5339001B61E6 /* TBPCH.h */,
+				40BD90321777C13400A3ED9C /* UTI.h */,
+				40BD90331777C13400A3ED9C /* UTI.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
 			);
 			path = Tidbits;
@@ -496,6 +503,7 @@
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
+				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
