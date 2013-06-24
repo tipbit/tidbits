@@ -15,6 +15,14 @@
 }
 
 
+-(bool)endsWith:(NSString *)comparand {
+    if (comparand.length > self.length)
+        return false;
+    NSString* bit = [self substringFromIndex:self.length - comparand.length];
+    return [bit isEqualToString:comparand];
+}
+
+
 -(bool)endsWithCaseInsensitive:(NSString *)comparand {
     if (comparand.length > self.length)
         return false;
