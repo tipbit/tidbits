@@ -75,6 +75,8 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
+		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
+		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
 		40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */; };
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
@@ -98,6 +100,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */,
 				40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */,
 				40612674177634200085CEED /* StreamPair.h in CopyFiles */,
 				40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */,
@@ -211,6 +214,8 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
+		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
+		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
 		40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSInputStream.h"; sourceTree = "<group>"; };
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
@@ -243,6 +248,7 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
+				40C2A2F0177A56E0003276AB /* SRVResolver */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
 				408E885D1768DEF6001B61E6 /* Tidbits */,
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
@@ -377,6 +383,15 @@
 			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
 		};
+		40C2A2F0177A56E0003276AB /* SRVResolver */ = {
+			isa = PBXGroup;
+			children = (
+				40C2A2F5177A5791003276AB /* SRVResolver.h */,
+				40C2A2F6177A5791003276AB /* SRVResolver.m */,
+			);
+			path = SRVResolver;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +519,7 @@
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
+				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

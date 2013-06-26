@@ -30,3 +30,9 @@ See google-toolbox-for-mac/COPYING for details.
 NSData+Base64 is derived from FoundationAddition,
 https://github.com/yllan/FoundationAddition, Copyright (c) Matt Gallagher.
 Those files use the zlib license; see the files themselves for details.
+
+
+Code in the SRVResolver subdirectory is from Apple's Developer Library,
+http://developer.apple.com/library/mac/#samplecode/SRVResolver/Introduction/Intro.html,
+Copyright (c) Apple Inc, and licensed under their own license.  See the
+files themselves for details.
