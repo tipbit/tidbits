@@ -37,12 +37,20 @@
 #define TBClientLib_LoggingMacros_h
 
 
+#ifdef TESTFLIGHT_SDK_VERSION
+#define NSLog(__fmt, ...) TFLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif
+
 #ifdef DEBUG
 #ifndef DLog
-#   define DLog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
+#ifdef TESTFLIGHT_SDK_VERSION
+#   define DLog(__fmt, ...) TFLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#   define DLog(__fmt, ...) NSLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif
 #endif
 #ifndef ELog
-#   define ELog(err) {if(err) DLog(@"%@", err)}
+#   define ELog(__err) {if (__err) DLog(@"%@", __err)}
 #endif
 #else
 #ifndef DLog
@@ -51,11 +59,6 @@
 #ifndef ELog
 #   define ELog(err)
 #endif
-#endif
-
-// ALog always displays output regardless of the DEBUG setting
-#ifndef ALog
-#define ALog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);};
 #endif
 
 
