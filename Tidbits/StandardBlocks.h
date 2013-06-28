@@ -18,5 +18,4 @@ typedef void (^NSStringBlock)(NSString* str);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
 typedef void (^VoidBlock)(void);
 
-
 #endif
