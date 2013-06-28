@@ -38,27 +38,19 @@
 
 
 #ifdef TESTFLIGHT_SDK_VERSION
-#define NSLog(__fmt, ...) TFLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define NSLog(__fmt, ...) TFLog(@"%s [Line %d] " __fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #endif
 
 #ifdef DEBUG
-#ifndef DLog
 #ifdef TESTFLIGHT_SDK_VERSION
-#   define DLog(__fmt, ...) TFLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define DLog(__fmt, ...) TFLog(@"%s [Line %d] " __fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
-#   define DLog(__fmt, ...) NSLog((@"%s [Line %d] " __fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define DLog(__fmt, ...) NSLog(@"%s [Line %d] " __fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #endif
-#endif
-#ifndef ELog
-#   define ELog(__err) {if (__err) DLog(@"%@", __err)}
-#endif
+#define ELog(__err) {if (__err) DLog(@"%@", __err)}
 #else
-#ifndef DLog
-#   define DLog(...)
-#endif
-#ifndef ELog
-#   define ELog(err)
-#endif
+#define DLog(...)
+#define ELog(err)
 #endif
 
 
