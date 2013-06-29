@@ -73,6 +73,8 @@
 		408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4661176CD7D900C468EB /* NSInputStream+Misc.h */; };
 		408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F4666176CE4F400C468EB /* LimitedInputStream.m */; };
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
+		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
+		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
@@ -100,6 +102,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */,
 				40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */,
 				40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */,
 				40612674177634200085CEED /* StreamPair.h in CopyFiles */,
@@ -212,6 +215,9 @@
 		408F4662176CD7D900C468EB /* NSInputStream+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInputStream+Misc.m"; sourceTree = "<group>"; };
 		408F4665176CE4F400C468EB /* LimitedInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitedInputStream.h; sourceTree = "<group>"; };
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
+		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
+		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
+		40A9B45D177F5B4C0068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = SOURCE_ROOT; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
@@ -235,10 +241,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
+				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
 				408E886B1768DEF7001B61E6 /* SenTestingKit.framework in Frameworks */,
 				408E886D1768DEF7001B61E6 /* UIKit.framework in Frameworks */,
-				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
-				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +260,7 @@
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
+				40A9B45D177F5B4C0068F3F5 /* Lumberjack.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,6 +292,8 @@
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
 				408F4665176CE4F400C468EB /* LimitedInputStream.h */,
 				408F4666176CE4F400C468EB /* LimitedInputStream.m */,
+				40A9B459177F59680068F3F5 /* LogFormatter.h */,
+				40A9B45A177F59680068F3F5 /* LogFormatter.m */,
 				408E897E176A47D4001B61E6 /* LoggingMacros.h */,
 				408E897F176A47D4001B61E6 /* NSArray+Map.h */,
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
@@ -520,6 +529,7 @@
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
+				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +622,7 @@
 				DSTROOT = /tmp/Tidbits.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/usr/local/include\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -624,6 +635,7 @@
 				DSTROOT = /tmp/Tidbits.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/usr/local/include\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
