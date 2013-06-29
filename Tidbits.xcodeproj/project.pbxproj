@@ -76,6 +76,8 @@
 		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
 		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
 		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
+		40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */; };
+		40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
@@ -124,6 +126,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */,
 				40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */,
 				40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */,
 				40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */,
@@ -240,6 +243,8 @@
 		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
 		40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = "<group>"; };
+		40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle+MD5.h"; sourceTree = "<group>"; };
+		40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileHandle+MD5.m"; sourceTree = "<group>"; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
@@ -332,6 +337,8 @@
 				408E8984176A47D4001B61E6 /* NSDictionary+Map.m */,
 				408E8985176A47D4001B61E6 /* NSDictionary+Misc.h */,
 				408E8986176A47D4001B61E6 /* NSDictionary+Misc.m */,
+				40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */,
+				40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */,
 				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
 				408F4662176CD7D900C468EB /* NSInputStream+Misc.m */,
 				408E8987176A47D4001B61E6 /* NSMutableArray+Sorted.h */,
@@ -586,6 +593,7 @@
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
+				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
