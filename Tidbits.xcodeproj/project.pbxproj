@@ -75,6 +75,7 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
 		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
+		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
@@ -92,6 +93,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 408E88571768DEF6001B61E6;
 			remoteInfo = Tidbits;
+		};
+		40A9B4AE177F65B40068F3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC58E48814DC70CF006B16E2;
+			remoteInfo = Lumberjack;
+		};
+		40A9B4B0177F65B40068F3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC58E4C114DC8BE2006B16E2;
+			remoteInfo = LibTest;
+		};
+		40A9B4B2177F65C10068F3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC58E48714DC70CF006B16E2;
+			remoteInfo = Lumberjack;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -217,7 +239,7 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
-		40A9B45D177F5B4C0068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = SOURCE_ROOT; };
+		40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = "<group>"; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
@@ -241,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */,
 				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
 				408E886B1768DEF7001B61E6 /* SenTestingKit.framework in Frameworks */,
@@ -260,7 +283,7 @@
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
-				40A9B45D177F5B4C0068F3F5 /* Lumberjack.xcodeproj */,
+				40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -392,6 +415,15 @@
 			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
 		};
+		40A9B4AA177F65B40068F3F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40A9B4AF177F65B40068F3F5 /* libLumberjack.a */,
+				40A9B4B1177F65B40068F3F5 /* LibTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		40C2A2F0177A56E0003276AB /* SRVResolver */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +447,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				40A9B4B3177F65C10068F3F5 /* PBXTargetDependency */,
 			);
 			name = Tidbits;
 			productName = Tidbits;
@@ -459,6 +492,12 @@
 			mainGroup = 408E884F1768DEF6001B61E6;
 			productRefGroup = 408E88591768DEF6001B61E6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 40A9B4AA177F65B40068F3F5 /* Products */;
+					ProjectRef = 40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				408E88571768DEF6001B61E6 /* Tidbits */,
@@ -466,6 +505,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		40A9B4AF177F65B40068F3F5 /* libLumberjack.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLumberjack.a;
+			remoteRef = 40A9B4AE177F65B40068F3F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40A9B4B1177F65B40068F3F5 /* LibTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LibTest.app;
+			remoteRef = 40A9B4B0177F65B40068F3F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		408E88661768DEF6001B61E6 /* Resources */ = {
@@ -548,6 +604,11 @@
 			isa = PBXTargetDependency;
 			target = 408E88571768DEF6001B61E6 /* Tidbits */;
 			targetProxy = 408E886F1768DEF7001B61E6 /* PBXContainerItemProxy */;
+		};
+		40A9B4B3177F65C10068F3F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lumberjack;
+			targetProxy = 40A9B4B2177F65C10068F3F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
