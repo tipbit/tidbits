@@ -9,6 +9,13 @@
 #import "StreamPair.h"
 
 
+//#define DUMP_ALL 1
+
+#ifdef DUMP_ALL
+#import "NSData+Base64.h"
+#endif
+
+
 @interface StreamPair ()
 
 @property (nonatomic, strong) StreamPairInputStream* inputStream;
@@ -100,6 +107,11 @@
     [buffer addObject:[NSData dataWithBytes:srcbuf length:srclen]];
     [condition broadcast];
     [condition unlock];
+
+#if DUMP_ALL
+    NSLog(@"DATA BLOCK: %@", [[NSData dataWithBytes:srcbuf length:srclen] base64EncodedString]);
+#endif
+
     return srclen;
 }
 
