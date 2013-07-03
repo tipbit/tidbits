@@ -77,3 +77,15 @@ void dispatchAsyncMainThreadWithDelay(int delay_msec, dispatch_block_t block) {
         }
     });
 }
+
+
+void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_block_t block) {
+    dispatch_async(dispatch_get_global_queue(prio, 0), ^{
+        @try {
+            block();
+        }
+        @catch (NSException* exn) {
+            NSLog(@"Ignoring exception in dispatchAsyncBackgroundThread: %@ %@", exn.description, exn.callStackSymbols);
+        }
+    });
+}
