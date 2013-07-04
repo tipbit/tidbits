@@ -37,7 +37,7 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
 -(NSInteger)writeToFile:(NSString *)filepath {
     NSFileManager* nsfm = [NSFileManager defaultManager];
 
-    NSString* temppath = [NSString stringWithFormat:@"%@.tmp", filepath];
+    NSString* temppath = [filepath stringByAppendingPathExtension:@"tmp"];
     BOOL ok = [nsfm createFileAtPath:temppath contents:nil attributes:nil];
     if (!ok) {
         NSLog(@"Got error trying to create %@", temppath);
