@@ -29,9 +29,13 @@
 
 
 -(CGSize)sizeToFit:(CGSize)frameSize {
-    CGSize selfSize = self.size;
-    CGSize fitWidth = selfSize.width > frameSize.width ? CGSizeMake(frameSize.width, frameSize.width * selfSize.height / selfSize.width) : selfSize;
-    CGSize fitHeight = selfSize.height > frameSize.height ? CGSizeMake(frameSize.height * selfSize.width / selfSize.height, frameSize.height) : selfSize;
+    return [UIImage sizeToFit:frameSize originalSize:self.size];
+}
+
+
++(CGSize)sizeToFit:(CGSize)frameSize originalSize:(CGSize)originalSize {
+    CGSize fitWidth = originalSize.width > frameSize.width ? CGSizeMake(frameSize.width, frameSize.width * originalSize.height / originalSize.width) : originalSize;
+    CGSize fitHeight = originalSize.height > frameSize.height ? CGSizeMake(frameSize.height * originalSize.width / originalSize.height, frameSize.height) : originalSize;
     return fitWidth.width > fitHeight.width ? fitHeight : fitWidth;
 }
 

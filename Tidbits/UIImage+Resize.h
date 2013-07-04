@@ -16,4 +16,6 @@
 
 -(CGSize)sizeToFit:(CGSize)frameSize;
 
++(CGSize)sizeToFit:(CGSize)frameSize originalSize:(CGSize)originalSize;
+
 @end
