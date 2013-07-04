@@ -11,6 +11,7 @@
 
 
 #define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread")
+#define AssertOnBackgroundThreadC() assert(!NSThread.isMainThread)
 
 // To avoid the cost of this assert on the UI thread, we turn it off in release builds.
 // It's not very expensive, but there are a lot of them, and they're on hot paths.
