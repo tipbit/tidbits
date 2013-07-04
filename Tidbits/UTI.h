@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 extern NSString* utiFilenameToMIME(NSString* fname);
+extern NSString* utiMIMEToExtension(NSString* mime);
