@@ -8,6 +8,10 @@
 
 #import "NSInputStream+Misc.h"
 
+
+#define BUFSIZE 4096
+
+
 @implementation NSInputStream (Misc)
 
 -(NSInteger)readUint32:(uint32_t*)result {
@@ -27,6 +31,60 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
         if (n == len)
             return n;
     }
+}
+
+
+-(NSInteger)writeToFile:(NSString *)filepath {
+    NSFileManager* nsfm = [NSFileManager defaultManager];
+
+    NSString* temppath = [NSString stringWithFormat:@"%@.tmp", filepath];
+    BOOL ok = [nsfm createFileAtPath:temppath contents:nil attributes:nil];
+    if (!ok) {
+        NSLog(@"Got error trying to create %@", temppath);
+        return -1;
+    }
+
+    NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:temppath];
+    if (file == nil) {
+        NSLog(@"Got error trying to open %@", temppath);
+        return -1;
+    }
+
+    uint8_t* buf = malloc(BUFSIZE);
+    NSInteger result = 0;
+    @try {
+        while (true) {
+            NSInteger n = [self read:buf maxLength:BUFSIZE];
+            if (n < 0) {
+                result = n;
+                break;
+            }
+            else if (n == 0) {
+                break;
+            }
+            else {
+                [file writeData:[NSData dataWithBytes:buf length:n]];
+                result += n;
+            }
+        }
+    }
+    @catch (NSException* exn) {
+        NSLog(@"Caught exception writing to %@: %@", temppath, exn);
+        result = -1;
+    }
+
+    [file closeFile];
+    free(buf);
+
+    [nsfm removeItemAtPath:filepath error:nil];
+    NSError* err = nil;
+    ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
+    if (!ok || err != nil) {
+        NSLog(@"Got error when trying to move %@ to %@: %@", temppath, filepath, err);
+        return -1;
+    }
+
+    return result;
 }
 
 

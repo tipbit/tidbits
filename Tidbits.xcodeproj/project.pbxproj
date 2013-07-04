@@ -84,6 +84,8 @@
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
+		40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343891784C99A001A93E9 /* NSData+MD5.m */; };
+		40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E343881784C99A001A93E9 /* NSData+MD5.h */; };
 		40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */; };
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
@@ -128,6 +130,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */,
 				408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */,
 				40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */,
 				40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */,
@@ -254,6 +257,8 @@
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
 		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
+		40E343881784C99A001A93E9 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		40E343891784C99A001A93E9 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSInputStream.h"; sourceTree = "<group>"; };
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
@@ -332,6 +337,8 @@
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
 				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
 				408E89021768FCA6001B61E6 /* NSData+Base64.m */,
+				40E343881784C99A001A93E9 /* NSData+MD5.h */,
+				40E343891784C99A001A93E9 /* NSData+MD5.m */,
 				40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */,
 				40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */,
 				40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */,
@@ -602,6 +609,7 @@
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
+				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

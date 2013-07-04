@@ -12,4 +12,6 @@
 
 -(NSInteger)readUint32:(uint32_t*)result;
 
+-(NSInteger)writeToFile:(NSString *)filepath;
+
 @end

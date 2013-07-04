@@ -15,3 +15,5 @@ void dispatchAsyncMainThread(dispatch_block_t block);
 void dispatchAsyncMainThreadWithDelay(int delay_msec, dispatch_block_t block);
 
 id dispatchSyncMainThreadWithResult(dispatch_block_with_result_t block);
+
+void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_block_t block);
