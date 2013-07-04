@@ -86,6 +86,8 @@
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
 		40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343891784C99A001A93E9 /* NSData+MD5.m */; };
 		40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E343881784C99A001A93E9 /* NSData+MD5.h */; };
+		40E343B51785FF73001A93E9 /* OperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343B41785FF73001A93E9 /* OperationManager.m */; };
+		40E343B71786012A001A93E9 /* OperationManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E343B31785FF73001A93E9 /* OperationManager.h */; };
 		40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */; };
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
@@ -130,6 +132,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40E343B71786012A001A93E9 /* OperationManager.h in CopyFiles */,
 				40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */,
 				408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */,
 				40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */,
@@ -259,6 +262,8 @@
 		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
 		40E343881784C99A001A93E9 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		40E343891784C99A001A93E9 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		40E343B31785FF73001A93E9 /* OperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationManager.h; sourceTree = "<group>"; };
+		40E343B41785FF73001A93E9 /* OperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationManager.m; sourceTree = "<group>"; };
 		40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSInputStream.h"; sourceTree = "<group>"; };
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
@@ -371,6 +376,8 @@
 				408E898C176A47D4001B61E6 /* NSString+URL.m */,
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
 				408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */,
+				40E343B31785FF73001A93E9 /* OperationManager.h */,
+				40E343B41785FF73001A93E9 /* OperationManager.m */,
 				408E8958176A2B03001B61E6 /* StandardBlocks.h */,
 				40612671177625420085CEED /* StreamPair.h */,
 				40612672177625420085CEED /* StreamPair.m */,
@@ -610,6 +617,7 @@
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
+				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
