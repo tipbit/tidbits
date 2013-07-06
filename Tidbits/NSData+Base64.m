@@ -369,4 +369,13 @@ char *NewBase64Encode(
 	return [[NSData alloc] initWithBytesNoCopy:outputBuffer length:outputLength];
 }
 
+
+
+-(NSString*)base64urlEncodedString {
+    return [[[self base64EncodedString]
+             stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
+            stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+}
+
+
 @end
