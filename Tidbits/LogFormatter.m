@@ -9,10 +9,25 @@
 #include <stdio.h>
 #include <time.h>
 
+#import <Lumberjack/Lumberjack.h>
+
 #import "LogFormatter.h"
 
 
 @implementation LogFormatter
+
+
++(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY {
+    LogFormatter* formatter = [[LogFormatter alloc] init];
+    DDASLLogger* aslLogger = [DDASLLogger sharedInstance];
+    DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
+    aslLogger.logFormatter = formatter;
+    ttyLogger.logFormatter = formatter;
+    [DDLog addLogger:aslLogger];
+    [DDLog addLogger:ttyLogger];
+    return formatter;
+}
+
 
 -(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
     char time_str[24];

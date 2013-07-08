@@ -28,3 +28,20 @@ NSString* utiFilenameToMIME(NSString* fname) {
 
     return @"application/octet-stream";
 }
+
+
+NSString* utiMIMEToExtension(NSString* mime) {
+    if ([mime isNotWhitespace]) {
+        CFStringRef c_mime = (__bridge_retained CFStringRef)mime;
+        CFStringRef type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, c_mime, NULL);
+        CFRelease(c_mime);
+
+        if (type != NULL) {
+            NSString* result = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassFilenameExtension);
+            CFRelease(type);
+            return result;
+        }
+    }
+
+    return nil;
+}

@@ -45,6 +45,11 @@ char *NewBase64Encode(
 - (NSString *)base64EncodedString;
 - (NSData *)base64EncodedData;
 
+/*!
+ * RFC 4648's base64url encoding.
+ */
+- (NSString*)base64urlEncodedString;
+
 @end
 
 @interface NSData (Hex)
