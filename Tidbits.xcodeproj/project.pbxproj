@@ -86,7 +86,7 @@
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
 		40D9DD1317893D8800C49154 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD1217893D8800C49154 /* FileUtils.m */; };
 		40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD1117893D8800C49154 /* FileUtils.h */; };
-		40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */; };
+		40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */; };
 		40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343891784C99A001A93E9 /* NSData+MD5.m */; };
 		40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E343881784C99A001A93E9 /* NSData+MD5.h */; };
