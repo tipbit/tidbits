@@ -351,7 +351,12 @@ char *NewBase64Encode(
 	size_t outputLength;
 	char *outputBuffer =
 		NewBase64Encode([self bytes], [self length], false, &outputLength);
-	
+
+    if (outputBuffer == NULL) {
+        // The malloc inside NewBase64Encode has failed.
+        return nil;
+    }
+
 	NSString *result =
 		[[NSString alloc]
 			initWithBytes:outputBuffer
