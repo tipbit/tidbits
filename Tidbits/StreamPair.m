@@ -16,22 +16,14 @@
 #endif
 
 
-@interface StreamPair ()
-
-@property (nonatomic, strong) StreamPairInputStream* inputStream;
-@property (nonatomic, strong) StreamPairOutputStream* outputStream;
-
-@end
-
-
-@interface StreamPairInputStream ()
+@interface StreamPairInputStream : NSInputStream
 
 -(instancetype)init:(StreamPair*)streamPair;
 
 @end
 
 
-@interface StreamPairOutputStream ()
+@interface StreamPairOutputStream : NSOutputStream
 
 -(instancetype)init:(StreamPair*)streamPair;
 
@@ -50,11 +42,16 @@
 }
 
 
++(void)getStreamPairInput:(NSInputStream**)istream andOutput:(NSOutputStream**)ostream {
+    StreamPair* sp = [[StreamPair alloc] init];
+    *istream = [[StreamPairInputStream alloc] init:sp];
+    *ostream = [[StreamPairOutputStream alloc] init:sp];
+}
+
+
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.inputStream = [[StreamPairInputStream alloc] init:self];
-        self.outputStream = [[StreamPairOutputStream alloc] init:self];
         buffer = [NSMutableArray array];
         condition = [[NSCondition alloc] init];
     }
