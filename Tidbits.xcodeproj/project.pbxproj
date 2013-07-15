@@ -86,6 +86,8 @@
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
 		40D9DD1317893D8800C49154 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD1217893D8800C49154 /* FileUtils.m */; };
 		40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD1117893D8800C49154 /* FileUtils.h */; };
+		40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */; };
 		40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343891784C99A001A93E9 /* NSData+MD5.m */; };
 		40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E343881784C99A001A93E9 /* NSData+MD5.h */; };
 		40E343B51785FF73001A93E9 /* OperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E343B41785FF73001A93E9 /* OperationManager.m */; };
@@ -134,6 +136,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */,
 				40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */,
 				40E343B71786012A001A93E9 /* OperationManager.h in CopyFiles */,
 				40E3438C1784CB2B001A93E9 /* NSData+MD5.h in CopyFiles */,
@@ -265,6 +268,8 @@
 		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
 		40D9DD1117893D8800C49154 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		40D9DD1217893D8800C49154 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		40E343881784C99A001A93E9 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		40E343891784C99A001A93E9 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		40E343B31785FF73001A93E9 /* OperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationManager.h; sourceTree = "<group>"; };
@@ -430,22 +435,24 @@
 		408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */ = {
 			isa = PBXGroup;
 			children = (
-				408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */,
-				408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */,
+				408E88C71768E3A7001B61E6 /* GTMDefines.h */,
+				408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */,
+				408E88C31768E3A7001B61E6 /* GTMLogger.h */,
+				408E88C41768E3A7001B61E6 /* GTMLogger.m */,
 				408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */,
 				408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */,
 				408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */,
 				408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */,
+				40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */,
+				40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */,
 				408E88C11768E3A7001B61E6 /* GTMNSString+URLArguments.h */,
 				408E88C21768E3A7001B61E6 /* GTMNSString+URLArguments.m */,
-				408E88C31768E3A7001B61E6 /* GTMLogger.h */,
-				408E88C41768E3A7001B61E6 /* GTMLogger.m */,
-				408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */,
-				408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */,
-				408E88C71768E3A7001B61E6 /* GTMDefines.h */,
-				408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */,
 				408E88C91768E3A7001B61E6 /* GTMNSString+XML.h */,
 				408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */,
+				408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */,
+				408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */,
+				408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */,
+				408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */,
 			);
 			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
@@ -590,42 +597,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */,
+				408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */,
 				408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
-				408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */,
-				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
+				40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */,
 				408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */,
-				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
-				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
-				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
-				408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */,
-				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
-				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
+				408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */,
+				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
+				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
+				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
+				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
+				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
+				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
+				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
+				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
+				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
+				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
 				408E8997176A47D4001B61E6 /* NSMutableArray+Sorted.m in Sources */,
+				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
+				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
+				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
+				408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */,
+				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E8999176A47D4001B61E6 /* NSString+URL.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
-				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
-				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
-				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
-				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
-				40612673177625420085CEED /* StreamPair.m in Sources */,
-				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
-				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
-				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
-				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
-				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
-				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
-				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
+				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
+				40612673177625420085CEED /* StreamPair.m in Sources */,
+				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
+				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
