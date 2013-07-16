@@ -377,9 +377,10 @@ char *NewBase64Encode(
 
 
 -(NSString*)base64urlEncodedString {
-    return [[[self base64EncodedString]
-             stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
-            stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+    return [[[[self base64EncodedString]
+              stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
+             stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
+            stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 
