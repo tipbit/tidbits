@@ -23,4 +23,12 @@
             digest[12], digest[13], digest[14], digest[15]];
 }
 
+-(NSData*)md5Data {
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(self.bytes, self.length, digest);
+
+    NSData *result = [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
+    return result;
+}
+
 @end

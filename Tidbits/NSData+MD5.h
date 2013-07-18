@@ -11,5 +11,6 @@
 @interface NSData (MD5)
 
 -(NSString*)md5;
+-(NSData*)md5Data;
 
 @end
