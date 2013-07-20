@@ -10,11 +10,15 @@
 #import "LoggingMacros.h"
 
 
-#define DURATION_WARNING_ENABLED DEBUG
 #define DURATION_WARNING_THRESHOLD 0.3
 
 
 #if DURATION_WARNING_ENABLED
+
+#undef dispatchSyncMainThread
+#undef dispatchAsyncMainThread
+#undef dispatchAsyncMainThreadWithDelay
+#undef dispatchSyncMainThreadWithResult
 
 #define DURATION_WARNING_GET_SYMBOLS \
     NSArray* symbols = [NSThread callStackSymbols]
@@ -26,12 +30,12 @@
     do { \
         NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - start; \
         if (duration > DURATION_WARNING_THRESHOLD) \
-            durationWarning(duration, symbols); \
+            durationWarning(func, line, duration, symbols); \
     } while (false)
 
 // This is a separate function from the macro above so that you can stick a breakpoint here.
-static void durationWarning(NSTimeInterval duration, NSArray* symbols) {
-    DLog(@"Operation on main thread took %0.6lf secs.  Call-stack: %@", duration, symbols);
+static void durationWarning(const char* func, int line, NSTimeInterval duration, NSArray* symbols) {
+    DLog(@"Operation on main thread took %0.6lf secs.  Call-site: %s:%d.  Call-stack: %@", duration, func, line, symbols);
 }
 
 #else
@@ -43,7 +47,7 @@ static void durationWarning(NSTimeInterval duration, NSArray* symbols) {
 #endif
 
 
-void dispatchSyncMainThread(dispatch_block_t block) {
+void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     if ([NSThread isMainThread]) {
@@ -76,7 +80,7 @@ void dispatchSyncMainThread(dispatch_block_t block) {
 }
 
 
-id dispatchSyncMainThreadWithResult(dispatch_block_with_result_t block) {
+id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_with_result_t block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     if ([NSThread isMainThread]) {
@@ -110,7 +114,7 @@ id dispatchSyncMainThreadWithResult(dispatch_block_with_result_t block) {
 }
 
 
-void dispatchAsyncMainThread(dispatch_block_t block) {
+void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -129,7 +133,7 @@ void dispatchAsyncMainThread(dispatch_block_t block) {
 
 #define DISPATCH_MSEC_FROM_NOW(__ms) (dispatch_time(DISPATCH_TIME_NOW, ((int64_t)__ms) * NSEC_PER_MSEC))
 
-void dispatchAsyncMainThreadWithDelay(int delay_msec, dispatch_block_t block) {
+void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec, dispatch_block_t block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     dispatch_after(DISPATCH_MSEC_FROM_NOW(delay_msec), dispatch_get_main_queue(), ^{
