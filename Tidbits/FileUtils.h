@@ -19,4 +19,12 @@
  */
 +(void)asyncReadFile:(NSString*)path fileFound:(NSDataBlock)fileFound fileNotFound:(VoidBlock)fileNotFound;
 
+/*!
+ * Dispatch a background thread to write the given data to the named file.  This is done atomically (in the sense
+ * of NSDataWritingAtomic).  One or other of the callbacks is called on the background thread when this call completes.
+ *
+ * This function will also create any necessary subdirectories.
+ */
++(void)asyncWriteFile:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
+
 @end
