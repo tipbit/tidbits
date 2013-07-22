@@ -15,6 +15,11 @@
 }
 
 
+-(bool)containsCaseInsensitive:(NSString *)substring {
+    return [self rangeOfString:substring options:NSCaseInsensitiveSearch].location != NSNotFound;
+}
+
+
 -(bool)endsWith:(NSString *)comparand {
     if (comparand.length > self.length)
         return false;

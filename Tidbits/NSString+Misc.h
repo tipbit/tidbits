@@ -12,6 +12,8 @@
 
 -(bool) contains:(NSString*)substring;
 
+-(bool) containsCaseInsensitive:(NSString*)substring;
+
 -(bool) endsWith:(NSString *)comparand;
 
 -(bool) endsWithCaseInsensitive:(NSString *)comparand;
