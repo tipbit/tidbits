@@ -27,4 +27,11 @@
  */
 +(void)asyncWriteFile:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
 
+/*!
+ * Call asyncWriteFile if data is set, or just call onSuccess if data is nil.
+ *
+ * This means that the callback can be either on the calling thread, or a background thread.
+ */
++(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
+
 @end

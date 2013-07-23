@@ -60,4 +60,12 @@
 }
 
 
++(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
+    if (data == nil)
+        onSuccess();
+    else
+        [FileUtils asyncWriteFile:path data:data onSuccess:onSuccess onFailure:onFailure];
+}
+
+
 @end
