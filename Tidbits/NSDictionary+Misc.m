@@ -28,4 +28,16 @@
 }
 
 
+-(NSArray *)arrayForKey:(id)key {
+    id result = self[key];
+    return [result isKindOfClass:[NSArray class]] ? result : nil;
+}
+
+
+-(NSDictionary *)dictForKey:(id)key {
+    id result = self[key];
+    return [result isKindOfClass:[NSDictionary class]] ? result : nil;
+}
+
+
 @end

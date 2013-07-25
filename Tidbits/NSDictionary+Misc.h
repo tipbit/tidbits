@@ -13,5 +13,7 @@
 -(bool) boolForKey:(id)key withDefault:(bool)def;
 -(id) objectForKey:(id)key withDefault:(id)def;
 -(NSUInteger)uintForKey:(id)key withDefault:(NSUInteger)def;
+-(NSArray*) arrayForKey:(id)key;
+-(NSDictionary*) dictForKey:(id)key;
 
 @end
