@@ -64,6 +64,17 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
+-(NSString *)userShortTimeOrDateString {
+    if ([self isToday])
+        return [self userShortTimeString];
+    if ([self isYesterday])
+        return @"Yesterday";
+    if ([self isDayBefore])
+        return [self dayOfWeek];
+    return [self userShortDateString];
+}
+
+
 - (NSDate*) startOfDay {
     return [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
 }

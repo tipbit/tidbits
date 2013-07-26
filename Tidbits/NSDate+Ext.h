@@ -15,6 +15,7 @@
 -(NSString*)userShortDateString;
 -(NSString*)userYearlessDateString;
 -(NSString*)userShortTimeString;
+-(NSString*)userShortTimeOrDateString;
 
 /*!
  @abstract Equivalent to [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone].
