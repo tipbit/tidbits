@@ -10,7 +10,7 @@
 
 @implementation NSUserDefaults (Default)
 
--(BOOL)boolForKey:(NSString *)defaultName defaultValue:(NSString*)def {
+-(BOOL)boolForKey:(NSString *)defaultName defaultValue:(BOOL)def {
     NSString* val = [self stringForKey:defaultName];
     return val == nil ? def : [self boolForKey:defaultName];
 }
