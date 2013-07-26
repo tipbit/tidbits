@@ -10,6 +10,7 @@
 
 @interface NSUserDefaults (Default)
 
--(NSString*)stringForKey:(NSString *)defaultName defaultValue:(NSString*)def;
+-(BOOL)boolForKey:(NSString*)defaultName defaultValue:(BOOL)def;
+-(NSString*)stringForKey:(NSString*)defaultName defaultValue:(NSString*)def;
 
 @end
