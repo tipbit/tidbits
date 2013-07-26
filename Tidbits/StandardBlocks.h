@@ -19,4 +19,6 @@ typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
 typedef void (^VoidBlock)(void);
 
+typedef bool (^predicate_t)(id obj);
+
 #endif
