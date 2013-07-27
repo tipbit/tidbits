@@ -30,6 +30,12 @@
 
 -(NSString*)trim;
 
+/*!
+ * @return A copy of this string, with characters escaped so that it is suitable for inclusion in a Javascript
+ * single-quoted string literal.
+ */
+-(NSString*)stringForJavascriptSingleQuotes;
+
 +(NSString*)stringWithUTF8Data:(NSData*)data;
 
 @end

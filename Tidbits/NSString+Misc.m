@@ -77,4 +77,25 @@
 }
 
 
+/*
+ * http://www.ecma-international.org/ecma-262/5.1/#sec-7.8.4
+ * 7.8.4 String Literals
+ *
+ * A string literal is zero or more characters enclosed in single or double quotes.
+ * Each character may be represented by an escape sequence. All characters may appear
+ * literally in a string literal except for the closing quote character, backslash,
+ * carriage return, line separator, paragraph separator, and line feed.
+ * Any character may appear in the form of an escape sequence.
+ */
+-(NSString *)stringForJavascriptSingleQuotes {
+    return [[[[[[self
+                 stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"]
+                stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"]
+               stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"]
+              stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"]
+             stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"]
+            stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+}
+
+
 @end
