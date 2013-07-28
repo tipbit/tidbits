@@ -15,5 +15,7 @@
 -(NSUInteger)uintForKey:(id)key withDefault:(NSUInteger)def;
 -(NSArray*) arrayForKey:(id)key;
 -(NSDictionary*) dictForKey:(id)key;
+-(NSNumber *)numberForKey:(id)key;
+-(NSString*) stringForKey:(id)key;
 
 @end

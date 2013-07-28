@@ -23,7 +23,7 @@
 
 
 -(NSUInteger)uintForKey:(id)key withDefault:(NSUInteger)def {
-    id result = [self objectForKey:key];
+    NSNumber* result = [self numberForKey:key];
     return result ? [result unsignedIntegerValue] : def;
 }
 
@@ -37,6 +37,18 @@
 -(NSDictionary *)dictForKey:(id)key {
     id result = self[key];
     return [result isKindOfClass:[NSDictionary class]] ? result : nil;
+}
+
+
+-(NSNumber *)numberForKey:(id)key {
+    id result = self[key];
+    return [result isKindOfClass:[NSNumber class]] ? result : nil;
+}
+
+
+-(NSString *)stringForKey:(id)key {
+    id result = self[key];
+    return [result isKindOfClass:[NSString class]] ? result : nil;
 }
 
 
