@@ -98,6 +98,8 @@
 		40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */; };
 		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
 		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
+		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
+		40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */,
 				40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */,
 				40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */,
 				40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */,
@@ -283,6 +286,8 @@
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
 		40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Versions.h"; sourceTree = "<group>"; };
 		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
+		40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +321,7 @@
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
 				408E885D1768DEF6001B61E6 /* Tidbits */,
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
+				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
 				40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */,
@@ -482,6 +488,15 @@
 			path = SRVResolver;
 			sourceTree = "<group>";
 		};
+		40FB91CB17ACA50700F6EC64 /* uidevice-extension */ = {
+			isa = PBXGroup;
+			children = (
+				40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */,
+				40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */,
+			);
+			path = "uidevice-extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -642,6 +657,7 @@
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
+				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
