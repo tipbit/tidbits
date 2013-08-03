@@ -96,6 +96,8 @@
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
 		40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */; };
+		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
+		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */,
 				40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */,
 				40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */,
 				40E343B71786012A001A93E9 /* OperationManager.h in CopyFiles */,
@@ -278,6 +281,8 @@
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
+		40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Versions.h"; sourceTree = "<group>"; };
+		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +357,8 @@
 				408E897E176A47D4001B61E6 /* LoggingMacros.h */,
 				408E897F176A47D4001B61E6 /* NSArray+Map.h */,
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
+				40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */,
+				40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */,
 				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
 				408E89021768FCA6001B61E6 /* NSData+Base64.m */,
 				40E343881784C99A001A93E9 /* NSData+MD5.h */,
@@ -634,6 +641,7 @@
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
+				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
