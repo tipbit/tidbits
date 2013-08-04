@@ -36,3 +36,8 @@ Code in the SRVResolver subdirectory is from Apple's Developer Library,
 http://developer.apple.com/library/mac/#samplecode/SRVResolver/Introduction/Intro.html,
 Copyright (c) Apple Inc, and licensed under their own license.  See the
 files themselves for details.
+
+
+UIDevice-Hardware is from uidevice-extension,
+https://github.com/erica/uidevice-extension/, Copyright (c) Erica Sadun,
+and licensed using the BSD license.
