@@ -20,4 +20,25 @@
     return result;
 }
 
+
+-(void) map_async:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess {
+    NSMutableArray* result = [NSMutableArray arrayWithCapacity:self.count];
+    [self map_async:mapper onSuccess:onSuccess idx:0 result:result];
+}
+
+-(void) map_async:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess idx:(NSUInteger)idx result:(NSMutableArray*)result {
+    if (idx >= self.count) {
+        onSuccess(result);
+        return;
+    }
+    id obj = self[idx];
+    NSArray* __weak weak_self = self;
+    mapper(obj, ^(id mapped_obj) {
+        if (mapped_obj != nil)
+            [result addObject:mapped_obj];
+        [weak_self map_async:mapper onSuccess:onSuccess idx:idx+1 result:result];
+    });
+}
+
+
 @end

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (Map)
+#import "StandardBlocks.h"
 
-typedef id (^id_to_id_t)(id obj);
+@interface NSArray (Map)
 
 /*!
  * @abstract Create a new NSArray with the contents set to mapper(x) for each x in self.
@@ -19,5 +19,23 @@ typedef id (^id_to_id_t)(id obj);
  * (i.e. the result will be shorter than self).
  */
 -(NSArray*) map:(id_to_id_t)block;
+
+/*!
+ * @abstract Create a new NSMutableArray with the contents determined by calls to mapper
+ * for each x in self.
+ *
+ * @discussion This is designed for a continuation-passing style where each call to
+ * mapper is serialised, and they are chained from one to the next.  mapper(x, callback)
+ * is called for each x in self, and mapper should call callback(new_x) with the value
+ * to be added to the result of this call.  mapper may call callback(nil), in which case
+ * no entry is added to the result (i.e. the result will be shorter than self).
+ * Once all the mapper calls have been made, the complete list is passed back to onSuccess.
+ *
+ * This call does no threading of its own, but it is expected that the mapper
+ * call may go off onto another thread to do its work.  This call is completely thread-safe,
+ * with the caveat that you must not modify self or its contents for the duration of the
+ * call.
+ */
+-(void) map_async:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess;
 
 @end
