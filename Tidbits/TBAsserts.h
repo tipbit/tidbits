@@ -10,6 +10,16 @@
 #define TBClientLib_TBAsserts_h
 
 
+
+#ifdef DEBUG
+#define TBAssert(condition, desc, ...) NSAssert(condition, desc, ## __VA_ARGS__)
+#else
+#define TBAssert(condition, ...) NSLog(__VA_ARGS__)
+#endif
+
+
+
+
 #define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread")
 #define AssertOnBackgroundThreadC() assert(!NSThread.isMainThread)
 
