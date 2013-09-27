@@ -12,7 +12,9 @@
 
 +(NSString*)PUKey:(NSString*) key;
 +(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser;
-+(BOOL)getPUFlag:(NSString*)key;
-+(void)setPUFlag:(BOOL)value forKey:(NSString*)key;
++(BOOL)getPUBool:(NSString*)key;
++(void)setPUBool:(BOOL)value forKey:(NSString*)key;
++(NSString*)getPUString:(NSString*)key;
++(void)setPUString:(NSString*)value forKey:(NSString*)key;
 
 @end

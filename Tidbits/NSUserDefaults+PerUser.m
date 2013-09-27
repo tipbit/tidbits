@@ -24,15 +24,24 @@
     }
 }
 
-+(BOOL)getPUFlag:(NSString*)key {
++(BOOL)getPUBool:(NSString*)key {
     return[[NSUserDefaults standardUserDefaults] boolForKey:key defaultValue:YES];
 }
 
-+(void)setPUFlag:(BOOL)value forKey:(NSString*)key {
++(void)setPUBool:(BOOL)value forKey:(NSString*)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:value forKey:key];
     [defaults synchronize];
 }
 
++(NSString*)getPUString:(NSString*)key {
+    return[[NSUserDefaults standardUserDefaults] stringForKey:key];
+}
+
++(void)setPUString:(NSString*)value forKey:(NSString*)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:key];
+    [defaults synchronize];
+}
 
 @end
