@@ -100,6 +100,7 @@
 		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
 		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
 		40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */; };
+		4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +289,8 @@
 		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
 		40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
 		40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+PerUser.h"; sourceTree = "<group>"; };
+		4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+PerUser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +404,8 @@
 				408E898C176A47D4001B61E6 /* NSString+URL.m */,
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
 				408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */,
+				4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */,
+				4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */,
 				40E343B31785FF73001A93E9 /* OperationManager.h */,
 				40E343B41785FF73001A93E9 /* OperationManager.m */,
 				408E8958176A2B03001B61E6 /* StandardBlocks.h */,
@@ -631,6 +636,7 @@
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
+				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
