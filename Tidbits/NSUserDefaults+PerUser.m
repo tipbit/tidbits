@@ -11,11 +11,11 @@
 
 @implementation NSUserDefaults (PerUser)
 
-+(NSString*)PUKey:(NSString*) key {
-    return [self PUKey:key user:[[NSUserDefaults standardUserDefaults] stringForKey:@"USER"]];
+-(NSString*)PUKey:(NSString*) key {
+    return [self PUKey:key user:[self stringForKey:@"USER"]];
 }
 
-+(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser {
+-(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser {
     if (key != nil && TBUser != nil)
         return [NSString stringWithFormat:@"%@:%@", TBUser, key];
     else {
@@ -24,32 +24,30 @@
     }
 }
 
-+(BOOL)boolForPUKey:(NSString*)key {
-    return[[NSUserDefaults standardUserDefaults] boolForKey:key];
+-(BOOL)boolForPUKey:(NSString*)key {
+    return [self boolForKey:[self PUKey:key]];
 }
 
-+(BOOL)boolForPUKey:(NSString*)key defaultValue:(BOOL)defValue {
-    return[[NSUserDefaults standardUserDefaults] boolForKey:key defaultValue:defValue];
+-(BOOL)boolForPUKey:(NSString*)key defaultValue:(BOOL)defValue {
+    return [self boolForKey:[self PUKey:key] defaultValue:defValue];
 }
 
-+(void)setBoolForPUKey:(BOOL)value forKey:(NSString*)key {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:value forKey:key];
-    [defaults synchronize];
+-(void)setBoolForPUKey:(BOOL)value forKey:(NSString*)key {
+    [self setBool:value forKey:[self PUKey:key]];
+    [self synchronize];
 }
 
-+(NSString*)stringForPUKey:(NSString*)key {
-    return[[NSUserDefaults standardUserDefaults] stringForKey:key];
+-(NSString*)stringForPUKey:(NSString*)key {
+    return [self stringForKey:[self PUKey:key]];
 }
 
-+(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
-    return[[NSUserDefaults standardUserDefaults] stringForKey:key defaultValue:defValue];
+-(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
+    return [self stringForKey:[self PUKey:key] defaultValue:defValue];
 }
 
-+(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:value forKey:key];
-    [defaults synchronize];
+-(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key {
+    [self setObject:value forKey:[self PUKey:key]];
+    [self synchronize];
 }
 
 @end
