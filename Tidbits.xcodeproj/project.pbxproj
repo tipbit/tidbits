@@ -96,6 +96,7 @@
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
 		40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */; };
+		40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */; };
 		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
 		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
 		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
@@ -143,6 +144,7 @@
 			dstSubfolderSpec = 16;
 			files = (
 				4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */,
+				40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */,
 				40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */,
 				40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */,
 				40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */,
@@ -287,6 +289,7 @@
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
+		40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureMacros.h; sourceTree = "<group>"; };
 		40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Versions.h"; sourceTree = "<group>"; };
 		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
 		40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
@@ -359,6 +362,7 @@
 				408E897B176A47D4001B61E6 /* BlockWithResultOperation.m */,
 				408E897C176A47D4001B61E6 /* Dispatch.h */,
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
+				40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */,
 				40D9DD1117893D8800C49154 /* FileUtils.h */,
 				40D9DD1217893D8800C49154 /* FileUtils.m */,
 				408F4665176CE4F400C468EB /* LimitedInputStream.h */,
