@@ -24,21 +24,29 @@
     }
 }
 
-+(BOOL)getPUBool:(NSString*)key {
-    return[[NSUserDefaults standardUserDefaults] boolForKey:key defaultValue:YES];
++(BOOL)boolForPUKey:(NSString*)key {
+    return[[NSUserDefaults standardUserDefaults] boolForKey:key];
 }
 
-+(void)setPUBool:(BOOL)value forKey:(NSString*)key {
++(BOOL)boolForPUKey:(NSString*)key defaultValue:(BOOL)defValue {
+    return[[NSUserDefaults standardUserDefaults] boolForKey:key defaultValue:defValue];
+}
+
++(void)setBoolForPUKey:(BOOL)value forKey:(NSString*)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:value forKey:key];
     [defaults synchronize];
 }
 
-+(NSString*)getPUString:(NSString*)key {
++(NSString*)stringForPUKey:(NSString*)key {
     return[[NSUserDefaults standardUserDefaults] stringForKey:key];
 }
 
-+(void)setPUString:(NSString*)value forKey:(NSString*)key {
++(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
+    return[[NSUserDefaults standardUserDefaults] stringForKey:key defaultValue:defValue];
+}
+
++(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:value forKey:key];
     [defaults synchronize];

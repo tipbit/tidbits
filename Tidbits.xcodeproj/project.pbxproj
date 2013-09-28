@@ -101,6 +101,7 @@
 		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
 		40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */; };
 		4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */; };
+		4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */,
 				40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */,
 				40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */,
 				40D9DD8D1793BD8A00C49154 /* GTMNSString+HTML.h in CopyFiles */,

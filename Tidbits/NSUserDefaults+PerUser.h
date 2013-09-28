@@ -15,11 +15,13 @@
 +(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser;
 
 // Per user Bool settings
-+(BOOL)getPUBool:(NSString*)key;
-+(void)setPUBool:(BOOL)value forKey:(NSString*)key;
++(BOOL)boolForPUKey:(NSString*)key;
++(BOOL)boolForPUKey:(NSString*)key defaultValue:(BOOL)defValue;
++(void)setBoolForPUKey:(BOOL)value forKey:(NSString*)key;
 
 // Per user string settings
-+(NSString*)getPUString:(NSString*)key;
-+(void)setPUString:(NSString*)value forKey:(NSString*)key;
++(NSString*)stringForPUKey:(NSString*)key;
++(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue;
++(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key;
 
 @end
