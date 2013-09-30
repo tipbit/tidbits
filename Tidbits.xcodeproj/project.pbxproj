@@ -10,12 +10,9 @@
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
-		408E886B1768DEF7001B61E6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E886A1768DEF6001B61E6 /* SenTestingKit.framework */; };
-		408E886D1768DEF7001B61E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E886C1768DEF7001B61E6 /* UIKit.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E88581768DEF6001B61E6 /* libTidbits.a */; };
 		408E88771768DEF7001B61E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 408E88751768DEF7001B61E6 /* InfoPlist.strings */; };
-		408E887A1768DEF7001B61E6 /* TidbitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88791768DEF7001B61E6 /* TidbitsTests.m */; };
 		408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88901768E2BA001B61E6 /* NSMutableArray+Stack.m */; };
 		408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88921768E2BA001B61E6 /* NSMutableData+UTF8.m */; };
 		408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */; };
@@ -75,6 +72,7 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F67CC1782CABE00E974AD /* UIImage+Resize.m */; };
 		408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F67CB1782CABE00E974AD /* UIImage+Resize.h */; };
+		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
 		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
 		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
 		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
@@ -84,6 +82,8 @@
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
+		40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E21F17F87E7C000EA60C /* DNSQuery.m */; };
+		40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E22217F890B1000EA60C /* DNSQueryTests.m */; };
 		40D9DD1317893D8800C49154 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD1217893D8800C49154 /* FileUtils.m */; };
 		40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD1117893D8800C49154 /* FileUtils.h */; };
 		40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -96,6 +96,7 @@
 		40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */; };
 		40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */; };
 		40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */; };
+		40ECA82517F899230081D51E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECA82417F899230081D51E /* XCTest.framework */; };
 		40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */; };
 		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
 		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
@@ -202,13 +203,9 @@
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
-		408E88691768DEF6001B61E6 /* TidbitsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidbitsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		408E886A1768DEF6001B61E6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		408E886C1768DEF7001B61E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		408E88691768DEF6001B61E6 /* TidbitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidbitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E88741768DEF7001B61E6 /* TidbitsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidbitsTests-Info.plist"; sourceTree = "<group>"; };
 		408E88761768DEF7001B61E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		408E88781768DEF7001B61E6 /* TidbitsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidbitsTests.h; sourceTree = "<group>"; };
-		408E88791768DEF7001B61E6 /* TidbitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidbitsTests.m; sourceTree = "<group>"; };
 		408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
 		408E88901768E2BA001B61E6 /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		408E88911768E2BA001B61E6 /* NSMutableData+UTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+UTF8.h"; sourceTree = "<group>"; };
@@ -268,6 +265,7 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		408F67CB1782CABE00E974AD /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		408F67CC1782CABE00E974AD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
 		40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = "<group>"; };
@@ -277,6 +275,9 @@
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
 		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
+		40C4E21E17F87E7C000EA60C /* DNSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSQuery.h; sourceTree = "<group>"; };
+		40C4E21F17F87E7C000EA60C /* DNSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQuery.m; sourceTree = "<group>"; };
+		40C4E22217F890B1000EA60C /* DNSQueryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQueryTests.m; sourceTree = "<group>"; };
 		40D9DD1117893D8800C49154 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		40D9DD1217893D8800C49154 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 		40E3ED08176E4F0300FFF503 /* NSData+NSInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NSInputStream.m"; sourceTree = "<group>"; };
 		40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
+		40ECA82417F899230081D51E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureMacros.h; sourceTree = "<group>"; };
 		40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Versions.h"; sourceTree = "<group>"; };
 		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
@@ -313,9 +315,9 @@
 			files = (
 				40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */,
 				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
+				40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
-				408E886B1768DEF7001B61E6 /* SenTestingKit.framework in Frameworks */,
-				408E886D1768DEF7001B61E6 /* UIKit.framework in Frameworks */,
+				40ECA82517F899230081D51E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				408E88581768DEF6001B61E6 /* libTidbits.a */,
-				408E88691768DEF6001B61E6 /* TidbitsTests.octest */,
+				408E88691768DEF6001B61E6 /* TidbitsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,8 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				408E885B1768DEF6001B61E6 /* Foundation.framework */,
-				408E886A1768DEF6001B61E6 /* SenTestingKit.framework */,
-				408E886C1768DEF7001B61E6 /* UIKit.framework */,
+				40A327C817F89AC900C14EC1 /* libresolv.dylib */,
+				40ECA82417F899230081D51E /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -362,6 +364,8 @@
 				408E897B176A47D4001B61E6 /* BlockWithResultOperation.m */,
 				408E897C176A47D4001B61E6 /* Dispatch.h */,
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
+				40C4E21E17F87E7C000EA60C /* DNSQuery.h */,
+				40C4E21F17F87E7C000EA60C /* DNSQuery.m */,
 				40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */,
 				40D9DD1117893D8800C49154 /* FileUtils.h */,
 				40D9DD1217893D8800C49154 /* FileUtils.m */,
@@ -440,8 +444,7 @@
 		408E88721768DEF7001B61E6 /* TidbitsTests */ = {
 			isa = PBXGroup;
 			children = (
-				408E88781768DEF7001B61E6 /* TidbitsTests.h */,
-				408E88791768DEF7001B61E6 /* TidbitsTests.m */,
+				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 			);
 			path = TidbitsTests;
@@ -536,7 +539,6 @@
 				408E88641768DEF6001B61E6 /* Sources */,
 				408E88651768DEF6001B61E6 /* Frameworks */,
 				408E88661768DEF6001B61E6 /* Resources */,
-				408E88671768DEF6001B61E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -545,7 +547,7 @@
 			);
 			name = TidbitsTests;
 			productName = TidbitsTests;
-			productReference = 408E88691768DEF6001B61E6 /* TidbitsTests.octest */;
+			productReference = 408E88691768DEF6001B61E6 /* TidbitsTests.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -609,22 +611,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		408E88671768DEF6001B61E6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		408E88541768DEF6001B61E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -649,6 +635,7 @@
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
+				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
@@ -677,7 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408E887A1768DEF7001B61E6 /* TidbitsTests.m in Sources */,
+				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,13 +785,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
 				INFOPLIST_FILE = "TidbitsTests/TidbitsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
@@ -813,13 +800,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
 				INFOPLIST_FILE = "TidbitsTests/TidbitsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
