@@ -20,7 +20,7 @@
         return [NSString stringWithFormat:@"%@:%@", TBUser, key];
     else {
         NSAssert(false, @"PUKey got unexpected key or user");
-        return nil;
+        return key;
     }
 }
 
@@ -34,11 +34,10 @@
 
 -(void)setBoolForPUKey:(BOOL)value forKey:(NSString*)key {
     [self setBool:value forKey:[self PUKey:key]];
-    [self synchronize];
 }
 
 -(NSString*)stringForPUKey:(NSString*)key {
-    return [self stringForKey:[self PUKey:key]];
+    return [self objectForKey:[self PUKey:key]];
 }
 
 -(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
@@ -47,7 +46,18 @@
 
 -(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key {
     [self setObject:value forKey:[self PUKey:key]];
-    [self synchronize];
+}
+
+-(id)objectForPUKey:(NSString*)key {
+    return [self objectForKey:[self PUKey:key]];
+}
+
+-(void)setObjectForPUKey:(NSObject*)value forKey:(NSString*)key {
+    [self setObject:value forKey:[self PUKey:key]];
+}
+
+-(void)removeObjectForPUKey:(NSString*)key {
+    [self removeObjectForKey:[self PUKey:key]];
 }
 
 @end
