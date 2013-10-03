@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
+		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
+		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E88581768DEF6001B61E6 /* libTidbits.a */; };
@@ -144,6 +146,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */,
 				4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */,
 				40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */,
 				40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */,
@@ -200,6 +203,8 @@
 /* Begin PBXFileReference section */
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
+		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
+		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
@@ -376,6 +381,8 @@
 				408E897E176A47D4001B61E6 /* LoggingMacros.h */,
 				408E897F176A47D4001B61E6 /* NSArray+Map.h */,
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
+				407100A817FE0544006F4115 /* NSArray+Misc.h */,
+				407100A917FE0544006F4115 /* NSArray+Misc.m */,
 				40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */,
 				40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */,
 				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
@@ -628,6 +635,7 @@
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
+				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
