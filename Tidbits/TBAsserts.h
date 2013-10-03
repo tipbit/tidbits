@@ -14,7 +14,7 @@
 #ifdef DEBUG
 #define TBAssert(condition, desc, ...) NSAssert(condition, desc, ## __VA_ARGS__)
 #else
-#define TBAssert(condition, ...) NSLog(__VA_ARGS__)
+#define TBAssert(condition, ...) if (!(condition)) { NSLog(__VA_ARGS__) }
 #endif
 
 
