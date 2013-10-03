@@ -12,9 +12,9 @@
 
 
 #ifdef DEBUG
-#define TBAssert(condition, desc, ...) do { NSAssert(condition, desc, ## __VA_ARGS__) } while(false);
+#define TBAssert(condition, desc, ...) do { NSAssert(condition, desc, ## __VA_ARGS__); } while(false)
 #else
-#define TBAssert(condition, ...) do { if (!(condition)) { NSLog(__VA_ARGS__) } } while(false);
+#define TBAssert(condition, ...) do { if (!(condition)) { NSLog(__VA_ARGS__); } } while(false)
 #endif
 
 
