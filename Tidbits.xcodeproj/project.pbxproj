@@ -16,6 +16,7 @@
 		407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100D117FFA4FD006F4115 /* NSString+StripHTML.m */; };
 		407100DE17FFA537006F4115 /* NSString+StripHTML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100D017FFA4FD006F4115 /* NSString+StripHTML.h */; };
 		407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100E0180076A1006F4115 /* NSUUID+Misc.m */; };
+		407100E218007881006F4115 /* DNSQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C4E21E17F87E7C000EA60C /* DNSQuery.h */; };
 		407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100DF180076A1006F4115 /* NSUUID+Misc.h */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
@@ -152,6 +153,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				407100E218007881006F4115 /* DNSQuery.h in CopyFiles */,
 				407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */,
 				407100DE17FFA537006F4115 /* NSString+StripHTML.h in CopyFiles */,
 				407100C517FF9B8B006F4115 /* NSString+MD5.h in CopyFiles */,
