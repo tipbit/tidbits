@@ -11,6 +11,8 @@
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
 		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
+		407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100D117FFA4FD006F4115 /* NSString+StripHTML.m */; };
+		407100DE17FFA537006F4115 /* NSString+StripHTML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100D017FFA4FD006F4115 /* NSString+StripHTML.h */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E88581768DEF6001B61E6 /* libTidbits.a */; };
@@ -146,6 +148,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				407100DE17FFA537006F4115 /* NSString+StripHTML.h in CopyFiles */,
 				407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */,
 				4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */,
 				40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */,
@@ -205,6 +208,8 @@
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
 		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
 		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
+		407100D017FFA4FD006F4115 /* NSString+StripHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StripHTML.h"; sourceTree = "<group>"; };
+		407100D117FFA4FD006F4115 /* NSString+StripHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StripHTML.m"; sourceTree = "<group>"; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
@@ -417,6 +422,8 @@
 				408E88B61768E37E001B61E6 /* NSString+IsNotWhitespace.m */,
 				408E89051768FD68001B61E6 /* NSString+Misc.h */,
 				408E89061768FD68001B61E6 /* NSString+Misc.m */,
+				407100D017FFA4FD006F4115 /* NSString+StripHTML.h */,
+				407100D117FFA4FD006F4115 /* NSString+StripHTML.m */,
 				408E898B176A47D4001B61E6 /* NSString+URL.h */,
 				408E898C176A47D4001B61E6 /* NSString+URL.m */,
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
@@ -663,6 +670,7 @@
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
+				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
 				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
 				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
 			);

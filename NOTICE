@@ -41,3 +41,8 @@ files themselves for details.
 UIDevice-Hardware is from uidevice-extension,
 https://github.com/erica/uidevice-extension/, Copyright (c) Erica Sadun,
 and licensed using the BSD license.
+
+
+NSString+StripHTML is based originally on NSString+HTML from
+https://github.com/mwaterfall/MWFeedParser, Copyright 2010 Michael Waterfall
+and MIT licensed.
