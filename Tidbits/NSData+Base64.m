@@ -329,7 +329,13 @@ static char *NewBase64Encode(
 //
 + (NSData *)dataFromBase64String:(NSString *)aString
 {
-	NSData *data = [aString dataUsingEncoding:NSASCIIStringEncoding];
+    // initWithBase64EncodedString is available in iOS 7.
+    // We use our own code for iOS 6 and below.
+    if ([[NSData class] respondsToSelector:@selector(initWithBase64EncodedString:options:)]) {
+        return [[NSData alloc] initWithBase64EncodedString:aString options:0];
+    }
+
+	NSData* data = [aString dataUsingEncoding:NSASCIIStringEncoding];
 	size_t outputLength;
 	void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength);
 	NSData *result = [NSData dataWithBytes:outputBuffer length:outputLength];
@@ -348,26 +354,25 @@ static char *NewBase64Encode(
 //
 - (NSString *)base64EncodedString
 {
-	size_t outputLength;
-	char *outputBuffer =
-		NewBase64Encode([self bytes], [self length], false, &outputLength);
-
-    if (outputBuffer == NULL) {
-        // The malloc inside NewBase64Encode has failed.
-        return nil;
+    // base64EncodedStringWithOptions is present from iOS 7 onwards.
+    // base64Encoding is present from iOS 4 to 7, but deprecated in 7.  It was actually private in iOS 4 - 6, but it's there and it's now allowed to be used.
+    if ([self respondsToSelector:@selector(base64EncodedStringWithOptions:)]) {
+        return [self base64EncodedStringWithOptions:0];
     }
-
-	NSString *result =
-		[[NSString alloc]
-			initWithBytes:outputBuffer
-			length:outputLength
-			encoding:NSASCIIStringEncoding];
-	free(outputBuffer);
-	return result;
+    else {
+        return [self base64Encoding];
+    }
 }
+
 
 - (NSData *)base64EncodedData
 {
+    // base64EncodedDataWithOptions is present from iOS 7 onwards.
+    // We use our own code for iOS 6 and below.
+    if ([self respondsToSelector:@selector(base64EncodedDataWithOptions:)]) {
+        return [self base64EncodedDataWithOptions:0];
+    }
+
 	size_t outputLength = 0;
 	char *outputBuffer = NewBase64Encode([self bytes], [self length], false, &outputLength);
 
