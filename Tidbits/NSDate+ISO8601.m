@@ -48,8 +48,23 @@ static NSTimeZone* utc_timezone = nil;
 }
 
 
++(NSString *)normalizeIso8601_24:(NSString *)s {
+    NSUInteger len = [s length];
+    return (len == 24 ? s :
+            len == 23 ? [NSString stringWithFormat:@"%@Z", s] :
+            len == 19 ? [NSString stringWithFormat:@"%@.000Z", s] :
+            [[NSDate dateFromIso8601:s] iso8601String_24]);
+}
+
+
 -(NSString*) iso8601String {
     NSDateFormatter* f = makeFormatter(FORMAT_19);
+    return [f stringFromDate:self];
+}
+
+
+-(NSString*) iso8601String_24 {
+    NSDateFormatter* f = makeFormatter(FORMAT_24);
     return [f stringFromDate:self];
 }
 

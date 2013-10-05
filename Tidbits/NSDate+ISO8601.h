@@ -12,6 +12,9 @@
 
 +(NSDate*) dateFromIso8601:(NSString*)s;
 
++(NSString*) normalizeIso8601_24:(NSString*)s;
+
 -(NSString*) iso8601String;
+-(NSString*) iso8601String_24;
 
 @end
