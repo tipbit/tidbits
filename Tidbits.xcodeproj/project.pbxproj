@@ -81,6 +81,8 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F67CC1782CABE00E974AD /* UIImage+Resize.m */; };
 		408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F67CB1782CABE00E974AD /* UIImage+Resize.h */; };
+		4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095E0D4180228C10056CB72 /* InlineTiming.m */; };
+		4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4095E0D3180228C10056CB72 /* InlineTiming.h */; };
 		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
 		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
 		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
@@ -153,6 +155,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */,
 				407100E218007881006F4115 /* DNSQuery.h in CopyFiles */,
 				407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */,
 				407100DE17FFA537006F4115 /* NSString+StripHTML.h in CopyFiles */,
@@ -287,6 +290,8 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		408F67CB1782CABE00E974AD /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		408F67CC1782CABE00E974AD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		4095E0D3180228C10056CB72 /* InlineTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineTiming.h; sourceTree = "<group>"; };
+		4095E0D4180228C10056CB72 /* InlineTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineTiming.m; sourceTree = "<group>"; };
 		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
@@ -391,6 +396,8 @@
 				40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */,
 				40D9DD1117893D8800C49154 /* FileUtils.h */,
 				40D9DD1217893D8800C49154 /* FileUtils.m */,
+				4095E0D3180228C10056CB72 /* InlineTiming.h */,
+				4095E0D4180228C10056CB72 /* InlineTiming.m */,
 				408F4665176CE4F400C468EB /* LimitedInputStream.h */,
 				408F4666176CE4F400C468EB /* LimitedInputStream.m */,
 				40A9B459177F59680068F3F5 /* LogFormatter.h */,
@@ -654,6 +661,7 @@
 				40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */,
 				408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */,
 				408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */,
+				4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */,
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
