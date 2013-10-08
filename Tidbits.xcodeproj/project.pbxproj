@@ -81,6 +81,8 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F67CC1782CABE00E974AD /* UIImage+Resize.m */; };
 		408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F67CB1782CABE00E974AD /* UIImage+Resize.h */; };
+		409091861804961B00D0C951 /* RunLoopFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 409091851804961B00D0C951 /* RunLoopFuture.m */; };
+		4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 409091841804961B00D0C951 /* RunLoopFuture.h */; };
 		4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095E0D4180228C10056CB72 /* InlineTiming.m */; };
 		4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4095E0D3180228C10056CB72 /* InlineTiming.h */; };
 		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
@@ -155,6 +157,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */,
 				4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */,
 				407100E218007881006F4115 /* DNSQuery.h in CopyFiles */,
 				407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */,
@@ -290,6 +293,8 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		408F67CB1782CABE00E974AD /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		408F67CC1782CABE00E974AD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		409091841804961B00D0C951 /* RunLoopFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopFuture.h; sourceTree = "<group>"; };
+		409091851804961B00D0C951 /* RunLoopFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopFuture.m; sourceTree = "<group>"; };
 		4095E0D3180228C10056CB72 /* InlineTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineTiming.h; sourceTree = "<group>"; };
 		4095E0D4180228C10056CB72 /* InlineTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineTiming.m; sourceTree = "<group>"; };
 		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
@@ -455,6 +460,8 @@
 				407100E0180076A1006F4115 /* NSUUID+Misc.m */,
 				40E343B31785FF73001A93E9 /* OperationManager.h */,
 				40E343B41785FF73001A93E9 /* OperationManager.m */,
+				409091841804961B00D0C951 /* RunLoopFuture.h */,
+				409091851804961B00D0C951 /* RunLoopFuture.m */,
 				408E8958176A2B03001B61E6 /* StandardBlocks.h */,
 				40612671177625420085CEED /* StreamPair.h */,
 				40612672177625420085CEED /* StreamPair.m */,
@@ -694,6 +701,7 @@
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
+				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
