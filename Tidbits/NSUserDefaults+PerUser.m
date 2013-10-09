@@ -19,7 +19,7 @@
     if (key != nil && TBUser != nil)
         return [NSString stringWithFormat:@"%@:%@", TBUser, key];
     else {
-        NSAssert(false, @"PUKey got unexpected key or user");
+        NSAssert(false, @"PUKey got unexpected key/user pair: %@", key);
         return key;
     }
 }
