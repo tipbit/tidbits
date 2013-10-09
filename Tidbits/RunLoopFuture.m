@@ -12,7 +12,12 @@
 #import "RunLoopFuture.h"
 
 
-@implementation RunLoopFuture
+@implementation RunLoopFuture {
+    /**
+     * This instance retains itself through this variable for the duration of the waitWithInterval call.
+     */
+    RunLoopFuture* thisSelf;
+}
 
 
 -(void)setValue:(id)value {
@@ -27,22 +32,36 @@
     NSParameterAssert(onSuccess);
     NSParameterAssert(onTimeout);
 
+    thisSelf = self;
     NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-    while (self.value == nil && [NSDate timeIntervalSinceReferenceDate] - start <= timeout)
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
+    [self waitWithInterval:interval timeout:timeout start:start onSuccess:onSuccess onTimeout:onTimeout];
+}
+
+
+-(void)waitWithInterval:(NSTimeInterval)interval timeout:(NSTimeInterval)timeout start:(NSTimeInterval)start onSuccess:(RunLoopFutureIdBlock)onSuccess onTimeout:(RunLoopFutureBlock)onTimeout __attribute__((nonnull)) {
+
+    RunLoopFuture* __weak weakSelf = self;
+
+    if (self.value == nil && [NSDate timeIntervalSinceReferenceDate] - start <= timeout) {
+        dispatchAsyncMainThreadWithDelay(interval * 1000, ^{
+            [weakSelf waitWithInterval:interval timeout:timeout start:start onSuccess:onSuccess onTimeout:onTimeout];
+        });
+        return;
+    }
 
     id val = self.value;
-    RunLoopFuture* __weak weakSelf = self;
     dispatchAsyncMainThread(^{
-        RunLoopFuture* myself = weakSelf;
-        if (myself == nil)
-            return;
-
-        if (val)
-            onSuccess(myself, val);
-        else
-            onTimeout(myself);
+        [weakSelf complete:val onSuccess:onSuccess onTimeout:onTimeout];
     });
+}
+
+
+-(void)complete:(id)val onSuccess:(RunLoopFutureIdBlock)onSuccess onTimeout:(RunLoopFutureBlock)onTimeout {
+    thisSelf = nil;
+    if (val)
+        onSuccess(self, val);
+    else
+        onTimeout(self);
 }
 
 
