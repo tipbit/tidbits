@@ -15,9 +15,6 @@
 #define TIMEOUT 10
 
 
-@implementation TBTestCaseBase
-
-
 bool WaitFor(bool (^block)(void))
 {
     NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
@@ -41,5 +38,7 @@ bool isReachable(NSString* hostname)
     return result;
 }
 
+
+@implementation TBTestCaseBase
 
 @end

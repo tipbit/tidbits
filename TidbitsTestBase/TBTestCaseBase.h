@@ -10,7 +10,7 @@
 
 @interface TBTestCaseBase : XCTestCase
 
+@end
+
 bool WaitFor(bool (^block)(void));
 bool isReachable(NSString* hostname);
-
-@end
