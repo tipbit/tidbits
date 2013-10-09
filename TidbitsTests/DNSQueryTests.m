@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import <SystemConfiguration/SystemConfiguration.h>
 #import <XCTest/XCTest.h>
 
 #import "DNSQuery.h"
@@ -27,6 +28,12 @@
 
 -(void)testMXQuery {
     NSString* queryDomain = @"gmail.com";
+
+    if (!isReachable(queryDomain)) {
+        NSLog(@"%s: Skipping test; %@ not reachable.", __PRETTY_FUNCTION__, queryDomain);
+        return;
+    }
+
     DNSQuery* q = [[DNSQuery alloc] init:queryDomain rrtype:kDNSServiceType_MX delegate:self];
     dnsResult = nil;
     dnsError = nil;
@@ -62,6 +69,21 @@ BOOL WaitFor(BOOL (^block)(void))
     while(!block() && [[NSProcessInfo processInfo] systemUptime] - start <= TIMEOUT)
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
     return block();
+}
+
+
+static bool isReachable(NSString* hostname)
+{
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);
+    SCNetworkReachabilityFlags flags;
+    Boolean ok = SCNetworkReachabilityGetFlags(reachability, &flags);
+    bool result;
+    if (!ok)
+        result = false;
+    else
+        result = (0 != (flags & kSCNetworkReachabilityFlagsReachable));
+    CFRelease(reachability);
+    return result;
 }
 
 
