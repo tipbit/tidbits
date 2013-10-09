@@ -243,9 +243,6 @@
 		4047B4A71805B42C0032BBA5 /* TidbitsTestBase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TidbitsTestBase-Prefix.pch"; sourceTree = "<group>"; };
 		4047B4A81805B42C0032BBA5 /* TidbitsTestBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidbitsTestBase.h; sourceTree = "<group>"; };
 		4047B4AA1805B42C0032BBA5 /* TidbitsTestBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidbitsTestBase.m; sourceTree = "<group>"; };
-		4047B4B91805B42C0032BBA5 /* TidbitsTestBaseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidbitsTestBaseTests-Info.plist"; sourceTree = "<group>"; };
-		4047B4BB1805B42C0032BBA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4047B4BD1805B42C0032BBA5 /* TidbitsTestBaseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidbitsTestBaseTests.m; sourceTree = "<group>"; };
 		404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
@@ -426,24 +423,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4047B4B71805B42C0032BBA5 /* TidbitsTestBaseTests */ = {
-			isa = PBXGroup;
-			children = (
-				4047B4BD1805B42C0032BBA5 /* TidbitsTestBaseTests.m */,
-				4047B4B81805B42C0032BBA5 /* Supporting Files */,
-			);
-			path = TidbitsTestBaseTests;
-			sourceTree = "<group>";
-		};
-		4047B4B81805B42C0032BBA5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4047B4B91805B42C0032BBA5 /* TidbitsTestBaseTests-Info.plist */,
-				4047B4BA1805B42C0032BBA5 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
@@ -454,7 +433,6 @@
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
 				4047B4A51805B42C0032BBA5 /* TidbitsTestBase */,
-				4047B4B71805B42C0032BBA5 /* TidbitsTestBaseTests */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
 				40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */,
@@ -857,14 +835,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4047B4BA1805B42C0032BBA5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4047B4BB1805B42C0032BBA5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		408E88751768DEF7001B61E6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
