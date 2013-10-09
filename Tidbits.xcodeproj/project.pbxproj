@@ -240,9 +240,6 @@
 		4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestCaseBase.h; sourceTree = "<group>"; };
 		4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestCaseBase.m; sourceTree = "<group>"; };
 		4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbitsTestBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4047B4A71805B42C0032BBA5 /* TidbitsTestBase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TidbitsTestBase-Prefix.pch"; sourceTree = "<group>"; };
-		4047B4A81805B42C0032BBA5 /* TidbitsTestBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TidbitsTestBase.h; sourceTree = "<group>"; };
-		4047B4AA1805B42C0032BBA5 /* TidbitsTestBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidbitsTestBase.m; sourceTree = "<group>"; };
 		404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
@@ -405,24 +402,6 @@
 			path = TidbitsTestBase;
 			sourceTree = "<group>";
 		};
-		4047B4A51805B42C0032BBA5 /* TidbitsTestBase */ = {
-			isa = PBXGroup;
-			children = (
-				4047B4A81805B42C0032BBA5 /* TidbitsTestBase.h */,
-				4047B4AA1805B42C0032BBA5 /* TidbitsTestBase.m */,
-				4047B4A61805B42C0032BBA5 /* Supporting Files */,
-			);
-			path = TidbitsTestBase;
-			sourceTree = "<group>";
-		};
-		4047B4A61805B42C0032BBA5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4047B4A71805B42C0032BBA5 /* TidbitsTestBase-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
@@ -432,7 +411,6 @@
 				4047B49E1805B3F10032BBA5 /* TidbitsTestBase */,
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
-				4047B4A51805B42C0032BBA5 /* TidbitsTestBase */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
 				40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */,
