@@ -10,6 +10,22 @@
 
 @implementation NSArray (Map)
 
+
+-(NSArray*)filter:(predicate_t)filter {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
+    for (id obj in self) {
+        if (filter(obj))
+            [result addObject:obj];
+    }
+
+    // If the result is noticably smaller than the input, then shrink the memory consumption of the result by copying to a new array.
+    if (result.count < 2 * self.count / 3)
+        result = [result copy];
+
+    return result;
+}
+
+
 -(NSArray*) map:(id_to_id_t)mapper {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
     for (id obj in self) {

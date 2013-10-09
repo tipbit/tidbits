@@ -13,6 +13,12 @@
 @interface NSArray (Map)
 
 /*!
+ * @abstract Create a new NSArray with the contents set to x for each x in self
+ * where filter(x) returns true.
+ */
+-(NSArray*)filter:(predicate_t)filter;
+
+/*!
  * @abstract Create a new NSArray with the contents set to mapper(x) for each x in self.
  *
  * @discussion mapper may return nil, in which case no entry is added to the result
