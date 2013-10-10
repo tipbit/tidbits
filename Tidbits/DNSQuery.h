@@ -6,17 +6,18 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#import <dns_sd.h>
 #import <Foundation/Foundation.h>
+#import <nameser.h>
 
 
 extern NSString* const DNSQueryErrorDomain;
-extern NSString* const kDNSServiceErrorType;
+extern NSString* const kDNSQueryServiceFailureCode;
 
 typedef enum {
     DNSQueryBadArgument = 1,
     DNSQueryServiceFailure = 2,
     DNSQueryBadResponse = 3,
+    DNSQueryNoSuchDomain = 4,
 } DNSQueryError;
 
 
@@ -26,20 +27,15 @@ typedef enum {
 @interface DNSQuery : NSObject
 
 /**
- * @param rrtype kDNSServiceType_*.
+ * @param rrtype ns_t_*.
  */
--(instancetype)init:(NSString*)fullname_ rrtype:(uint16_t)rrtype_ delegate:(id<DNSQueryDelegate>)delegate_;
+-(instancetype)init:(NSString*)fullname_ rrtype:(ns_type)rrtype_ delegate:(id<DNSQueryDelegate>)delegate_;
 
 /**
- * Starts the DNS query, and adds the socket to the current run loop.
+ * Starts the DNS query on a background thread.
  * The DNSQueryDelegate will be called on the main thread when results are received or if an error occurs.
  */
 -(void)start;
-
-/**
- * Stops the DNS query.
- */
--(void)stop;
 
 @end
 
@@ -71,9 +67,9 @@ typedef enum {
 @property (nonatomic, strong) NSString* fullname;
 
 /**
- * rrtype:          The resource record's type (e.g. kDNSServiceType_PTR, kDNSServiceType_SRV, etc)
+ * rrtype:          The resource record's type (e.g. ns_t_mx, etc)
  */
-@property (nonatomic, assign) uint16_t rrtype;
+@property (nonatomic, assign) ns_type rrtype;
 
 /**
  * ttl:             If the client wishes to cache the result for performance reasons,

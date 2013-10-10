@@ -6,27 +6,24 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#include <dns_sd.h>
 #include <dns_util.h>
+#include <errno.h>
+#include <netdb.h>
 #include <resolv.h>
 
 #import "Dispatch.h"
-#import "StandardBlocks.h"
 
 #import "DNSQuery.h"
 
 
 NSString* const DNSQueryErrorDomain = @"DNSQueryErrorDomain";
-NSString* const kDNSServiceErrorType = @"DNSServiceErrorType";
+NSString* const kDNSQueryServiceFailureCode = @"DNSQueryServiceFailureCode";
 
 
 @implementation DNSQuery {
     NSString* fullname;
-    uint16_t queryRrtype;
+    ns_type queryRrtype;
     id<DNSQueryDelegate> __weak delegate;
-
-    DNSServiceRef dnsServiceRef;
-    CFSocketRef socketRef;
 
     /**
      * DNSQueryResult array.
@@ -35,7 +32,7 @@ NSString* const kDNSServiceErrorType = @"DNSServiceErrorType";
 }
 
 
--(instancetype)init:(NSString*)fullname_ rrtype:(uint16_t)rrtype delegate:(id<DNSQueryDelegate>)delegate_ {
+-(instancetype)init:(NSString*)fullname_ rrtype:(ns_type)rrtype delegate:(id<DNSQueryDelegate>)delegate_ {
     self = [super init];
     if (self) {
         fullname = [fullname_ copy];
@@ -47,96 +44,78 @@ NSString* const kDNSServiceErrorType = @"DNSServiceErrorType";
 }
 
 
--(void)dealloc {
-    [self stop];
+-(void)start {
+    DNSQuery* __weak weakSelf = self;
+    dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
+        [weakSelf run];
+    });
 }
 
 
-static void queryRecordCallback(DNSServiceRef serviceRef, DNSServiceFlags flags, uint32_t interfaceIndex,
-                                DNSServiceErrorType errorCode, const char *fullname,
-                                uint16_t rrtype, uint16_t rrclass,
-                                uint16_t rdlen, const void *rdata,
-                                uint32_t ttl, void *context);
+-(void)run {
+    unsigned char response[NS_PACKETSZ];
+    char buf[4096];
+    ns_msg handle;
 
-static void socketCallback(CFSocketRef s,
-                           CFSocketCallBackType type,
-                           CFDataRef address,
-                           const void * data,
-                           void * info);
-
-
--(void)start {
-    const char* fullname_s = [fullname UTF8String];
+    // Append a dot to the fullname, so that res_search doesn't append the local domain part or search parent domains
+    // (RES_DEFNAMES, RES_DNSRCH).
+    NSString* fullname_dot = [NSString stringWithFormat:@"%@.", fullname];
+    const char* fullname_s = [fullname_dot UTF8String];
     if (fullname_s == NULL) {
         [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryBadArgument userInfo:@{@"fullname": fullname}]];
         return;
     }
 
-    DNSServiceRef sdRef = NULL;
-    DNSServiceErrorType error = DNSServiceQueryRecord(&sdRef, 0, kDNSServiceInterfaceIndexAny,
-                                                      fullname_s, queryRrtype, kDNSServiceClass_IN,
-                                                      queryRecordCallback, (__bridge void *)self);
-    
-    if (error != kDNSServiceErr_NoError) {
-        [self failWithServiceError:error];
+    int len = res_search(fullname_s, ns_c_in, queryRrtype, response, sizeof(response));
+    if (len < 0) {
+        if (h_errno == HOST_NOT_FOUND)
+            [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryNoSuchDomain userInfo:@{@"fullname": fullname}]];
+        else
+            [self failWithServiceError:errno];
         return;
     }
 
-    int fd = DNSServiceRefSockFD(sdRef);
-
-    CFSocketContext socketContext = { 0, (__bridge void *)self, NULL, NULL, NULL };
-    CFSocketRef sRef = CFSocketCreateWithNative(NULL, fd, kCFSocketReadCallBack, socketCallback, &socketContext);
-    if (sRef == NULL) {
-        DNSServiceRefDeallocate(sdRef);
-        [self failWithServiceError:kDNSServiceErr_Unknown];
+    int err = ns_initparse(response, len, &handle);
+    if (err < 0) {
+        [self failWithServiceError:len];
         return;
     }
-    CFSocketSetSocketFlags(sRef, CFSocketGetSocketFlags(sRef) & ~(CFOptionFlags)kCFSocketCloseOnInvalidate);
 
-    dnsServiceRef = sdRef;
-    socketRef = sRef;
-
-    CFRunLoopSourceRef runloopRef = CFSocketCreateRunLoopSource(NULL, sRef, 0);
-    CFRunLoopAddSource(CFRunLoopGetCurrent(), runloopRef, kCFRunLoopDefaultMode);
-    CFRelease(runloopRef);
-}
-
-
--(void)stop {
-    CFSocketRef sRef = socketRef;
-    socketRef = NULL;
-    if (sRef != NULL) {
-        CFSocketInvalidate(sRef);
-        CFRelease(sRef);
+    int msg_count = ns_msg_count(handle, ns_s_an);
+    if (msg_count < 0) {
+        [self failWithServiceError:msg_count];
+        return;
     }
 
-    DNSServiceRef serviceRef = dnsServiceRef;
-    dnsServiceRef = NULL;
-    if (serviceRef != NULL)
-        DNSServiceRefDeallocate(serviceRef);
-}
+    for (int msg_idx = 0; msg_idx < msg_count; msg_idx++) {
+        ns_rr rr;
+        if (ns_parserr(&handle, ns_s_an, msg_idx, &rr)) {
+            [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryBadResponse userInfo:nil]];
+            return;
+        }
 
+        const u_char * rdata = ns_rr_rdata(rr);
 
--(void)stopAndSucceed {
-    [self stop];
+        DNSQueryResult* qr = [[DNSQueryResult alloc] init];
+        qr.fullname = fullname;
+        qr.rrtype = ns_rr_type(rr);
+        qr.ttl = ns_rr_ttl(rr);
+
+        if (qr.rrtype == ns_t_mx) {
+            len = dn_expand(ns_msg_base(handle), ns_msg_base(handle) + ns_msg_size(handle), rdata + NS_INT16SZ, buf, sizeof(buf));
+            if (len < 0) {
+                [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryBadResponse userInfo:nil]];
+                return;
+            }
+            
+            qr.name = [NSString stringWithUTF8String:buf];
+            qr.preference = ns_get16(rdata);
+        }
+
+        [result addObject:qr];
+    }
+
     [self succeed];
-}
-
-
--(void)stopAndFail:(NSError*)error {
-    [self stop];
-    [self fail:error];
-}
-
-
--(void)stopAndFailWithServiceError:(DNSServiceErrorType)code {
-    [self stop];
-    [self failWithServiceError:code];
-}
-
-
--(void)failWithServiceError:(DNSServiceErrorType)code {
-    [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryServiceFailure userInfo:@{kDNSServiceErrorType: @(code)}]];
 }
 
 
@@ -164,94 +143,8 @@ static void socketCallback(CFSocketRef s,
 }
 
 
--(void)processRecord:(uint16_t)rrtype rdlen:(uint16_t)rdlen rdata:(const void *)rdata ttl:(uint32_t)ttl {
-    DNSQueryResult* qr = [[DNSQueryResult alloc] init];
-    qr.fullname = fullname;
-    qr.rrtype = rrtype;
-    qr.ttl = ttl;
-
-    [self parseRecordData:qr rrtype:rrtype rdlen:rdlen rdata:rdata ttl:ttl];
-
-    [result addObject:qr];
-}
-
-
--(void)parseRecordData:(DNSQueryResult*)qr rrtype:(uint16_t)rrtype rdlen:(uint16_t)rdlen rdata:(const void *)rdata ttl:(uint32_t)ttl {
-    NSMutableData* rrData = [NSMutableData data];
-    uint8_t u8;
-    uint16_t u16;
-    uint32_t u32;
-
-    u8 = 0;
-    [rrData appendBytes:&u8 length:sizeof(u8)];
-    u16 = htons(rrtype);
-    [rrData appendBytes:&u16 length:sizeof(u16)];
-    u16 = htons(kDNSServiceClass_IN);
-    [rrData appendBytes:&u16 length:sizeof(u16)];
-    u32 = htonl(0);
-    [rrData appendBytes:&u32 length:sizeof(u32)];
-    u16 = htons(rdlen);
-    [rrData appendBytes:&u16 length:sizeof(u16)];
-    [rrData appendBytes:rdata length:rdlen];
-
-    dns_resource_record_t* rr = dns_parse_resource_record(rrData.bytes, rrData.length);
-    if (rr == NULL) {
-        [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryBadResponse userInfo:nil]];
-        return;
-    }
-
-    switch (rrtype) {
-        case kDNSServiceType_MX: {
-            NSString* name = [NSString stringWithUTF8String:rr->data.MX->name];
-            if (name == nil) {
-                [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryBadResponse userInfo:nil]];
-                return;
-            }
-
-            uint16_t preference = rr->data.MX->preference;
-
-            qr.name = name;
-            qr.preference = preference;
-            break;
-        }
-    }
-
-    dns_free_resource_record(rr);
-}
-
-
-static void queryRecordCallback(DNSServiceRef serviceRef, DNSServiceFlags flags, uint32_t interfaceIndex,
-                                DNSServiceErrorType errorCode, const char *fullname,
-                                uint16_t rrtype, uint16_t rrclass,
-                                uint16_t rdlen, const void *rdata,
-                                uint32_t ttl, void *context) {
-    DNSQuery* myself = (__bridge DNSQuery*)context;
-    assert([myself isKindOfClass:[DNSQuery class]]);
-
-    if (errorCode != kDNSServiceErr_NoError) {
-        [myself stopAndFailWithServiceError:errorCode];
-        return;
-    }
-
-    [myself processRecord:rrtype rdlen:rdlen rdata:rdata ttl:ttl];
-
-    if (!(flags & kDNSServiceFlagsMoreComing))
-        [myself stopAndSucceed];
-}
-
-
-static void socketCallback(CFSocketRef s,
-                           CFSocketCallBackType type,
-                           CFDataRef address,
-                           const void * data,
-                           void * info)
-{
-    DNSQuery* myself = (__bridge DNSQuery*)info;
-    assert([myself isKindOfClass:[DNSQuery class]]);
-
-    DNSServiceErrorType err = DNSServiceProcessResult(myself->dnsServiceRef);
-    if (err != kDNSServiceErr_NoError)
-        [myself stopAndFailWithServiceError:err];
+-(void)failWithServiceError:(int)code {
+    [self fail:[NSError errorWithDomain:DNSQueryErrorDomain code:DNSQueryServiceFailure userInfo:@{kDNSQueryServiceFailureCode: @(code)}]];
 }
 
 
