@@ -22,6 +22,12 @@
 }
 
 
+-(NSInteger)intForKey:(id)key withDefault:(NSUInteger)def {
+    NSNumber* result = [self numberForKey:key];
+    return result ? [result integerValue] : def;
+}
+
+
 -(NSUInteger)uintForKey:(id)key withDefault:(NSUInteger)def {
     NSNumber* result = [self numberForKey:key];
     return result ? [result unsignedIntegerValue] : def;
