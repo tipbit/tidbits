@@ -45,7 +45,7 @@
         DNSQueryResult* qr = qr_;
         XCTAssertEqual(qr.rrtype, ns_t_mx);
         XCTAssert([qr.fullname isEqualToString:queryDomain]);
-        XCTAssert([qr.name h:@"google.com"] || [qr.name hasSuffix:@"googlemail.com"]);
+        XCTAssert([qr.name hasSuffix:@"google.com"] || [qr.name hasSuffix:@"googlemail.com"]);
         XCTAssert(qr.preference > 0);
     }
 }

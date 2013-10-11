@@ -67,11 +67,11 @@ static NSCharacterSet* endTagCharacterSet;
             if (([tag isEqualToStringCaseInsensitive:@"/p"] ||
                  [tag isEqualToStringCaseInsensitive:@"br"] ||
                  [tag isEqualToStringCaseInsensitive:@"/div"]) &&
-                ![result endsWithChar:'\n']) {
+                ![result hasSuffixChar:'\n']) {
                 // Add a paragraph separator.
                 [result appendString:@"\n"];
             }
-            else if (![result endsWithChar:' '] && ![result endsWithChar:'\n']) {
+            else if (![result hasSuffixChar:' '] && ![result hasSuffixChar:'\n']) {
                 // Add a space to act as a separator.
                 [result appendString:@" "];
             }
