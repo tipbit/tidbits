@@ -20,15 +20,7 @@
 }
 
 
--(bool)endsWith:(NSString *)comparand {
-    if (comparand.length > self.length)
-        return false;
-    NSString* bit = [self substringFromIndex:self.length - comparand.length];
-    return [bit isEqualToString:comparand];
-}
-
-
--(bool)endsWithCaseInsensitive:(NSString *)comparand {
+-(bool)hasSuffixCaseInsensitive:(NSString *)comparand {
     if (comparand.length > self.length)
         return false;
     NSString* bit = [self substringFromIndex:self.length - comparand.length];
@@ -36,7 +28,7 @@
 }
 
 
--(bool)endsWithChar:(unichar)c {
+-(bool)hasSuffixChar:(unichar)c {
     return self.length == 0 ? false : c == [self characterAtIndex:self.length - 1];
 }
 
@@ -46,15 +38,7 @@
 }
 
 
--(bool)startsWith:(NSString *)comparand {
-    if (comparand.length > self.length)
-        return false;
-    NSString* bit = [self substringToIndex:comparand.length];
-    return [bit isEqualToString:comparand];
-}
-
-
--(bool)startsWithCaseInsensitive:(NSString *)comparand {
+-(bool)hasPrefixCaseInsensitive:(NSString *)comparand {
     if (comparand.length > self.length)
         return false;
     NSString* bit = [self substringToIndex:comparand.length];
@@ -62,7 +46,7 @@
 }
 
 
--(bool)startsWithChar:(unichar)c {
+-(bool)hasPrefixChar:(unichar)c {
     return self.length == 0 ? false : c == [self characterAtIndex:0];
 }
 

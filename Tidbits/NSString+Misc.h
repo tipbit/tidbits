@@ -14,19 +14,15 @@
 
 -(bool) containsCaseInsensitive:(NSString*)substring;
 
--(bool) endsWith:(NSString *)comparand;
+-(bool) hasSuffixCaseInsensitive:(NSString *)comparand;
 
--(bool) endsWithCaseInsensitive:(NSString *)comparand;
-
--(bool) endsWithChar:(unichar)c;
+-(bool) hasSuffixChar:(unichar)c;
 
 -(bool) isEqualToStringCaseInsensitive:(NSString*)comparand;
 
--(bool) startsWith:(NSString *)comparand;
+-(bool) hasPrefixCaseInsensitive:(NSString*)comparand;
 
--(bool) startsWithCaseInsensitive:(NSString*)comparand;
-
--(bool) startsWithChar:(unichar)c;
+-(bool) hasPrefixChar:(unichar)c;
 
 -(NSString*)trim;
 
