@@ -21,6 +21,7 @@
 
 // Per user string methods
 -(NSString*)stringForPUKey:(NSString*)key;
+-(NSString*)stringForPUKey:(NSString*)key user:(NSString*)user;
 -(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue;
 -(void)setStringForPUKey:(NSString*)value forKey:(NSString*)key;
 

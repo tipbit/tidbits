@@ -40,6 +40,10 @@
     return [self objectForKey:[self PUKey:key]];
 }
 
+-(NSString*)stringForPUKey:(NSString*)key user:(NSString*)user {
+    return [self objectForKey:[self PUKey:key user:user]];
+}
+
 -(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
     return [self stringForKey:[self PUKey:key] defaultValue:defValue];
 }
