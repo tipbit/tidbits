@@ -26,6 +26,8 @@
 
 -(NSString*)trim;
 
+-(NSData*)UTF8Data;
+
 /*!
  * @return A copy of this string, with characters escaped so that it is suitable for inclusion in a Javascript
  * single-quoted string literal.

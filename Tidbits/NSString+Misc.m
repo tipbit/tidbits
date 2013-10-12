@@ -56,6 +56,11 @@
 }
 
 
+-(NSData *)UTF8Data {
+    return [self dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+
 +(NSString *)stringWithUTF8Data:(NSData *)data {
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
