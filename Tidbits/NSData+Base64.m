@@ -330,14 +330,15 @@ static char *NewBase64Encode(
 {
     // initWithBase64EncodedString is available in iOS 7.
     // We use our own code for iOS 6 and below.
-    if ([[NSData class] respondsToSelector:@selector(initWithBase64EncodedString:options:)]) {
-        return [[NSData alloc] initWithBase64EncodedString:aString options:0];
+    NSData* result = [NSData alloc];
+    if ([result respondsToSelector:@selector(initWithBase64EncodedString:options:)]) {
+        return [result initWithBase64EncodedString:aString options:0];
     }
 
     NSData* data = [aString dataUsingEncoding:NSASCIIStringEncoding];
     size_t outputLength;
     void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength);
-    NSData *result = [NSData dataWithBytes:outputBuffer length:outputLength];
+    result = [result initWithBytes:outputBuffer length:outputLength];
     free(outputBuffer);
     return result;
 }
