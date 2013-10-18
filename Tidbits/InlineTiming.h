@@ -22,16 +22,24 @@
     NSUInteger INLINE_TIMING_INDEX = 0;                                                  \
     InlineTimingMark
 
-#define InlineTimingEnd                                                                  \
+// InlineTimingEndWithBudget(b) will do nothing if the total elapsed time is less than b.
+// Otherwise, it will log all the timings.
+#define InlineTimingEndWithBudget(__budget)                                              \
     InlineTimingMark;                                                                    \
     [InlineTiming log:__PRETTY_FUNCTION__ line:__LINE__                                  \
                   times:INLINE_TIMING_TIMES lines:INLINE_TIMING_LINES                    \
-                  count:INLINE_TIMING_INDEX]
+                  count:INLINE_TIMING_INDEX budget:__budget]
+
+// InlineTimingEnd is equivalent to InlineTimingEndWithBudget(0)
+// In other words, it logs the timings no matter what.
+#define InlineTimingEnd                                                                  \
+    InlineTimingEndWithBudget(0)
 
 #else
 
 #define InlineTimingMark
 #define InlineTimingStart
+#define InlineTimingEndWithBudget(__budget)
 #define InlineTimingEnd
 
 #endif
@@ -41,7 +49,7 @@
 
 @interface InlineTiming : NSObject
 
-+(void)log:(const char*)func line:(NSUInteger)line times:(NSTimeInterval[])times lines:(NSUInteger[])lines count:(NSUInteger)count;
++(void)log:(const char*)func line:(NSUInteger)line times:(NSTimeInterval[])times lines:(NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget;
 
 @end
 

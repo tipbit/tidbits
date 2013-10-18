@@ -13,11 +13,13 @@
 
 @implementation InlineTiming
 
-+(void)log:(const char*)func line:(NSUInteger)line times:(NSTimeInterval[])times lines:(NSUInteger[])lines count:(NSUInteger)count {
++(void)log:(const char*)func line:(NSUInteger)line times:(NSTimeInterval[])times lines:(NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget {
     if (count <= 1)
         return;
 
     NSTimeInterval total_time = times[count - 1] - times[0];
+    if (total_time < budget)
+        return;
 
     NSTimeInterval max_delta = 0;
     NSUInteger max_line = 0;
