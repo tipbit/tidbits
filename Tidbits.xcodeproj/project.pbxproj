@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
@@ -239,6 +240,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4006C68518121345007DBC6D /* NSString+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MiscTests.m"; sourceTree = "<group>"; };
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 			children = (
 				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
+				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 			);
 			path = TidbitsTests;
@@ -802,6 +805,7 @@
 			files = (
 				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 				406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */,
+				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

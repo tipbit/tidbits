@@ -87,4 +87,9 @@
 }
 
 
+-(bool)isEarlierVersionThan:(NSString *)comparand {
+    return [self compare:comparand options:NSNumericSearch] == NSOrderedAscending;
+}
+
+
 @end

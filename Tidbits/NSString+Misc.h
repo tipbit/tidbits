@@ -24,6 +24,8 @@
 
 -(bool) hasPrefixChar:(unichar)c;
 
+-(bool) isEarlierVersionThan:(NSString*)comparand;
+
 -(NSString*)trim;
 
 -(NSData*)UTF8Data;
