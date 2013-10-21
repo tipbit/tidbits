@@ -25,7 +25,7 @@ void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec
 id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_with_result_t block);
 
 void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_block_t block);
-
+void dispatchAsyncBackgroundThreadWithDelay(int delay_msec, dispatch_queue_priority_t prio, dispatch_block_t block);
 
 #if DURATION_WARNING_ENABLED
 #define dispatchSyncMainThread(...) dispatchSyncMainThread(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
