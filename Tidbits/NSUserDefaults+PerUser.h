@@ -14,6 +14,8 @@
 -(NSString*)PUKey:(NSString*) key;
 -(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser;
 
+-(NSArray*)arrayForPUKey:(NSString*)key user:(NSString*)user;
+
 // Per user Bool methods
 -(BOOL)boolForPUKey:(NSString*)key;
 -(BOOL)boolForPUKey:(NSString*)key defaultValue:(BOOL)defValue;

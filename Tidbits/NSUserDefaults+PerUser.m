@@ -24,6 +24,10 @@
     }
 }
 
+-(NSArray*)arrayForPUKey:(NSString*)key user:(NSString*)user {
+    return [self arrayForKey:[self PUKey:key user:user]];
+}
+
 -(BOOL)boolForPUKey:(NSString*)key {
     return [self boolForKey:[self PUKey:key]];
 }
