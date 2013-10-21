@@ -41,11 +41,11 @@
 }
 
 -(NSString*)stringForPUKey:(NSString*)key {
-    return [self objectForKey:[self PUKey:key]];
+    return [self stringForKey:[self PUKey:key]];
 }
 
 -(NSString*)stringForPUKey:(NSString*)key user:(NSString*)user {
-    return [self objectForKey:[self PUKey:key user:user]];
+    return [self stringForKey:[self PUKey:key user:user]];
 }
 
 -(NSString*)stringForPUKey:(NSString*)key defaultValue:(NSString*)defValue {
