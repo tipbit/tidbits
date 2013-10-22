@@ -28,7 +28,7 @@
 
 + (GTMURLBuilder *)builderWithString:(NSString *)URLString {
   GTMURLBuilder *URLBuilder =
-      [[[GTMURLBuilder alloc] initWithString:URLString] autorelease];
+      [[GTMURLBuilder alloc] initWithString:URLString];
   return URLBuilder;
 }
 
@@ -38,7 +38,6 @@
 
 - (id)init {
   self = [super init];
-  [self release];
   _GTMDevAssert(NO, @"Invalid initialization.");
   return nil;
 }
@@ -62,17 +61,10 @@
       baseURLString_ =
           [NSString stringWithFormat:@"%@%@", baseURLString_, [URL path]];
     }
-    [baseURLString_ retain];
     params_ = [[NSDictionary gtm_dictionaryWithHttpArgumentsString:[URL query]]
         mutableCopy];
   }
   return self;
-}
-
-- (void)dealloc {
-  [baseURLString_ release];
-  [params_ release];
-  [super dealloc];
 }
 
 - (void)setValue:(NSString *)value forParameter:(NSString *)parameter {
@@ -92,7 +84,6 @@
 }
 
 - (void)setParameters:(NSDictionary *)parameters {
-  [params_ autorelease];
   params_ = [[NSDictionary dictionaryWithDictionary:parameters] mutableCopy];
 }
 
