@@ -48,13 +48,13 @@
 		408E88D91768E6AC001B61E6 /* NSMutableData+UTF8.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88911768E2BA001B61E6 /* NSMutableData+UTF8.h */; };
 		408E88DA1768E6AC001B61E6 /* NSMutableData+AppendByte.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88931768E2BA001B61E6 /* NSMutableData+AppendByte.h */; };
 		408E88DB1768E6AC001B61E6 /* NSString+IsNotWhitespace.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */; };
-		408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */; };
+		408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */; };
+		408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */; };
 		408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C21768E3A7001B61E6 /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C41768E3A7001B61E6 /* GTMLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */; };
 		408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89021768FCA6001B61E6 /* NSData+Base64.m */; };
 		408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89011768FCA6001B61E6 /* NSData+Base64.h */; };
 		408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89061768FD68001B61E6 /* NSString+Misc.m */; };
