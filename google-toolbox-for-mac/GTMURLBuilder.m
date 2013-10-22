@@ -19,7 +19,6 @@
 #import "GTMURLBuilder.h"
 
 #import "GTMDefines.h"
-#import "GTMLogger.h"
 #import "GTMNSDictionary+URLArguments.h"
 #import "GTMNSString+URLArguments.h"
 

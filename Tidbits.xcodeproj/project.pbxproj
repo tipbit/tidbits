@@ -39,7 +39,6 @@
 		408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */; };
 		408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */; };
 		408E88D21768E6AC001B61E6 /* GTMNSString+URLArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C11768E3A7001B61E6 /* GTMNSString+URLArguments.h */; };
-		408E88D31768E6AC001B61E6 /* GTMLogger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C31768E3A7001B61E6 /* GTMLogger.h */; };
 		408E88D41768E6AC001B61E6 /* GTMURLBuilder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */; };
 		408E88D51768E6AC001B61E6 /* GTMDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C71768E3A7001B61E6 /* GTMDefines.h */; };
 		408E88D61768E6AC001B61E6 /* GTMGarbageCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */; };
@@ -52,7 +51,6 @@
 		408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */; };
 		408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */; };
 		408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C21768E3A7001B61E6 /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C41768E3A7001B61E6 /* GTMLogger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */; };
 		408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E89021768FCA6001B61E6 /* NSData+Base64.m */; };
@@ -225,7 +223,6 @@
 				408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */,
 				408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */,
 				408E88D21768E6AC001B61E6 /* GTMNSString+URLArguments.h in CopyFiles */,
-				408E88D31768E6AC001B61E6 /* GTMLogger.h in CopyFiles */,
 				408E88D41768E6AC001B61E6 /* GTMURLBuilder.h in CopyFiles */,
 				408E88D51768E6AC001B61E6 /* GTMDefines.h in CopyFiles */,
 				408E88D61768E6AC001B61E6 /* GTMGarbageCollection.h in CopyFiles */,
@@ -281,8 +278,6 @@
 		408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
 		408E88C11768E3A7001B61E6 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
 		408E88C21768E3A7001B61E6 /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
-		408E88C31768E3A7001B61E6 /* GTMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMLogger.h; sourceTree = "<group>"; };
-		408E88C41768E3A7001B61E6 /* GTMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMLogger.m; sourceTree = "<group>"; };
 		408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMURLBuilder.h; sourceTree = "<group>"; };
 		408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMURLBuilder.m; sourceTree = "<group>"; };
 		408E88C71768E3A7001B61E6 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -570,8 +565,6 @@
 			children = (
 				408E88C71768E3A7001B61E6 /* GTMDefines.h */,
 				408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */,
-				408E88C31768E3A7001B61E6 /* GTMLogger.h */,
-				408E88C41768E3A7001B61E6 /* GTMLogger.m */,
 				408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */,
 				408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */,
 				408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */,
@@ -748,7 +741,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408E88E01768E6BE001B61E6 /* GTMLogger.m in Sources */,
 				408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */,
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
