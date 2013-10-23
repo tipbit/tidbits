@@ -13,7 +13,7 @@
 
 @implementation InlineTiming
 
-+(void)log:(const char*)func line:(NSUInteger)line times:(NSTimeInterval[])times lines:(NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget {
++(void)log:(const char*)func line:(NSUInteger)line times:(const NSTimeInterval[])times lines:(const NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget {
     if (count <= 1)
         return;
 
