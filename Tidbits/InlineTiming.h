@@ -57,7 +57,7 @@
 #define InlineTimingEndWithBudget(__budget)
 #define InlineTimingEnd
 
-#define InlineTimingHeapStart
+#define InlineTimingHeapStart nil
 #define InlineTimingHeapMark(__instance)
 #define InlineTimingHeapEnd(__instance)
 #define InlineTimingHeapEndWithBudget(__instance, __budget)
