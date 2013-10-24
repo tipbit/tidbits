@@ -38,8 +38,14 @@
     InlineTimingEndWithBudget(0)
 
 
-#define InlineTimingHeapStart \
-    [[InlineTiming alloc] init:__LINE__]
+#define InlineTimingHeapPropertyDecl(__name) \
+    @property (nonatomic, strong) InlineTiming* __name
+
+#define InlineTimingHeapDeclStart(__name) \
+    InlineTiming* __name = [[InlineTiming alloc] init:__LINE__]
+
+#define InlineTimingHeapStart(__name) \
+    __name = [[InlineTiming alloc] init:__LINE__]
 
 #define InlineTimingHeapMark(__instance) \
     [__instance mark:__LINE__]
@@ -57,7 +63,9 @@
 #define InlineTimingEndWithBudget(__budget)
 #define InlineTimingEnd
 
-#define InlineTimingHeapStart nil
+#define InlineTimingHeapPropertyDecl(__name)
+#define InlineTimingHeapDeclStart(__name)
+#define InlineTimingHeapStart(__name)
 #define InlineTimingHeapMark(__instance)
 #define InlineTimingHeapEnd(__instance)
 #define InlineTimingHeapEndWithBudget(__instance, __budget)
