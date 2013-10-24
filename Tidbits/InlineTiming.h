@@ -37,6 +37,19 @@
 #define InlineTimingEnd                                                                  \
     InlineTimingEndWithBudget(0)
 
+
+#define InlineTimingHeapStart \
+    [[InlineTiming alloc] init:__LINE__]
+
+#define InlineTimingHeapMark(__instance) \
+    [__instance mark:__LINE__]
+
+#define InlineTimingHeapEnd(__instance) \
+    [__instance endWithBudget:0 func:__PRETTY_FUNCTION__ line:__LINE__]
+
+#define InlineTimingHeapEndWithBudget(__instance, __budget) \
+    [__instance endWithBudget:__budget func:__PRETTY_FUNCTION__ line:__LINE__]
+
 #else
 
 #define InlineTimingMark
@@ -44,12 +57,26 @@
 #define InlineTimingEndWithBudget(__budget)
 #define InlineTimingEnd
 
+#define InlineTimingHeapStart
+#define InlineTimingHeapMark(__instance)
+#define InlineTimingHeapEnd(__instance)
+#define InlineTimingHeapEndWithBudget(__instance, __budget)
+
 #endif
 
 
 #if DEBUG
 
-@interface InlineTiming : NSObject
+@interface InlineTiming : NSObject {
+    NSTimeInterval times[INLINE_TIMING_MAX];
+    NSUInteger lines[INLINE_TIMING_MAX];
+    NSUInteger index;
+}
+
+
+-(id)init:(NSUInteger)line;
+-(void)mark:(NSUInteger)line;
+-(void)endWithBudget:(NSTimeInterval)budget func:(const char*)func line:(NSUInteger)line;
 
 +(void)log:(const char*)func line:(NSUInteger)line times:(const NSTimeInterval[])times lines:(const NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget;
 

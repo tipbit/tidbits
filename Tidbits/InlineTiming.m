@@ -13,6 +13,31 @@
 
 @implementation InlineTiming
 
+
+-(id)init:(NSUInteger)line {
+    self = [super init];
+    if (self) {
+        index = 0;
+        [self mark:line];
+    }
+    return self;
+}
+
+
+-(void)mark:(NSUInteger)line {
+    assert(index < INLINE_TIMING_MAX);
+    times[index] = [NSDate timeIntervalSinceReferenceDate];
+    lines[index] = line;
+    index++;
+}
+
+
+-(void)endWithBudget:(NSTimeInterval)budget func:(const char*)func line:(NSUInteger)line {
+    [self mark:line];
+    [InlineTiming log:func line:line times:times lines:lines count:index budget:budget];
+}
+
+
 +(void)log:(const char*)func line:(NSUInteger)line times:(const NSTimeInterval[])times lines:(const NSUInteger[])lines count:(NSUInteger)count budget:(NSTimeInterval)budget {
     if (count <= 1)
         return;
