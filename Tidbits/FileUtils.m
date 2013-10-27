@@ -7,6 +7,7 @@
 //
 
 #import "Dispatch.h"
+#import "LoggingMacros.h"
 
 #import "FileUtils.h"
 

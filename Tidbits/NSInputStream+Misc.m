@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import "LoggingMacros.h"
+
 #import "NSInputStream+Misc.h"
 
 
