@@ -12,4 +12,6 @@
 
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;
 
+-(NSArray*)componentsJoinedByString:(NSString*)separator inBatches:(NSUInteger)batchSize;
+
 @end

@@ -15,4 +15,21 @@
 }
 
 
+-(NSArray *)componentsJoinedByString:(NSString *)separator inBatches:(NSUInteger)batchSize {
+    NSMutableArray* result = [NSMutableArray array];
+    NSUInteger i = 0;
+    NSUInteger count = self.count;
+    while (i < count) {
+        NSUInteger remaining = count - i;
+        NSUInteger thisBatch = remaining > batchSize ? batchSize : remaining;
+
+        [result addObject:[[self subarrayWithRange:NSMakeRange(i, thisBatch)] componentsJoinedByString:separator]];
+
+        i += thisBatch;
+    }
+
+    return result;
+}
+
+
 @end
