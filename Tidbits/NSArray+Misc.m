@@ -10,6 +10,13 @@
 
 @implementation NSArray (Misc)
 
+
+-(NSDictionary*)dictAtIndex:(NSUInteger)index {
+    id result = [self objectAtIndex:index withDefault:nil];
+    return [result isKindOfClass:[NSDictionary class]] ? result : nil;
+}
+
+
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def {
     return index < self.count ? self[index] : def;
 }

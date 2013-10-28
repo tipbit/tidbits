@@ -10,6 +10,8 @@
 
 @interface NSArray (Misc)
 
+-(NSDictionary*)dictAtIndex:(NSUInteger)index;
+
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;
 
 -(NSArray*)componentsJoinedByString:(NSString*)separator inBatches:(NSUInteger)batchSize;
