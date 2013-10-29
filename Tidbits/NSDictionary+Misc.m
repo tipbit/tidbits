@@ -22,7 +22,7 @@
 }
 
 
--(NSInteger)intForKey:(id)key withDefault:(NSUInteger)def {
+-(NSInteger)intForKey:(id)key withDefault:(NSInteger)def {
     NSNumber* result = [self numberForKey:key];
     return result ? [result integerValue] : def;
 }
