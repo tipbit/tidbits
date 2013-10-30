@@ -63,10 +63,11 @@
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
     if (!inProgress) {
+        OperationManager* __weak weakSelf = self;
         op(^(NSData* data) {
-            [self performSuccessNSData:key data:data];
+            [weakSelf performSuccessNSData:key data:data];
         }, ^(NSError* err) {
-            [self performFailure:key error:err];
+            [weakSelf performFailure:key error:err];
         });
     }
 }
@@ -77,10 +78,11 @@
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
     if (!inProgress) {
+        OperationManager* __weak weakSelf = self;
         op(^{
-            [self performSuccessVoid:key];
+            [weakSelf performSuccessVoid:key];
         }, ^(NSError* err) {
-            [self performFailure:key error:err];
+            [weakSelf performFailure:key error:err];
         });
     }
 }
