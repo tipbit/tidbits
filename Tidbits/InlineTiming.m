@@ -62,8 +62,7 @@
             max_line = lines[i];
         }
     }
-    NSLog(@"Timings for %s:%u:%@", func, line, str);
-    NSLog(@"Timings for %s:%u: total time %lf", func, line, total_time);
+    NSLog(@"Timings for %s:%u:%@ = %lf", func, line, str, total_time);
     NSLog(@"Timings for %s:%u: max delta was %lf(%0.2lf%%) at line %u", func, line, max_delta, 100 * max_delta / total_time, max_line);
 }
 
