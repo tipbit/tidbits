@@ -13,10 +13,12 @@
 #define INLINE_TIMING_MAX 32
 
 #define InlineTimingMark                                                                 \
+  do {                                                                                   \
     assert(INLINE_TIMING_INDEX < INLINE_TIMING_MAX);                                     \
     INLINE_TIMING_TIMES[INLINE_TIMING_INDEX] = [NSDate timeIntervalSinceReferenceDate];  \
     INLINE_TIMING_LINES[INLINE_TIMING_INDEX] = __LINE__;                                 \
-    INLINE_TIMING_INDEX++
+    INLINE_TIMING_INDEX++;                                                               \
+  } while (false)
 
 #define InlineTimingStart                                                                \
     NSTimeInterval INLINE_TIMING_TIMES[INLINE_TIMING_MAX];                               \
