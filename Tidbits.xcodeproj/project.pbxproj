@@ -99,6 +99,7 @@
 		40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */; };
 		40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */; };
 		40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */; };
+		40B4B82C18246B920076F2F1 /* NSIndexSet+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */; };
 		40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
@@ -178,6 +179,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40B4B82C18246B920076F2F1 /* NSIndexSet+Misc.h in CopyFiles */,
 				40D188901809122400B23BAC /* NSData+SHA256.h in CopyFiles */,
 				4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */,
 				4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */,
