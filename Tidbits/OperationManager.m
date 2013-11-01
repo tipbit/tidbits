@@ -1,6 +1,6 @@
 //
 //  OperationManager.m
-//  TBClientLib
+//  Tidbits
 //
 //  Created by Ewan Mellor on 7/4/13.
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
@@ -58,7 +58,7 @@
 }
 
 
--(void)performNSData:(id<NSCopying>)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op {
+-(void)performNSData:(NSUInteger)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op {
     CallbackPair* cb = [[CallbackPair alloc] initNSData:onSuccess onFailure:onFailure];
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
@@ -73,7 +73,7 @@
 }
 
 
--(void)performVoid:(id<NSCopying>)key onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(VoidOperationBlock)op {
+-(void)performVoid:(NSUInteger)key onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(VoidOperationBlock)op {
     CallbackPair* cb = [[CallbackPair alloc] initVoid:onSuccess onFailure:onFailure];
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
@@ -88,11 +88,12 @@
 }
 
 
--(void)performFailure:(id<NSCopying>)key error:(NSError*)err {
+-(void)performFailure:(NSUInteger)key error:(NSError*)err {
     NSArray* callbacks;
+    NSNumber* key_n = @(key);
     @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+        callbacks = operations[key_n];
+        [operations removeObjectForKey:key_n];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onFailure(err);
@@ -100,11 +101,12 @@
 }
 
 
--(void)performSuccessNSData:(id<NSCopying>)key data:(NSData*)data {
+-(void)performSuccessNSData:(NSUInteger)key data:(NSData*)data {
     NSArray* callbacks;
+    NSNumber* key_n = @(key);
     @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+        callbacks = operations[key_n];
+        [operations removeObjectForKey:key_n];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onSuccessNSData(data);
@@ -112,11 +114,12 @@
 }
 
 
--(void)performSuccessVoid:(id<NSCopying>)key {
+-(void)performSuccessVoid:(NSUInteger)key {
     NSArray* callbacks;
+    NSNumber* key_n = @(key);
     @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+        callbacks = operations[key_n];
+        [operations removeObjectForKey:key_n];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onSuccessVoid();
@@ -124,12 +127,13 @@
 }
 
 
--(bool)recordCallbackPair:(id<NSCopying>)key callbackPair:(CallbackPair*)cb {
+-(bool)recordCallbackPair:(NSUInteger)key callbackPair:(CallbackPair*)cb {
+    NSNumber* key_n = @(key);
     @synchronized (operations) {
-        NSMutableArray* callbacks = operations[key];
+        NSMutableArray* callbacks = operations[key_n];
         if (callbacks == nil) {
             callbacks = [NSMutableArray array];
-            operations[key] = callbacks;
+            operations[key_n] = callbacks;
             [callbacks addObject:cb];
             return false;
         }
