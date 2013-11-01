@@ -1,6 +1,6 @@
 //
 //  OperationManager.h
-//  Tidbits
+//  TBClientLib
 //
 //  Created by Ewan Mellor on 7/4/13.
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
@@ -22,7 +22,7 @@ typedef void(^NSDataOperationBlock)(NSDataBlock onSuccess, NSErrorBlock onFailur
  */
 @interface OperationManager : NSObject
 
--(void)performNSData:(NSUInteger)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op;
--(void)performVoid:(NSUInteger)key onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(VoidOperationBlock)op;
+-(void)performNSData:(id<NSCopying>)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op;
+-(void)performVoid:(id<NSCopying>)key onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(VoidOperationBlock)op;
 
 @end
