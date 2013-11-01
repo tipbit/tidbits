@@ -11,7 +11,7 @@
 #import "InlineTiming.h"
 
 
-#if DEBUG
+#if 1
 
 @implementation InlineTiming
 

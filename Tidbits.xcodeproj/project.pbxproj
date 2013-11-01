@@ -98,6 +98,7 @@
 		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
 		40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */; };
 		40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */; };
+		40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */; };
 		40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
@@ -330,6 +331,8 @@
 		40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = "<group>"; };
 		40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle+MD5.h"; sourceTree = "<group>"; };
 		40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileHandle+MD5.m"; sourceTree = "<group>"; };
+		40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Misc.h"; sourceTree = "<group>"; };
+		40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Misc.m"; sourceTree = "<group>"; };
 		40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
@@ -530,6 +533,8 @@
 				40BD90321777C13400A3ED9C /* UTI.h */,
 				40BD90331777C13400A3ED9C /* UTI.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
+				40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */,
+				40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -768,6 +773,7 @@
 				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
 				407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */,
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
+				40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
