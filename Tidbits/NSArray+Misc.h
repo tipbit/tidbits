@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "StandardBlocks.h"
+
+
 @interface NSArray (Misc)
 
 -(NSDictionary*)dictAtIndex:(NSUInteger)index;
@@ -15,5 +18,7 @@
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;
 
 -(NSArray*)componentsJoinedByString:(NSString*)separator inBatches:(NSUInteger)batchSize;
+
+-(NSArray*)filteredArrayUsingBlock:(predicate_t)predicate;
 
 @end

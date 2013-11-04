@@ -39,4 +39,11 @@
 }
 
 
+-(NSArray*)filteredArrayUsingBlock:(predicate_t)predicate {
+    return [self filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return predicate(evaluatedObject);
+    }]];
+}
+
+
 @end

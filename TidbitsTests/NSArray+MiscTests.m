@@ -40,4 +40,33 @@
 }
 
 
+-(void)testFilteredArrayUsingBlock {
+    NSArray* input = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+    NSArray* expected = @[@"A", @"B", @"D", @"E", @"F", @"G"];
+
+    XCTAssertEqualObjects(expected, [input filteredArrayUsingBlock:^bool(id obj) {
+        return ![obj isEqualToString:@"C"];
+    }]);
+}
+
+
+-(void)testFilteredArrayUsingBlockNone {
+    NSArray* input = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+    NSArray* expected = @[];
+
+    XCTAssertEqualObjects(expected, [input filteredArrayUsingBlock:^bool(id obj) {
+        return false;
+    }]);
+}
+
+
+-(void)testFilteredArrayUsingBlockAll {
+    NSArray* input = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+
+    XCTAssertEqualObjects(input, [input filteredArrayUsingBlock:^bool(id obj) {
+        return true;
+    }]);
+}
+
+
 @end
