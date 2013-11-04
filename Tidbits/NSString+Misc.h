@@ -36,6 +36,13 @@
  */
 -(NSString*)stringForJavascriptSingleQuotes;
 
+/**
+ * @return A copy of this string, with double quotes and backslashes escaped so that it is suitable for inclusion
+ * in a double-quoted string literal.
+ * @discussion This doesn't do anything with line breaks or any other characters, so you'd best have a plan for those.
+ */
+-(NSString*)stringForDoubleQuotes;
+
 +(NSString*)stringWithUTF8Data:(NSData*)data;
 
 @end

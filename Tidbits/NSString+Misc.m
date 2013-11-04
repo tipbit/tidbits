@@ -87,6 +87,13 @@
 }
 
 
+-(NSString*)stringForDoubleQuotes {
+    return [[self
+             stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"]
+            stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+}
+
+
 -(bool)isEarlierVersionThan:(NSString *)comparand {
     return [self compare:comparand options:NSNumericSearch] == NSOrderedAscending;
 }
