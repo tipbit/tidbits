@@ -19,7 +19,7 @@ bool WaitFor(bool (^block)(void))
 {
     NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
     while(!block() && [[NSProcessInfo processInfo] systemUptime] - start <= TIMEOUT)
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.3]];
     return block();
 }
 
