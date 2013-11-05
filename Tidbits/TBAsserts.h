@@ -1,6 +1,6 @@
 //
 //  TBAsserts.h
-//  TBClientLib
+//  Tidbits
 //
 //  Created by Ewan Mellor on 6/8/13.
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
