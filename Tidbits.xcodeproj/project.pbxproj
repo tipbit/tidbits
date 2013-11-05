@@ -105,6 +105,7 @@
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
 		40C2A2F8177A5799003276AB /* SRVResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C2A2F5177A5791003276AB /* SRVResolver.h */; };
+		40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2C4451829904000205EBB /* SRVResolverTests.m */; };
 		40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E21F17F87E7C000EA60C /* DNSQuery.m */; };
 		40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E22217F890B1000EA60C /* DNSQueryTests.m */; };
 		40D188901809122400B23BAC /* NSData+SHA256.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40182C7A18090F820075AA75 /* NSData+SHA256.h */; };
@@ -340,6 +341,7 @@
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
 		40C2A2F6177A5791003276AB /* SRVResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolver.m; sourceTree = "<group>"; };
+		40C2C4451829904000205EBB /* SRVResolverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRVResolverTests.m; sourceTree = "<group>"; };
 		40C4E21E17F87E7C000EA60C /* DNSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSQuery.h; sourceTree = "<group>"; };
 		40C4E21F17F87E7C000EA60C /* DNSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQuery.m; sourceTree = "<group>"; };
 		40C4E22217F890B1000EA60C /* DNSQueryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQueryTests.m; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
 				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
+				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 			);
 			path = TidbitsTests;
@@ -810,6 +813,7 @@
 				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 				406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */,
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
+				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
