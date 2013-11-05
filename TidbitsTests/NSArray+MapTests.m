@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import "TBTestCaseBase.h"
 
 #import "NSArray+Map.h"
 
 
-@interface NSArray_MapTests : XCTestCase
+@interface NSArray_MapTests : TBTestCaseBase
 
 @end
+
 
 @implementation NSArray_MapTests
 

@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import "TBTestCaseBase.h"
 
 #import "NSString+Misc.h"
 
 
-@interface NSString_MiscTests : XCTestCase
+@interface NSString_MiscTests : TBTestCaseBase
 
 @end
+
 
 @implementation NSString_MiscTests
 
