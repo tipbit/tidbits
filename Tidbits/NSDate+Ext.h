@@ -23,6 +23,12 @@
 - (NSDate*) startOfDay;
 
 /*!
+ @abstract Now with minutes and seconds zeroed. Equivalent to [self thisDayAtHour:14 minute:0 second:0 tz:[NSTimeZone systemTimeZone] where the current time is >= 2pm < 3pm
+ */
+- (NSDate*) todayCurrentHour;
+
+
+/*!
  @abstract Returns a new NSDate that is on the same day as this one, but at the specified time.
  @param tz May be nil, in which case UTC is used.
  */

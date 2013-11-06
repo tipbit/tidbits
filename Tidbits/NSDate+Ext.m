@@ -79,6 +79,21 @@ static NSDateFormatter* makeISO8601Formatter() {
     return [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
 }
 
+- (NSDate*) todayCurrentHour {
+    return [self thisDayAtHour:[self currentHour] minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
+}
+
+
+- (NSInteger)currentHour
+{
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
+    
+    return [components hour];
+}
+
+
 
 - (NSDate*) thisDayAtHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second tz:(NSTimeZone*)tz {
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
