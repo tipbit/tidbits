@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import <UIKit/UIApplication.h>
+
 #ifndef Tidbits_StandardBlocks_h
 #define Tidbits_StandardBlocks_h
 
@@ -22,6 +24,7 @@ typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
 typedef void (^NSStringNSErrorBlock)(NSString* str, NSError* error);
 typedef void (^NSString2Block)(NSString* str1, NSString* str2);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
+typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
 typedef void (^VoidBlock)(void);
 
 typedef id (^id_to_id_t)(id obj);
