@@ -13,6 +13,6 @@
 
 @interface NSString (StripHTML)
 
-- (NSString*)stripHTML:(int)charCount;
+- (NSString*)stripHTML:(NSUInteger)charCount;
 
 @end

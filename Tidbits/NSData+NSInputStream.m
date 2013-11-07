@@ -8,7 +8,7 @@
 
 #import "NSData+NSInputStream.h"
 
-#define BUFSIZE 65536
+#define BUFSIZE 65536U
 
 @implementation NSData (NSInputStream)
 

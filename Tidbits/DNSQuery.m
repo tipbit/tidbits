@@ -122,9 +122,11 @@ NSString* const kDNSQueryServiceFailureCode = @"DNSQueryServiceFailureCode";
 -(void)succeed {
     DNSQuery* __weak weakSelf = self;
     dispatchAsyncMainThread(^{
-        id<DNSQueryDelegate> d = delegate;
         DNSQuery* myself = weakSelf;
-        if (d == nil || myself == nil)
+        if (myself == nil)
+            return;
+        id<DNSQueryDelegate> d = myself->delegate;
+        if (d == nil)
             return;
         [d dnsQuery:myself succeededWithResult:myself->result];
     });
@@ -134,9 +136,11 @@ NSString* const kDNSQueryServiceFailureCode = @"DNSQueryServiceFailureCode";
 -(void)fail:(NSError*)error {
     DNSQuery* __weak weakSelf = self;
     dispatchAsyncMainThread(^{
-        id<DNSQueryDelegate> d = delegate;
         DNSQuery* myself = weakSelf;
-        if (d == nil || myself == nil)
+        if (myself == nil)
+            return;
+        id<DNSQueryDelegate> d = myself->delegate;
+        if (d == nil)
             return;
         [d dnsQuery:myself failedWithError:error];
     });

@@ -43,7 +43,7 @@
     RunLoopFuture* __weak weakSelf = self;
 
     if (self.value == nil && [NSDate timeIntervalSinceReferenceDate] - start <= timeout) {
-        dispatchAsyncMainThreadWithDelay(interval * 1000, ^{
+        dispatchAsyncMainThreadWithDelay((int)(interval * 1000), ^{
             [weakSelf waitWithInterval:interval timeout:timeout start:start onSuccess:onSuccess onTimeout:onTimeout];
         });
         return;

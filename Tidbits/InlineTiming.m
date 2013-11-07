@@ -52,7 +52,7 @@
     NSUInteger max_line = 0;
     NSMutableString* str = [NSMutableString string];
     NSTimeInterval previous = times[0];
-    for (int i = 1; i < count; i++) {
+    for (NSUInteger i = 1; i < count; i++) {
         NSTimeInterval time = times[i];
         NSTimeInterval delta = time - previous;
         [str appendFormat:@" %lf", delta];

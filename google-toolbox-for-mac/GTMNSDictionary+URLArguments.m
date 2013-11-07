@@ -23,9 +23,6 @@
 
 @implementation NSDictionary (GTMNSDictionaryURLArgumentsAdditions)
 
-GTM_METHOD_CHECK(NSString, gtm_stringByEscapingForURLArgument);
-GTM_METHOD_CHECK(NSString, gtm_stringByUnescapingFromURLArgument);
-
 + (NSDictionary *)gtm_dictionaryWithHttpArgumentsString:(NSString *)argString {
   NSMutableDictionary* ret = [NSMutableDictionary dictionary];
   NSArray* components = [argString componentsSeparatedByString:@"&"];

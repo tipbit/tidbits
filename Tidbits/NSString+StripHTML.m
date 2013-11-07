@@ -25,7 +25,7 @@ static NSCharacterSet* endTagCharacterSet;
 }
 
 
-- (NSString *)stripHTML:(int)charCount {
+- (NSString *)stripHTML:(NSUInteger)charCount {
     if (self.length == 0)
         return @"";
     

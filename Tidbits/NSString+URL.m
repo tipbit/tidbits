@@ -15,7 +15,7 @@
     
     int sourceLen = [self length];
     for (int i = 0; i < sourceLen; ++i) {
-        const unsigned char thisChar = [self characterAtIndex:i];
+        const unichar thisChar = [self characterAtIndex:i];
         if (thisChar == ' ') {
             [output appendString:@"+"];
         }
