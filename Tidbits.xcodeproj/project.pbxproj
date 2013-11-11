@@ -34,7 +34,6 @@
 		408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88901768E2BA001B61E6 /* NSMutableArray+Stack.m */; };
 		408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88921768E2BA001B61E6 /* NSMutableData+UTF8.m */; };
 		408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */; };
-		408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88B61768E37E001B61E6 /* NSString+IsNotWhitespace.m */; };
 		408E88CF1768E6AC001B61E6 /* GTMObjC2Runtime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */; };
 		408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */; };
 		408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */; };
@@ -271,7 +270,6 @@
 		408E88931768E2BA001B61E6 /* NSMutableData+AppendByte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+AppendByte.h"; sourceTree = "<group>"; };
 		408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+AppendByte.m"; sourceTree = "<group>"; };
 		408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IsNotWhitespace.h"; sourceTree = "<group>"; };
-		408E88B61768E37E001B61E6 /* NSString+IsNotWhitespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IsNotWhitespace.m"; sourceTree = "<group>"; };
 		408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjC2Runtime.h; sourceTree = "<group>"; };
 		408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMObjC2Runtime.m; sourceTree = "<group>"; };
 		408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMMethodCheck.h; sourceTree = "<group>"; };
@@ -502,7 +500,6 @@
 				408E8989176A47D4001B61E6 /* NSMutableDictionary+Misc.h */,
 				408E898A176A47D4001B61E6 /* NSMutableDictionary+Misc.m */,
 				408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */,
-				408E88B61768E37E001B61E6 /* NSString+IsNotWhitespace.m */,
 				407100C217FF9AF1006F4115 /* NSString+MD5.h */,
 				407100C317FF9AF1006F4115 /* NSString+MD5.m */,
 				408E89051768FD68001B61E6 /* NSString+Misc.h */,
@@ -781,7 +778,6 @@
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
-				408E88B71768E37E001B61E6 /* NSString+IsNotWhitespace.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,

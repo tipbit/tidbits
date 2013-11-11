@@ -26,6 +26,8 @@
 
 -(bool) isEarlierVersionThan:(NSString*)comparand;
 
+-(bool) isNotWhitespace;
+
 -(NSString*)trim;
 
 -(NSData*)UTF8Data;

@@ -6,10 +6,6 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+// This category has been merged into NSString+Misc, and this header file can be removed once all references to it are gone.
 
-@interface NSString (IsNotWhitespace)
-
-- (BOOL) isNotWhitespace;
-
-@end
+#import "NSString+Misc.h"
