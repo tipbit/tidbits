@@ -6,13 +6,34 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
+#import <UIKit/UIApplication.h>
+
 #import "NSDate+Ext.h"
+
+
+#define DAY_IN_SECONDS (60.0 * 60.0 * 24)
+
 
 @implementation NSDate (Ext)
 
 
++(void)load {
+    _year2038 = [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
+}
+
+
++(void)significantTimeChange {
+    cachedStartOfDayBefore = nil;
+    cachedStartOfToday = nil;
+    cachedStartOfYesterday = nil;
+    cachedThisYear = 0;
+}
+
+
+static NSDate* _year2038 = nil;
 +(NSDate *)year2038 {
-    return [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
+    return _year2038;
 }
 
 
@@ -133,29 +154,53 @@ static NSDateFormatter* makeISO8601Formatter() {
     return compSelf.year==compOther.year && compSelf.month==compOther.month && compSelf.day==compOther.day;
 }
 
-- (BOOL) isToday {
-    return [self isSameDayAs:[NSDate date]];
+
+static NSDate* cachedStartOfToday = nil;
++(NSDate*) startOfToday {
+    if (cachedStartOfToday == nil)
+        cachedStartOfToday = [[NSDate date] startOfDay];
+    return cachedStartOfToday;
 }
 
-#define DAY_IN_SECONDS (60.0 * 60.0 * 24)
+
+static NSDate* cachedStartOfYesterday = nil;
++(NSDate*) startOfYesterday {
+    if (cachedStartOfYesterday == nil)
+        cachedStartOfYesterday = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS];
+    return cachedStartOfYesterday;
+}
+
+
+static NSDate* cachedStartOfDayBefore = nil;
++ (NSDate*) startOfDayBefore {
+    if (cachedStartOfDayBefore == nil)
+        cachedStartOfDayBefore = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 2];
+    return cachedStartOfDayBefore;
+}
+
+
+- (BOOL) isToday {
+    return [self isSameDayAs:[NSDate startOfToday]];
+}
 
 -(BOOL) isYesterday {
-    NSDate *yesterday = [NSDate dateWithTimeIntervalSinceNow:-DAY_IN_SECONDS];
-    return [self isSameDayAs:yesterday];
-
+    return [self isSameDayAs:[NSDate startOfYesterday]];
 }
 
 -(BOOL) isDayBefore {
-    NSDate *before = [NSDate dateWithTimeIntervalSinceNow:-DAY_IN_SECONDS*2];
-    return [self isSameDayAs:before];
+    return [self isSameDayAs:[NSDate startOfDayBefore]];
 }
 
+static NSInteger cachedThisYear = 0;
 -(BOOL) isThisYear {
-    NSDate *today = [NSDate date];
-    NSDateComponents *today_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:today];
-    NSDateComponents *date_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:self];
+    if (cachedThisYear == 0) {
+        NSDate *today = [NSDate date];
+        NSDateComponents *today_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:today];
+        cachedThisYear = today_bits.year;
+    }
 
-    return today_bits.year == date_bits.year;
+    NSDateComponents *date_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:self];
+    return cachedThisYear == date_bits.year;
 }
 
 
