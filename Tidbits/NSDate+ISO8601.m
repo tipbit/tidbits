@@ -22,8 +22,7 @@ static NSCalendar* gregorian_calendar = nil;
 static NSTimeZone* utc_timezone = nil;
 
 
-+(void)initialize {
-    [super initialize];
++(void)load {
     posix_locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     gregorian_calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     utc_timezone = [NSTimeZone timeZoneForSecondsFromGMT:0];

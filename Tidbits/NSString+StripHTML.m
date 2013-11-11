@@ -15,12 +15,12 @@
 #import "NSString+StripHTML.h"
 
 
-static NSCharacterSet* endTagCharacterSet;
+static NSCharacterSet* endTagCharacterSet = nil;
 
 
 @implementation NSString (StripHTML)
 
-+(void)initialize {
++(void)load {
     endTagCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@" >"];
 }
 
