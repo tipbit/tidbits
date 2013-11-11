@@ -56,6 +56,11 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
+-(NSString*)userShortYearlessDateString {
+    return self.isThisYear ? self.userYearlessDateString : self.userShortDateString;
+}
+
+
 -(NSString*)userShortTimeString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.timeStyle = NSDateFormatterShortStyle;
