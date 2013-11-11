@@ -20,7 +20,7 @@
 /**
  * Equal to userYearlessDateString if this date falls in this year, or userShortDateString otherwise.
  */
--(NSString*)userShortYearlessDateString;
+-(NSString*)userYearlessOrShortDateString;
 
 /*!
  @abstract Equivalent to [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone].

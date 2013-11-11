@@ -77,7 +77,7 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
--(NSString*)userShortYearlessDateString {
+-(NSString*)userYearlessOrShortDateString {
     return self.isThisYear ? self.userYearlessDateString : self.userShortDateString;
 }
 
