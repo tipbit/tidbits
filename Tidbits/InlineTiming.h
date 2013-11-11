@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 #if DEBUG
+#define INLINE_TIMING_ENABLED 1
+#else
+#define INLINE_TIMING_ENABLED 0
+#endif
+
+
+#if INLINE_TIMING_ENABLED
 
 #define INLINE_TIMING_MAX 32
 
@@ -75,7 +82,7 @@
 #endif
 
 
-#if DEBUG
+#if INLINE_TIMING_ENABLED
 
 @interface InlineTiming : NSObject {
     NSTimeInterval times[INLINE_TIMING_MAX];
