@@ -78,7 +78,6 @@
 		408E89A5176A4801001B61E6 /* NSUserDefaults+Default.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */; };
 		408E89A6176A4801001B61E6 /* SynthesizeAssociatedObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */; };
 		408E89A7176A4801001B61E6 /* TBAsserts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E8990176A47D4001B61E6 /* TBAsserts.h */; };
-		408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E89A8176A5339001B61E6 /* TBPCH.h */; };
 		408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F4662176CD7D900C468EB /* NSInputStream+Misc.m */; };
 		408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4661176CD7D900C468EB /* NSInputStream+Misc.h */; };
 		408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F4666176CE4F400C468EB /* LimitedInputStream.m */; };
@@ -204,7 +203,6 @@
 				40E3ED0A176E50F600FFF503 /* NSData+NSInputStream.h in CopyFiles */,
 				408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */,
 				408F4664176CDC2F00C468EB /* NSInputStream+Misc.h in CopyFiles */,
-				408E89A9176A540E001B61E6 /* TBPCH.h in CopyFiles */,
 				408E899B176A4801001B61E6 /* BlockWithResultOperation.h in CopyFiles */,
 				408E899C176A4801001B61E6 /* Dispatch.h in CopyFiles */,
 				408E899D176A4801001B61E6 /* LoggingMacros.h in CopyFiles */,
@@ -310,7 +308,6 @@
 		408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Default.m"; sourceTree = "<group>"; };
 		408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeAssociatedObject.h; sourceTree = "<group>"; };
 		408E8990176A47D4001B61E6 /* TBAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAsserts.h; sourceTree = "<group>"; };
-		408E89A8176A5339001B61E6 /* TBPCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPCH.h; sourceTree = "<group>"; };
 		408F4661176CD7D900C468EB /* NSInputStream+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInputStream+Misc.h"; sourceTree = "<group>"; };
 		408F4662176CD7D900C468EB /* NSInputStream+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInputStream+Misc.m"; sourceTree = "<group>"; };
 		408F4665176CE4F400C468EB /* LimitedInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitedInputStream.h; sourceTree = "<group>"; };
@@ -523,7 +520,6 @@
 				40612672177625420085CEED /* StreamPair.m */,
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
-				408E89A8176A5339001B61E6 /* TBPCH.h */,
 				408F67CB1782CABE00E974AD /* UIImage+Resize.h */,
 				408F67CC1782CABE00E974AD /* UIImage+Resize.m */,
 				40BD90321777C13400A3ED9C /* UTI.h */,
