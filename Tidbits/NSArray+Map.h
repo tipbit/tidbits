@@ -24,7 +24,7 @@
  * @discussion mapper may return nil, in which case no entry is added to the result
  * (i.e. the result will be shorter than self).
  */
--(NSArray*) map:(id_to_id_t)block;
+-(NSArray*) map:(id_to_id_t)mapper;
 
 /*!
  * @abstract Create a new NSMutableArray with the contents determined by calls to mapper
