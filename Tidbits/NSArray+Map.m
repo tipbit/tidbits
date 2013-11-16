@@ -27,7 +27,7 @@
 
 
 -(NSArray*) map:(id_to_id_t)mapper {
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id obj in self) {
         id new_obj = mapper(obj);
         if (new_obj != nil)
