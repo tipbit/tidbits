@@ -46,7 +46,11 @@
 +(void)push:(NSString*)tag;
 
 /**
- * Roughly: pop a view controller or dialog.  Breadcrumb is tag + "-popped".
+ * Roughly: pop a view controller or dialog.  Breadcrumb is usually "<tag>-popped".  It may alternatively be "pop-mismatch-<tag>"
+ * if the given tag does not match the top of the stack (i.e. the thing that was most recently pushed using Breadcrumbs.push).
+ * It may also be "overpopped-<tag>" if there is nothing on the top of the stack at all.
+ *
+ * @param tag May be nil, in which case the item on the top of the stack is assumed (and no mismatch checking is possible).
  */
 +(void)pop:(NSString*)tag;
 
