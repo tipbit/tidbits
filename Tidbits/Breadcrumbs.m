@@ -65,7 +65,7 @@ static Breadcrumbs* instance = nil;
 
 
 +(void)track:(NSString*)tag {
-    [self track:tag];
+    [instance track:tag];
 }
 
 
