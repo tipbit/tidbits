@@ -85,4 +85,15 @@
 }
 
 
+-(NSMutableDictionary *)dictionaryWithValuesAndUniqueMappedKeys:(id_to_id_t)mapper {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    for (id val in self) {
+        id key = mapper(val);
+        if (key != nil)
+            result[key] = val;
+    }
+    return result;
+}
+
+
 @end

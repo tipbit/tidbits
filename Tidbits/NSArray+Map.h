@@ -64,4 +64,15 @@
  */
 -(NSMutableDictionary *)dictionaryWithValuesAndMappedKeys:(id_to_id_t)mapper;
 
+/**
+ * @abstract Create a new NSMutableDictionary with the contents set to k -> v, where k = mapper(v) for each v in self.
+ *
+ * @discussion mapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be smaller than self).
+ *
+ * This call is intended for the case where mapper returns a unique key for each member of self.
+ * You will get strange results (latest-value-wins) otherwise.
+ */
+-(NSMutableDictionary *)dictionaryWithValuesAndUniqueMappedKeys:(id_to_id_t)mapper;
+
 @end
