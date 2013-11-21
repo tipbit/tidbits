@@ -23,6 +23,8 @@
 // This file should be conditionally compiled into your application bundle
 // or test rig when you want to do code coverage.
 
+#if DEBUG
+
 #import "GTMCodeCoverageApp.h"
 
 extern void __gcov_flush();
@@ -54,3 +56,5 @@ extern void __gcov_flush();
 #endif  // GTM_USING_XCTEST
 
 @end
+
+#endif
