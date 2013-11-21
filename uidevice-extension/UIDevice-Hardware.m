@@ -14,47 +14,6 @@
 #import "UIDevice-Hardware.h"
 
 @implementation UIDevice (Hardware)
-/*
- Platforms
- 
- iFPGA ->        ??
-
- iPhone1,1 ->    iPhone 1G, M68
- iPhone1,2 ->    iPhone 3G, N82
- iPhone2,1 ->    iPhone 3GS, N88
- iPhone3,1 ->    iPhone 4/AT&T, N89
- iPhone3,2 ->    iPhone 4/Other Carrier?, ??
- iPhone3,3 ->    iPhone 4/Verizon, TBD
- iPhone4,1 ->    (iPhone 4S/GSM), TBD
- iPhone4,2 ->    (iPhone 4S/CDMA), TBD
- iPhone4,3 ->    (iPhone 4S/???)
- iPhone5,1 ->    iPhone Next Gen, TBD
- iPhone5,1 ->    iPhone Next Gen, TBD
- iPhone5,1 ->    iPhone Next Gen, TBD
-
- iPod1,1   ->    iPod touch 1G, N45
- iPod2,1   ->    iPod touch 2G, N72
- iPod2,2   ->    Unknown, ??
- iPod3,1   ->    iPod touch 3G, N18
- iPod4,1   ->    iPod touch 4G, N80
- 
- // Thanks NSForge
- iPad1,1   ->    iPad 1G, WiFi and 3G, K48
- iPad2,1   ->    iPad 2G, WiFi, K93
- iPad2,2   ->    iPad 2G, GSM 3G, K94
- iPad2,3   ->    iPad 2G, CDMA 3G, K95
- iPad3,1   ->    (iPad 3G, WiFi)
- iPad3,2   ->    (iPad 3G, GSM)
- iPad3,3   ->    (iPad 3G, CDMA)
- iPad4,1   ->    (iPad 4G, WiFi)
- iPad4,2   ->    (iPad 4G, GSM)
- iPad4,3   ->    (iPad 4G, CDMA)
-
- AppleTV2,1 ->   AppleTV 2, K66
- AppleTV3,1 ->   AppleTV 3, ??
-
- i386, x86_64 -> iPhone Simulator
-*/
 
 
 #pragma mark sysctlbyname utils
@@ -161,6 +120,7 @@
     if ([platform hasPrefix:@"iPhone3"])            return UIDevice4iPhone;
     if ([platform hasPrefix:@"iPhone4"])            return UIDevice4SiPhone;
     if ([platform hasPrefix:@"iPhone5"])            return UIDevice5iPhone;
+    if ([platform hasPrefix:@"iPhone6"])            return UIDevice5SiPhone;
     
     // iPod
     if ([platform hasPrefix:@"iPod1"])              return UIDevice1GiPod;
@@ -195,6 +155,10 @@
 
 - (NSString *) platformString
 {
+    return [self modelNameForModelIdentifier:[self getSysInfoByName:"hw.machine"]];
+    
+    /* Old code - relies on constan updating - new code does not - but falls back
+     * to platformType when string is not known - better than 'Unknown iPhone'
     switch ([self platformType])
     {
         case UIDevice1GiPhone: return IPHONE_1G_NAMESTRING;
@@ -231,6 +195,68 @@
             
         default: return IOS_FAMILY_UNKNOWN_DEVICE;
     }
+     */
+}
+
+- (NSString *)modelNameForModelIdentifier:(NSString *)modelIdentifier
+{
+    // iPhone http://theiphonewiki.com/wiki/IPhone
+    
+    if ([modelIdentifier isEqualToString:@"iPhone1,1"])    return @"iPhone 1G";
+    if ([modelIdentifier isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
+    if ([modelIdentifier isEqualToString:@"iPhone2,1"])    return @"iPhone 3GS";
+    if ([modelIdentifier isEqualToString:@"iPhone3,1"])    return @"iPhone 4 (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPhone3,2"])    return @"iPhone 4 (GSM Rev A)";
+    if ([modelIdentifier isEqualToString:@"iPhone3,3"])    return @"iPhone 4 (CDMA)";
+    if ([modelIdentifier isEqualToString:@"iPhone4,1"])    return @"iPhone 4S";
+    if ([modelIdentifier isEqualToString:@"iPhone5,1"])    return @"iPhone 5 (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPhone5,2"])    return @"iPhone 5 (Global)";
+    if ([modelIdentifier isEqualToString:@"iPhone5,3"])    return @"iPhone 5c (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPhone5,4"])    return @"iPhone 5c (Global)";
+    if ([modelIdentifier isEqualToString:@"iPhone6,1"])    return @"iPhone 5s (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPhone6,2"])    return @"iPhone 5s (Global)";
+    
+    // iPad http://theiphonewiki.com/wiki/IPad
+    
+    if ([modelIdentifier isEqualToString:@"iPad1,1"])      return @"iPad 1G";
+    if ([modelIdentifier isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad2,2"])      return @"iPad 2 (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPad2,3"])      return @"iPad 2 (CDMA)";
+    if ([modelIdentifier isEqualToString:@"iPad2,4"])      return @"iPad 2 (Rev A)";
+    if ([modelIdentifier isEqualToString:@"iPad3,1"])      return @"iPad 3 (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad3,2"])      return @"iPad 3 (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPad3,3"])      return @"iPad 3 (Global)";
+    if ([modelIdentifier isEqualToString:@"iPad3,4"])      return @"iPad 4 (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad3,5"])      return @"iPad 4 (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPad3,6"])      return @"iPad 4 (Global)";
+    
+    if ([modelIdentifier isEqualToString:@"iPad4,1"])      return @"iPad Air (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad4,2"])      return @"iPad Air (Cellular)";
+    
+    // iPad Mini http://theiphonewiki.com/wiki/IPad_mini
+    
+    if ([modelIdentifier isEqualToString:@"iPad2,5"])      return @"iPad mini 1G (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad2,6"])      return @"iPad mini 1G (GSM)";
+    if ([modelIdentifier isEqualToString:@"iPad2,7"])      return @"iPad mini 1G (Global)";
+    if ([modelIdentifier isEqualToString:@"iPad4,4"])      return @"iPad mini 2G (WiFi)";
+    if ([modelIdentifier isEqualToString:@"iPad4,5"])      return @"iPad mini 2G (Cellular)";
+    
+    // iPod http://theiphonewiki.com/wiki/IPod
+    
+    if ([modelIdentifier isEqualToString:@"iPod1,1"])      return @"iPod touch 1G";
+    if ([modelIdentifier isEqualToString:@"iPod2,1"])      return @"iPod touch 2G";
+    if ([modelIdentifier isEqualToString:@"iPod3,1"])      return @"iPod touch 3G";
+    if ([modelIdentifier isEqualToString:@"iPod4,1"])      return @"iPod touch 4G";
+    if ([modelIdentifier isEqualToString:@"iPod5,1"])      return @"iPod touch 5G";
+    
+    // Simulator
+    if ([modelIdentifier hasSuffix:@"86"] || [modelIdentifier isEqual:@"x86_64"])
+    {
+        BOOL smallerScreen = ([[UIScreen mainScreen] bounds].size.width < 768.0);
+        return (smallerScreen ? @"iPhone Simulator" : @"iPad Simulator");
+    }
+    
+    return modelIdentifier;
 }
 
 - (BOOL) hasRetinaDisplay
