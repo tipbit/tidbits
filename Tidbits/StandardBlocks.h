@@ -13,6 +13,7 @@
 
 typedef void (^IdBlock)(id obj);
 typedef void (^NSArrayBlock)(NSArray* array);
+typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
 typedef void (^NSArrayNSErrorBlock)(NSArray* array, NSError* error);
 typedef void (^NSDataBlock)(NSData* data);
 typedef void (^NSDataNSErrorBlock)(NSData* data, NSError* error);
