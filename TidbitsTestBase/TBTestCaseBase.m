@@ -12,15 +12,22 @@
 #import "TBTestCaseBase.h"
 
 
-#define TIMEOUT 10
+#define DEFAULT_TIMEOUT 10.0
 
 
-bool WaitFor(bool (^block)(void))
-{
+bool WaitFor(bool (^block)(void)) {
+    return WaitForTimeout(DEFAULT_TIMEOUT, block);
+}
+
+
+bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void)) {
     NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
-    while(!block() && [[NSProcessInfo processInfo] systemUptime] - start <= TIMEOUT)
+    do {
+        if (block())
+            return true;
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.3]];
-    return block();
+    } while ([[NSProcessInfo processInfo] systemUptime] - start <= timeout);
+    return false;
 }
 
 
@@ -51,5 +58,6 @@ extern void __gcov_flush(void);
     // http://stackoverflow.com/questions/18394655/xcode5-code-coverage-from-cmd-line-for-ci-builds
     __gcov_flush();
 }
+
 
 @end
