@@ -37,10 +37,14 @@
   [super stopObserving];
 
   // Call gtm_gcov_flush in the application executable unit.
+  // Silence the warning that comes because gtm_gcov_flush is linked into the main app, not the test lib.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
   id application = [UIApplication sharedApplication];
   if ([application respondsToSelector:@selector(gtm_gcov_flush)]) {
     [application performSelector:@selector(gtm_gcov_flush)];
   }
+#pragma clang diagnostic pop
 
   // Reset defaults back to what they should be.
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
