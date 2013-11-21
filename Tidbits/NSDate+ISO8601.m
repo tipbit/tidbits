@@ -42,8 +42,23 @@ static NSTimeZone* utc_timezone = nil;
                     nil;
     if (format == nil)
         return nil;
+
     NSDateFormatter* f = makeFormatter(format);
-    return [f dateFromString:s];
+    NSDate *date;
+    
+    // Put a try/catch around the date conversion
+    // Did hit a crash here - crashlytics #416
+    @try
+    {
+        date = [f dateFromString:s];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Could not parse date string: %@", s);
+        date = nil;
+    }
+    
+    return date;
 }
 
 
