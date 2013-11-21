@@ -48,16 +48,5 @@ bool isReachable(NSString* hostname)
 
 @implementation TBTestCaseBase
 
-extern void __gcov_flush(void);
-
--(void)tearDown {
-    [super tearDown];
-    // Xcode 5 / iOS 7 simulator fails to call this, which means that code coverage doesn't work.
-    // We have to do it ourselves.
-    // http://www.bubblefoundry.com/blog/2013/09/generating-ios-code-coverage-reports/
-    // http://stackoverflow.com/questions/18394655/xcode5-code-coverage-from-cmd-line-for-ci-builds
-    __gcov_flush();
-}
-
 
 @end

@@ -11,6 +11,8 @@
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
+		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
+		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
 		402B79401839464700ED9858 /* Breadcrumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B793F1839464700ED9858 /* Breadcrumbs.m */; };
 		4047B4A41805B42C0032BBA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
@@ -241,6 +243,9 @@
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
+		4020ED41183E095B0040B096 /* GTMCodeCoverageApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMCodeCoverageApp.h; sourceTree = "<group>"; };
+		4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageApp.m; sourceTree = "<group>"; };
+		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
 		402B793E1839464700ED9858 /* Breadcrumbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breadcrumbs.h; sourceTree = "<group>"; };
 		402B793F1839464700ED9858 /* Breadcrumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Breadcrumbs.m; sourceTree = "<group>"; };
 		4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestCaseBase.h; sourceTree = "<group>"; };
@@ -397,6 +402,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4020ED40183E095B0040B096 /* UnitTesting */ = {
+			isa = PBXGroup;
+			children = (
+				4020ED41183E095B0040B096 /* GTMCodeCoverageApp.h */,
+				4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */,
+				4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */,
+			);
+			path = UnitTesting;
+			sourceTree = "<group>";
+		};
 		4047B49E1805B3F10032BBA5 /* TidbitsTestBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +598,7 @@
 				408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */,
 				408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */,
 				408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */,
+				4020ED40183E095B0040B096 /* UnitTesting */,
 			);
 			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
@@ -737,6 +753,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */,
 				4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +809,7 @@
 				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
 				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
 				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
+				4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,10 +865,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -910,6 +925,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"GTM_USING_XCTEST=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
