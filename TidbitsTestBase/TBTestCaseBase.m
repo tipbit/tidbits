@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
+#import "GTMCodeCoverageApp.h"
+
 #import "TBTestCaseBase.h"
 
 
@@ -47,6 +49,19 @@ bool isReachable(NSString* hostname)
 
 
 @implementation TBTestCaseBase
+
+
+-(void)tearDown {
+    // When running under XCTest, libraries are in a different environment than applications.
+    // With applications, we have XCInjectBundle set (pointing at the test bundle which has been injected)
+    // and GTMCodeCoverageTests.stopObserving is called on exit.
+    // With libraries, we have neither, so we need to call gtm_gcov_flush here instead.
+    // This presumably slows things down slightly, since we're being called for the tearDown of every test
+    // rather than once at the end.  The stats come out correct though.
+    char* bundle = getenv("XCInjectBundle");
+    if (!bundle)
+        [[UIApplication sharedApplication] gtm_gcov_flush];
+}
 
 
 @end
