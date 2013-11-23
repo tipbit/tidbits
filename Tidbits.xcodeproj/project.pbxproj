@@ -632,6 +632,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		4072B7E118415743003B7703 /* Tidbits Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "--project-name \"Tidbits\" --project-company \"Tipbit\" --company-id \"com.tipbit\" --exit-threshold 2 $(SOURCE_ROOT)";
+			buildConfigurationList = 4072B7E518415744003B7703 /* Build configuration list for PBXLegacyTarget "Tidbits Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/appledoc;
+			buildWorkingDirectory = "$(SOURCE_ROOT)";
+			dependencies = (
+			);
+			name = "Tidbits Documentation";
+			passBuildSettingsInEnvironment = 1;
+			productName = Documentation;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		4047B4A21805B42C0032BBA5 /* TidbitsTestBase */ = {
 			isa = PBXNativeTarget;
@@ -716,6 +733,7 @@
 				408E88571768DEF6001B61E6 /* Tidbits */,
 				4047B4A21805B42C0032BBA5 /* TidbitsTestBase */,
 				408E88681768DEF6001B61E6 /* TidbitsTests */,
+				4072B7E118415743003B7703 /* Tidbits Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -900,6 +918,47 @@
 			};
 			name = Release;
 		};
+		4072B7E218415744003B7703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4072B7E318415744003B7703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		408E887B1768DEF7001B61E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1073,6 +1132,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4072B7E518415744003B7703 /* Build configuration list for PBXLegacyTarget "Tidbits Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4072B7E218415744003B7703 /* Debug */,
+				4072B7E318415744003B7703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		408E88531768DEF6001B61E6 /* Build configuration list for PBXProject "Tidbits" */ = {
 			isa = XCConfigurationList;
