@@ -1140,6 +1140,7 @@
 				4072B7E318415744003B7703 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		408E88531768DEF6001B61E6 /* Build configuration list for PBXProject "Tidbits" */ = {
 			isa = XCConfigurationList;
