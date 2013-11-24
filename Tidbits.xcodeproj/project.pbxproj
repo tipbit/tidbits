@@ -711,6 +711,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Tipbit, Inc.";
+				TargetAttributes = {
+					408E88681768DEF6001B61E6 = {
+						TestTargetID = 408E88571768DEF6001B61E6;
+					};
+				};
 			};
 			buildConfigurationList = 408E88531768DEF6001B61E6 /* Build configuration list for PBXProject "Tidbits" */;
 			compatibilityVersion = "Xcode 3.2";
