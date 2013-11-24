@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4072B7E118415743003B7703"
-               BuildableName = "Documentation"
+               BuildableName = "Tidbits Documentation"
                BlueprintName = "Tidbits Documentation"
                ReferencedContainer = "container:Tidbits.xcodeproj">
             </BuildableReference>
