@@ -44,6 +44,11 @@
   if ([application respondsToSelector:@selector(gtm_gcov_flush)]) {
     [application performSelector:@selector(gtm_gcov_flush)];
   }
+  else {
+      // When testing a library under XCTest, [UIApplication sharedApplication] is nil, so we have to do the flush ourselves.
+      extern void __gcov_flush(void);
+      __gcov_flush();
+  }
 #pragma clang diagnostic pop
 
   // Reset defaults back to what they should be.
