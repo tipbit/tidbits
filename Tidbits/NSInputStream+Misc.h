@@ -12,6 +12,6 @@
 
 -(NSInteger)readUint32:(uint32_t*)result;
 
--(NSInteger)writeToFile:(NSString *)filepath;
+-(NSInteger)writeToFile:(NSString *)filepath attributes:(NSDictionary*)attributes;
 
 @end
