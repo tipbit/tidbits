@@ -8,7 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#define kTipbitUser @"USER"
+
 @interface NSUserDefaults (PerUser)
+
+// User strings
+
+// We will cache the user name so that we don't
+// look up the string in NSUserDefaults when we
+// are in lock screen mode doing a background
+// fetch.  We clear the cache on signout.
+-(NSString*)getTipbitUser;
+-(void)clearTipbitUserCache;
 
 // Per user keys
 -(NSString*)PUKey:(NSString*) key;
