@@ -11,6 +11,7 @@
 		400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */; };
 		400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C9558185313BB0095B9DC /* NSData+Ext.m */; };
 		400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C955B185321980095B9DC /* NSFileManager+Ext.m */; };
+		400C955E185328FA0095B9DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400C955D185328FA0095B9DC /* MediaPlayer.framework */; };
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
@@ -249,6 +250,7 @@
 		400C9558185313BB0095B9DC /* NSData+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Ext.m"; sourceTree = "<group>"; };
 		400C955A185321980095B9DC /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		400C955B185321980095B9DC /* NSFileManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Ext.m"; sourceTree = "<group>"; };
+		400C955D185328FA0095B9DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */,
 				40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
+				400C955E185328FA0095B9DC /* MediaPlayer.framework in Frameworks */,
 				404F47DB1805AAA800EE7258 /* SystemConfiguration.framework in Frameworks */,
 				4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */,
 				40ECA82517F899230081D51E /* XCTest.framework in Frameworks */,
@@ -458,6 +461,7 @@
 		408E885A1768DEF6001B61E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				400C955D185328FA0095B9DC /* MediaPlayer.framework */,
 				404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */,
 				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
 				4012F2D41805A7BD0036C418 /* UIKit.framework */,
