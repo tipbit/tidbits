@@ -14,13 +14,13 @@
 
 @interface DNSQueryTests : TBTestCaseBase <DNSQueryDelegate>
 
+@property (nonatomic, strong) NSArray* dnsResult;
+@property (nonatomic, strong) NSError* dnsError;
+
 @end
 
 
-@implementation DNSQueryTests {
-    NSArray* dnsResult;
-    NSError* dnsError;
-}
+@implementation DNSQueryTests
 
 
 -(void)testMXQuery {
@@ -32,14 +32,14 @@
     }
 
     DNSQuery* q = [[DNSQuery alloc] init:queryDomain rrtype:ns_t_mx delegate:self];
-    dnsResult = nil;
-    dnsError = nil;
+    self.dnsResult = nil;
+    self.dnsError = nil;
     [q start];
-    XCTAssert(WaitFor(^bool { return dnsResult != nil || dnsError != nil; }), @"Timed out");
-    XCTAssert(dnsError == nil);
-    XCTAssert(dnsResult != nil);
-    XCTAssert(dnsResult.count > 0);
-    for (id qr_ in dnsResult) {
+    XCTAssert(WaitFor(^bool { return self.dnsResult != nil || self.dnsError != nil; }), @"Timed out");
+    XCTAssert(self.dnsError == nil);
+    XCTAssert(self.dnsResult != nil);
+    XCTAssert(self.dnsResult.count > 0);
+    for (id qr_ in self.dnsResult) {
         XCTAssert([qr_ isKindOfClass:[DNSQueryResult class]]);
 
         DNSQueryResult* qr = qr_;
@@ -55,24 +55,24 @@
     NSString* queryDomain = @"notarealdomain.io";
 
     DNSQuery* q = [[DNSQuery alloc] init:queryDomain rrtype:ns_t_mx delegate:self];
-    dnsResult = nil;
-    dnsError = nil;
+    self.dnsResult = nil;
+    self.dnsError = nil;
     [q start];
-    XCTAssert(WaitFor(^bool { return dnsResult != nil || dnsError != nil; }), @"Timed out");
-    XCTAssert(dnsError != nil);
-    XCTAssert(dnsResult == nil);
-    XCTAssertEqualObjects(dnsError.domain, DNSQueryErrorDomain);
-    XCTAssertEqual(dnsError.code, DNSQueryNoSuchDomain);
+    XCTAssert(WaitFor(^bool { return self.dnsResult != nil || self.dnsError != nil; }), @"Timed out");
+    XCTAssert(self.dnsError != nil);
+    XCTAssert(self.dnsResult == nil);
+    XCTAssertEqualObjects(self.dnsError.domain, DNSQueryErrorDomain);
+    XCTAssertEqual(self.dnsError.code, DNSQueryNoSuchDomain);
 }
 
 
 -(void)dnsQuery:(DNSQuery *)dnsQuery succeededWithResult:(NSArray *)result {
-    dnsResult = result;
+    self.dnsResult = result;
 }
 
 
 -(void)dnsQuery:(DNSQuery *)dnsQuery failedWithError:(NSError *)error {
-    dnsError = error;
+    self.dnsError = error;
 }
 
 
