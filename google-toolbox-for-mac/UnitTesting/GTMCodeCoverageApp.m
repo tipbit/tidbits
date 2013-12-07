@@ -49,8 +49,10 @@ extern void __gcov_flush();
   if (observers == nil) {
     observers = GTMXCTestLogClass;
   }
-  observers = [NSString stringWithFormat:@"%@,%@", observers, className];
-  [defaults setValue:observers forKey:GTMXCTestObserverClassKey];
+  if ([observers rangeOfString:className].location == NSNotFound) {
+    observers = [NSString stringWithFormat:@"%@,%@", observers, className];
+    [defaults setValue:observers forKey:GTMXCTestObserverClassKey];
+  }
 }
 
 #endif  // GTM_USING_XCTEST
