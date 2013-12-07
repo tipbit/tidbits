@@ -11,8 +11,23 @@
 
 @implementation NSUserDefaults (PerUser)
 
+// Cache for Tipbit user.  Cleared on logout.
+static NSString *cacheUser = nil;
+
+-(NSString*)getTipbitUser {
+    if (cacheUser == nil) {
+        cacheUser = [self stringForKey:kTipbitUser];
+    }
+    
+    return cacheUser;
+}
+
+-(void)clearTipbitUserCache {
+    cacheUser = nil;
+}
+
 -(NSString*)PUKey:(NSString*) key {
-    return [self PUKey:key user:[self stringForKey:@"USER"]];
+    return [self PUKey:key user:[self getTipbitUser]];
 }
 
 -(NSString*)PUKey:(NSString*) key user:(NSString*) TBUser {
