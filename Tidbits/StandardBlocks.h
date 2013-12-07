@@ -27,6 +27,7 @@ typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
 typedef void (^NSStringNSErrorBlock)(NSString* str, NSError* error);
 typedef void (^NSString2Block)(NSString* str1, NSString* str2);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
+typedef void (^NSURLBlock)(NSURL* url);
 typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
 typedef void (^VoidBlock)(void);
 

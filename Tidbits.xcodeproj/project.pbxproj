@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
+		400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */; };
+		400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C9558185313BB0095B9DC /* NSData+Ext.m */; };
+		400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C955B185321980095B9DC /* NSFileManager+Ext.m */; };
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
@@ -240,6 +243,12 @@
 
 /* Begin PBXFileReference section */
 		4006C68518121345007DBC6D /* NSString+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MiscTests.m"; sourceTree = "<group>"; };
+		400C95441852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerViewController+Ext.h"; sourceTree = "<group>"; };
+		400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerViewController+Ext.m"; sourceTree = "<group>"; };
+		400C9557185313BB0095B9DC /* NSData+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Ext.h"; sourceTree = "<group>"; };
+		400C9558185313BB0095B9DC /* NSData+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Ext.m"; sourceTree = "<group>"; };
+		400C955A185321980095B9DC /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
+		400C955B185321980095B9DC /* NSFileManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Ext.m"; sourceTree = "<group>"; };
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
@@ -480,6 +489,8 @@
 				40A9B459177F59680068F3F5 /* LogFormatter.h */,
 				40A9B45A177F59680068F3F5 /* LogFormatter.m */,
 				408E897E176A47D4001B61E6 /* LoggingMacros.h */,
+				400C95441852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.h */,
+				400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */,
 				408E897F176A47D4001B61E6 /* NSArray+Map.h */,
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
 				407100A817FE0544006F4115 /* NSArray+Misc.h */,
@@ -488,6 +499,8 @@
 				40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */,
 				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
 				408E89021768FCA6001B61E6 /* NSData+Base64.m */,
+				400C9557185313BB0095B9DC /* NSData+Ext.h */,
+				400C9558185313BB0095B9DC /* NSData+Ext.m */,
 				40E343881784C99A001A93E9 /* NSData+MD5.h */,
 				40E343891784C99A001A93E9 /* NSData+MD5.m */,
 				40E3ED07176E4F0300FFF503 /* NSData+NSInputStream.h */,
@@ -504,6 +517,8 @@
 				408E8986176A47D4001B61E6 /* NSDictionary+Misc.m */,
 				40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */,
 				40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */,
+				400C955A185321980095B9DC /* NSFileManager+Ext.h */,
+				400C955B185321980095B9DC /* NSFileManager+Ext.m */,
 				40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */,
 				40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */,
 				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
@@ -787,6 +802,7 @@
 			files = (
 				408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */,
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
+				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
@@ -794,6 +810,7 @@
 				408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */,
 				408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */,
 				4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */,
+				400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */,
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
@@ -819,6 +836,7 @@
 				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
+				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
