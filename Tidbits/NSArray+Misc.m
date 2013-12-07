@@ -6,9 +6,17 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import "NSMutableArray+Ext.h"
+
 #import "NSArray+Misc.h"
 
+
 @implementation NSArray (Misc)
+
+
++(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects {
+    return [[NSMutableArray alloc] initWithEnumeration:objects];
+}
 
 
 -(NSDictionary*)dictAtIndex:(NSUInteger)index {

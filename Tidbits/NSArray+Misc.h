@@ -13,6 +13,8 @@
 
 @interface NSArray (Misc)
 
++(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects;
+
 -(NSDictionary*)dictAtIndex:(NSUInteger)index;
 
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;

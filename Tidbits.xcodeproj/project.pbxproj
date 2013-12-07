@@ -12,6 +12,7 @@
 		400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C9558185313BB0095B9DC /* NSData+Ext.m */; };
 		400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C955B185321980095B9DC /* NSFileManager+Ext.m */; };
 		400C955E185328FA0095B9DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400C955D185328FA0095B9DC /* MediaPlayer.framework */; };
+		400C95B51853C14A0095B9DC /* NSMutableArray+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C95B41853C14A0095B9DC /* NSMutableArray+Ext.m */; };
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
@@ -251,6 +252,8 @@
 		400C955A185321980095B9DC /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		400C955B185321980095B9DC /* NSFileManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Ext.m"; sourceTree = "<group>"; };
 		400C955D185328FA0095B9DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		400C95B31853C14A0095B9DC /* NSMutableArray+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Ext.h"; sourceTree = "<group>"; };
+		400C95B41853C14A0095B9DC /* NSMutableArray+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Ext.m"; sourceTree = "<group>"; };
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */,
 				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
 				408F4662176CD7D900C468EB /* NSInputStream+Misc.m */,
+				400C95B31853C14A0095B9DC /* NSMutableArray+Ext.h */,
+				400C95B41853C14A0095B9DC /* NSMutableArray+Ext.m */,
 				408E8987176A47D4001B61E6 /* NSMutableArray+Sorted.h */,
 				408E8988176A47D4001B61E6 /* NSMutableArray+Sorted.m */,
 				408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */,
@@ -837,6 +842,7 @@
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
 				408E8997176A47D4001B61E6 /* NSMutableArray+Sorted.m in Sources */,
+				400C95B51853C14A0095B9DC /* NSMutableArray+Ext.m in Sources */,
 				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
