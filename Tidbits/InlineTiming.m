@@ -15,9 +15,11 @@
 
 #define ESCAPE @"\033["
 #define FG_RED ESCAPE @"fg200,0,0;"
+#define FG_ORANGE ESCAPE @"fg255,100,0;"
 #define FG_OFF ESCAPE @"fg;"
 
 static NSString* fg_red;
+static NSString* fg_orange;
 static NSString* fg_off;
 
 
@@ -28,6 +30,7 @@ static NSString* fg_off;
     char *xcode_colors = getenv("XcodeColors");
     bool enabled = xcode_colors && 0 == strcmp(xcode_colors, "YES");
     fg_red = enabled ? FG_RED : @"";
+    fg_orange = enabled ? FG_ORANGE : @"";
     fg_off = enabled ? FG_OFF : @"";
 }
 
@@ -64,8 +67,12 @@ static NSString* fg_off;
     if (total_time < budget)
         return;
 
+    bool all_orange = (budget > 0.0 && total_time > (10.0 * budget));
+    NSString* all_orange_on = all_orange ? fg_orange : @"";
+    NSString* all_orange_off = all_orange ? fg_off : @"";
+
     if (count == 2) {
-        NSLog(@"Timing for %s:%u: %lf", func, line, times[1] - times[0]);
+        NSLog(@"%@Timing for %s:%u: %lf%@", all_orange_on, func, line, times[1] - times[0], all_orange_off);
         return;
     }
 
@@ -92,10 +99,10 @@ static NSString* fg_off;
             [str appendString:fg_red];
         [str appendFormat:@" %lf", delta];
         if (is_max)
-            [str appendString:fg_off];
+            [str appendString:all_orange ? fg_orange : fg_off];
     }
 
-    NSLog(@"Timings for %s:%u:%@ = %lf; max of %lf(%0.2lf%%) at line %u", func, line, str, total_time, max_delta, 100 * max_delta / total_time, max_line);
+    NSLog(@"%@Timings for %s:%u:%@ = %lf; max of %lf(%0.2lf%%) at line %u%@", all_orange_on, func, line, str, total_time, max_delta, 100 * max_delta / total_time, max_line, all_orange_off);
 }
 
 @end
