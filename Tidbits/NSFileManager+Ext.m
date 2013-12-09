@@ -8,6 +8,7 @@
 
 #import "Dispatch.h"
 #import "LoggingMacros.h"
+#import "NSError+Ext.h"
 
 #import "NSFileManager+Ext.h"
 
@@ -19,7 +20,7 @@
     dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_LOW, ^{
         NSError* err = nil;
         BOOL ok = [self removeItemAtURL:url error:&err];
-        if (!ok && !(err.domain == NSCocoaErrorDomain && err.code == ENOENT))
+        if (!ok && !err.isNoSuchFile)
             NSLog(@"Warning: Failed to remove %@", url);
     });
 }

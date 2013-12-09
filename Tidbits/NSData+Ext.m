@@ -34,7 +34,7 @@
     NSArray *cacheDirs = [nsfm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     if (cacheDirs.count == 0) {
         NSLog(@"Failed to find NSCachesDirectory!  Can't create temporary file for %@.", filename);
-        NSError* err2 = [NSError errorWithDomain:NSCocoaErrorDomain code:ENOENT userInfo:nil];
+        NSError* err2 = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileNoSuchFileError userInfo:nil];
         myOnFailure(err2);
         return;
     }
@@ -51,7 +51,7 @@
     NSURL* tempFile = [tempDir URLByAppendingPathComponent:filename.lastPathComponent];
     if (tempFile == nil) {
         NSLog(@"Error creating temp file URL for %@ at %@", filename, tempDir);
-        NSError* err2 = [NSError errorWithDomain:NSCocoaErrorDomain code:ENOMEM userInfo:nil];
+        NSError* err2 = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:nil];
         myOnFailure(err2);
         return;
     }
@@ -59,7 +59,7 @@
     BOOL ok = [nsfm createFileAtPath:tempFile.path contents:self attributes:@{NSFileProtectionKey: NSFileProtectionComplete}];
     if (!ok) {
         NSLog(@"Error creating %@", tempFile);
-        NSError* err2 = [NSError errorWithDomain:NSCocoaErrorDomain code:EACCES userInfo:nil];
+        NSError* err2 = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         myOnFailure(err2);
         return;
     }
