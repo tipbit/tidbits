@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
+		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
 		400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */; };
 		400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C9558185313BB0095B9DC /* NSData+Ext.m */; };
@@ -247,6 +248,8 @@
 /* Begin PBXFileReference section */
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
+		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
+		4006C52B18559C6200B2F22A /* TBTestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestHelpers.m; sourceTree = "<group>"; };
 		4006C68518121345007DBC6D /* NSString+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MiscTests.m"; sourceTree = "<group>"; };
 		400C95441852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerViewController+Ext.h"; sourceTree = "<group>"; };
 		400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerViewController+Ext.m"; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 			children = (
 				4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */,
 				4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */,
+				4006C52A18559C6200B2F22A /* TBTestHelpers.h */,
+				4006C52B18559C6200B2F22A /* TBTestHelpers.m */,
 			);
 			path = TidbitsTestBase;
 			sourceTree = "<group>";
@@ -807,6 +812,7 @@
 			files = (
 				4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */,
 				4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */,
+				4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

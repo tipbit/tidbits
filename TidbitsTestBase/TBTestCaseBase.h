@@ -8,10 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
+#import "TBTestHelpers.h"
+
+
 @interface TBTestCaseBase : XCTestCase
 
 @end
-
-bool WaitFor(bool (^block)(void));
-bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void));
-bool isReachable(NSString* hostname);
