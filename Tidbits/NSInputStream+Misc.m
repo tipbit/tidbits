@@ -55,6 +55,11 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     }
 
     uint8_t* buf = malloc(BUFSIZE);
+    if (buf == NULL) {
+        [file closeFile];
+        return -ENOMEM;
+    }
+
     NSInteger result = 0;
     @try {
         while (true) {
