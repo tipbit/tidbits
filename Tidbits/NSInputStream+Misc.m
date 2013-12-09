@@ -7,6 +7,7 @@
 //
 
 #import "LoggingMacros.h"
+#import "NSError+Ext.h"
 
 #import "NSInputStream+Misc.h"
 
@@ -79,8 +80,13 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     [file closeFile];
     free(buf);
 
-    [nsfm removeItemAtPath:filepath error:nil];
     NSError* err = nil;
+    ok = [nsfm removeItemAtPath:filepath error:&err];
+    if ((!ok || err != nil) && !err.isNoSuchFile) {
+        NSLog(@"Warning: failed to remove %@: %@.  Ignoring, but this probably will cause the move to fail.", filepath, err);
+    }
+
+    err = nil;
     ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
     if (!ok || err != nil) {
         NSLog(@"Got error when trying to move %@ to %@: %@", temppath, filepath, err);
