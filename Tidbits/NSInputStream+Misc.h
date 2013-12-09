@@ -15,6 +15,9 @@
  */
 -(NSInteger)readUint32:(uint32_t*)result;
 
+/**
+ * @return The total number of bytes written, or a negative errno on failure.
+ */
 -(NSInteger)writeToFile:(NSString *)filepath attributes:(NSDictionary*)attributes;
 
 @end

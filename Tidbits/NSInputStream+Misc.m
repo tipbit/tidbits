@@ -16,6 +16,7 @@
 
 @implementation NSInputStream (Misc)
 
+
 -(NSInteger)readUint32:(uint32_t*)result {
     return readLen(self, (u_int8_t*)result, 4);
 }
@@ -42,14 +43,14 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     NSString* temppath = [filepath stringByAppendingPathExtension:@"tmp"];
     BOOL ok = [nsfm createFileAtPath:temppath contents:nil attributes:attributes];
     if (!ok) {
-        NSLog(@"Got error trying to create %@", temppath);
-        return -1;
+        NSLog(@"Got error trying to create %@: %s", temppath, strerror(errno));
+        return -errno;
     }
 
     NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:temppath];
     if (file == nil) {
-        NSLog(@"Got error trying to open %@", temppath);
-        return -1;
+        NSLog(@"Got error trying to open %@: %s", temppath, strerror(errno));
+        return -errno;
     }
 
     uint8_t* buf = malloc(BUFSIZE);
@@ -72,7 +73,7 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     }
     @catch (NSException* exn) {
         NSLog(@"Caught exception writing to %@: %@", temppath, exn);
-        result = -1;
+        result = -EIO;
     }
 
     [file closeFile];
@@ -83,7 +84,7 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
     ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
     if (!ok || err != nil) {
         NSLog(@"Got error when trying to move %@ to %@: %@", temppath, filepath, err);
-        return -1;
+        return -EIO;
     }
 
     return result;
