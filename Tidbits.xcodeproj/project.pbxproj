@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
 		400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */; };
 		400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 400C9558185313BB0095B9DC /* NSData+Ext.m */; };
@@ -244,6 +245,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
+		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C68518121345007DBC6D /* NSString+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MiscTests.m"; sourceTree = "<group>"; };
 		400C95441852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerViewController+Ext.h"; sourceTree = "<group>"; };
 		400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerViewController+Ext.m"; sourceTree = "<group>"; };
@@ -569,6 +572,8 @@
 				40BD90321777C13400A3ED9C /* UTI.h */,
 				40BD90331777C13400A3ED9C /* UTI.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
+				4006C50A1855794200B2F22A /* NSError+Ext.h */,
+				4006C50B1855794200B2F22A /* NSError+Ext.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
+				4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
