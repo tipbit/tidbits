@@ -9,6 +9,8 @@
 #import "NSUserDefaults+Default.h"
 #import "NSUserDefaults+PerUser.h"
 
+#define kTipbitUser @"USER"
+
 @implementation NSUserDefaults (PerUser)
 
 // Cache for Tipbit user.  Cleared on logout.
@@ -22,7 +24,15 @@ static NSString *cacheUser = nil;
     return cacheUser;
 }
 
--(void)clearTipbitUserCache {
+-(void)setTipbitUserAndSynchronize:(NSString *)user {
+    [self setObject:user forKey:kTipbitUser];
+    [self synchronize];
+    cacheUser = user;
+}
+
+-(void)clearTipbitUserAndSynchronize {
+    [self removeObjectForKey:kTipbitUser];
+    [self synchronize];
     cacheUser = nil;
 }
 

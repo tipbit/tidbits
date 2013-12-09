@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kTipbitUser @"USER"
-
 @interface NSUserDefaults (PerUser)
 
 // User strings
@@ -19,7 +17,8 @@
 // are in lock screen mode doing a background
 // fetch.  We clear the cache on signout.
 -(NSString*)getTipbitUser;
--(void)clearTipbitUserCache;
+-(void)setTipbitUserAndSynchronize:(NSString*)user;
+-(void)clearTipbitUserAndSynchronize;
 
 // Per user keys
 -(NSString*)PUKey:(NSString*) key;
