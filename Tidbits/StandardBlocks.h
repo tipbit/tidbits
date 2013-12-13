@@ -11,6 +11,7 @@
 #ifndef Tidbits_StandardBlocks_h
 #define Tidbits_StandardBlocks_h
 
+typedef void (^BOOLPtrBlock)(BOOL *flag);
 typedef void (^IdBlock)(id obj);
 typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
