@@ -19,10 +19,15 @@ bool WaitFor(bool (^block)(void)) {
 }
 
 
+bool WaitForMainThread() {
+    return WaitForTimeout(0.0, NULL);
+}
+
+
 bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void)) {
     NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
     do {
-        if (block())
+        if (block && block())
             return true;
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.3]];
     } while ([[NSProcessInfo processInfo] systemUptime] - start <= timeout);
