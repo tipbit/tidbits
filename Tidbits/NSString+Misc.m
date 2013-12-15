@@ -98,6 +98,19 @@
 }
 
 
+-(NSString*)stringBySanitizingFilename {
+    static NSRegularExpression* stringBySanitizingFilenameRE = nil;
+    static dispatch_once_t stringBySanitizingFilenameOnce;
+    dispatch_once(&stringBySanitizingFilenameOnce, ^{
+        NSError* err = nil;
+        stringBySanitizingFilenameRE = [NSRegularExpression regularExpressionWithPattern:@"[^]\\w !\"#$%&'()*+,.:;<=>?@\\[\\^_`{|}~-]+" options:0 error:&err];
+        assert(stringBySanitizingFilenameRE && err == nil);
+    });
+
+    return [[stringBySanitizingFilenameRE stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, self.length) withTemplate:@" "] trim];
+}
+
+
 -(bool)isEarlierVersionThan:(NSString *)comparand {
     return [self compare:comparand options:NSNumericSearch] == NSOrderedAscending;
 }
