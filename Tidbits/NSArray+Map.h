@@ -41,6 +41,8 @@
  * call may go off onto another thread to do its work.  This call is completely thread-safe,
  * with the caveat that you must not modify self or its contents for the duration of the
  * call.
+ *
+ * This instance retains itself for the duration of the chain of calls (i.e. until onSuccess is called).
  */
 -(void) map_async:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess;
 
