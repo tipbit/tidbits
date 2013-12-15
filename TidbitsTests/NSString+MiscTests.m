@@ -41,7 +41,7 @@
 
 
 -(void)testStringBySanitizingFilenameFullSentence {
-    NSString* input = @"They can't want to make it this hard, can they?";
+    NSString* input = @"They can't want to make it this hard, can they";
     XCTAssertEqualObjects([input stringBySanitizingFilename], input);
 }
 
@@ -55,7 +55,7 @@
 
 -(void)testStringBySanitizingFilenameWindows {
     NSString* input = @"C:\\My Documents\\Please note.docx";
-    NSString* expected = @"C: My Documents Please note.docx";
+    NSString* expected = @"C My Documents Please note.docx";
     XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
 }
 
@@ -69,7 +69,8 @@
 
 -(void)testStringBySanitizingFilenameRegexAwkward {
     NSString* input = @"[Lo] and <behold> -- it's a ^caret^ + an \"ampersand\" &c.";
-    XCTAssertEqualObjects([input stringBySanitizingFilename], input);
+    NSString* expected = @"[Lo] and  behold  -- it's a ^caret^ + an  ampersand  &c.";
+    XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
 }
 
 

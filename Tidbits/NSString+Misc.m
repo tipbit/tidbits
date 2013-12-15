@@ -103,7 +103,7 @@
     static dispatch_once_t stringBySanitizingFilenameOnce;
     dispatch_once(&stringBySanitizingFilenameOnce, ^{
         NSError* err = nil;
-        stringBySanitizingFilenameRE = [NSRegularExpression regularExpressionWithPattern:@"[^]\\w !\"#$%&'()*+,.:;<=>?@\\[\\^_`{|}~-]+" options:0 error:&err];
+        stringBySanitizingFilenameRE = [NSRegularExpression regularExpressionWithPattern:@"[^]\\w !#$%&'()+,.;=@\\[\\^_`{}~-]+" options:0 error:&err];
         assert(stringBySanitizingFilenameRE && err == nil);
     });
 
