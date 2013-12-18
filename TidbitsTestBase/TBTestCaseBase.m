@@ -6,9 +6,20 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import "LogFormatter.h"
+
 #import "TBTestCaseBase.h"
 
 
 @implementation TBTestCaseBase
+
+
++(void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [LogFormatter formatterRegisteredAsDefaultASLAndTTY];
+    });
+}
+
 
 @end
