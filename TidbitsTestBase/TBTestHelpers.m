@@ -35,6 +35,18 @@ bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void)) {
 }
 
 
+bool WaitForTimeoutAsync(NSTimeInterval timeout, void (^block)(bool* done)) {
+    __block bool done = false;
+    block(&done);
+
+    WaitForTimeout(timeout, ^bool{
+        return done;
+    });
+
+    return done;
+}
+
+
 bool isReachable(NSString* hostname)
 {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);

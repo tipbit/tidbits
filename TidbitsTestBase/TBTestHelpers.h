@@ -8,18 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+#import "StandardBlocks.h"
+
+
 /**
  * Equivalent to `WaitFor(DEFAULT_TIMEOUT, block);`.
  */
 extern bool WaitFor(bool (^block)(void));
+
 
 /**
  * Equivalent to `WaitFor(0.0, NULL);`.  In other words, just ticks a small amount of work (0.3 seconds worth) on the main thread.
  */
 extern bool WaitForMainThread(void);
 
+
 /**
- * Evaluate the given block, and return when either it returns true or the timeout expires whichever is earlier.
+ * Repeatedly evaluate the given block, and return when either it returns true or the timeout expires whichever is earlier.
  * The main run loop is executed for 0.3 seconds between each evaluation of the given block.  The intention is
  * that the block is evaluating some condition that will become true as a consequence of some work on the main thread.
  *
@@ -28,4 +33,14 @@ extern bool WaitForMainThread(void);
  */
 extern bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void));
 
-bool isReachable(NSString* hostname);
+
+/**
+ * Evaluate the given block once, passing it a bool*.  Then wait until the bool becomes true or the timeout expires whichever is the earlier.
+ * The main run loop is executed for 0.3 seconds between each evaluation of the given block.  The intention is
+ * that the block starts an asynchronous call which will eventually cause some condition that will become true as a consequence of some work
+ * on the main thread.
+ */
+extern bool WaitForTimeoutAsync(NSTimeInterval timeout, void (^block)(bool *));
+
+
+extern bool isReachable(NSString* hostname);
