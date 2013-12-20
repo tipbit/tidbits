@@ -22,4 +22,9 @@
 }
 
 
+-(void)setUp {
+    self.continueAfterFailure = NO;
+}
+
+
 @end
