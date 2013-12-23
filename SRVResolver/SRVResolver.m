@@ -249,15 +249,15 @@ static void QueryRecordCallback(
     assert(sdRef == obj->_sdRef);
     assert(flags & kDNSServiceFlagsAdd);
     #pragma unused(interfaceIndex)
-    // errorCode looked at below
     #pragma unused(fullname)
-    #pragma unused(rrtype)
-    assert(rrtype == kDNSServiceType_SRV);
-    #pragma unused(rrclass)
-    assert(rrclass == kDNSServiceClass_IN);
-    // rdlen and rdata used below
     #pragma unused(ttl)
-    // context used above
+
+    if (rrtype != kDNSServiceType_SRV || rrclass != kDNSServiceClass_IN) {
+        // These checks used to be asserts.  We hit them (rarely) in the field -- 5 crashes for 4 users over approx 1 month.
+        // I don't know if this indicates that DNS servers don't always do what they are told, or a bug on this side.
+        // Treat these as transient errors until we know more.
+        errorCode = kDNSServiceErr_Transient;
+    }
 
     if (errorCode == kDNSServiceErr_NoError) {
         [obj processRecord:rdata length:rdlen];
