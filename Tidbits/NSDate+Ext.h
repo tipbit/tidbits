@@ -13,17 +13,28 @@
 +(NSDate*)year2038;
 
 -(NSString*)userShortDateString;
+-(NSString*)userShortDateAndTimeString;
 -(NSString*)userYearlessDateString;
 -(NSString*)userShortTimeString;
--(NSString*)userShortTimeOrDateString;
+-(NSString*)userShortTimeDayOrDateString;
 
 /**
- * Equal to userYearlessDateString if this date falls in this year, or userShortDateString otherwise.
+ * Equivalent to `self.isThisYear ? self.userYearlessDateString : userShortDateString`.
  */
 -(NSString*)userYearlessOrShortDateString;
 
-/*!
- @abstract Equivalent to [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone].
+/**
+ * Equivalent to `self.userYearlessOrShortDateString` and `self.userShortTimeString`, separated by a space.
+ */
+-(NSString*)userYearlessOrShortDateAndTimeString;
+
+/**
+ * Equivalent to `self.isToday ? self.usershortTimeString : self.userYearlessOrShortDateAndTimeString`.
+ */
+-(NSString*)userYearlessOrShortDateIfNotTodayAndTimeString;
+
+/**
+ * Equivalent to `[self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone]`.
  */
 - (NSDate*) startOfDay;
 

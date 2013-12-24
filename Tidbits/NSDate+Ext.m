@@ -90,14 +90,51 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
--(NSString *)userShortTimeOrDateString {
+-(NSString*)userYearlessOrShortDateIfNotTodayAndTimeString {
+    return self.isToday ? self.userShortTimeString : self.userYearlessOrShortDateAndTimeString;
+}
+
+
+-(NSString*)userYearlessOrShortDateAndTimeString {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    if (self.isThisYear)
+        formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"M d" options:0 locale:NSLocale.currentLocale];
+    else
+        formatter.dateStyle = NSDateFormatterShortStyle;
+    NSString* date = [formatter stringFromDate:self];
+    formatter.dateStyle = NSDateFormatterNoStyle;
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    NSString* time = [formatter stringFromDate:self];
+    return [[NSString stringWithFormat:@"%@ %@", date, time] lowercaseString];
+}
+
+
+-(NSString*)userShortDateAndTimeString {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    NSString* date = [formatter stringFromDate:self];
+    formatter.dateStyle = NSDateFormatterNoStyle;
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    NSString* time = [formatter stringFromDate:self];
+    return [[NSString stringWithFormat:@"%@ %@", date, time] lowercaseString];
+}
+
+
+-(NSString*)userShortTimeOrDateString {
+    if ([self isToday])
+        return [self userShortTimeString];
+    return [self userShortDateString];
+}
+
+
+-(NSString *)userShortTimeDayOrDateString {
     if ([self isToday])
         return [self userShortTimeString];
     if ([self isYesterday])
         return @"Yesterday";
     if ([self isDayBefore])
         return [self dayOfWeek];
-    return [self userShortDateString];
+    return [self userYearlessOrShortDateString];
 }
 
 
