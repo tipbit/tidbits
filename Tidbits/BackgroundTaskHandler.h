@@ -17,7 +17,7 @@ typedef void(^TaskBlock)(GetBoolBlock gameOver);
 /**
  * A manager object for tasks that should be performed when the app is put into the background (cleanup tasks, for example).
  * This class registers for `UIApplicationDidEnterBackgroundNotification` and `UIApplicationWillEnterForegroundNotification`,
- * and will run the `taskBlock` given in the constructor whenever the app is backgrounded.
+ * and will run the `taskBlock` given in the constructor on a default priority background thread whenever the app is backgrounded.
  *
  * taskBlock takes `(GetBoolBlock*)gameOver` as a parameter.  `taskBlock` should call `gameOver` at appropriate points
  * and if `gameOver` returns true then `taskBlock` should terminate immediately.  This will ensure that the app is not
