@@ -32,6 +32,8 @@ typedef void (^NSURLBlock)(NSURL* url);
 typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
 typedef void (^VoidBlock)(void);
 
+typedef bool (^GetBoolBlock)();
+
 typedef id (^id_to_id_t)(id obj);
 typedef void (^id_to_id_async_t)(id obj, IdBlock onSuccess);
 typedef bool (^predicate_t)(id obj);
