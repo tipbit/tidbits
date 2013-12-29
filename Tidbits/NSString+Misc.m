@@ -6,9 +6,13 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
+#import "NSArray+Map.h"
+
 #import "NSString+Misc.h"
 
+
 @implementation NSString (Misc)
+
 
 -(bool)contains:(NSString *)substring {
     return [self rangeOfString:substring].location != NSNotFound;
@@ -103,11 +107,16 @@
     static dispatch_once_t stringBySanitizingFilenameOnce;
     dispatch_once(&stringBySanitizingFilenameOnce, ^{
         NSError* err = nil;
-        stringBySanitizingFilenameRE = [NSRegularExpression regularExpressionWithPattern:@"[^]\\w !#$%&'()+,.;=@\\[\\^_`{}~-]+" options:0 error:&err];
+        stringBySanitizingFilenameRE = [NSRegularExpression regularExpressionWithPattern:@"\\s*[^]\\w !#$%&'()+,.;=@\\[\\^_`{}~-]+\\s*" options:0 error:&err];
         assert(stringBySanitizingFilenameRE && err == nil);
     });
 
-    return [[stringBySanitizingFilenameRE stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, self.length) withTemplate:@" "] trim];
+    NSString* s = [stringBySanitizingFilenameRE stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, self.length) withTemplate:@" "];
+    NSArray* bits = [s componentsSeparatedByString:@"."];
+    NSArray* trimmed_bits = [bits map:^id(id obj) {
+        return [((NSString*)obj) trim];
+    }];
+    return [trimmed_bits componentsJoinedByString:@"."];
 }
 
 

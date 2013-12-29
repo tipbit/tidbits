@@ -48,7 +48,7 @@
 
 -(void)testStringBySanitizingFilenameEitherOr {
     NSString* input = @"Raining cats / dogs";
-    NSString* expected = @"Raining cats   dogs";
+    NSString* expected = @"Raining cats dogs";
     XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
 }
 
@@ -62,14 +62,21 @@
 
 -(void)testStringBySanitizingFilenameUnicode {
     NSString* input = @"\tpiñata \\ Wałęsa / 汉语\n ";
-    NSString* expected = @"piñata   Wałęsa   汉语";
+    NSString* expected = @"piñata Wałęsa 汉语";
     XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
 }
 
 
 -(void)testStringBySanitizingFilenameRegexAwkward {
     NSString* input = @"[Lo] and <behold> -- it's a ^caret^ + an \"ampersand\" &c.";
-    NSString* expected = @"[Lo] and  behold  -- it's a ^caret^ + an  ampersand  &c.";
+    NSString* expected = @"[Lo] and behold -- it's a ^caret^ + an ampersand &c.";
+    XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
+}
+
+
+-(void)testStringBySanitizingFilenameFullSentenceWithExtension {
+    NSString* input = @"Tomorrow: Can you make \"Monday Indoor Soccer On Turf\"?.pdf";
+    NSString* expected = @"Tomorrow Can you make Monday Indoor Soccer On Turf.pdf";
     XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
 }
 
