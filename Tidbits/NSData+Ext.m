@@ -8,6 +8,7 @@
 
 #import "LoggingMacros.h"
 #import "NSFileManager+Ext.h"
+#import "NSString+Misc.h"
 #import "TBAsserts.h"
 
 #import "NSData+Ext.h"
@@ -19,6 +20,8 @@
 -(void)writeToTemporaryFileWithName:(NSString*)filename onSuccess:(NSURLBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1))) {
     AssertOnBackgroundThread();
     NSParameterAssert(filename);
+
+    filename = [filename stringBySanitizingFilename];
 
     NSFileManager* nsfm = [NSFileManager defaultManager];
     __block NSURL* tempDir = nil;
