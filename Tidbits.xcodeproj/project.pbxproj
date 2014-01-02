@@ -21,6 +21,7 @@
 		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
 		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
 		402B79401839464700ED9858 /* Breadcrumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B793F1839464700ED9858 /* Breadcrumbs.m */; };
+		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
 		4047B4A41805B42C0032BBA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
 		4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */; };
@@ -269,6 +270,7 @@
 		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
 		402B793E1839464700ED9858 /* Breadcrumbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breadcrumbs.h; sourceTree = "<group>"; };
 		402B793F1839464700ED9858 /* Breadcrumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Breadcrumbs.m; sourceTree = "<group>"; };
+		402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601Tests.m"; sourceTree = "<group>"; };
 		4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestCaseBase.h; sourceTree = "<group>"; };
 		4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestCaseBase.m; sourceTree = "<group>"; };
 		4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbitsTestBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -602,6 +604,7 @@
 				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
+				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
@@ -889,6 +892,7 @@
 				40DE5182181C9E1400371475 /* NSArray+MiscTests.m in Sources */,
 				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 				406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */,
+				402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */,
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
 			);
