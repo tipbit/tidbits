@@ -489,6 +489,8 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
+				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
+				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
 				408E897A176A47D4001B61E6 /* BlockWithResultOperation.h */,
 				408E897B176A47D4001B61E6 /* BlockWithResultOperation.m */,
 				402B793E1839464700ED9858 /* Breadcrumbs.h */,
@@ -582,8 +584,6 @@
 				40BD90321777C13400A3ED9C /* UTI.h */,
 				40BD90331777C13400A3ED9C /* UTI.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
-				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
-				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
