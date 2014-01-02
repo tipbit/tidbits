@@ -11,6 +11,7 @@
 @interface NSDate (ISO8601)
 
 +(NSDate*) dateFromIso8601:(NSString*)s;
++(NSTimeInterval)timeIntervalSinceReferenceDateFromIso8601:(NSString*)s;
 
 +(NSString*) normalizeIso8601_24:(NSString*)s;
 

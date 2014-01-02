@@ -21,6 +21,7 @@
 		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
 		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
 		402B79401839464700ED9858 /* Breadcrumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B793F1839464700ED9858 /* Breadcrumbs.m */; };
+		402C044418754151009D105B /* CBLParseDate.c in Sources */ = {isa = PBXBuildFile; fileRef = 402C044218754151009D105B /* CBLParseDate.c */; };
 		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
 		4047B4A41805B42C0032BBA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
@@ -270,6 +271,8 @@
 		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
 		402B793E1839464700ED9858 /* Breadcrumbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breadcrumbs.h; sourceTree = "<group>"; };
 		402B793F1839464700ED9858 /* Breadcrumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Breadcrumbs.m; sourceTree = "<group>"; };
+		402C044218754151009D105B /* CBLParseDate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CBLParseDate.c; sourceTree = "<group>"; };
+		402C044318754151009D105B /* CBLParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLParseDate.h; sourceTree = "<group>"; };
 		402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601Tests.m"; sourceTree = "<group>"; };
 		4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestCaseBase.h; sourceTree = "<group>"; };
 		4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestCaseBase.m; sourceTree = "<group>"; };
@@ -438,6 +441,15 @@
 			path = UnitTesting;
 			sourceTree = "<group>";
 		};
+		402C044118754151009D105B /* CBL */ = {
+			isa = PBXGroup;
+			children = (
+				402C044218754151009D105B /* CBLParseDate.c */,
+				402C044318754151009D105B /* CBLParseDate.h */,
+			);
+			path = CBL;
+			sourceTree = "<group>";
+		};
 		4047B49E1805B3F10032BBA5 /* TidbitsTestBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +464,7 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
+				402C044118754151009D105B /* CBL */,
 				40C2A2F0177A56E0003276AB /* SRVResolver */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
 				408E885D1768DEF6001B61E6 /* Tidbits */,
@@ -873,6 +886,7 @@
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
+				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,

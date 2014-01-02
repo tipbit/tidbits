@@ -6,7 +6,10 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import "CBLParseDate.h"
+
 #import "NSDate+ISO8601.h"
+
 
 @implementation NSDate (ISO8601)
 
@@ -20,45 +23,27 @@
 static NSLocale* posix_locale = nil;
 static NSCalendar* gregorian_calendar = nil;
 static NSTimeZone* utc_timezone = nil;
+static NSTimeInterval k1970ToReferenceDate;
 
 
 +(void)load {
     posix_locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     gregorian_calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     utc_timezone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    k1970ToReferenceDate = [[NSDate dateWithTimeIntervalSince1970:0.0] timeIntervalSinceReferenceDate];
 }
 
 
-+(NSDate*) dateFromIso8601:(NSString*)s {
-    if (s == nil)
-        return nil;
-    int len = s.length;
-    NSString* format =
-        len == 24 ? FORMAT_24 :
-        len == 23 ? FORMAT_23 :
-        len == 20 ? FORMAT_20 :
-        len == 19 ? FORMAT_19 :
-        len == 10 ? FORMAT_10 :
-                    nil;
-    if (format == nil)
-        return nil;
++(NSDate*)dateFromIso8601:(NSString*)s {
+    NSTimeInterval t = [self timeIntervalSinceReferenceDateFromIso8601:s];
+    return isnan(t) ? nil : [NSDate dateWithTimeIntervalSinceReferenceDate:t];
+}
+    
 
-    NSDateFormatter* f = makeFormatter(format);
-    NSDate *date;
-    
-    // Put a try/catch around the date conversion
-    // Did hit a crash here - crashlytics #416
-    @try
-    {
-        date = [f dateFromString:s];
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"Could not parse date string: %@", s);
-        date = nil;
-    }
-    
-    return date;
++(NSTimeInterval)timeIntervalSinceReferenceDateFromIso8601:(NSString*)s {
+    // Note that we truncate to 0.001 (i.e. msec) because CBLParseISO8601Date gives slightly different results compared
+    // with NSDateFormatter, and since we know that our dates are always msec precision we can truncate that away.
+    return s == nil ? NAN : trunc(1000.0 * (CBLParseISO8601Date(s.UTF8String) + k1970ToReferenceDate)) / 1000.0;
 }
 
 

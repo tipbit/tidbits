@@ -88,7 +88,7 @@
 // Copyright (c) 2012-2013 Couchbase, Inc and licensed under the Apache License 2.0.
 //
 -(void)testDateFromIso8601Performance {
-    const NSUInteger count = 30000;
+    const NSUInteger count = 100000;
     NSArray* dates;
     @autoreleasepool {
         dates = generateSampleDates(count);
