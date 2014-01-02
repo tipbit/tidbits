@@ -12,6 +12,6 @@
 
 @interface BlockWithResultOperation : NSInvocationOperation
 
--(instancetype)initWithBlock:(dispatch_block_with_result_t)blk;
+-(instancetype)initWithBlock:(dispatch_block_with_result_t)blk __attribute__((nonnull));
 
 @end

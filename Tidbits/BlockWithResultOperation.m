@@ -8,22 +8,46 @@
 
 #import "BlockWithResultOperation.h"
 
-@implementation BlockWithResultOperation {
-    dispatch_block_with_result_t block;
-}
+
+@interface BlockWithResultOperationHelper : NSObject
+
+@property (nonatomic, copy) dispatch_block_with_result_t block;
+
+-(id)invokeBlock;
+
+@end
 
 
--(instancetype)initWithBlock:(dispatch_block_with_result_t)blk {
-    self = [super initWithTarget:self selector:@selector(invokeBlock) object:nil];
-    if (self) {
-        block = blk;
-    }
-    return self;
-}
+@implementation BlockWithResultOperationHelper
 
 
 -(id)invokeBlock {
-    return block();
+    assert(self.block != nil);
+    id result = self.block();
+    self.block = nil;
+    return result;
+}
+
+
+@end
+
+
+@implementation BlockWithResultOperation
+
+
+-(instancetype)initWithBlock:(dispatch_block_with_result_t)blk {
+    NSParameterAssert(blk);
+
+    // initWithTarget creates an NSInvocation instance that retains its arguments, and puts that in self.invocation.
+    // helper is therefore implicitly retained by this instance.
+    // We need helper (rather than having invokeBlock defined by this class) to avoid a retain cycle.
+    // There's no way to get NSInvocation to release its arguments once it's retained them;
+    // setting self.invocation.target = nil doesn't do it, even though you'd expect it to, and self.invocation is readonly.
+
+    BlockWithResultOperationHelper* helper = [[BlockWithResultOperationHelper alloc] init];
+    helper.block = blk;
+    self = [super initWithTarget:helper selector:@selector(invokeBlock) object:nil];
+    return self;
 }
 
 
