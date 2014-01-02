@@ -83,4 +83,75 @@
 }
 
 
+//
+// This test is derived from a test in CBLJSON.m in http://github.com/couchbase/couchbase-lite-ios
+// Copyright (c) 2012-2013 Couchbase, Inc and licensed under the Apache License 2.0.
+//
+-(void)testDateFromIso8601Performance {
+    const NSUInteger count = 30000;
+    NSArray* dates;
+    @autoreleasepool {
+        dates = generateSampleDates(count);
+    }
+
+    NSTimeInterval baseline = benchmarkNSDateFormatter(dates);
+    NSTimeInterval result = benchmarkDateFromIso8601(dates);
+    NSLog(@"dateFromIso8601 x %u: %0.6f sec, %0.6f ratio.", count, result, result / baseline);
+}
+
+
+static NSTimeInterval benchmarkDateFromIso8601(NSArray* dates) {
+    NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
+
+    for (NSString *date in dates)
+        [NSDate dateFromIso8601:date];
+
+    NSTimeInterval end = [NSDate timeIntervalSinceReferenceDate];
+    return end - start;
+}
+
+
+static NSTimeInterval benchmarkNSDateFormatter(NSArray* dates) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+
+    NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
+
+    for (NSString *date in dates)
+        [dateFormatter dateFromString:date];
+
+    NSTimeInterval end = [NSDate timeIntervalSinceReferenceDate];
+    return end - start;
+}
+
+
+static NSArray* generateSampleDates(NSUInteger count) {
+    NSMutableArray *dates = [NSMutableArray array];
+
+    for (NSUInteger i = 0; i < count; i++)
+        [dates addObject:generateSampleDate()];
+
+    return dates;
+}
+
+
+static NSString* generateSampleDate() {
+    unsigned year = randomNumberInRange(1980, 2013);
+    unsigned month = randomNumberInRange(1, 12);
+    unsigned date = randomNumberInRange(1, 28);
+    unsigned hour = randomNumberInRange(0, 23);
+    unsigned minute = randomNumberInRange(0, 59);
+    unsigned second = randomNumberInRange(0, 59);
+    return [NSString stringWithFormat:@"%u-%02u-%02uT%02u:%02u:%02uZ",
+            year, month, date, hour, minute, second];
+}
+
+
+static unsigned randomNumberInRange(unsigned start, unsigned end) {
+    unsigned span = end - start;
+    return start + (unsigned)arc4random_uniform(span);
+}
+
+
 @end
