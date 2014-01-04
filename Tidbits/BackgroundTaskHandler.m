@@ -97,7 +97,8 @@
     self.taskBlock(^bool{
         return [weakSelf gameOver:thisForegroundCounter];
     });
-    NSLog(@"Background task %@ complete with %lf remaining.", self.taskName, [[UIApplication sharedApplication] backgroundTimeRemaining]);
+    NSTimeInterval remaining = [[UIApplication sharedApplication] backgroundTimeRemaining];
+    NSLog(@"Background task %@ complete with %lf remaining.", self.taskName, remaining > 1e10 ? -1.0 : remaining);
     if (task != UIBackgroundTaskInvalid)
         [[UIApplication sharedApplication] endBackgroundTask:task];
 }
