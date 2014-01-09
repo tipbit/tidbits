@@ -31,7 +31,11 @@ NSString* utiFilenameToMIME(NSString* fname) {
 
 
 NSString* utiMIMEToExtension(NSString* mime) {
-    if ([mime isNotWhitespace]) {
+    // rfc822 is not in the iOS UTI DB, so we treat it specially.
+    if ([mime isEqualToString:@"message/rfc822"]) {
+        return @"eml";
+    }
+    else if ([mime isNotWhitespace]) {
         CFStringRef c_mime = (__bridge_retained CFStringRef)mime;
         CFStringRef type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, c_mime, NULL);
         CFRelease(c_mime);
