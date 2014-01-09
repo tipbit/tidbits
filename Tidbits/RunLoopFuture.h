@@ -18,7 +18,7 @@ typedef void (^RunLoopFutureIdBlock)(RunLoopFuture* future, id value);
 
 /**
  * A RunLoopFuture is a placeholder for a result that is going to be computed using GCD on the main thread.  If the value has not yet been computed,
- * waitWithInterval will call [NSRunLoop runMode:beforeDate:] until it is.
+ * waitWithInterval will poll using dispatchAsyncMainThreadWithDelay until it is.
  *
  * To use this, create a RunLoopFuture, then start a GCD-based process which will set RunLoopFuture.value when it is done.  Call waitWithInterval
  * at some later point to use that value.
@@ -30,8 +30,7 @@ typedef void (^RunLoopFutureIdBlock)(RunLoopFuture* future, id value);
 @property (nonatomic, strong) id value;
 
 /**
- * Wait for self.value to be set.  Call [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode [NSDate dateWithTimeIntervalSinceNow:interval]]
- * if self.value is not yet set, and do that until timeout.
+ * Wait for self.value to be set.  Use dispatchAsyncMainThreadWithDelay to come back later if self.value is not yet set, and do that until timeout.
  *
  * Precisely one of onSuccess or onTimeout will be called.  This call will be async dispatched to the main thread.
  *
