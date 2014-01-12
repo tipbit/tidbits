@@ -59,5 +59,8 @@
 - (BOOL) isThisYear;
 - (NSString*) dayOfWeek;
 
++(NSDate*)startOfToday;
++(NSDate*)startOf7DaysAgo;
++(NSDate*)startOfThisMonth;
 
 @end

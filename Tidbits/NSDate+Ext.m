@@ -27,6 +27,8 @@
     cachedStartOfDayBefore = nil;
     cachedStartOfToday = nil;
     cachedStartOfYesterday = nil;
+    cachedStartOf7DaysAgo = nil;
+    cachedStartOfThisMonth = nil;
     cachedThisYear = 0;
 }
 
@@ -142,6 +144,18 @@ static NSDateFormatter* makeISO8601Formatter() {
     return [self thisDayAtHour:0 minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
 }
 
+
+- (NSDate*) startOfMonth {
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [cal setTimeZone:[NSTimeZone systemTimeZone]];
+    NSDateComponents * comp = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit) fromDate:self];
+    [comp setDay:1];
+    [comp setHour:0];
+    [comp setMinute:0];
+    [comp setSecond:0];
+    return [cal dateFromComponents:comp];
+}
+
 - (NSDate*) todayCurrentHour {
     return [self thisDayAtHour:[self currentHour] minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
 }
@@ -213,6 +227,22 @@ static NSDate* cachedStartOfDayBefore = nil;
     if (cachedStartOfDayBefore == nil)
         cachedStartOfDayBefore = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 2];
     return cachedStartOfDayBefore;
+}
+
+
+static NSDate* cachedStartOf7DaysAgo = nil;
++(NSDate*)startOf7DaysAgo {
+    if (cachedStartOf7DaysAgo == nil)
+        cachedStartOf7DaysAgo = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 7];
+    return cachedStartOf7DaysAgo;
+}
+
+
+static NSDate* cachedStartOfThisMonth = nil;
++(NSDate*) startOfThisMonth {
+    if (cachedStartOfThisMonth == nil)
+        cachedStartOfThisMonth = [[NSDate date] startOfMonth];
+    return cachedStartOfThisMonth;
 }
 
 
