@@ -14,6 +14,15 @@
 @implementation NSIndexSet (Misc)
 
 
++(instancetype)indexSetWithIndexesInArray:(NSArray *)array {
+    NSMutableIndexSet *result = [NSMutableIndexSet indexSet];
+    for (NSNumber* num in array) {
+        [result addIndex:num.unsignedIntegerValue];
+    }
+    return result;
+}
+
+
 -(NSArray*)indexPathsInSection:(NSInteger)section {
     NSMutableArray* result = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {

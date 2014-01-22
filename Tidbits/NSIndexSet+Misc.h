@@ -11,6 +11,11 @@
 @interface NSIndexSet (Misc)
 
 /**
+ * @param array NSNumber array, where the numbers are treated as NSUIntegers.
+ */
++(instancetype)indexSetWithIndexesInArray:(NSArray*)array;
+
+/**
  * Create a new NSIndexPath array, with all the paths pointing to (section, row) pairs where the row numbers are as specified by this NSIndexSet.
  * c.f. NSIndexPath (UITableView).
  */
