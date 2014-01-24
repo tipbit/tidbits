@@ -61,6 +61,8 @@
 
 +(NSDate*)startOfToday;
 +(NSDate*)startOf7DaysAgo;
++(NSDate*)startOf30DaysAgo;
++(NSDate*)startOf60DaysAgo;
 +(NSDate*)startOfThisMonth;
 
 @end

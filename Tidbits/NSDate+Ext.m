@@ -28,6 +28,8 @@
     cachedStartOfToday = nil;
     cachedStartOfYesterday = nil;
     cachedStartOf7DaysAgo = nil;
+    cachedStartOf30DaysAgo = nil;
+    cachedStartOf60DaysAgo = nil;
     cachedStartOfThisMonth = nil;
     cachedThisYear = 0;
 }
@@ -235,6 +237,22 @@ static NSDate* cachedStartOf7DaysAgo = nil;
     if (cachedStartOf7DaysAgo == nil)
         cachedStartOf7DaysAgo = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 7];
     return cachedStartOf7DaysAgo;
+}
+
+
+static NSDate* cachedStartOf30DaysAgo = nil;
++(NSDate*)startOf30DaysAgo {
+    if (cachedStartOf30DaysAgo == nil)
+        cachedStartOf30DaysAgo = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 30];
+    return cachedStartOf30DaysAgo;
+}
+
+
+static NSDate* cachedStartOf60DaysAgo = nil;
++(NSDate*)startOf60DaysAgo {
+    if (cachedStartOf60DaysAgo == nil)
+        cachedStartOf60DaysAgo = [[NSDate startOfToday] dateByAddingTimeInterval:-DAY_IN_SECONDS * 60];
+    return cachedStartOf60DaysAgo;
 }
 
 
