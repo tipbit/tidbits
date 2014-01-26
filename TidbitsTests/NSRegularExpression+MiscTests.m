@@ -38,7 +38,7 @@
 
 -(bool)doWordPrefixCaseInsensitiveWith:(NSString*)input wordPrefix:(NSString*)wordPrefix {
     NSRegularExpression* re = [NSRegularExpression wordPrefixCaseInsensitive:wordPrefix];
-    return [re hasMatchInString:input options:0 range:NSMakeRange(0, input.length)];
+    return [re hasMatchInString:input];
 }
 
 
