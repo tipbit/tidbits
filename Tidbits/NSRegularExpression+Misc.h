@@ -20,13 +20,13 @@
 
 
 /**
- * Equivalent to `[self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];`.
+ * Equivalent to `string == nil ? false : [self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];`.
  */
 -(bool)hasMatchInString:(NSString *)string;
 
 
 /**
- * Equivalent to `return nil != [self firstMatchInString:string options:options range:range];`.
+ * Equivalent to `return string == nil ? false : (nil != [self firstMatchInString:string options:options range:range]);`.
  */
 -(bool)hasMatchInString:(NSString *)string options:(NSMatchingOptions)options range:(NSRange)range;
 

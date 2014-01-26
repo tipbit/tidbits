@@ -29,12 +29,12 @@
 
 
 -(bool)hasMatchInString:(NSString *)string {
-    return [self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];
+    return string == nil ? false : [self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];
 }
 
 
 -(bool)hasMatchInString:(NSString *)string options:(NSMatchingOptions)options range:(NSRange)range {
-    return nil != [self firstMatchInString:string options:options range:range];
+    return string == nil ? false : (nil != [self firstMatchInString:string options:options range:range]);
 }
 
 
