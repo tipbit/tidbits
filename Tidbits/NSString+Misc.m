@@ -102,6 +102,25 @@
 }
 
 
+-(NSString*)stringForRegularExpression {
+    return [[[[[[[[[[[[[[self
+                         stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"]
+                        stringByReplacingOccurrencesOfString:@"*" withString:@"\\*"]
+                       stringByReplacingOccurrencesOfString:@"?" withString:@"\\?"]
+                      stringByReplacingOccurrencesOfString:@"+" withString:@"\\+"]
+                     stringByReplacingOccurrencesOfString:@"[" withString:@"\\["]
+                    stringByReplacingOccurrencesOfString:@"(" withString:@"\\("]
+                   stringByReplacingOccurrencesOfString:@")" withString:@"\\)"]
+                  stringByReplacingOccurrencesOfString:@"{" withString:@"\\{"]
+                 stringByReplacingOccurrencesOfString:@"}" withString:@"\\}"]
+                stringByReplacingOccurrencesOfString:@"^" withString:@"\\^"]
+               stringByReplacingOccurrencesOfString:@"$" withString:@"\\$"]
+              stringByReplacingOccurrencesOfString:@"|" withString:@"\\|"]
+             stringByReplacingOccurrencesOfString:@"." withString:@"\\."]
+            stringByReplacingOccurrencesOfString:@"/" withString:@"\\/"];
+}
+
+
 -(NSString*)stringBySanitizingFilename {
     static NSRegularExpression* stringBySanitizingFilenameRE = nil;
     static dispatch_once_t stringBySanitizingFilenameOnce;
