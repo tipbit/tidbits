@@ -1,0 +1,33 @@
+//
+//  NSRegularExpression+Misc.m
+//  Tidbits
+//
+//  Created by Ewan Mellor on 1/26/14.
+//  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
+//
+
+#import "NSString+Misc.h"
+
+#import "NSRegularExpression+Misc.h"
+
+
+@implementation NSRegularExpression (Misc)
+
+
++(instancetype)wordPrefixCaseInsensitive:(NSString *)wordPrefix {
+    if (wordPrefix.length == 0)
+        return nil;
+
+    NSString* escaped_wordPrefix = [wordPrefix stringForRegularExpression];
+    NSError* err = nil;
+    NSRegularExpression* result =
+        [NSRegularExpression regularExpressionWithPattern:[NSString stringWithFormat:@"\\b%@", escaped_wordPrefix]
+                                                  options:NSRegularExpressionCaseInsensitive | NSRegularExpressionUseUnicodeWordBoundaries
+                                                    error:&err];
+    assert(err == nil);
+
+    return result;
+}
+
+
+@end
