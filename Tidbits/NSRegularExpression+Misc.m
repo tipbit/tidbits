@@ -28,4 +28,9 @@
 }
 
 
+-(bool)hasMatchInString:(NSString *)string options:(NSMatchingOptions)options range:(NSRange)range {
+    return nil != [self firstMatchInString:string options:options range:range];
+}
+
+
 @end

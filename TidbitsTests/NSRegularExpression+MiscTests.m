@@ -38,8 +38,7 @@
 
 -(bool)doWordPrefixCaseInsensitiveWith:(NSString*)input wordPrefix:(NSString*)wordPrefix {
     NSRegularExpression* re = [NSRegularExpression wordPrefixCaseInsensitive:wordPrefix];
-    NSTextCheckingResult* match = [re firstMatchInString:input options:0 range:NSMakeRange(0, input.length)];
-    return match != nil;
+    return [re hasMatchInString:input options:0 range:NSMakeRange(0, input.length)];
 }
 
 

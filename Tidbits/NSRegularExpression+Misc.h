@@ -18,4 +18,11 @@
  */
 +(instancetype)wordPrefixCaseInsensitive:(NSString *)wordPrefix;
 
+
+/**
+ * Equivalent to `return nil != [self firstMatchInString:string options:options range:range];`.
+ */
+-(bool)hasMatchInString:(NSString *)string options:(NSMatchingOptions)options range:(NSRange)range;
+
+
 @end
