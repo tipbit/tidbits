@@ -28,6 +28,16 @@
 }
 
 
+-(bool)hasMatchInArray:(NSArray*)array {
+    for (NSString* s in array) {
+        bool match = [self hasMatchInString:s options:0 range:NSMakeRange(0, s.length)];
+        if (match)
+            return true;
+    }
+    return false;
+}
+
+
 -(bool)hasMatchInString:(NSString *)string {
     return string == nil ? false : [self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];
 }

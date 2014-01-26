@@ -20,6 +20,13 @@
 
 
 /**
+ * @param array NSString array.
+ * @return true if any of the strings in the given array would match using hasMatchInString.
+ */
+-(bool)hasMatchInArray:(NSArray*)array;
+
+
+/**
  * Equivalent to `string == nil ? false : [self hasMatchInString:string options:0 range:NSMakeRange(0, string.length)];`.
  */
 -(bool)hasMatchInString:(NSString *)string;
