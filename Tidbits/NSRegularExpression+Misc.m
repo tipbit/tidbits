@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
 //
 
-#import "NSString+Misc.h"
-
 #import "NSRegularExpression+Misc.h"
 
 
@@ -18,7 +16,7 @@
     if (wordPrefix.length == 0)
         return nil;
 
-    NSString* escaped_wordPrefix = [wordPrefix stringForRegularExpression];
+    NSString* escaped_wordPrefix = [NSRegularExpression escapedPatternForString:wordPrefix];
     NSError* err = nil;
     NSRegularExpression* result =
         [NSRegularExpression regularExpressionWithPattern:[NSString stringWithFormat:@"\\b%@", escaped_wordPrefix]
