@@ -7,6 +7,7 @@
 //
 
 #import "NSUserDefaults+Default.h"
+#import "NSUserDefaults+Misc.h"
 #import "NSUserDefaults+PerUser.h"
 
 #define kTipbitUser @"USER"
@@ -26,13 +27,13 @@ static NSString *cacheUser = nil;
 
 -(void)setTipbitUserAndSynchronize:(NSString *)user {
     [self setObject:user forKey:kTipbitUser];
-    [self synchronize];
+    [self tb_synchronize];
     cacheUser = user;
 }
 
 -(void)clearTipbitUserAndSynchronize {
     [self removeObjectForKey:kTipbitUser];
-    [self synchronize];
+    [self tb_synchronize];
     cacheUser = nil;
 }
 
