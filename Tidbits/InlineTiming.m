@@ -27,6 +27,8 @@ static NSString* fg_off;
 
 
 +(void)initialize {
+    if (self != [InlineTiming class])
+        return;
     char *xcode_colors = getenv("XcodeColors");
     bool enabled = xcode_colors && 0 == strcmp(xcode_colors, "YES");
     fg_red = enabled ? FG_RED : @"";
