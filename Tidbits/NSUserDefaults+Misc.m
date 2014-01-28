@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
 //
 
+#import "LoggingMacros.h"
+
 #import "NSUserDefaults+Misc.h"
 
 
@@ -13,6 +15,7 @@
 
 
 -(BOOL)tb_synchronize {
+    DLog(@"");
     return [self synchronize];
 }
 
