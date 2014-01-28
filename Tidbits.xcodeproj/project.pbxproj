@@ -25,6 +25,7 @@
 		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
+		404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */; };
 		4047B4A41805B42C0032BBA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
 		4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */; };
@@ -280,6 +281,8 @@
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
 		4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+MiscTests.m"; sourceTree = "<group>"; };
+		404565F418985E62009C2A11 /* NSUserDefaults+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Misc.h"; sourceTree = "<group>"; };
+		404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Misc.m"; sourceTree = "<group>"; };
 		4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestCaseBase.h; sourceTree = "<group>"; };
 		4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestCaseBase.m; sourceTree = "<group>"; };
 		4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbitsTestBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -593,6 +596,8 @@
 				407100D117FFA4FD006F4115 /* NSString+StripHTML.m */,
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
 				408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */,
+				404565F418985E62009C2A11 /* NSUserDefaults+Misc.h */,
+				404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */,
 				4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */,
 				4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */,
 				407100DF180076A1006F4115 /* NSUUID+Misc.h */,
@@ -899,6 +904,7 @@
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
+				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
