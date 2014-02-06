@@ -25,6 +25,7 @@ typedef void (^NSMutableArrayBlock)(NSMutableArray* array);
 typedef void (^NSOperationQueueBlock)(NSOperationQueue* queue);
 typedef void (^NSStringBlock)(NSString* str);
 typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
+typedef void (^NSStringNSArrayNSArrayBlock)(NSString* str, NSArray* array1, NSArray* array2);
 typedef void (^NSStringNSErrorBlock)(NSString* str, NSError* error);
 typedef void (^NSString2Block)(NSString* str1, NSString* str2);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
