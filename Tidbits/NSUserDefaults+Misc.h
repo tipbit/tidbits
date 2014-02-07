@@ -10,6 +10,8 @@
 
 @interface NSUserDefaults (Misc)
 
++(NSUserDefaults *)tb_standardUserDefaults;
+
 /**
  * Equivalent to [self synchronize].
  *
