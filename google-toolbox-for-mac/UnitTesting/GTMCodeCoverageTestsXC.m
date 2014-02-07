@@ -26,6 +26,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
+#import "NSUserDefaults+Misc.h"
+
 #import "GTMCodeCoverageApp.h"
 
 @interface GTMCodeCoverageTests : XCTestObserver
@@ -52,7 +54,7 @@
 #pragma clang diagnostic pop
 
   // Reset defaults back to what they should be.
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSUserDefaults *defaults = [NSUserDefaults tb_standardUserDefaults];
   [defaults removeObjectForKey:XCTestObserverClassKey];
 }
 

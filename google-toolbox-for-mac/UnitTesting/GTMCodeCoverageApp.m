@@ -25,6 +25,8 @@
 
 #if DEBUG
 
+#import "NSUserDefaults+Misc.h"
+
 #import "GTMCodeCoverageApp.h"
 
 extern void __gcov_flush();
@@ -43,7 +45,7 @@ extern void __gcov_flush();
   // Must set defaults here. If we set them in XCTest we are too late
   // for the observer registration.
   // See the documentation of XCTestObserverClassKey for why we set this key.
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSUserDefaults *defaults = [NSUserDefaults tb_standardUserDefaults];
   NSString *observers = [defaults stringForKey:GTMXCTestObserverClassKey];
   NSString *className = @"GTMCodeCoverageTests";
   if (observers == nil) {
