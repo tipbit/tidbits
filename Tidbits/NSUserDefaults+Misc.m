@@ -33,7 +33,12 @@ static bool we_have_initialized = false;
 
 -(BOOL)tb_synchronize {
     DLog(@"");
-    return [self synchronize];
+    if ([[UIApplication sharedApplication] isProtectedDataAvailable])
+        return [self synchronize];
+    else {
+        DLog(@"Refusing to synchronize NSUserDefaults because isProtectedDataAvailable = false");
+        return NO;
+    }
 }
 
 
