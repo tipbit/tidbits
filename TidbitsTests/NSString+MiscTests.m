@@ -8,6 +8,7 @@
 
 #import "TBTestCaseBase.h"
 
+#import "NSString+MD5.h"
 #import "NSString+Misc.h"
 
 
@@ -78,6 +79,20 @@
     NSString* input = @"Tomorrow: Can you make \"Monday Indoor Soccer On Turf\"?.pdf";
     NSString* expected = @"Tomorrow Can you make Monday Indoor Soccer On Turf.pdf";
     XCTAssertEqualObjects([input stringBySanitizingFilename], expected);
+}
+
+
+-(void)testmd5uuid {
+    NSString* input = @"asdfghjkl";
+    NSUUID* expected = [[NSUUID alloc] initWithUUIDString:@"c44a471b-d78c-c6c2-fea3-2b9fe028d30a"];
+    XCTAssertEqualObjects([input md5uuid], expected);
+}
+
+
+-(void)testmd5uuidEmpty {
+    NSString* input = @"";
+    NSUUID* expected = [[NSUUID alloc] initWithUUIDString:@"d41d8cd9-8f00-b204-e980-0998ecf8427e"];
+    XCTAssertEqualObjects([input md5uuid], expected);
 }
 
 
