@@ -25,7 +25,7 @@
 		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
 		402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776618A614A6007176E2 /* NSUUID+MiscTests.m */; };
 		402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776918A61E94007176E2 /* NSSet+MiscTests.m */; };
-		402E776C18A62595007176E2 /* NSData+SHA256Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776B18A62595007176E2 /* NSData+SHA256Tests.m */; };
+		402E776C18A62595007176E2 /* NSData+FooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776B18A62595007176E2 /* NSData+FooTests.m */; };
 		402E776E18A6289B007176E2 /* NSDictionary+MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
@@ -284,7 +284,7 @@
 		402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601Tests.m"; sourceTree = "<group>"; };
 		402E776618A614A6007176E2 /* NSUUID+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUUID+MiscTests.m"; sourceTree = "<group>"; };
 		402E776918A61E94007176E2 /* NSSet+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+MiscTests.m"; sourceTree = "<group>"; };
-		402E776B18A62595007176E2 /* NSData+SHA256Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256Tests.m"; sourceTree = "<group>"; };
+		402E776B18A62595007176E2 /* NSData+FooTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FooTests.m"; sourceTree = "<group>"; };
 		402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MapTests.m"; sourceTree = "<group>"; };
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
@@ -642,7 +642,7 @@
 				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
-				402E776B18A62595007176E2 /* NSData+SHA256Tests.m */,
+				402E776B18A62595007176E2 /* NSData+FooTests.m */,
 				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */,
 				4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */,
@@ -946,7 +946,7 @@
 				402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
 				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
-				402E776C18A62595007176E2 /* NSData+SHA256Tests.m in Sources */,
+				402E776C18A62595007176E2 /* NSData+FooTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
