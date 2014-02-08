@@ -67,4 +67,78 @@
 }
 
 
+-(void)testDictionaryWithKeysAndMappedValues {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{@1: @1, @2: @4, @4: @16};
+    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
+        int v = [obj intValue];
+        return v == 3 ? nil : @(v * v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithKeysAndMappedValuesEmpty {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndMappedKeys {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{@1: @[@1], @4: @[@2], @16: @[@4]};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+        int v = [obj intValue];
+        return v == 3 ? nil : @(v * v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndMappedKeysEmpty {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndMappedKeysMerge {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{@"Odd": @[@1, @3], @"Even": @[@2, @4]};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+        int v = [obj intValue];
+        return v % 2 == 0 ? @"Even" : @"Odd";
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndUniqueMappedKeys {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{@1: @1, @4: @2, @16: @4};
+    NSDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
+        int v = [obj intValue];
+        return v == 3 ? nil : @(v * v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndUniqueMappedKeysEmpty {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 @end
