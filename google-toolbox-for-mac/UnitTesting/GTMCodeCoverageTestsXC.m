@@ -38,6 +38,9 @@
 - (void)stopObserving {
   [super stopObserving];
 
+  if (!is_enabled())
+    return;
+
   // Call gtm_gcov_flush in the application executable unit.
   // Silence the warning that comes because gtm_gcov_flush is linked into the main app, not the test lib.
 #pragma clang diagnostic push
@@ -59,6 +62,9 @@
 }
 
 + (void)load {
+  if (!is_enabled())
+    return;
+
   // Verify that all of our assumptions in [GTMCodeCoverageApp load] still stand
   NSString *selfClass = NSStringFromClass(self);
   BOOL mustExit = NO;
@@ -78,6 +84,11 @@
   if (mustExit) {
     exit(1);
   }
+}
+
+static bool is_enabled() {
+  char* val = getenv("GTM_CODE_COVERAGE_ENABLED");
+  return val && val[0] == '1';
 }
 
 @end

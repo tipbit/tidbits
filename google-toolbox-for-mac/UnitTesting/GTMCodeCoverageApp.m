@@ -40,6 +40,9 @@ extern void __gcov_flush();
 #if GTM_USING_XCTEST
 
 + (void)load {
+  if (!is_enabled())
+    return;
+
   // Using defines and strings so that we don't have to link in
   // XCTest here.
   // Must set defaults here. If we set them in XCTest we are too late
@@ -55,6 +58,11 @@ extern void __gcov_flush();
     observers = [NSString stringWithFormat:@"%@,%@", observers, className];
     [defaults setValue:observers forKey:GTMXCTestObserverClassKey];
   }
+}
+
+static bool is_enabled() {
+  char* val = getenv("GTM_CODE_COVERAGE_ENABLED");
+  return val && val[0] == '1';
 }
 
 #endif  // GTM_USING_XCTEST
