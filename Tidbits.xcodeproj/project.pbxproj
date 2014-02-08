@@ -23,6 +23,7 @@
 		402B79401839464700ED9858 /* Breadcrumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B793F1839464700ED9858 /* Breadcrumbs.m */; };
 		402C044418754151009D105B /* CBLParseDate.c in Sources */ = {isa = PBXBuildFile; fileRef = 402C044218754151009D105B /* CBLParseDate.c */; };
 		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
+		402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E776618A614A6007176E2 /* NSUUID+MiscTests.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
 		404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */; };
@@ -278,6 +279,7 @@
 		402C044218754151009D105B /* CBLParseDate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CBLParseDate.c; sourceTree = "<group>"; };
 		402C044318754151009D105B /* CBLParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLParseDate.h; sourceTree = "<group>"; };
 		402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601Tests.m"; sourceTree = "<group>"; };
+		402E776618A614A6007176E2 /* NSUUID+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUUID+MiscTests.m"; sourceTree = "<group>"; };
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
 		4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+MiscTests.m"; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */,
 				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
+				402E776618A614A6007176E2 /* NSUUID+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 			);
@@ -931,6 +934,7 @@
 				402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */,
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
+				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
