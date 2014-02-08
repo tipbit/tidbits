@@ -7,7 +7,9 @@
 //
 
 #import "TBTestCaseBase.h"
+#import "TBTestHelpers.h"
 
+#import "Dispatch.h"
 #import "NSArray+Map.h"
 
 
@@ -137,6 +139,61 @@
     NSDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
         return nil;
     }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapAsyncDispatch {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSArray* expected = @[@1, @4, @16];
+    __block NSArray* result = nil;
+    WaitForTimeoutAsync(30.0, ^(bool *done) {
+        [input map_async:^(id obj, IdBlock onSuccess) {
+            dispatchAsyncMainThread(^{
+                int v = [obj intValue];
+                onSuccess(v == 3 ? nil : @(v * v));
+            });
+        } onSuccess:^(NSMutableArray *array) {
+            dispatchAsyncMainThread(^{
+                result = array;
+                *done = true;
+            });
+        }];
+    });
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapAsyncNoThreads {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSArray* expected = @[@1, @4, @16];
+    __block NSArray* result = nil;
+    [input map_async:^(id obj, IdBlock onSuccess) {
+        int v = [obj intValue];
+        onSuccess(v == 3 ? nil : @(v * v));
+    } onSuccess:^(NSMutableArray *array) {
+        result = array;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapAsyncDispatchEmpty {
+    NSArray* input = @[@1, @2, @3, @4];
+    NSArray* expected = @[];
+    __block NSArray* result = nil;
+    WaitForTimeoutAsync(30.0, ^(bool *done) {
+        [input map_async:^(id obj, IdBlock onSuccess) {
+            dispatchAsyncMainThread(^{
+                onSuccess(nil);
+            });
+        } onSuccess:^(NSMutableArray *array) {
+            dispatchAsyncMainThread(^{
+                result = array;
+                *done = true;
+            });
+        }];
+    });
     XCTAssertEqualObjects(result, expected);
 }
 
