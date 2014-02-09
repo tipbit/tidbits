@@ -59,19 +59,16 @@
 		408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88921768E2BA001B61E6 /* NSMutableData+UTF8.m */; };
 		408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */; };
 		408E88CF1768E6AC001B61E6 /* GTMObjC2Runtime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */; };
-		408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */; };
 		408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */; };
 		408E88D21768E6AC001B61E6 /* GTMNSString+URLArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C11768E3A7001B61E6 /* GTMNSString+URLArguments.h */; };
 		408E88D41768E6AC001B61E6 /* GTMURLBuilder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */; };
 		408E88D51768E6AC001B61E6 /* GTMDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C71768E3A7001B61E6 /* GTMDefines.h */; };
-		408E88D61768E6AC001B61E6 /* GTMGarbageCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */; };
 		408E88D71768E6AC001B61E6 /* GTMNSString+XML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88C91768E3A7001B61E6 /* GTMNSString+XML.h */; };
 		408E88D81768E6AC001B61E6 /* NSMutableArray+Stack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */; };
 		408E88D91768E6AC001B61E6 /* NSMutableData+UTF8.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88911768E2BA001B61E6 /* NSMutableData+UTF8.h */; };
 		408E88DA1768E6AC001B61E6 /* NSMutableData+AppendByte.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88931768E2BA001B61E6 /* NSMutableData+AppendByte.h */; };
 		408E88DB1768E6AC001B61E6 /* NSString+IsNotWhitespace.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */; };
 		408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */; };
-		408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */; };
 		408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */; };
 		408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C21768E3A7001B61E6 /* GTMNSString+URLArguments.m */; };
 		408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */; };
@@ -244,12 +241,10 @@
 				408E89081768FD82001B61E6 /* NSString+Misc.h in CopyFiles */,
 				408E89041768FCBA001B61E6 /* NSData+Base64.h in CopyFiles */,
 				408E88CF1768E6AC001B61E6 /* GTMObjC2Runtime.h in CopyFiles */,
-				408E88D01768E6AC001B61E6 /* GTMMethodCheck.h in CopyFiles */,
 				408E88D11768E6AC001B61E6 /* GTMNSDictionary+URLArguments.h in CopyFiles */,
 				408E88D21768E6AC001B61E6 /* GTMNSString+URLArguments.h in CopyFiles */,
 				408E88D41768E6AC001B61E6 /* GTMURLBuilder.h in CopyFiles */,
 				408E88D51768E6AC001B61E6 /* GTMDefines.h in CopyFiles */,
-				408E88D61768E6AC001B61E6 /* GTMGarbageCollection.h in CopyFiles */,
 				408E88D71768E6AC001B61E6 /* GTMNSString+XML.h in CopyFiles */,
 				408E88D81768E6AC001B61E6 /* NSMutableArray+Stack.h in CopyFiles */,
 				408E88D91768E6AC001B61E6 /* NSMutableData+UTF8.h in CopyFiles */,
@@ -331,8 +326,6 @@
 		408E88B51768E37E001B61E6 /* NSString+IsNotWhitespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IsNotWhitespace.h"; sourceTree = "<group>"; };
 		408E88BB1768E3A7001B61E6 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjC2Runtime.h; sourceTree = "<group>"; };
 		408E88BC1768E3A7001B61E6 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMObjC2Runtime.m; sourceTree = "<group>"; };
-		408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMMethodCheck.h; sourceTree = "<group>"; };
-		408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMMethodCheck.m; sourceTree = "<group>"; };
 		408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
 		408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
 		408E88C11768E3A7001B61E6 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
@@ -340,7 +333,6 @@
 		408E88C51768E3A7001B61E6 /* GTMURLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMURLBuilder.h; sourceTree = "<group>"; };
 		408E88C61768E3A7001B61E6 /* GTMURLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMURLBuilder.m; sourceTree = "<group>"; };
 		408E88C71768E3A7001B61E6 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMGarbageCollection.h; sourceTree = "<group>"; };
 		408E88C91768E3A7001B61E6 /* GTMNSString+XML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+XML.h"; sourceTree = "<group>"; };
 		408E88CA1768E3A7001B61E6 /* GTMNSString+XML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+XML.m"; sourceTree = "<group>"; };
 		408E89011768FCA6001B61E6 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -680,9 +672,6 @@
 			isa = PBXGroup;
 			children = (
 				408E88C71768E3A7001B61E6 /* GTMDefines.h */,
-				408E88C81768E3A7001B61E6 /* GTMGarbageCollection.h */,
-				408E88BD1768E3A7001B61E6 /* GTMMethodCheck.h */,
-				408E88BE1768E3A7001B61E6 /* GTMMethodCheck.m */,
 				408E88BF1768E3A7001B61E6 /* GTMNSDictionary+URLArguments.h */,
 				408E88C01768E3A7001B61E6 /* GTMNSDictionary+URLArguments.m */,
 				40D9DD891793BB6900C49154 /* GTMNSString+HTML.h */,
@@ -883,7 +872,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408E88DD1768E6BE001B61E6 /* GTMMethodCheck.m in Sources */,
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
 				4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */,
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,

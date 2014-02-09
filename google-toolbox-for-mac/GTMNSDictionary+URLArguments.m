@@ -18,7 +18,6 @@
 
 #import "GTMNSDictionary+URLArguments.h"
 #import "GTMNSString+URLArguments.h"
-#import "GTMMethodCheck.h"
 #import "GTMDefines.h"
 
 @implementation NSDictionary (GTMNSDictionaryURLArgumentsAdditions)
