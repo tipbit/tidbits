@@ -32,14 +32,17 @@
     // Don't log the settings in production builds, for privacy reasons.
     NSString* loggablePlistContents =
 #if DEBUG
-    [plistContents description];
+        [plistContents description];
 #else
-    @"<redacted>";
+        @"<redacted>";
 #endif
     NSLog(@"Reloading %@ as defaults from %@", loggablePlistContents, defaultsPath);
 
     NSUserDefaults* defaults = [NSUserDefaults tb_standardUserDefaults];
-    [defaults registerDefaults:plistContents];
+    for (NSString* key in plistContents) {
+        [defaults removeObjectForKey:key];
+        [defaults setObject:plistContents[key] forKey:key];
+    }
     [defaults tb_synchronize];
 }
 
