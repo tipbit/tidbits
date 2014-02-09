@@ -30,6 +30,7 @@
 		402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */; };
 		402E777418A70560007176E2 /* GTMNSString+HTMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */; };
 		402E777618A707CE007176E2 /* GTMURLBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777518A707CE007176E2 /* GTMURLBuilderTests.m */; };
+		402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
 		404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */; };
@@ -292,6 +293,7 @@
 		402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+URLArgumentsTests.m"; sourceTree = "<group>"; };
 		402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTMLTests.m"; sourceTree = "<group>"; };
 		402E777518A707CE007176E2 /* GTMURLBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMURLBuilderTests.m; sourceTree = "<group>"; };
+		402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+XMLTests.m"; sourceTree = "<group>"; };
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
 		4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+MiscTests.m"; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
 				402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */,
 				402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */,
+				402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */,
 				402E777518A707CE007176E2 /* GTMURLBuilderTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
@@ -945,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
 				402E776E18A6289B007176E2 /* NSDictionary+MapTests.m in Sources */,
