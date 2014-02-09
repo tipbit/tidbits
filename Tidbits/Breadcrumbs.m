@@ -92,7 +92,7 @@ static Breadcrumbs* instance = nil;
     if (self.crumbStack.count) {
         NSString *oldTag = [self.crumbStack lastObject];
         if (tag != nil && ![oldTag isEqualToString:tag]) {
-            [self track:[NSString stringWithFormat:@"pop-mismatch-%@", tag]];
+            [self track:[NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag]];
         }
         else {
             NSString *popTag = [NSString stringWithFormat:@"%@-popped", [self.crumbStack lastObject]];
