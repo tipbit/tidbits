@@ -51,15 +51,12 @@
 
     // NSURL does not work with ports.
     baseURLString_ = [URL absoluteString];
-    if ([URL path]) {
+    if ([URL query]) {
       NSRange pathRange =
-          [baseURLString_ rangeOfString:[URL path] options:NSBackwardsSearch];
+          [baseURLString_ rangeOfString:[URL query] options:NSBackwardsSearch];
       if (pathRange.location != NSNotFound) {
-        baseURLString_ = [baseURLString_ substringToIndex:pathRange.location];
+        baseURLString_ = [baseURLString_ substringToIndex:pathRange.location-1];
       }
-
-      baseURLString_ =
-          [NSString stringWithFormat:@"%@%@", baseURLString_, [URL path]];
     }
     params_ = [[NSDictionary gtm_dictionaryWithHttpArgumentsString:[URL query]]
         mutableCopy];
@@ -72,11 +69,15 @@
 }
 
 - (void)setIntegerValue:(NSInteger)value forParameter:(NSString *)parameter {
-  [params_ setObject:[NSString stringWithFormat:@"%i", value] forKey:parameter];
+  [params_ setObject:[NSString stringWithFormat:@"%ld", (long)value] forKey:parameter];
 }
 
 - (NSString *)valueForParameter:(NSString *)parameter {
   return [params_ objectForKey:parameter];
+}
+
+- (NSInteger)integerValueForParameter:(NSString *)parameter {
+  return [[params_ objectForKey:parameter] integerValue];
 }
 
 - (void)removeParameter:(NSString *)parameter {
@@ -118,6 +119,10 @@
   }
 
   return YES;
+}
+
+- (NSUInteger)hash {
+  return [baseURLString_ hash] * 17 + [params_ hash] * 37;
 }
 
 @end
