@@ -17,6 +17,7 @@
 #define FORMAT_23 (@"yyyy-MM-dd'T'HH:mm:ss.SSS")
 #define FORMAT_20 (@"yyyy-MM-dd'T'HH:mm:ss'Z'")
 #define FORMAT_19 (@"yyyy-MM-dd'T'HH:mm:ss")
+#define FORMAT_16 (@"yyyy-MM-dd'T'HH:mm")
 #define FORMAT_10 (@"yyyy-MM-dd")
 
 
@@ -58,6 +59,12 @@ static NSTimeInterval k1970ToReferenceDate;
 
 -(NSString*) iso8601String {
     NSDateFormatter* f = makeFormatter(FORMAT_19);
+    return [f stringFromDate:self];
+}
+
+
+-(NSString*) iso8601String_16 {
+    NSDateFormatter* f = makeFormatter(FORMAT_16);
     return [f stringFromDate:self];
 }
 

@@ -69,6 +69,20 @@
 }
 
 
+-(void)testIso8601String_16Millis {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.401];
+    NSString* expected = @"2013-04-01T20:42";
+    XCTAssertEqualObjects([input iso8601String_16], expected);
+}
+
+
+-(void)testIso8601String_16NoMillis {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.0];
+    NSString* expected = @"2013-04-01T20:42";
+    XCTAssertEqualObjects([input iso8601String_16], expected);
+}
+
+
 -(void)testIso8601String_24Millis {
     NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.401];
     NSString* expected = @"2013-04-01T20:42:33.401Z";

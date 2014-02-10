@@ -25,6 +25,11 @@
 -(NSString*) iso8601String;
 
 /**
+ * @return A truncated UTC ISO 8601 date string with no seconds part: yyyy-MM-dd'T'HH:mm
+ */
+-(NSString*) iso8601String_16;
+
+/**
  * @return A full UTC ISO 8601 date string with msec and a Z suffix: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
  */
 -(NSString*) iso8601String_24;
