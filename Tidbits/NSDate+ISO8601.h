@@ -13,9 +13,20 @@
 +(NSDate*) dateFromIso8601:(NSString*)s;
 +(NSTimeInterval)timeIntervalSinceReferenceDateFromIso8601:(NSString*)s;
 
+/**
+ * @return a 24-character UTC ISO date string (c.f. iso8601String_24).  The value is taken from the given string, and
+ * if that is missing the msecs part or Z suffix then those are added.
+ */
 +(NSString*) normalizeIso8601_24:(NSString*)s;
 
+/**
+ * @return A 19-character UTC ISO 8601 date string with seconds but no msec or Z suffix: yyyy-MM-dd'T'HH:mm:ss
+ */
 -(NSString*) iso8601String;
+
+/**
+ * @return A full UTC ISO 8601 date string with msec and a Z suffix: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+ */
 -(NSString*) iso8601String_24;
 
 @end
