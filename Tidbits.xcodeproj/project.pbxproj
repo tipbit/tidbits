@@ -31,6 +31,8 @@
 		402E777418A70560007176E2 /* GTMNSString+HTMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */; };
 		402E777618A707CE007176E2 /* GTMURLBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777518A707CE007176E2 /* GTMURLBuilderTests.m */; };
 		402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */; };
+		402E784018AEB199007176E2 /* Enumerate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E783F18AEB199007176E2 /* Enumerate.m */; };
+		402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E784218AEB46E007176E2 /* EnumerateTests.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
 		404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */; };
@@ -289,6 +291,9 @@
 		402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTMLTests.m"; sourceTree = "<group>"; };
 		402E777518A707CE007176E2 /* GTMURLBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMURLBuilderTests.m; sourceTree = "<group>"; };
 		402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+XMLTests.m"; sourceTree = "<group>"; };
+		402E783E18AEB199007176E2 /* Enumerate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enumerate.h; sourceTree = "<group>"; };
+		402E783F18AEB199007176E2 /* Enumerate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enumerate.m; sourceTree = "<group>"; };
+		402E784218AEB46E007176E2 /* EnumerateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumerateTests.m; sourceTree = "<group>"; };
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
 		4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+MiscTests.m"; sourceTree = "<group>"; };
@@ -533,6 +538,8 @@
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
 				40C4E21E17F87E7C000EA60C /* DNSQuery.h */,
 				40C4E21F17F87E7C000EA60C /* DNSQuery.m */,
+				402E783E18AEB199007176E2 /* Enumerate.h */,
+				402E783F18AEB199007176E2 /* Enumerate.m */,
 				40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */,
 				40D9DD1117893D8800C49154 /* FileUtils.h */,
 				40D9DD1217893D8800C49154 /* FileUtils.m */,
@@ -640,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				40C4E22217F890B1000EA60C /* DNSQueryTests.m */,
+				402E784218AEB46E007176E2 /* EnumerateTests.m */,
 				402E777318A70560007176E2 /* GTMNSString+HTMLTests.m */,
 				402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */,
 				402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */,
@@ -884,6 +892,7 @@
 				405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */,
 				4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */,
 				400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */,
+				402E784018AEB199007176E2 /* Enumerate.m in Sources */,
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
@@ -940,6 +949,7 @@
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
 				402E776E18A6289B007176E2 /* NSDictionary+MapTests.m in Sources */,
+				402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */,
 				40DE5182181C9E1400371475 /* NSArray+MiscTests.m in Sources */,
 				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 				406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */,
