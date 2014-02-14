@@ -12,13 +12,13 @@
 
 
 /**
- * Equivalent to `WaitFor(DEFAULT_TIMEOUT, block);`.
+ * Equivalent to `WaitForTimeout(DEFAULT_TIMEOUT, block);`.
  */
 extern bool WaitFor(bool (^block)(void));
 
 
 /**
- * Equivalent to `WaitFor(0.0, NULL);`.  In other words, just ticks a small amount of work (0.3 seconds worth) on the main thread.
+ * Equivalent to `WaitForTimeout(0.0, NULL);`.  In other words, just ticks a small amount of work (0.3 seconds worth) on the main thread.
  */
 extern bool WaitForMainThread(void);
 
@@ -40,7 +40,7 @@ extern bool WaitForTimeout(NSTimeInterval timeout, bool (^block)(void));
  * that the block starts an asynchronous call which will eventually cause some condition that will become true as a consequence of some work
  * on the main thread.
  */
-extern bool WaitForTimeoutAsync(NSTimeInterval timeout, void (^block)(bool *));
+extern bool WaitForTimeoutAsync(NSTimeInterval timeout, void (^block)(bool *done));
 
 
 extern bool isReachable(NSString* hostname);
