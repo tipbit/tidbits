@@ -20,14 +20,14 @@
 
 
 
-#define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread")
+#define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread.  GCOV_EXCL_LINE")
 #define AssertOnBackgroundThreadC() assert(!NSThread.isMainThread)
 
 // To avoid the cost of this assert on the UI thread, we turn it off in release builds.
 // It's not very expensive, but there are a lot of them, and they're on hot paths.
 // For the background thread, there's no concern about the cost.
 #ifdef DEBUG
-#define AssertOnMainThread() NSAssert(NSThread.isMainThread, @"Must be on main thread")
+#define AssertOnMainThread() NSAssert(NSThread.isMainThread, @"Must be on main thread.  GCOV_EXCL_LINE")
 #else
 #define AssertOnMainThread()
 #endif
