@@ -27,4 +27,27 @@
 }
 
 
+-(NSDictionary*)loadJSONDictFromBundle:(NSString*)resourceName {
+    id result = [self loadJSONFromBundle:resourceName];
+    XCTAssert([result isKindOfClass:[NSDictionary class]]);
+    return result;
+}
+
+
+-(id)loadJSONFromBundle:(NSString*)resourceName {
+    NSError* err = nil;
+
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:resourceName ofType:@"json"];
+    NSData* data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:&err];
+    XCTAssertNotNil(data);
+    XCTAssertNil(err);
+
+    id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+    XCTAssertNotNil(obj);
+    XCTAssertNil(err);
+
+    return obj;
+}
+
+
 @end

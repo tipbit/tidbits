@@ -60,4 +60,18 @@
 
 @interface TBTestCaseBase : XCTestCase
 
+
+/**
+ * Call [self loadJSONFromBundle:resourceName], assert that the result is an NSDictionary, and return it.
+ */
+-(NSDictionary*)loadJSONDictFromBundle:(NSString*)resourceName;
+
+
+/**
+ * Load <resourceName>.json from this class's bundle, and parse it as a JSON object.
+ * Assert that the load and parse succeeded.
+ */
+-(id)loadJSONFromBundle:(NSString*)resourceName;
+
+
 @end
