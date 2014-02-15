@@ -8,7 +8,7 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#import "NSString+IsNotWhitespace.h"
+#import "NSString+Misc.h"
 
 #import "UTI.h"
 
