@@ -22,4 +22,21 @@
 }
 
 
+-(void)removeDuplicates {
+    NSMutableIndexSet* to_remove = [NSMutableIndexSet indexSet];
+    NSMutableSet* set = [NSMutableSet set];
+    for (NSUInteger idx = 0; idx < self.count; idx++) {
+        id obj = self[idx];
+        if ([set containsObject:obj]) {
+            [to_remove addIndex:idx];
+        }
+        else {
+            [set addObject:obj];
+        }
+    }
+    if (to_remove.count > 0)
+        [self removeObjectsAtIndexes:to_remove];
+}
+
+
 @end
