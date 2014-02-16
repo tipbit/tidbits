@@ -43,6 +43,8 @@
     XCTAssertNil(err);
 
     id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+    if (obj == nil)
+        NSLog(@"Failed to deserialize %@: %@", resourceName, err);
     XCTAssertNotNil(obj);
     XCTAssertNil(err);
 
