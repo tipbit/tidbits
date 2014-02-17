@@ -23,7 +23,7 @@
 @implementation SRVResolverTests
 
 
--(void)testSRVResolverAutodiscoverSmartertools {
+-(void)NETWORKED_TEST(testSRVResolverAutodiscoverSmartertools) {
     [self runSRVResolver:@"_autodiscover._tcp.smartertools.com"];
 
     XCTAssert(self.error == nil, @"%@", self.error);
@@ -38,7 +38,7 @@
 
 
 // We don't have an autodiscover SRV record configured, so this should fail.
--(void)testSRVResolverAutodiscoverTipbit {
+-(void)NETWORKED_TEST(testSRVResolverAutodiscoverTipbit) {
     [self runSRVResolver:@"_autodiscover._tcp.tipbit.com"];
 
     XCTAssert(self.error != nil);

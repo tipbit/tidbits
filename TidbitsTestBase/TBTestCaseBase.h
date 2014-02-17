@@ -30,6 +30,16 @@
 #import "TBTestHelpers.h"
 
 
+// Set this to 0 to skip tests that require a network.
+#define INCLUDE_NETWORKED_TESTS 1
+
+#if INCLUDE_NETWORKED_TESTS
+#define NETWORKED_TEST(__name) __name
+#else
+#define NETWORKED_TEST(__name) skip ## __name
+#endif
+
+
 // Generates a failure when string a1 is not equal to string a2. This call
 // differs from STAssertEqualObjects in that strings that are different in
 // composition (precomposed vs decomposed) will compare equal if their final

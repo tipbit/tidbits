@@ -23,7 +23,7 @@
 @implementation DNSQueryTests
 
 
--(void)testMXQuery {
+-(void)NETWORKED_TEST(testMXQuery) {
     NSString* queryDomain = @"gmail.com";
 
     if (!isReachable(queryDomain)) {
@@ -51,7 +51,7 @@
 }
 
 
--(void)testMXQueryInvalid {
+-(void)NETWORKED_TEST(testMXQueryInvalid) {
     NSString* queryDomain = @"notarealdomain.io";
 
     DNSQuery* q = [[DNSQuery alloc] init:queryDomain rrtype:ns_t_mx delegate:self];
