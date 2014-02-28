@@ -20,6 +20,7 @@
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
 		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
 		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
+		402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */; };
 		402B79401839464700ED9858 /* Breadcrumbs.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B793F1839464700ED9858 /* Breadcrumbs.m */; };
 		402C044418754151009D105B /* CBLParseDate.c in Sources */ = {isa = PBXBuildFile; fileRef = 402C044218754151009D105B /* CBLParseDate.c */; };
 		402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */; };
@@ -109,6 +110,7 @@
 		408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F67CB1782CABE00E974AD /* UIImage+Resize.h */; };
 		409091861804961B00D0C951 /* RunLoopFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 409091851804961B00D0C951 /* RunLoopFuture.m */; };
 		4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 409091841804961B00D0C951 /* RunLoopFuture.h */; };
+		4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */; };
 		4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095E0D4180228C10056CB72 /* InlineTiming.m */; };
 		4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4095E0D3180228C10056CB72 /* InlineTiming.h */; };
 		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
@@ -277,6 +279,7 @@
 		4020ED41183E095B0040B096 /* GTMCodeCoverageApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMCodeCoverageApp.h; sourceTree = "<group>"; };
 		4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageApp.m; sourceTree = "<group>"; };
 		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
+		402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+MiscTests.m"; sourceTree = "<group>"; };
 		402B793E1839464700ED9858 /* Breadcrumbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Breadcrumbs.h; sourceTree = "<group>"; };
 		402B793F1839464700ED9858 /* Breadcrumbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Breadcrumbs.m; sourceTree = "<group>"; };
 		402C044218754151009D105B /* CBLParseDate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CBLParseDate.c; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 		408F67CC1782CABE00E974AD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		409091841804961B00D0C951 /* RunLoopFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopFuture.h; sourceTree = "<group>"; };
 		409091851804961B00D0C951 /* RunLoopFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopFuture.m; sourceTree = "<group>"; };
+		4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Misc.h"; sourceTree = "<group>"; };
+		4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Misc.m"; sourceTree = "<group>"; };
 		4095E0D3180228C10056CB72 /* InlineTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineTiming.h; sourceTree = "<group>"; };
 		4095E0D4180228C10056CB72 /* InlineTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineTiming.m; sourceTree = "<group>"; };
 		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
@@ -597,6 +602,8 @@
 				408E88921768E2BA001B61E6 /* NSMutableData+UTF8.m */,
 				408E8989176A47D4001B61E6 /* NSMutableDictionary+Misc.h */,
 				408E898A176A47D4001B61E6 /* NSMutableDictionary+Misc.m */,
+				4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */,
+				4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */,
 				4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */,
 				4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */,
 				40D1F09318875848003BAF58 /* NSSet+Misc.h */,
@@ -662,6 +669,7 @@
 				402E776618A614A6007176E2 /* NSUUID+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
+				402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */,
 			);
 			path = TidbitsTests;
 			sourceTree = "<group>";
@@ -903,6 +911,7 @@
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
+				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
@@ -958,6 +967,7 @@
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
+				402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */,
 				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
 				402E776C18A62595007176E2 /* NSData+FooTests.m in Sources */,
 				402E777618A707CE007176E2 /* GTMURLBuilderTests.m in Sources */,
