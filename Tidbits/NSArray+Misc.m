@@ -30,6 +30,16 @@
 }
 
 
+-(id)objectPassingTest:(predicate_t)predicate __attribute__((nonnull)) {
+    NSParameterAssert(predicate);
+
+    NSUInteger result_idx = [self indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        return predicate(obj);
+    }];
+    return result_idx == NSNotFound ? nil : self[result_idx];
+}
+
+
 -(NSArray *)componentsJoinedByString:(NSString *)separator inBatches:(NSUInteger)batchSize {
     NSMutableArray* result = [NSMutableArray array];
     NSUInteger i = 0;

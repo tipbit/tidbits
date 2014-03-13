@@ -93,6 +93,38 @@
 }
 
 
+-(void)testObjectMatchingTest {
+    NSArray* input = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G"];
+
+    XCTAssertEqualObjects(@"C", [input objectPassingTest:^bool(id obj) {
+        return [obj isEqualToString:@"C"];
+    }]);
+
+    XCTAssertNil([input objectPassingTest:^bool(id obj) {
+        return [obj isEqualToString:@"H"];
+    }]);
+}
+
+
+-(void)testObjectMatchingTestEmpty {
+    NSArray* input = @[];
+
+    XCTAssertNil([input objectPassingTest:^bool(id obj) {
+        return true;
+    }]);
+}
+
+
+-(void)testObjectMatchingTestNullPredicate {
+    NSArray* input = @[@"A"];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+    XCTAssertThrowsSpecificNamed([input objectPassingTest:NULL], NSException, NSInternalInconsistencyException);
+#pragma clang diagnostic pop
+}
+
+
 -(void)testArrayWithEnumerationFromArray {
     NSArray* input = @[@0, @1];
     XCTAssertEqualObjects([NSArray arrayWithEnumeration:input], input);

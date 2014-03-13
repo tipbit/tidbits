@@ -19,6 +19,11 @@
 
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;
 
+/**
+ * @return The first object in this array that matches the given predicate.  nil if nothing matches.
+ */
+-(id)objectPassingTest:(predicate_t)predicate __attribute__((nonnull));
+
 -(NSArray*)componentsJoinedByString:(NSString*)separator inBatches:(NSUInteger)batchSize;
 
 -(NSArray*)filteredArrayUsingBlock:(predicate_t)predicate;
