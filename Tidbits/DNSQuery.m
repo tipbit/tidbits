@@ -109,7 +109,7 @@ NSString* const kDNSQueryServiceFailureCode = @"DNSQueryServiceFailureCode";
             }
             
             qr.name = [NSString stringWithUTF8String:buf];
-            qr.preference = ns_get16(rdata);
+            qr.preference = (uint16_t)ns_get16(rdata);
         }
 
         [result addObject:qr];
