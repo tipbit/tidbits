@@ -64,6 +64,11 @@
 }
 
 
+-(unsigned long)unsignedLongValue {
+    return (unsigned long)[self longLongValue];
+}
+
+
 -(NSData *)UTF8Data {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }

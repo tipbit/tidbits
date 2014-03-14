@@ -30,6 +30,8 @@
 
 -(NSString*)trim;
 
+-(unsigned long)unsignedLongValue;
+
 -(NSData*)UTF8Data;
 
 /*!
