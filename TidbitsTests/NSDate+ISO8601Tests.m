@@ -110,7 +110,7 @@
 
     NSTimeInterval baseline = benchmarkNSDateFormatter(dates);
     NSTimeInterval result = benchmarkDateFromIso8601(dates);
-    NSLog(@"dateFromIso8601 x %u: %0.6f sec, %0.6f ratio.", count, result, result / baseline);
+    NSLog(@"dateFromIso8601 x %lu: %0.6f sec, %0.6f ratio.", (unsigned long)count, result, result / baseline);
 }
 
 

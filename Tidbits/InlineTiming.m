@@ -74,7 +74,7 @@ static NSString* fg_off;
     NSString* all_orange_off = all_orange ? fg_off : @"";
 
     if (count == 2) {
-        NSLog(@"%@Timing for %s:%u: %lf%@", all_orange_on, func, line, times[1] - times[0], all_orange_off);
+        NSLog(@"%@Timing for %s:%lu: %lf%@", all_orange_on, func, (unsigned long)line, times[1] - times[0], all_orange_off);
         return;
     }
 
@@ -104,7 +104,7 @@ static NSString* fg_off;
             [str appendString:all_orange ? fg_orange : fg_off];
     }
 
-    NSLog(@"%@Timings for %s:%u:%@ = %lf; max of %lf(%0.2lf%%) at line %u%@", all_orange_on, func, line, str, total_time, max_delta, 100 * max_delta / total_time, max_line, all_orange_off);
+    NSLog(@"%@Timings for %s:%lu:%@ = %lf; max of %lf(%0.2lf%%) at line %lu%@", all_orange_on, func, (unsigned long)line, str, total_time, max_delta, 100 * max_delta / total_time, (unsigned long)max_line, all_orange_off);
 }
 
 @end

@@ -25,7 +25,7 @@
             if (d.length == 0)
                 break;
 
-            CC_MD5_Update(&md5, d.bytes, d.length);
+            CC_MD5_Update(&md5, d.bytes, (CC_LONG)d.length);
         }
     }
 

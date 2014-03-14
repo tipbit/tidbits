@@ -14,7 +14,7 @@
 
 -(NSString*)sha256 {
     unsigned char digest[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256(self.bytes, self.length, digest);
+    CC_SHA256(self.bytes, (CC_LONG)self.length, digest);
 
     return [NSString stringWithFormat:(@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
                                        @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"),
@@ -30,7 +30,7 @@
 
 -(NSData*)sha256Data {
     unsigned char digest[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256(self.bytes, self.length, digest);
+    CC_SHA256(self.bytes, (CC_LONG)self.length, digest);
 
     NSData *result = [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
     return result;

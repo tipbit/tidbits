@@ -17,7 +17,7 @@
 -(NSUUID*)md5uuid {
     const char *utf8 = [self UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(utf8, strlen(utf8), digest);
+    CC_MD5(utf8, (CC_LONG)strlen(utf8), digest);
     return [[NSUUID alloc] initWithUUIDBytes:digest];
 }
 

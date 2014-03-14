@@ -23,16 +23,16 @@
 }
 
 
-static NSInteger readLen(NSInputStream* is, u_int8_t* dest, int len) {
+static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
     int n = 0;
     while (true) {
-        int i = [is read:(dest + n) maxLength:len - n];
+        NSInteger i = [is read:(dest + n) maxLength:len - n];
         if (i <= 0)
             return i;
 
         n += i;
 
-        if (n == len)
+        if ((NSUInteger)n == len)
             return n;
     }
 }

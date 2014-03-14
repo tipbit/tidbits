@@ -14,7 +14,7 @@
 
 -(NSString*)md5 {
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(self.bytes, self.length, digest);
+    CC_MD5(self.bytes, (CC_LONG)self.length, digest);
 
     return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
             digest[0],  digest[1],  digest[2],  digest[3],
@@ -25,7 +25,7 @@
 
 -(NSData*)md5Data {
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(self.bytes, self.length, digest);
+    CC_MD5(self.bytes, (CC_LONG)self.length, digest);
 
     NSData *result = [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
     return result;
