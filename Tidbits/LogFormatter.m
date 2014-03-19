@@ -10,6 +10,7 @@
 #include <time.h>
 
 #import <Lumberjack/Lumberjack.h>
+#import "LoggingMacros.h"
 
 #import "LogFormatter.h"
 
@@ -44,16 +45,19 @@
 static char* logLevelToStr(int level) {
     switch (level) {
         case LOG_LEVEL_ERROR:
-            return "error";
+            return "error:";
 
         case LOG_LEVEL_WARN:
-            return "warn ";
+            return "warn: ";
+
+        case LOG_LEVEL_USER:
+            return "user: ";
 
         case LOG_LEVEL_INFO:
-            return "info ";
+            return "info: ";
 
         case LOG_LEVEL_VERBOSE:
-            return "debug";
+            return "debug:";
 
         default:
             return "?????";
