@@ -19,14 +19,24 @@
 
 
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY {
-    LogFormatter* formatter = [[LogFormatter alloc] init];
+    LogFormatter* aslFormatter = [[LogFormatter alloc] init];
     DDASLLogger* aslLogger = [DDASLLogger sharedInstance];
-    DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
-    aslLogger.logFormatter = formatter;
-    ttyLogger.logFormatter = formatter;
+    aslLogger.logFormatter = aslFormatter;
     [DDLog addLogger:aslLogger];
+
+    DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
+    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];
     [DDLog addLogger:ttyLogger];
-    return formatter;
+
+    [ttyLogger setColorsEnabled:YES];
+    [ttyLogger setForegroundColor:[UIColor brownColor] backgroundColor:nil forFlag:LOG_FLAG_USER];
+    [ttyLogger setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
+    [ttyLogger setForegroundColor:[UIColor purpleColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
+    [ttyLogger setForegroundColor:[UIColor darkGrayColor] backgroundColor:nil forFlag:LOG_FLAG_DEBUG];
+    [ttyLogger setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:LOG_FLAG_HTTP];
+    [ttyLogger setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
+
+    return aslFormatter;
 }
 
 
@@ -45,24 +55,83 @@
 static char* logLevelToStr(int level) {
     switch (level) {
         case LOG_LEVEL_ERROR:
-            return "error:";
+            return "error";
 
         case LOG_LEVEL_WARN:
-            return "warn: ";
+            return "warn ";
 
         case LOG_LEVEL_USER:
-            return "user: ";
+            return "[user]";
 
         case LOG_LEVEL_INFO:
-            return "info: ";
+            return "info ";
 
         case LOG_LEVEL_VERBOSE:
-            return "debug:";
+            return "debug";
 
         default:
             return "?????";
     }
 }
 
+
+@end
+
+@interface LogFormatterTTY ()
+{
+	NSDateFormatter *dateFormatter;
+}
+@end
+
+@implementation LogFormatterTTY
+- (id)init
+{
+	if ((self = [super init]))
+	{
+			dateFormatter = [[NSDateFormatter alloc] init];
+			[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
+			[dateFormatter setDateFormat:@"hh:mm:ss.SSS"];
+	}
+	return self;
+}
+
+- (NSString *)formatLogMessage:(DDLogMessage *)logMessage
+{
+	NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
+    NSString *flag;
+    if (logMessage->logFlag & LOG_FLAG_FATAL) {
+        flag = @"F";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_ERROR) {
+        flag = @"E";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_WARN) {
+        flag = @"W";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_USER) {
+        flag = @"U";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_INFO) {
+        flag = @"I";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_DEBUG) {
+        flag = @"D";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_VERBOSE) {
+        flag = @"V";
+    }
+    else if(logMessage->logFlag & LOG_FLAG_HTTP) {
+        flag = @"H";
+    }
+
+	NSString *msg = [NSString stringWithFormat:@"%@ %@ [%x] %d %s %@",
+                     flag,
+                     dateAndTime,
+                     logMessage->machThreadID,
+                     logMessage->lineNumber,
+                     logMessage->function,
+                     logMessage->logMsg];
+    return msg;
+}
 
 @end

@@ -14,3 +14,7 @@
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY;
 
 @end
+
+@interface LogFormatterTTY : NSObject <DDLogFormatter>
+
+@end
