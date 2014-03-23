@@ -124,7 +124,7 @@ static char* logLevelToStr(int level) {
         flag = @"H";
     }
 
-	NSString *msg = [NSString stringWithFormat:@"%@ %@ [%x] %d %s %@",
+	NSString *msg = [NSString stringWithFormat:@"%@ %@ %-4x %-4d %s %@",
                      flag,
                      dateAndTime,
                      logMessage->machThreadID,

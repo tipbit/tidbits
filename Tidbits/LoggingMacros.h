@@ -100,14 +100,14 @@
 
 
 
-#define NSLogError(__fmt, ...) LOG_OBJC_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_INFO, LOG_FLAG_ERROR, 0, __fmt, ##__VA_ARGS__)
-#define NSLogWarn(__fmt, ...) LOG_OBJC_MAYBE(LOG_ASYNC_WARN, LOG_LEVEL_INFO, LOG_FLAG_WARN, 0, __fmt, ##__VA_ARGS__)
-#define NSLogInfo(__fmt, ...) LOG_OBJC_MAYBE(LOG_ASYNC_INFO, LOG_LEVEL_INFO, LOG_FLAG_INFO, 0, __fmt, ##__VA_ARGS__)
+#define NSLogError(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_INFO, LOG_FLAG_ERROR, 0, __fmt, ##__VA_ARGS__)
+#define NSLogWarn(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_WARN, LOG_LEVEL_INFO, LOG_FLAG_WARN, 0, __fmt, ##__VA_ARGS__)
+#define NSLogInfo(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_INFO, LOG_LEVEL_INFO, LOG_FLAG_INFO, 0, __fmt, ##__VA_ARGS__)
 
 //our logging already prints out the function and line.
 //#define NSLogUser(MSG, ...) NSLog((@"[U] %s:%d "MSG), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 //#define NSLogUser(MSG, ...) NSLog((@"[U] "MSG), ##__VA_ARGS__)
-#define NSLogUser(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_INFO, LOG_LEVEL_USER, LOG_FLAG_USER, 0, __fmt, ##__VA_ARGS__)
+#define NSLogUser(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_USER, LOG_FLAG_USER, 0, __fmt, ##__VA_ARGS__)
 
 
 #define NSLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_INFO,    LOG_LEVEL_INFO, LOG_FLAG_INFO,    0, __fmt, ##__VA_ARGS__)
