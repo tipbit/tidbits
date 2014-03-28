@@ -65,4 +65,9 @@
 +(NSDate*)startOf60DaysAgo;
 +(NSDate*)startOfThisMonth;
 
++(NSTimeInterval)timeIntervalFromDays:(NSInteger)days;
++(NSTimeInterval)timeIntervalFromHours:(NSInteger)hours;
++(NSTimeInterval)timeIntervalFromMinutes:(NSInteger)minutes;
++(NSTimeInterval)timeIntervalFromDays:(NSInteger)days hours:(NSInteger)hours minutes:(NSInteger)minutes seconds:(NSInteger)seconds;
+
 @end

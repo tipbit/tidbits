@@ -295,5 +295,25 @@ static NSInteger cachedThisYear = 0;
     return [formatter stringFromDate:self];
 }
 
++(NSTimeInterval)timeIntervalFromDays:(NSInteger)days
+{
+    return [self timeIntervalFromDays:days hours:0 minutes:0 seconds:0];
+}
+
++(NSTimeInterval)timeIntervalFromHours:(NSInteger)hours
+{
+    return [self timeIntervalFromDays:0 hours:hours minutes:0 seconds:0];
+}
+
++(NSTimeInterval)timeIntervalFromMinutes:(NSInteger)minutes
+{
+    return [self timeIntervalFromDays:0 hours:0 minutes:minutes seconds:0];
+}
+
++(NSTimeInterval)timeIntervalFromDays:(NSInteger)days hours:(NSInteger)hours minutes:(NSInteger)minutes seconds:(NSInteger)seconds
+{
+    return (days * 24 * 3600) + (hours * 3600) + (minutes * 60) + seconds;
+}
+
 
 @end
