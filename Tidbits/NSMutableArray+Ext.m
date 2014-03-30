@@ -22,6 +22,13 @@
 }
 
 
+-(void)filterUsingBlock:(predicate_t)predicate {
+    [self filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return predicate(evaluatedObject);
+    }]];
+}
+
+
 -(void)removeDuplicates {
     NSMutableIndexSet* to_remove = [NSMutableIndexSet indexSet];
     NSMutableSet* set = [NSMutableSet set];

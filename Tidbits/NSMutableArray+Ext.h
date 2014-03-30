@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "StandardBlocks.h"
+
+
 @interface NSMutableArray (Ext)
 
 -(instancetype)initWithEnumeration:(id<NSFastEnumeration>)objects;
+
+-(void)filterUsingBlock:(predicate_t)predicate;
 
 /**
  * Remove any duplicates from this array, using the same equality test as [NSSet containsObject].  The order of the remaining objects is preserved (i.e.
