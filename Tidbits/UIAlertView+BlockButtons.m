@@ -289,7 +289,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 -(instancetype) initWithTitle:(NSString *)title
                       message:(NSString *)message
                  cancelButton:(BlockButton *)cancelButton
-            buttons:(NSArray *)buttons
+                      buttons:(NSArray *)buttons
 {
     UIAlertView *alert;
     if (cancelButton)

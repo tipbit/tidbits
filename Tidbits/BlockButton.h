@@ -43,5 +43,5 @@
  */
 
 BlockButton *button(NSString *label, void(^action)());
-BlockButton *buttonT(NSString *label, void(^action)(NSString *));
-BlockButton *buttonTT(NSString *label, void(^action)(NSString *, NSString *));
+BlockButton *buttonT(NSString *label, void(^action)(NSString *label));
+BlockButton *buttonTT(NSString *label, void(^action)(NSString *username, NSString *password));

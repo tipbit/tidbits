@@ -33,7 +33,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         }
         va_end(argumentList);
     }
-
+    
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:title
                                                         delegate:delegate
                                                cancelButtonTitle:nil
@@ -43,7 +43,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     {
         [action addButtonWithTitle:item];
     }
-
+    
     if(destructiveButtonTitle)
     {
         action.destructiveButtonIndex = [action addButtonWithTitle:destructiveButtonTitle];
@@ -57,8 +57,8 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton
-                     onDismiss:(void(^)())dismissAction
              destructiveButton:(BlockButton *)destructiveButton
+                     onDismiss:(void(^)())dismissAction
                   otherButtons:(BlockButton *)otherButtons, ... NS_REQUIRES_NIL_TERMINATION
 {
     NSMutableArray *buttonsArray = [NSMutableArray array];
@@ -74,12 +74,12 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         }
         va_end(argumentList);
     }
-
+    
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
-                                onDismiss:dismissAction
                         destructiveButton:destructiveButton
-                        buttons:buttonsArray];
+                                onDismiss:dismissAction
+                                  buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
@@ -100,12 +100,12 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         }
         va_end(argumentList);
     }
-
+    
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
-                                onDismiss:nil
                         destructiveButton:destructiveButton
-                        buttons:buttonsArray];
+                                onDismiss:nil
+                                  buttons:buttonsArray];
 }
 
 +(instancetype)createWithButtons:(NSArray *)buttonsArray
@@ -131,13 +131,13 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     
     return [UIActionSheet createWithTitle:header.label
                              cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
-                                onDismiss:nil
                         destructiveButton:destructiveButton
+                                onDismiss:nil
                                   buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
-             buttons:(NSArray *)buttonsArray
+                       buttons:(NSArray *)buttonsArray
 {
     BlockButton *destructiveButton;
     for (BlockButton *button in buttonsArray) {
@@ -155,9 +155,9 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     
     return [UIActionSheet createWithTitle:title
                              cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
-                                onDismiss:nil
                         destructiveButton:destructiveButton
-                        buttons:buttonsArray];
+                                onDismiss:nil
+                                  buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
@@ -180,46 +180,46 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
-                                onDismiss:nil
                         destructiveButton:destructiveButton
-                        buttons:buttonsArray];
+                                onDismiss:nil
+                                  buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton
              destructiveButton:(BlockButton *)destructiveButton
-             buttons:(NSArray *)buttonsArray
+                       buttons:(NSArray *)buttonsArray
 {
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
-                                onDismiss:nil
                         destructiveButton:destructiveButton
-                        buttons:buttonsArray];
+                                onDismiss:nil
+                                  buttons:buttonsArray];
 }
 
 //This is the main function where all the magic happens.
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton
-                     onDismiss:(void(^)())dismissAction
              destructiveButton:(BlockButton *)destructiveButton
-             buttons:(NSArray *)buttons
+                     onDismiss:(void(^)())dismissAction
+                       buttons:(NSArray *)buttons
 {
     NSMutableArray *buttonsArray;
     if (buttons)
         buttonsArray = [NSMutableArray arrayWithArray:buttons];
     else
         buttonsArray = [NSMutableArray array];
-
+    
     //we got to do this because delegate is defined as id<UIActionSheetDelegate>
     //unlike what happens for UIAlertViews.
     id<UIActionSheetDelegate> selfClass = (id<UIActionSheetDelegate>)[UIActionSheet class];
-
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title
 															 delegate:selfClass
 													cancelButtonTitle:nil
 											   destructiveButtonTitle:nil
 													otherButtonTitles:nil];
-
+    
 	if(destructiveButton)
     {
         destructiveButton.parentView = actionSheet;
@@ -227,7 +227,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         //		[buttonsArray addObject:destructiveButton];
         actionSheet.destructiveButtonIndex = [actionSheet addButtonWithTitle:destructiveButton.label];
     }
-
+    
 	for(BlockButton *item in buttonsArray)
     {
 		if (!(item == destructiveButton)){
@@ -235,7 +235,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 			[actionSheet addButtonWithTitle:item.label];
 		}
     }
-
+    
     if(cancelButton)
     {
         cancelButton.parentView = actionSheet;
@@ -247,7 +247,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         BlockButton *dismissButton = [BlockButton label:UIActionSheetDismissAction action:dismissAction];
         [buttonsArray addObject:dismissButton];
     }
-
+    
     //If there are any existing UIActionSheets around, we don't want to overwrite their data.
     NSMutableDictionary *mutableDict;
     NSDictionary *dict =  objc_getAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER);
@@ -256,7 +256,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     else
         mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setObject:buttonsArray forKey:[NSValue valueWithNonretainedObject:actionSheet]];
-
+    
     objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, mutableDict, OBJC_ASSOCIATION_COPY_NONATOMIC);
     return actionSheet;
 }
@@ -270,7 +270,7 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 + (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSDictionary *dict =  objc_getAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER);
-
+    
     //Remove this actionSheet from the dictionary.
     NSMutableDictionary *mutableDict;
     if (dict){
@@ -278,19 +278,19 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         [mutableDict removeObjectForKey:[NSValue valueWithNonretainedObject:actionSheet]];
     }
     else if(buttonIndex >= 0){ //We never should hit this else.  Possibly put an assert here to verify that.
-
+        
         NSLog(@"Error: We should not be here!  Some logic error.");
         return;
     }
-
+    
     //Update the dictionary associated with UIAlertViews.
     if ([mutableDict count])
         objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, mutableDict, OBJC_ASSOCIATION_COPY_NONATOMIC);
     else //or nuke the empty dictionary from UIAlertViews.
         objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
-
+    
     NSArray *buttonsArray = [dict objectForKey:[NSValue valueWithNonretainedObject:actionSheet]];
-
+    
     // Action sheets pass back -1 when they're cleared for some reason other than a button being
     // pressed.
     if (buttonIndex >= 0)

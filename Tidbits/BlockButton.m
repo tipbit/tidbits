@@ -8,6 +8,12 @@
 
 #import "BlockButton.h"
 
+/**
+ * @discussion object to support block based actions for UIAlertViews and UIActionSheets.
+ *   A button typically has a label (displayed on the UIAlertView or UIActionSheet)
+ *   and an action - a void block which is executed when the button is clicked.
+ */
+
 @implementation BlockButton
 
 +(instancetype)button
@@ -17,6 +23,11 @@
     return button;
 }
 
+/**
+ * @param header: Used in ActionSheets to display the header.
+ * @discussion this is a convenience where all the inputs to the actionsheet are
+ *   in the form of an array of buttons AND this includes the header!
+ */
 +(instancetype)header:(NSString *)headerTitle
 {
     BlockButton *button = [self button];
@@ -30,6 +41,12 @@
     return [BlockButton label:label action:nil];
 }
 
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this method is the raison-d'etre for this class's existence.
+ */
 +(instancetype)label:(NSString *)label action:(void(^)())action
 {
     BlockButton *button = [self button];
@@ -38,6 +55,12 @@
     return button;
 }
 
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this is really a convenience for where its useful to know which button was clicked for logging.  But it may also be used to return the text field in case of a UIAlertView that expects the user to enter some value in a text field.
+ */
 +(instancetype)label:(NSString *)label actionWithText:(void(^)(NSString *))action
 {
     BlockButton *button = [self button];
@@ -46,6 +69,12 @@
     return button;
 }
 
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this is really for uialertviews that are used to get text fields such as usernames and passwords.
+ */
 +(instancetype)label:(NSString *)label actionWithTextText:(void(^)(NSString *, NSString *))action
 {
     BlockButton *button = [self button];
@@ -61,6 +90,9 @@
 
 @end
 
+/**
+ * @discussion These methods are just short-cuts to the methods above, as a quick way to get around objective-c's verbosity.
+ */
 BlockButton *button(NSString *label, void(^action)())
 {
     BlockButton *button = [BlockButton label:label action:action];
