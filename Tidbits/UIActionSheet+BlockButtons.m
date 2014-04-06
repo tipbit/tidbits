@@ -14,75 +14,6 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 
 @implementation UIActionSheet (BlocksButtons)
 
-- (instancetype) initWithTitle:(NSString *)title buttons:(NSArray*)menuItems
-{
-    //we got to do this because delegate is defined as id<UIActionSheetDelegate>
-    //unlike what happens for UIAlertViews.
-    id<UIActionSheetDelegate> selfClass = (id<UIActionSheetDelegate>)[UIActionSheet class];
-
-    self = [self initWithTitle:title
-                       delegate:selfClass
-              cancelButtonTitle:nil
-         destructiveButtonTitle:nil
-              otherButtonTitles:nil];
-    if (self) {
-        self.actionSheetStyle = UIActionSheetStyleAutomatic;
-
-        BlockButton *headerItem;
-        BlockButton *deleteItem;
-        BlockButton *cancelItem = [BlockButton label:NSLocalizedString(@"Cancel", nil)];
-        
-        NSMutableArray *buttons = [NSMutableArray array];
-        for (BlockButton *item in menuItems) {
-            if (item.isHeader) {
-                headerItem = item;
-                self.title = item.label;
-                continue;
-            }
-
-            if([item.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
-                deleteItem = item;
-                continue;
-            }
-
-            if([item.label caseInsensitiveCompare:@"cancel"] == NSOrderedSame){
-                 cancelItem = item;
-                continue;
-            }
-
-            [buttons addObject:item];
-        }
-
-        //first add the destructive button if any.
-        if (deleteItem) {
-            [buttons insertObject:deleteItem atIndex:0];
-            [self setDestructiveButtonIndex:0];
-        }
-
-        //then add the other buttons
-        for (BlockButton *item in buttons) {
-            [self addButtonWithTitle:item.label];
-        }
-
-        //finally add the cancel button
-        [buttons addObject:cancelItem];
-        [self addButtonWithTitle:cancelItem.label];
-        [self setCancelButtonIndex:buttons.count-1];
-
-        //If there are any existing UIActionSheets around, we don't want to overwrite their data.
-        NSMutableDictionary *mutableDict;
-        NSDictionary *dict =  objc_getAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER);
-        if (dict)
-            mutableDict = [dict mutableCopy];
-        else
-            mutableDict = [NSMutableDictionary dictionary];
-        [mutableDict setObject:buttons forKey:[NSValue valueWithNonretainedObject:self]];
-
-        objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, mutableDict, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    }
-    return self;
-}
-
 + (instancetype)createWithTitle:(NSString *)title
                        delegate:(id<UIActionSheetDelegate>)delegate
               cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -179,27 +110,78 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 
 +(instancetype)createWithButtons:(NSArray *)buttonsArray
 {
-    return [[UIActionSheet alloc] initWithTitle:nil buttons:buttonsArray];
+    BlockButton *header;
+    BlockButton *destructiveButton;
+    for (BlockButton *button in buttonsArray) {
+        if (button.isHeader)
+            header = button;
+        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
+            destructiveButton = button;
+            continue;
+        }
+    }
+    if (header || destructiveButton) {
+        NSMutableArray *array = [buttonsArray mutableCopy];
+        if (header)
+            [array removeObject:header];
+        if (destructiveButton)
+            [array removeObject:destructiveButton];
+        buttonsArray = array;
+    }
+    
+    return [UIActionSheet createWithTitle:header.label
+                             cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
+                                onDismiss:nil
+                        destructiveButton:destructiveButton
+                                  buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
              buttons:(NSArray *)buttonsArray
 {
+    BlockButton *destructiveButton;
+    for (BlockButton *button in buttonsArray) {
+        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
+            destructiveButton = button;
+            continue;
+        }
+    }
+    if (destructiveButton) {
+        NSMutableArray *array = [buttonsArray mutableCopy];
+        if (destructiveButton)
+            [array removeObject:destructiveButton];
+        buttonsArray = array;
+    }
+    
     return [UIActionSheet createWithTitle:title
                              cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
                                 onDismiss:nil
-                        destructiveButton:nil
+                        destructiveButton:destructiveButton
                         buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton
-             buttons:(NSArray *)buttonsArray
+                       buttons:(NSArray *)buttonsArray
 {
+    BlockButton *destructiveButton;
+    for (BlockButton *button in buttonsArray) {
+        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
+            destructiveButton = button;
+            continue;
+        }
+    }
+    if (destructiveButton) {
+        NSMutableArray *array = [buttonsArray mutableCopy];
+        if (destructiveButton)
+            [array removeObject:destructiveButton];
+        buttonsArray = array;
+    }
+    
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
                                 onDismiss:nil
-                        destructiveButton:nil
+                        destructiveButton:destructiveButton
                         buttons:buttonsArray];
 }
 
