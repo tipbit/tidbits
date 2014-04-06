@@ -4,4 +4,6 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+#import "UIAlertView+BlockButtons.h"
+#import "UIActionSheet+BlockButtons.h"
 #endif

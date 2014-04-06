@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784718F0D63F00E8A968 /* BlockButton.m */; };
+		18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */; };
+		18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */; };
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
@@ -259,6 +262,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18A4784618F0D63F00E8A968 /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
+		18A4784718F0D63F00E8A968 /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
+		18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIActionSheet+BlockButtons.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIActionSheet+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockButtons.h"; sourceTree = "<group>"; };
+		18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIAlertView+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
@@ -532,6 +541,12 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
+				18A4784618F0D63F00E8A968 /* BlockButton.h */,
+				18A4784718F0D63F00E8A968 /* BlockButton.m */,
+				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
+				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
+				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
+				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
 				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
 				408E897A176A47D4001B61E6 /* BlockWithResultOperation.h */,
@@ -903,9 +918,11 @@
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
+				18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
+				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
@@ -938,6 +955,7 @@
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
+				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
