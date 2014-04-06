@@ -8,12 +8,6 @@
 
 #import "BlockButton.h"
 
-/**
- * @discussion object to support block based actions for UIAlertViews and UIActionSheets.
- *   A button typically has a label (displayed on the UIAlertView or UIActionSheet)
- *   and an action - a void block which is executed when the button is clicked.
- */
-
 @implementation BlockButton
 
 +(instancetype)button

@@ -8,12 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @discussion object to support block based actions for UIAlertViews and UIActionSheets.
+ *   A button typically has a label (displayed on the UIAlertView or UIActionSheet)
+ *   and an action - a void block which is executed when the button is clicked.
+ */
 @interface BlockButton : NSObject
 
 +(instancetype)button;
 +(instancetype)label:(NSString *)label;
+
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this method is the raison-d'etre for this class's existence.
+ */
 +(instancetype)label:(NSString *)label action:(void(^)())action;
+
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this is really a convenience for where its useful to know which button was clicked for logging.  But it may also be used to return the text field in case of a UIAlertView that expects the user to enter some value in a text field.
+ */
 +(instancetype)label:(NSString *)label actionWithText:(void(^)(NSString *text))action;
+
+/**
+ * @param label: The label displayed on the button in the UIAlertView / UIActionSheet
+ * @param action: a block that gets passed in the label for the button.
+ * @return a button
+ * @discussion this is really for uialertviews that are used to get text fields such as usernames and passwords.
+ */
 +(instancetype)label:(NSString *)label actionWithTextText:(void(^)(NSString *username, NSString *password))action;
 
 @property (nonatomic, strong) NSString *label;
@@ -24,7 +50,11 @@
 @property (nonatomic, assign) int tag;
 @property (nonatomic, weak) UIView *parentView;
 
-//simply there for migration from TBMenuItem
+/**
+ * @param header: Used in ActionSheets to display the header.
+ * @discussion this is a convenience where all the inputs to the actionsheet are
+ *   in the form of an array of buttons AND this includes the header!
+ */
 +(instancetype)header:(NSString *)headerTitle;
 
 @property (nonatomic) BOOL isHeader;
