@@ -64,4 +64,17 @@ static char* __key = #__key;                                                    
 }
 
 
+#define SYNTHESIZE_ASSOCIATED_ENUM_DEFAULT(__key, __type, __getter, __setter, __default)      \
+static char* __key = #__key;                                                                  \
+-(__type)__getter {                                                                           \
+    NSNumber* n = objc_getAssociatedObject(self, __key);                                      \
+    return n == nil ? __default : (__type)n.unsignedIntegerValue;                             \
+}                                                                                             \
+                                                                                              \
+-(void)__setter:(__type)value {                                                               \
+    objc_setAssociatedObject(self, __key, [NSNumber numberWithUnsignedInteger:value],         \
+    OBJC_ASSOCIATION_RETAIN_NONATOMIC);                                                       \
+}
+
+
 #endif
