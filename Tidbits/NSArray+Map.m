@@ -24,7 +24,7 @@
 @implementation NSArray (Map)
 
 
--(NSArray*)filter:(predicate_t)filter {
+-(NSMutableArray*)filter:(predicate_t)filter {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id obj in self) {
         if (filter(obj))
@@ -39,7 +39,7 @@
 }
 
 
--(NSArray*) map:(id_to_id_t)mapper {
+-(NSMutableArray*) map:(id_to_id_t)mapper {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id obj in self) {
         id new_obj = mapper(obj);

@@ -16,7 +16,7 @@
  * Create a new NSArray with the contents set to x for each x in self
  * where filter(x) returns true.
  */
--(NSArray*)filter:(predicate_t)filter;
+-(NSMutableArray*)filter:(predicate_t)filter;
 
 /**
  * Create a new NSArray with the contents set to mapper(x) for each x in self.
@@ -24,7 +24,7 @@
  * mapper may return nil, in which case no entry is added to the result
  * (i.e. the result will be shorter than self).
  */
--(NSArray*) map:(id_to_id_t)mapper;
+-(NSMutableArray*) map:(id_to_id_t)mapper;
 
 /**
  * Create a new NSMutableArray with the contents determined by calls to mapper
