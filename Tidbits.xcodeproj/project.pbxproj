@@ -126,6 +126,7 @@
 		40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */; };
 		40B4B82C18246B920076F2F1 /* NSIndexSet+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */; };
 		40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */; };
+		40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BBE5C518F8987F00601FE7 /* NSLayoutConstraintHelpers.m */; };
 		40BD90341777C13400A3ED9C /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BD90331777C13400A3ED9C /* UTI.m */; };
 		40BD90351777C1A500A3ED9C /* UTI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; };
 		40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2A2F6177A5791003276AB /* SRVResolver.m */; };
@@ -401,6 +402,8 @@
 		40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Misc.h"; sourceTree = "<group>"; };
 		40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Misc.m"; sourceTree = "<group>"; };
 		40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		40BBE5C518F8987F00601FE7 /* NSLayoutConstraintHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLayoutConstraintHelpers.m; sourceTree = "<group>"; };
+		40BBE5C818F898A600601FE7 /* NSLayoutConstraintHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLayoutConstraintHelpers.h; sourceTree = "<group>"; };
 		40BD90321777C13400A3ED9C /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		40BD90331777C13400A3ED9C /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		40C2A2F5177A5791003276AB /* SRVResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVResolver.h; sourceTree = "<group>"; };
@@ -608,6 +611,8 @@
 				40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */,
 				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
 				408F4662176CD7D900C468EB /* NSInputStream+Misc.m */,
+				40BBE5C818F898A600601FE7 /* NSLayoutConstraintHelpers.h */,
+				40BBE5C518F8987F00601FE7 /* NSLayoutConstraintHelpers.m */,
 				400C95B31853C14A0095B9DC /* NSMutableArray+Ext.h */,
 				400C95B41853C14A0095B9DC /* NSMutableArray+Ext.m */,
 				408E8987176A47D4001B61E6 /* NSMutableArray+Sorted.h */,
@@ -910,6 +915,7 @@
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
 				4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */,
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,
+				40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
