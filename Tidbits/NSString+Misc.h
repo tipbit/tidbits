@@ -48,7 +48,7 @@
 -(NSString*)stringForDoubleQuotes;
 
 /**
- * @return A copy of this string, with runs any slashes, backslashes or unprintable characters replaced with a single space.  Whitespace is also trimmed from front and back.
+ * @return A copy of this string, with runs of any slashes, backslashes or unprintable characters replaced with a single space.  Whitespace is also trimmed from front and back.
  * @discussion This means that the string can be used as a filename, allowing as many "unusual" characters as possible.
  */
 -(NSString*)stringBySanitizingFilename;
