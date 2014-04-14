@@ -16,6 +16,19 @@
 @implementation NSFileManager (Ext)
 
 
+-(unsigned long long)fileSize:(NSString*)path {
+    NSError* err = nil;
+    NSDictionary* attrs = [self attributesOfItemAtPath:path error:&err];
+    if (attrs == nil) {
+        NSLog(@"Failed to get attributes from %@", path);
+        return ULONG_LONG_MAX;
+    }
+    else {
+        return attrs.fileSize;
+    }
+}
+
+
 -(void)removeItemAtURLAsync:(NSURL*)url {
     dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_LOW, ^{
         NSError* err = nil;

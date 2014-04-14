@@ -11,6 +11,13 @@
 @interface NSFileManager (Ext)
 
 /**
+ * @return The size in bytes of the file at the given path, or ULONG_LONG_MAX if an error occurred.
+ *
+ * This also logs the error, if any.
+ */
+-(unsigned long long)fileSize:(NSString*)path;
+
+/**
  * Dispatches a low priority background task that calls [self removeItemAtURL:url error:...].
  * This logs but otherwise ignores any failures.
  * Use this for cleaning up temporary files or directories.
