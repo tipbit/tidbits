@@ -14,6 +14,7 @@
 typedef void (^BOOLPtrBlock)(BOOL *flag);
 typedef void (^IdBlock)(id obj);
 typedef void (^IdIdBlock)(id obj1, id obj2);
+typedef void (^IdIdIdPtrBoolPtrBlock)(id obj1, id obj2, id* result, bool* done);
 typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
 typedef void (^NSArrayNSErrorBlock)(NSArray* array, NSError* error);

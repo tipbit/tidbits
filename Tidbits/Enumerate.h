@@ -21,4 +21,13 @@
  */
 +(void)pairwiseOver:(id<NSFastEnumeration>)e1 and:(id<NSFastEnumeration>)e2 usingBlock:(IdIdBlock)block;
 
+/**
+ * The same as [Enumerate pairwiseOver:and:usingBlock:] except that the block may return a result and may abort the loop.
+ *
+ * @param block Receives (id obj1, id obj2, id* result, bool* done).  May set *result at any time; that will be returned
+ * as the result of this call.  May set *done at any time -- that will terminate the loop with this iteration.
+ * @return *result at the end of the last iteration of the loop, or nil if it was never set.
+ */
++(id)pairwiseOver:(id<NSFastEnumeration>)e1 and:(id<NSFastEnumeration>)e2 usingBlockWithResult:(IdIdIdPtrBoolPtrBlock)block;
+
 @end
