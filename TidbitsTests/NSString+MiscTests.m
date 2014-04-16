@@ -36,6 +36,21 @@
 }
 
 
+-(void)testIsAllNumeric {
+    XCTAssert([@"" isAllNumeric]);
+    XCTAssert([@"42" isAllNumeric]);
+    XCTAssert(![@" " isAllNumeric]);
+    XCTAssert(![@"1.0" isAllNumeric]);
+    XCTAssert(![@"1,0" isAllNumeric]);
+    XCTAssert(![@"0xf" isAllNumeric]);
+    XCTAssert(![@"f" isAllNumeric]);
+    XCTAssert(![@"¼" isAllNumeric]);
+    XCTAssert(![@"ℎ" isAllNumeric]);   // Planck's constant
+    XCTAssert(![@"六" isAllNumeric]);  // Han number 6
+    XCTAssert(![@"π" isAllNumeric]);   // Mmm, pi.
+}
+
+
 -(void)testStringBySanitizingFilenameEmpty {
     XCTAssertEqualObjects([@"" stringBySanitizingFilename], @"");
 }

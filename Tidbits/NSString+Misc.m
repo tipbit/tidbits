@@ -59,6 +59,20 @@
     return [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0;
 }
 
+
+-(bool)isAllNumeric {
+    NSCharacterSet *numericSet = [NSCharacterSet decimalDigitCharacterSet];
+    NSUInteger n = self.length;
+    for (NSUInteger i = 0; i < n; i++) {
+        unichar ch = [self characterAtIndex:i];
+        if (![numericSet characterIsMember:ch]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 -(NSString*)trim {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }

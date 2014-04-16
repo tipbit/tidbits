@@ -28,6 +28,12 @@
 
 -(bool) isNotWhitespace;
 
+/**
+ * @return true if all characters in this string are in [NSCharacterSet decimalDigitCharacterSet].
+ * Note that this is trivially true if the string is empty, but is not true if the string is just whitespace.
+ */
+-(bool) isAllNumeric;
+
 -(NSString*)trim;
 
 -(unsigned long)unsignedLongValue;
