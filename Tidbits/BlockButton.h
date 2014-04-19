@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  * @discussion object to support block based actions for UIAlertViews and UIActionSheets.
