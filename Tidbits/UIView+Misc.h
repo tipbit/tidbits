@@ -36,19 +36,19 @@
 @property (nonatomic) CGFloat height;
 
 /**
- *  change the height, leaving the bottom unchanged, and the top to @param.
+ *  change the width, leaving the left unchanged.
  */
 -(void)adjustRightTo:(CGFloat)right;
 /**
- *  change the width, leaving the right unchanged, and the left to @param.
+ *  change the width, leaving the right unchanged.
  */
 -(void)adjustLeftTo:(CGFloat)left;
 /**
- *  change the width, leaving right unchanged, and the left to @param.
+ *  change the height, leaving bottom unchanged.
  */
 -(void)adjustTopTo:(CGFloat)top;
 /**
- *  change the height, leaving the top unchanged, and the bottom to @param.
+ *  change the height, leaving the top unchanged.
  */
 -(void)adjustBottomTo:(CGFloat)bottom;
 

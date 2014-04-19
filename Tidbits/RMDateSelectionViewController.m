@@ -236,7 +236,7 @@ static NSString *_localizedSelectTitle = @"Select";
     //Setup properties of elements
     if(!self.hideNowButton) {
         [self.nowButton setTitle:[RMDateSelectionViewController localizedTitleForNowButton] forState:UIControlStateNormal];
-        [self.nowButton setTitleColor:[UIColor colorWithRed:0 green:122./255. blue:1 alpha:1] forState:UIControlStateNormal];
+        [self.nowButton setTitleColor:[UIColor colorWithRed:0 green:122.0f/255 blue:1 alpha:1] forState:UIControlStateNormal];
         [self.nowButton addTarget:self action:@selector(nowButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         self.nowButton.backgroundColor = [UIColor whiteColor];
         self.nowButton.layer.cornerRadius = 5;
@@ -258,14 +258,14 @@ static NSString *_localizedSelectTitle = @"Select";
     self.cancelAndSelectButtonSeperator.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.cancelButton setTitle:[RMDateSelectionViewController localizedTitleForCancelButton] forState:UIControlStateNormal];
-    [self.cancelButton setTitleColor:[UIColor colorWithRed:0 green:122./255. blue:1 alpha:1] forState:UIControlStateNormal];
+    [self.cancelButton setTitleColor:[UIColor colorWithRed:0 green:122.0f/255 blue:1 alpha:1] forState:UIControlStateNormal];
     [self.cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.cancelButton.layer.cornerRadius = 5;
     self.cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.cancelButton setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     
     [self.selectButton setTitle:[RMDateSelectionViewController localizedTitleForSelectButton] forState:UIControlStateNormal];
-    [self.selectButton setTitleColor:[UIColor colorWithRed:0 green:122./255. blue:1 alpha:1] forState:UIControlStateNormal];
+    [self.selectButton setTitleColor:[UIColor colorWithRed:0 green:122.0f/255 blue:1 alpha:1] forState:UIControlStateNormal];
     [self.selectButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.selectButton.titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont buttonFontSize]];
     self.selectButton.layer.cornerRadius = 5;
@@ -411,7 +411,7 @@ static NSString *_localizedSelectTitle = @"Select";
 - (UIView *)backgroundView {
     if(!_backgroundView) {
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-        _backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+        _backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
         _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     

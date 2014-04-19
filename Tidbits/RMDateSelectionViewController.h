@@ -83,7 +83,7 @@ typedef void (^RMDateCancelBlock)(RMDateSelectionViewController *vc);
  
  The delegate must conform to the `RMDateSelectionViewControllerDelegate` protocol.
  */
-@property (weak) id<RMDateSelectionViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<RMDateSelectionViewControllerDelegate> delegate;
 
 /**
  Used to set the text color of the buttons but not the date picker.
