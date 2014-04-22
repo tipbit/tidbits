@@ -117,6 +117,7 @@
 		409091861804961B00D0C951 /* RunLoopFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 409091851804961B00D0C951 /* RunLoopFuture.m */; };
 		4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 409091841804961B00D0C951 /* RunLoopFuture.h */; };
 		4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */; };
+		40937F1019049D7500A4A8BB /* TBUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 40937F0F19049D7500A4A8BB /* TBUserDefaults.m */; };
 		4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095E0D4180228C10056CB72 /* InlineTiming.m */; };
 		4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4095E0D3180228C10056CB72 /* InlineTiming.h */; };
 		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
@@ -327,6 +328,7 @@
 		404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		405F492F186B724100E9B072 /* BackgroundTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTaskHandler.h; sourceTree = "<group>"; };
 		405F4930186B724100E9B072 /* BackgroundTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTaskHandler.m; sourceTree = "<group>"; };
+		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
 		406FA38D1805A5B700C408CE /* NSArray+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MapTests.m"; sourceTree = "<group>"; };
@@ -397,6 +399,8 @@
 		409091851804961B00D0C951 /* RunLoopFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopFuture.m; sourceTree = "<group>"; };
 		4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Misc.h"; sourceTree = "<group>"; };
 		4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Misc.m"; sourceTree = "<group>"; };
+		40937F0E19049D7500A4A8BB /* TBUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUserDefaults.h; sourceTree = "<group>"; };
+		40937F0F19049D7500A4A8BB /* TBUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUserDefaults.m; sourceTree = "<group>"; };
 		4095E0D3180228C10056CB72 /* InlineTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineTiming.h; sourceTree = "<group>"; };
 		4095E0D4180228C10056CB72 /* InlineTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineTiming.m; sourceTree = "<group>"; };
 		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
@@ -555,6 +559,8 @@
 			children = (
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
 				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
+				18A4784618F0D63F00E8A968 /* BlockButton.h */,
+				18A4784718F0D63F00E8A968 /* BlockButton.m */,
 				408E897A176A47D4001B61E6 /* BlockWithResultOperation.h */,
 				408E897B176A47D4001B61E6 /* BlockWithResultOperation.m */,
 				402B793E1839464700ED9858 /* Breadcrumbs.h */,
@@ -656,8 +662,8 @@
 				40612672177625420085CEED /* StreamPair.m */,
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
-				18A4784618F0D63F00E8A968 /* BlockButton.h */,
-				18A4784718F0D63F00E8A968 /* BlockButton.m */,
+				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
+				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
 				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
@@ -671,6 +677,7 @@
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
 				404753AE18F3A74300115A82 /* CPUTime.h */,
 				404753AF18F3A74300115A82 /* CPUTime.m */,
+				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -945,6 +952,7 @@
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
 				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
+				40937F1019049D7500A4A8BB /* TBUserDefaults.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				404753B018F3A74300115A82 /* CPUTime.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
