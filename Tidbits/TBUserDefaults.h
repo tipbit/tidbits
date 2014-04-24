@@ -64,6 +64,11 @@
 +(BOOL)isRegisteredSetting:(NSString*)key __attribute__((nonnull));
 
 /**
+ * @return An NSString array, yours to play with.  All the keys of all the registered settings.
+ */
++(NSArray*)allRegisteredSettings;
+
+/**
  * Write all changes to the plists immediately.
  */
 -(BOOL)synchronize;

@@ -133,6 +133,13 @@ static NSString* preferencesDir;
 }
 
 
++(NSArray *)allRegisteredSettings {
+    @synchronized (protectionsByKey) {
+        return [protectionsByKey allKeys];
+    }
+}
+
+
 +(TBUserDefaults *)standardUserDefaults {
     return [TBUserDefaults userDefaultsForUser:currentUser];
 }
