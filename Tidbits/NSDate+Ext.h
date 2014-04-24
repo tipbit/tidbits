@@ -71,7 +71,10 @@
 +(NSTimeInterval)timeIntervalFromDays:(NSInteger)days hours:(NSInteger)hours minutes:(NSInteger)minutes seconds:(NSInteger)seconds;
 
 +(NSDate *)dateFromHHMMA:(NSString *)hhmma;
+
 +(NSTimeInterval)timeIntervalFromHHMM:(NSString *)hhmm;
++(NSTimeInterval)timeIntervalFromHHMMA:(NSString *)hhmma;
+
 +(NSString *)stringFromHHMMA:(NSDate *)hhmma;
 +(NSString *)stringFromHHMM:(NSDate *)hhmm;
 

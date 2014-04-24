@@ -324,6 +324,16 @@ static NSInteger cachedThisYear = 0;
     NSDate *date = [dateFormatter dateFromString:hhmma];
     return date;
 }
++(NSTimeInterval)timeIntervalFromHHMMA:(NSString *)hhmma
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSDate *start = [dateFormatter dateFromString:@"00:00 am"];
+    NSDate *end = [dateFormatter dateFromString:hhmma];
+    NSTimeInterval interval = [end timeIntervalSinceDate:start];
+    return interval;
+}
+
 +(NSTimeInterval)timeIntervalFromHHMM:(NSString *)hhmm
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
