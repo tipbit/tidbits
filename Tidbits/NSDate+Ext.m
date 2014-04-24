@@ -315,5 +315,41 @@ static NSInteger cachedThisYear = 0;
     return (days * 24 * 3600) + (hours * 3600) + (minutes * 60) + seconds;
 }
 
++(NSDate *)dateFromHHMMA:(NSString *)hhmma
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [dateFormatter setCalendar:calendar];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSDate *date = [dateFormatter dateFromString:hhmma];
+    return date;
+}
++(NSTimeInterval)timeIntervalFromHHMM:(NSString *)hhmm
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSDate *start = [dateFormatter dateFromString:@"00:00"];
+    NSDate *end = [dateFormatter dateFromString:hhmm];
+    NSTimeInterval interval = [end timeIntervalSinceDate:start];
+    return interval;
+}
++(NSString *)stringFromHHMMA:(NSDate *)hhmma
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [dateFormatter setCalendar:calendar];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSString *value = [dateFormatter stringFromDate:hhmma];
+    return value;
+}
+
++(NSString *)stringFromHHMM:(NSDate *)hhmm
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *value = [dateFormatter stringFromDate:hhmm];
+    return value;
+}
+
 
 @end
