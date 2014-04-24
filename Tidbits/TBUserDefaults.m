@@ -240,14 +240,29 @@ static NSString* preferencesDir;
 }
 
 
--(id)objectForKey:(NSString *)key {
+-(id)objectForKey:(NSString *)key __attribute__((nonnull))  {
+    return [self objectForKey:key wasUnlocked:NULL];
+}
+
+
+-(id)objectForKey:(NSString *)key wasUnlocked:(BOOL *)wasUnlocked __attribute__((nonnull(1))) {
+    NSParameterAssert(key);
+
     NSString* prot;
     id def;
     @synchronized (protectionsByKey) {
         prot = protectionsByKey[key];
         def = defaultValuesbyKey[key];
     }
-    return prot == nil ? nil : [self objectForKey:key protection:prot defaultValue:def];
+    if (prot == nil) {
+        if (wasUnlocked) {
+            *wasUnlocked = NO;
+        }
+        return nil;
+    }
+    else {
+        return [self objectForKey:key protection:prot defaultValue:def wasUnlocked:wasUnlocked];
+    }
 }
 
 
@@ -459,7 +474,11 @@ static NSDataWritingOptions writingOptionForProtection(NSString* protection) {
 }                                                                                                                                   \
                                                                                                                                     \
 -(__t *)__f ## ForKey:(NSString *)key {                                                                                             \
-    id obj = [self objectForKey:key];                                                                                               \
+    return [self __f ## ForKey:key wasUnlocked:NULL];                                                                               \
+}                                                                                                                                   \
+                                                                                                                                    \
+-(__t *)__f ## ForKey:(NSString *)key wasUnlocked:(BOOL *)wasUnlocked {                                                             \
+    id obj = [self objectForKey:key wasUnlocked:wasUnlocked];                                                                       \
     return [obj isKindOfClass:[__t class]] ? (__t *)obj : nil;                                                                      \
 }                                                                                                                                   \
                                                                                                                                     \
@@ -486,7 +505,11 @@ FROM_NSOBJECT(NSString, string, String)
 
 #define FROM_NSNUMBER(__t, __f, __F, __c)                                                                                           \
 -(__t)__f ## ForKey:(NSString *)key {                                                                                               \
-    NSNumber* num = [self numberForKey:key];                                                                                        \
+    return [self __f ## ForKey:key wasUnlocked:NULL];                                                                               \
+}                                                                                                                                   \
+                                                                                                                                    \
+-(__t)__f ## ForKey:(NSString *)key wasUnlocked:(BOOL *)wasUnlocked {                                                               \
+    NSNumber* num = [self numberForKey:key wasUnlocked:wasUnlocked];                                                                \
     return [num __c];                                                                                                               \
 }                                                                                                                                   \
                                                                                                                                     \

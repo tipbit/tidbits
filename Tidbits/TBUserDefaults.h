@@ -74,9 +74,14 @@
 -(BOOL)synchronize;
 
 /**
- * Look up a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
+ * Equivalent to [self objectForKey:key wasUnlocked:NULL].
  */
 -(id)objectForKey:(NSString *)key __attribute__((nonnull));
+
+/**
+ * Look up a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
+ */
+-(id)objectForKey:(NSString *)key wasUnlocked:(BOOL *)wasUnlocked __attribute__((nonnull(1)));
 
 /**
  * Set a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
@@ -117,6 +122,7 @@
 
 #define TBUSERDEFAULTS_TYPED(__t, __f, __F)                                                                                    \
 -(__t)__f ## ForKey:(NSString *)key __attribute__((nonnull));                                                                  \
+-(__t)__f ## ForKey:(NSString *)key wasUnlocked:(BOOL *)wasUnlocked __attribute__((nonnull(1)));                               \
 -(__t)__f ## ForKey:(NSString *)key protection:(NSString *)protection defaultValue:(__t)def __attribute__((nonnull(1,2)));     \
 -(void)set ## __F:(__t)value forKey:(NSString *)key __attribute__((nonnull(2)));                                               \
 -(BOOL)set ## __F:(__t)value forKey:(NSString *)key protection:(NSString *)protection __attribute__((nonnull(2,3)));
