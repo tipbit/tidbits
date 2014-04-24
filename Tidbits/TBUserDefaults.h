@@ -101,8 +101,8 @@
 -(id)objectForKey:(NSString *)key protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull(1,2)));
 
 /**
- * @param wasUnlocked An out parameter.  Will be set to NO if this call was unable to open the settings plist because the file is locked,
- * or YES otherwise.  May be NULL.
+ * @param wasUnlocked An out parameter.  Will be set to NO if this call was unable to open the settings plist
+ * because the file is locked or no user is signed in, or YES otherwise.  May be NULL.
  */
 -(id)objectForKey:(NSString *)key protection:(NSString *)protection defaultValue:(id)def wasUnlocked:(BOOL *)wasUnlocked __attribute__((nonnull(1,2)));
 
