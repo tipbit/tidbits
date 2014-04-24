@@ -398,7 +398,7 @@ static NSString* preferencesDir;
         if (ok) {
             NSMutableDictionary* settings = [NSMutableDictionary dictionary];
             @synchronized (self.settingsByProtection) {
-                self.settingsByProtection = settings;
+                self.settingsByProtection[protection] = settings;
             }
             return settings;
         }
