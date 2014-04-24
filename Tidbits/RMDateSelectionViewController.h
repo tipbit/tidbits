@@ -49,6 +49,8 @@ typedef void (^RMDateSelectionBlock)(RMDateSelectionViewController *vc, NSDate *
   */
 typedef void (^RMDateCancelBlock)(RMDateSelectionViewController *vc);
 
+typedef void (^RMDatePickerBlock)(UIDatePicker *picker);
+
 @protocol RMDateSelectionViewControllerDelegate <NSObject>
 
 /**
@@ -170,6 +172,24 @@ typedef void (^RMDateCancelBlock)(RMDateSelectionViewController *vc);
  */
 - (void)showWithSelectionHandler:(RMDateSelectionBlock)selectionBlock andCancelHandler:(RMDateCancelBlock)cancelBlock;
 
+/**
+ This shows the date selection view controller as child view controller of the root view controller of the current key window.
+ 
+ The content of the rootview controller will be darkened and the date selection view controller will be shown on top.
+ 
+ After a date has been selected the selectionBlock will be called. If the user choses to cancel the selection, the cancel block will be called. If you assigned a delegate the corresponding delegate methods will be called, too.
+ 
+ @param pickerBlock The block to call to configure the date picker.
+ @param selectionBlock The block to call when the user selects a date.
+ @param cancelBlock The block to call when the user cancels the selection.
+ */
+- (void)showWithPicker:(RMDatePickerBlock)pickerBlock
+      selectionHandler:(RMDateSelectionBlock)selectionBlock
+      andCancelHandler:(RMDateCancelBlock)cancelBlock;
+
+
+@property (nonatomic, copy) RMDatePickerBlock datePickerBlock;
+@property (nonatomic, strong) NSNumber *datePickerMode;
 /**
  This shows the date selection view controller as child view controller of aViewController.
  

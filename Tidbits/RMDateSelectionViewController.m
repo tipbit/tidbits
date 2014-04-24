@@ -233,6 +233,24 @@ static NSString *_localizedSelectTitle = @"Select";
     [self.cancelAndSelectButtonContainer addSubview:self.cancelButton];
     [self.cancelAndSelectButtonContainer addSubview:self.selectButton];
     
+    if(self.datePickerMode){
+        [self.datePicker setDatePickerMode:[self.datePickerMode integerValue]];
+    }
+    
+    if(self.datePickerBlock)
+        self.datePickerBlock(self.datePicker);
+
+    switch (self.datePicker.datePickerMode) {
+        case UIDatePickerModeTime:
+        case UIDatePickerModeCountDownTimer:
+            self.hideNowButton = YES;
+            break;
+        case UIDatePickerModeDate:
+        case UIDatePickerModeDateAndTime:
+        default:
+            break;
+    }
+
     //Setup properties of elements
     if(!self.hideNowButton) {
         [self.nowButton setTitle:[RMDateSelectionViewController localizedTitleForNowButton] forState:UIControlStateNormal];
@@ -460,6 +478,14 @@ static NSString *_localizedSelectTitle = @"Select";
     }
     
     [self showFromViewController:currentViewController];
+}
+
+- (void)showWithPicker:(RMDatePickerBlock)pickerBlock
+      selectionHandler:(RMDateSelectionBlock)selectionBlock
+      andCancelHandler:(RMDateCancelBlock)cancelBlock
+{
+    self.datePickerBlock = pickerBlock;
+    [self showWithSelectionHandler:selectionBlock andCancelHandler:cancelBlock];
 }
 
 - (void)showFromViewController:(UIViewController *)aViewController {
