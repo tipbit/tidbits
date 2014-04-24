@@ -338,7 +338,7 @@ static NSInteger cachedThisYear = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     [dateFormatter setCalendar:calendar];
-    [dateFormatter setDateFormat:@"hh:mm a"];
+    [dateFormatter setDateFormat:@"h:mm a"];
     NSString *value = [dateFormatter stringFromDate:hhmma];
     return value;
 }
