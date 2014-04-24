@@ -24,18 +24,22 @@
 }                                                                                                           \
 
 
-#define TBUSERDEFAULTS_REGISTER_OBJECT(__getter, __setter, __t, __f, __F, __key, __prot)                    \
+#define TBUSERDEFAULTS_REGISTER_OBJECT_WITH_DEFAULT(__getter, __setter, __t, __f, __F, __key, __prot, __def)\
 +(void)registerSetting_ ## __getter {                                                                       \
-    [self registerSetting:__key protection:__prot defaultValue:nil];                                        \
+    [self registerSetting:__key protection:__prot defaultValue:__def];                                      \
 }                                                                                                           \
                                                                                                             \
 -(__t)__getter {                                                                                            \
-    return [self __f ## ForKey:__key protection:__prot defaultValue:nil];                                   \
+    return [self __f ## ForKey:__key protection:__prot defaultValue:__def];                                 \
 }                                                                                                           \
                                                                                                             \
 -(void)__setter:(__t)value {                                                                                \
     [self set ## __F:value forKey:__key protection:__prot];                                                 \
 }                                                                                                           \
+
+
+#define TBUSERDEFAULTS_REGISTER_OBJECT(__getter, __setter, __t, __f, __F, __key, __prot)                    \
+TBUSERDEFAULTS_REGISTER_OBJECT_WITH_DEFAULT(__getter, __setter, __t, __f, __F, __key, __prot, nil)
 
 
 #define TBUSERDEFAULTS_REGISTER_NSARRAY(__getter, __setter, __key, __prot)                                  \
@@ -49,6 +53,9 @@ TBUSERDEFAULTS_REGISTER_OBJECT(__getter, __setter, NSNumber*, number, Number, __
 
 #define TBUSERDEFAULTS_REGISTER_NSSTRING(__getter, __setter, __key, __prot)                                 \
 TBUSERDEFAULTS_REGISTER_OBJECT(__getter, __setter, NSString*, string, String, __key, __prot)
+
+#define TBUSERDEFAULTS_REGISTER_NSSTRING_WITH_DEFAULT(__getter, __setter, __key, __prot, __def)             \
+TBUSERDEFAULTS_REGISTER_OBJECT_WITH_DEFAULT(__getter, __setter, NSString*, string, String, __key, __prot, __def)
 
 #define TBUSERDEFAULTS_REGISTER_NSINTEGER(__getter, __setter, __key, __prot, __def)                         \
 TBUSERDEFAULTS_REGISTER_FROM_NSNUMBER(__getter, __setter, NSInteger, integer, Integer, __key, __prot, __def)
