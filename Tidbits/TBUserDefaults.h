@@ -39,11 +39,24 @@
 +(TBUserDefaults *)userDefaultsForUser:(NSString *)user;
 
 /**
+ * @return The last value given to [NSUserDefaults setUser].
+ * This includes reading it from [TBUserDefaults userDefaultsForUnauthenticatedUser] if necessary.  May be nil.
+ */
++(NSString *)user;
+
+/**
  * Set the user that standardUserDefaults should use from now on.
+ * This also saves the user in [TBUserDefaults userDefaultsForUnauthenticatedUser], with key = @"USER",
+ * protection:NSFileProtectionNone so that it can be read the next time the app starts.
  *
  * @param user May be nil, for signing out.
  */
 +(void)setUser:(NSString *)user;
+
+/**
+ * Equivalent to [TBUserDefaults setUser:user]; [[TBUserDefaults userDefaultsForUnauthenticatedUser] synchronize].
+ */
++(void)setUserAndSynchronize:(NSString *)user;
 
 /**
  * @return YES if the given key has previously been registered through TBUserDefaultsRegisteredSettings.h.

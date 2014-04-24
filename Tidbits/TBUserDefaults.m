@@ -66,7 +66,8 @@ static NSMutableDictionary * defaultValuesbyKey;
 static NSString* preferencesDir;
 
 
-#define UNAUTHENTICATED_USER @"TBUserDefaults-unauthenticated"
+#define kUnauthenticatedUser @"TBUserDefaults-unauthenticated"
+#define kUser @"USER"
 
 
 @implementation TBUserDefaults
@@ -138,7 +139,7 @@ static NSString* preferencesDir;
 
 
 +(TBUserDefaults *)userDefaultsForUnauthenticatedUser {
-    return [TBUserDefaults userDefaultsForUser:UNAUTHENTICATED_USER];
+    return [TBUserDefaults userDefaultsForUser:kUnauthenticatedUser];
 }
 
 
@@ -157,9 +158,33 @@ static NSString* preferencesDir;
 }
 
 
++(NSString *)user {
+    if (currentUser == nil) {
+        currentUser = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUser protection:NSFileProtectionNone defaultValue:nil];
+    }
+    return currentUser;
+}
+
+
 +(void)setUser:(NSString *)user {
-    assert(![user isEqualToString:UNAUTHENTICATED_USER]);
+    [self setUser_:user synchronize:NO];
+}
+
+
++(void)setUserAndSynchronize:(NSString *)user {
+    [self setUser_:user synchronize:YES];
+}
+
+
++(void)setUser_:(NSString *)user synchronize:(BOOL)sync {
+    assert(![user isEqualToString:kUnauthenticatedUser]);
+
     currentUser = user;
+    TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
+    [unauthDefaults setString:user forKey:kUser protection:NSFileProtectionNone];
+    if (sync) {
+        [unauthDefaults synchronize];
+    }
 }
 
 
