@@ -10,9 +10,6 @@
 
 @interface NSBundle (Versions)
 
-+(NSString*)userAgent;
-+(NSString*)versionString;
-
 -(NSString*)userAgent;
 -(NSString*)versionString;
 

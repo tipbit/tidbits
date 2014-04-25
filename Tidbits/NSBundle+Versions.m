@@ -11,16 +11,6 @@
 @implementation NSBundle (Versions)
 
 
-+(NSString*)userAgent {
-    return [[NSBundle mainBundle] userAgent];
-}
-
-
-+(NSString*)versionString {
-    return [[NSBundle mainBundle] versionString];
-}
-
-
 -(NSString*)userAgent {
     NSDictionary* d = self.infoDictionary;
     NSString* n = d[@"CFBundleName"];
