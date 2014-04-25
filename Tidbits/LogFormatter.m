@@ -22,11 +22,11 @@
     LogFormatter* aslFormatter = [[LogFormatter alloc] init];
     DDASLLogger* aslLogger = [DDASLLogger sharedInstance];
     aslLogger.logFormatter = aslFormatter;
-    [DDLog addLogger:aslLogger];
+    [DDLog addLogger:aslLogger withLogLevel:255];
 
     DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
     ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];
-    [DDLog addLogger:ttyLogger];
+    [DDLog addLogger:ttyLogger withLogLevel:255];
 
     [ttyLogger setColorsEnabled:YES];
     [ttyLogger setForegroundColor:[UIColor brownColor] backgroundColor:nil forFlag:LOG_FLAG_USER];
