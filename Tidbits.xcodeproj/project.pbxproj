@@ -565,6 +565,8 @@
 				408E897B176A47D4001B61E6 /* BlockWithResultOperation.m */,
 				402B793E1839464700ED9858 /* Breadcrumbs.h */,
 				402B793F1839464700ED9858 /* Breadcrumbs.m */,
+				404753AE18F3A74300115A82 /* CPUTime.h */,
+				404753AF18F3A74300115A82 /* CPUTime.m */,
 				408E897C176A47D4001B61E6 /* Dispatch.h */,
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
 				40C4E21E17F87E7C000EA60C /* DNSQuery.h */,
@@ -664,6 +666,7 @@
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
 				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
 				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
+				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
 				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
@@ -675,9 +678,6 @@
 				40BD90321777C13400A3ED9C /* UTI.h */,
 				40BD90331777C13400A3ED9C /* UTI.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
-				404753AE18F3A74300115A82 /* CPUTime.h */,
-				404753AF18F3A74300115A82 /* CPUTime.m */,
-				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
