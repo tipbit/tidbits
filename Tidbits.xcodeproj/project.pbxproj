@@ -49,6 +49,8 @@
 		4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */; };
 		404F47DB1805AAA800EE7258 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */; };
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
+		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
+		405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */; };
 		405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 405F4930186B724100E9B072 /* BackgroundTaskHandler.m */; };
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
@@ -329,6 +331,9 @@
 		404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		405AE475190D884C006F2BF1 /* WaitFor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitFor.h; sourceTree = "<group>"; };
 		405AE476190D884C006F2BF1 /* WaitFor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitFor.m; sourceTree = "<group>"; };
+		405AE48E190DC9DE006F2BF1 /* NSJSONSerialization+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Misc.h"; sourceTree = "<group>"; };
+		405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Misc.m"; sourceTree = "<group>"; };
+		405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+MiscTests.m"; sourceTree = "<group>"; };
 		405F492F186B724100E9B072 /* BackgroundTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTaskHandler.h; sourceTree = "<group>"; };
 		405F4930186B724100E9B072 /* BackgroundTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTaskHandler.m; sourceTree = "<group>"; };
 		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
@@ -622,6 +627,8 @@
 				40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */,
 				408F4661176CD7D900C468EB /* NSInputStream+Misc.h */,
 				408F4662176CD7D900C468EB /* NSInputStream+Misc.m */,
+				405AE48E190DC9DE006F2BF1 /* NSJSONSerialization+Misc.h */,
+				405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */,
 				40BBE5C818F898A600601FE7 /* NSLayoutConstraintHelpers.h */,
 				40BBE5C518F8987F00601FE7 /* NSLayoutConstraintHelpers.m */,
 				400C95B31853C14A0095B9DC /* NSMutableArray+Ext.h */,
@@ -717,6 +724,7 @@
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 				402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */,
+				405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */,
 			);
 			path = TidbitsTests;
 			sourceTree = "<group>";
@@ -939,6 +947,7 @@
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,
 				40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
+				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
 				40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */,
@@ -1023,6 +1032,7 @@
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
+				405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */,
 				402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */,
 				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
 				402E776C18A62595007176E2 /* NSData+FooTests.m in Sources */,
