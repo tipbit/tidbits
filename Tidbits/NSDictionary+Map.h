@@ -12,13 +12,13 @@
 
 typedef id (^key_val_to_id_t)(id key, id val);
 
-/*!
- * @abstract Create a new NSArray with the contents set to mapper(k, v) for each k,v pair in self.
+/**
+ * Create a new NSArray with the contents set to mapper(k, v) for each k,v pair in self.
  *
- * @discussion mapper may return nil, in which case no entry is added to the result
+ * mapper may return nil, in which case no entry is added to the result
  * (i.e. the result will be shorter than self).
  */
--(NSArray*) map:(key_val_to_id_t)block;
+-(NSMutableArray *)map:(key_val_to_id_t)mapper;
 
 /**
  * Create a new NSMutableDictionary with the contents set to k -> mapper(k, v) for each k,v pair in self.
