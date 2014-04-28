@@ -24,7 +24,8 @@
 @property (nonatomic, readonly) NSString * user;
 
 /**
- * NSString -> NSMutableDictionary.  The string is one of the NSFileProtection* constants.
+ * NSString -> (NSString -> id NSMutableDictionary).  The outer string is one of the NSFileProtection* constants.
+ * The inner dictionary is the key -> value for each setting at that protection level.
  *
  * May only be accessed under @synchronized (settingsByProtection).  The same is true of the enclosed dictionaries.
  */
