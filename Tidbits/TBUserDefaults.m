@@ -64,6 +64,13 @@ static NSMutableDictionary * protectionsByKey;
  */
 static NSMutableDictionary * defaultValuesbyKey;
 
+/**
+ * NSString -> NSString.  Setting key -> the registered type for that setting.
+ *
+ * May only be accessed under @synchronized (protectionsByKey).  (N.B. protectionsByKey is covering itself and this.)
+ */
+static NSMutableDictionary * typesByKey;
+
 static NSString* preferencesDir;
 
 
@@ -82,6 +89,7 @@ static NSString* preferencesDir;
     instancesByUser = [NSMutableDictionary dictionary];
     protectionsByKey = [NSMutableDictionary dictionary];
     defaultValuesbyKey = [NSMutableDictionary dictionary];
+    typesByKey = [NSMutableDictionary dictionary];
 
     NSArray *libraryDirs = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     if (libraryDirs.count == 0) {
@@ -117,8 +125,9 @@ static NSString* preferencesDir;
 }
 
 
-+(void)registerSetting:(NSString *)key protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull)) {
++(void)registerSetting:(NSString *)key type:(NSString *)type protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull)) {
     @synchronized (protectionsByKey) {
+        typesByKey[key] = type;
         protectionsByKey[key] = protection;
         if (def != nil) {
             defaultValuesbyKey[key] = def;
@@ -277,6 +286,58 @@ static NSString* preferencesDir;
     }
     else {
         return [self setObject:value forKey:key protection:prot];
+    }
+}
+
+
+-(BOOL)setObjectFromString:(NSString *)value forKey:(NSString *)key {
+    if (value == nil || [value isEqualToString:@""]) {
+        [self removeObjectForKey:key];
+        return NO;
+    }
+
+    NSString* type;
+    @synchronized (typesByKey) {
+        type = typesByKey[key];
+    }
+    if (type == nil) {
+        type = @"NSString";
+    }
+    id val = valueFromString(value, type);
+    if (val == nil) {
+        NSLog(@"Refusing to set %@ = %@ because it can't be parsed as a %@", key, value, type);
+        return NO;
+    }
+    return [self setObject:val forKey:key];
+}
+
+
+static id valueFromString(NSString * value, NSString * type) {
+    if ([type isEqualToString:@"NSString"]) {
+        return value;
+    }
+    else if ([type isEqualToString:@"NSNumber"]) {
+        NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
+        f.lenient = YES;
+        return [f numberFromString:value];
+    }
+    else if ([type isEqualToString:@"BOOL"]) {
+        return @([value boolValue]);
+    }
+    else if ([type isEqualToString:@"float"]) {
+        return @([value floatValue]);
+    }
+    else if ([type isEqualToString:@"double"]) {
+        return @([value doubleValue]);
+    }
+    else if ([type isEqualToString:@"NSArray"]) {
+        return nil;
+    }
+    else if ([type isEqualToString:@"NSDictionary"]) {
+        return nil;
+    }
+    else {
+        assert(false);
     }
 }
 

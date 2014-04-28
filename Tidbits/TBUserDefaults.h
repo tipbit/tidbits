@@ -92,6 +92,20 @@
 -(BOOL)setObject:(id)value forKey:(NSString *)key __attribute__((nonnull(2)));
 
 /**
+ * Equivalent to setObject:forKey:, but parses the value from the given string, using the registered type
+ * for that key (assuming NSString if this key is not registered).
+ *
+ * @param value May be nil or @"", in which case this is equivalent to [self removeObjectForKey:key].
+ * If the registered type is BOOL, NSInteger, float, or double, may be anything that
+ * NSString.{bool,integer,float,double}Value will handle.
+ * If the registered type is NSNumber, may be anything that a lenient NSNumberFormatter will handle.
+ * If the registered type is NSString, may be anything.
+ * @return YES if this call was able to parse the given value, find the registered setting,
+ * read the old settings plist (i.e. the file was unlocked), and the write has been scheduled.
+ */
+-(BOOL)setObjectFromString:(NSString *)value forKey:(NSString *)key __attribute__((nonnull(2)));
+
+/**
  * Remove a value for a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
  * @return YES if this call was able to find the registered setting, read the old settings plist (i.e. the file was unlocked), and the write has been scheduled.
  */
