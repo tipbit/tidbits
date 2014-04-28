@@ -56,4 +56,38 @@
 }
 
 
+-(void)testDictionaryWithKeysAndMappedValues {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{@1: @3, @2: @5};
+    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id key, id val) {
+        int k = [key intValue];
+        int v = [val intValue];
+        return k == 3 ? nil : @(k + v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithKeysAndMappedValuesEmpty {
+    NSDictionary* input = @{};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id key, id val) {
+        int k = [key intValue];
+        int v = [val intValue];
+        return k == 3 ? nil : @(k + v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithKeysAndMappedValuesResultEmpty {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id key, id val) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 @end
