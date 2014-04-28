@@ -87,13 +87,15 @@
  * Set a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
  *
  * @param value May be nil, in which case this is equivalent to [self removeObjectForKey:key].
+ * @return YES if this call was able to find the registered setting, read the old settings plist (i.e. the file was unlocked), and the write has been scheduled.
  */
--(void)setObject:(id)value forKey:(NSString *)key __attribute__((nonnull(2)));
+-(BOOL)setObject:(id)value forKey:(NSString *)key __attribute__((nonnull(2)));
 
 /**
  * Remove a value for a user default using the settings registered through TBUserDefaultsRegisteredSettings.h.
+ * @return YES if this call was able to find the registered setting, read the old settings plist (i.e. the file was unlocked), and the write has been scheduled.
  */
--(void)removeObjectForKey:(NSString *)key __attribute__((nonnull));
+-(BOOL)removeObjectForKey:(NSString *)key __attribute__((nonnull));
 
 /**
  * Equivalent to [self objectForKey:key protection:protection defaultValue:def wasUnlocked:NULL].

@@ -266,24 +266,30 @@ static NSString* preferencesDir;
 }
 
 
--(void)setObject:(id)value forKey:(NSString *)key {
+-(BOOL)setObject:(id)value forKey:(NSString *)key {
     NSString* prot;
     @synchronized (protectionsByKey) {
         prot = protectionsByKey[key];
     }
-    if (prot != nil) {
-        [self setObject:value forKey:key protection:prot];
+    if (prot == nil) {
+        return NO;
+    }
+    else {
+        return [self setObject:value forKey:key protection:prot];
     }
 }
 
 
--(void)removeObjectForKey:(NSString *)key {
+-(BOOL)removeObjectForKey:(NSString *)key {
     NSString* prot;
     @synchronized (protectionsByKey) {
         prot = protectionsByKey[key];
     }
-    if (prot != nil) {
-        [self removeObjectForKey:key protection:prot];
+    if (prot == nil) {
+        return NO;
+    }
+    else {
+        return [self removeObjectForKey:key protection:prot];
     }
 }
 
