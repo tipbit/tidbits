@@ -154,4 +154,22 @@ TBUSERDEFAULTS_TYPED(BOOL, bool, Bool)
 
 #undef TBUSERDEFAULTS_TYPED
 
+
+/**
+ * @return NSString -> (NSString -> id NSMutableDictionary).  The outer key is the key for the setting.  The inner dictionary contains the
+ * the following: @"key": the key for the setting, @"protection": its protection level, @"defaultValue": its default value,
+ * @"value": its current value, @"context": one of @"user", @"unauth", or @"none" depending on the value of self.user, @"error": an error message.
+ * @"defaultValue" will be omitted if it set to nil or has never been registered.  @"error" will be omitted if no error is detected with this setting.
+ * @"value" will be omitted if the setting is registered but currently has no value.
+ */
+-(NSMutableDictionary *)toJSON;
+
+/**
+ * @return NSString -> (NSString -> id NSMutableDictionary).  The outer key is the key for the registered setting.  The inner dictionary contains the
+ * the following: @"key": the key for the registered setting, @"protection": its protection level, @"defaultValue": its default value.  @"defaultValue" will
+ * be omitted if it set to nil.
+ */
++(NSMutableDictionary *)registeredSettingsToJSON;
+
+
 @end

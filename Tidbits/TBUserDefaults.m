@@ -12,6 +12,7 @@
 #import "Dispatch.h"
 #import "GTMNSString+URLArguments.h"
 #import "LoggingMacros.h"
+#import "NSDictionary+Map.h"
 
 #import "TBUserDefaults.h"
 
@@ -606,6 +607,79 @@ FROM_NSNUMBER(double, double, Double, doubleValue)
 FROM_NSNUMBER(BOOL, bool, Bool, boolValue)
 
 #undef FROM_NSNUMBER
+
+
+-(NSMutableDictionary *)toJSON {
+    NSMutableDictionary* result = [TBUserDefaults registeredSettingsToJSON];
+    for (NSString* key in [result allKeys]) {
+        NSMutableDictionary* dict = result[key];
+        dict[@"context"] = @"none";
+    }
+
+    @synchronized (self.settingsByProtection) {
+        for (NSString* prot in [self.settingsByProtection allKeys]) {
+            NSDictionary* settings = self.settingsByProtection[prot];
+
+            for (NSString* key in [settings allKeys]) {
+                id val = settings[key];
+
+                NSMutableDictionary* dict = result[key];
+                if (dict == nil) {
+                    // A setting with no registration.  Acceptable, but unusual.
+                    dict = [NSMutableDictionary dictionary];
+                    dict[@"key"] = key;
+                    dict[@"protection"] = prot;
+                    result[key] = dict;
+                }
+                else {
+                    if (![dict[@"protection"] isEqualToString:prot]) {
+                        NSLog(@"Found setting %@ at the wrong protection level %@ != %@", key, dict[@"protection"], prot);
+                        dict[@"protection"] = prot;
+                        dict[@"error"] = @"Wrong protection level";
+                    }
+                }
+
+                dict[@"context"] = self.userContext;
+                dict[@"value"] = val;
+            }
+        }
+    }
+
+    return result;
+}
+
+
+-(NSString*)userContext {
+    if (self.user == nil) {
+        return @"none";
+    }
+    else if ([self.user isEqualToString:kUnauthenticatedUser]) {
+        return @"unauth";
+    }
+    else {
+        return @"user";
+    }
+}
+
+
++(NSMutableDictionary *)registeredSettingsToJSON {
+    @synchronized (protectionsByKey) {
+        return [protectionsByKey dictionaryWithKeysAndMappedValues:^id(id key_, id prot_) {
+            NSString * key = key_;
+            NSString * prot = prot_;
+            NSString * type = typesByKey[key];
+            id def = defaultValuesbyKey[key];
+
+            NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:@{@"key": key,
+                                                                                        @"protection": prot,
+                                                                                        @"type": type}];
+            if (def != nil) {
+                dict[@"defaultValue"] = def;
+            }
+            return dict;
+        }];
+    }
+}
 
 
 @end
