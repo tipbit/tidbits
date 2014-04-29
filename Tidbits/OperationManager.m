@@ -11,11 +11,11 @@
 
 @interface CallbackPair : NSObject
 
-@property (nonatomic, copy) NSDataBlock onSuccessNSData;
+@property (nonatomic, copy) IdBlock onSuccessId;
 @property (nonatomic, copy) VoidBlock onSuccessVoid;
 @property (nonatomic, copy) NSErrorBlock onFailure;
 
--(instancetype)initNSData:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
+-(instancetype)initId:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
 -(instancetype)initVoid:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
 
 @end
@@ -23,11 +23,11 @@
 
 @implementation CallbackPair
 
--(instancetype)initNSData:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
+-(instancetype)initId:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
     self = [super init];
     if (self) {
-        self.onSuccessNSData = onSuccess;
-        self.onFailure = onFailure;
+        _onSuccessId = onSuccess;
+        _onFailure = onFailure;
     }
     return self;
 }
@@ -35,8 +35,8 @@
 -(instancetype)initVoid:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
     self = [super init];
     if (self) {
-        self.onSuccessVoid = onSuccess;
-        self.onFailure = onFailure;
+        _onSuccessVoid = onSuccess;
+        _onFailure = onFailure;
     }
     return self;
 }
@@ -58,18 +58,23 @@
 }
 
 
--(void)performNSData:(id<NSCopying>)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op {
-    CallbackPair* cb = [[CallbackPair alloc] initNSData:onSuccess onFailure:onFailure];
+-(void)performId:(id<NSCopying>)key onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(IdOperationBlock)op {
+    CallbackPair* cb = [[CallbackPair alloc] initId:(IdBlock)onSuccess onFailure:onFailure];
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
     if (!inProgress) {
         OperationManager* __weak weakSelf = self;
-        op(^(NSData* data) {
-            [weakSelf performSuccessNSData:key data:data];
+        op(^(id obj) {
+            [weakSelf performSuccessId:key obj:obj];
         }, ^(NSError* err) {
             [weakSelf performFailure:key error:err];
         });
     }
+}
+
+
+-(void)performNSData:(id<NSCopying>)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op {
+    [self performId:key onSuccess:(IdBlock)onSuccess onFailure:onFailure op:(IdOperationBlock)op];
 }
 
 
@@ -100,14 +105,14 @@
 }
 
 
--(void)performSuccessNSData:(id<NSCopying>)key data:(NSData*)data {
+-(void)performSuccessId:(id<NSCopying>)key obj:(id)obj {
     NSArray* callbacks;
     @synchronized (operations) {
         callbacks = operations[key];
         [operations removeObjectForKey:key];
     }
     for (CallbackPair* callback in callbacks) {
-        callback.onSuccessNSData(data);
+        callback.onSuccessId(obj);
     }
 }
 
