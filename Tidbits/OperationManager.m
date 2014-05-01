@@ -44,15 +44,20 @@
 @end
 
 
-@implementation OperationManager {
-    NSMutableDictionary* operations;
-}
+@interface OperationManager ()
+
+@property (nonatomic) NSMutableDictionary * operations;
+
+@end
+
+
+@implementation OperationManager
 
 
 -(id)init {
     self = [super init];
     if (self) {
-        operations = [NSMutableDictionary dictionary];
+        _operations = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -95,9 +100,9 @@
 
 -(void)performFailure:(id<NSCopying>)key error:(NSError*)err {
     NSArray* callbacks;
-    @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+    @synchronized (self.operations) {
+        callbacks = self.operations[key];
+        [self.operations removeObjectForKey:key];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onFailure(err);
@@ -107,9 +112,9 @@
 
 -(void)performSuccessId:(id<NSCopying>)key obj:(id)obj {
     NSArray* callbacks;
-    @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+    @synchronized (self.operations) {
+        callbacks = self.operations[key];
+        [self.operations removeObjectForKey:key];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onSuccessId(obj);
@@ -119,9 +124,9 @@
 
 -(void)performSuccessVoid:(id<NSCopying>)key {
     NSArray* callbacks;
-    @synchronized (operations) {
-        callbacks = operations[key];
-        [operations removeObjectForKey:key];
+    @synchronized (self.operations) {
+        callbacks = self.operations[key];
+        [self.operations removeObjectForKey:key];
     }
     for (CallbackPair* callback in callbacks) {
         callback.onSuccessVoid();
@@ -130,11 +135,11 @@
 
 
 -(bool)recordCallbackPair:(id<NSCopying>)key callbackPair:(CallbackPair*)cb {
-    @synchronized (operations) {
-        NSMutableArray* callbacks = operations[key];
+    @synchronized (self.operations) {
+        NSMutableArray* callbacks = self.operations[key];
         if (callbacks == nil) {
             callbacks = [NSMutableArray array];
-            operations[key] = callbacks;
+            self.operations[key] = callbacks;
             [callbacks addObject:cb];
             return false;
         }
