@@ -10,6 +10,8 @@
 
 @interface NSDate (Ext)
 
++ (NSDate*) dateFromServerString:(NSString*)dateStr;
+
 +(NSDate*)year2038;
 
 -(NSString*)userShortDateString;
@@ -69,6 +71,9 @@
 +(NSTimeInterval)timeIntervalFromHours:(NSInteger)hours;
 +(NSTimeInterval)timeIntervalFromMinutes:(NSInteger)minutes;
 +(NSTimeInterval)timeIntervalFromDays:(NSInteger)days hours:(NSInteger)hours minutes:(NSInteger)minutes seconds:(NSInteger)seconds;
++(NSTimeInterval)timeIntervalFromNowWithServerString:(NSString *)dateStr;
++(NSTimeInterval)timeIntervalFromNow:(NSDate *)date;
++(NSTimeInterval)timeIntervalRoundedTo5Minutes:(NSTimeInterval)ti;
 
 +(NSDate *)dateFromHHMMA:(NSString *)hhmma;
 
