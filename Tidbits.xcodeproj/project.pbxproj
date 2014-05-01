@@ -12,7 +12,6 @@
 		181E010B1912ADF100DEE28C /* TTTAddressFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E00FC1912ADF100DEE28C /* TTTAddressFormatter.m */; };
 		181E010C1912ADF100DEE28C /* TTTArrayFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E00FE1912ADF100DEE28C /* TTTArrayFormatter.m */; };
 		181E010D1912ADF100DEE28C /* TTTColorFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E01001912ADF100DEE28C /* TTTColorFormatter.m */; };
-		181E010E1912ADF100DEE28C /* TTTLocationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E01021912ADF100DEE28C /* TTTLocationFormatter.m */; };
 		181E010F1912ADF100DEE28C /* TTTOrdinalNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E01041912ADF100DEE28C /* TTTOrdinalNumberFormatter.m */; };
 		181E01101912ADF100DEE28C /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E01061912ADF100DEE28C /* TTTTimeIntervalFormatter.m */; };
 		181E01111912ADF100DEE28C /* TTTUnitOfInformationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E01081912ADF100DEE28C /* TTTUnitOfInformationFormatter.m */; };
@@ -1002,19 +1001,15 @@
 				408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */,
 				408E88DC1768E6BE001B61E6 /* GTMObjC2Runtime.m in Sources */,
 				405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */,
-				181E010B1912ADF100DEE28C /* TTTAddressFormatter.m in Sources */,
 				4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */,
 				400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */,
 				402E784018AEB199007176E2 /* Enumerate.m in Sources */,
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
-				181E01111912ADF100DEE28C /* TTTUnitOfInformationFormatter.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
 				18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
-				181E01101912ADF100DEE28C /* TTTTimeIntervalFormatter.m in Sources */,
-				181E010E1912ADF100DEE28C /* TTTLocationFormatter.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
 				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
@@ -1022,10 +1017,8 @@
 				405AE477190D884C006F2BF1 /* WaitFor.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				404753B018F3A74300115A82 /* CPUTime.m in Sources */,
-				181E010D1912ADF100DEE28C /* TTTColorFormatter.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
-				181E01121912ADF100DEE28C /* TTTURLRequestFormatter.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
@@ -1047,7 +1040,6 @@
 				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */,
-				181E010F1912ADF100DEE28C /* TTTOrdinalNumberFormatter.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
@@ -1055,7 +1047,6 @@
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
-				181E010C1912ADF100DEE28C /* TTTArrayFormatter.m in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
@@ -1067,6 +1058,13 @@
 				181BC4D81902069300D53080 /* RMDateSelectionViewController.m in Sources */,
 				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
 				4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */,
+				181E010B1912ADF100DEE28C /* TTTAddressFormatter.m in Sources */,
+				181E01111912ADF100DEE28C /* TTTUnitOfInformationFormatter.m in Sources */,
+				181E01101912ADF100DEE28C /* TTTTimeIntervalFormatter.m in Sources */,
+				181E010D1912ADF100DEE28C /* TTTColorFormatter.m in Sources */,
+				181E01121912ADF100DEE28C /* TTTURLRequestFormatter.m in Sources */,
+				181E010F1912ADF100DEE28C /* TTTOrdinalNumberFormatter.m in Sources */,
+				181E010C1912ADF100DEE28C /* TTTArrayFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
