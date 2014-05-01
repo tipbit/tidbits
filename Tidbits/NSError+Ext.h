@@ -11,5 +11,6 @@
 @interface NSError (Ext)
 
 -(bool)isNoSuchFile;
-
++ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
+- (NSString *)message;
 @end

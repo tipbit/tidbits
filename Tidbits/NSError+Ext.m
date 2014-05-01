@@ -16,5 +16,16 @@
             (self.domain == NSPOSIXErrorDomain && self.code == ENOENT));
 }
 
++ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message
+{
+    NSMutableDictionary* details = [NSMutableDictionary dictionary];
+    details[NSLocalizedDescriptionKey] = message;
+    return [NSError errorWithDomain:domain code:code userInfo:details];
+}
+
+- (NSString *)message
+{
+    return self.userInfo[NSLocalizedDescriptionKey];
+}
 
 @end
