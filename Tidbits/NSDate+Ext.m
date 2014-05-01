@@ -361,5 +361,24 @@ static NSInteger cachedThisYear = 0;
     return value;
 }
 
++(NSTimeInterval)timeIntervalFromNowWithServerString:(NSString *)dateStr
+{
+    NSDate *date = [self dateFromServerString:dateStr];
+    return [self timeIntervalFromNow:date];
+}
+
++(NSTimeInterval)timeIntervalFromNow:(NSDate *)date
+{
+    return [date timeIntervalSinceNow];
+}
+
++(NSTimeInterval)timeIntervalRoundedTo5Minutes:(NSTimeInterval)ti
+{
+    int remainingSeconds = (int)ti % 300;
+    NSTimeInterval timeIntervalRoundedTo5Minutes = ti - remainingSeconds;
+    if(remainingSeconds>150)
+        timeIntervalRoundedTo5Minutes = ti +(300-remainingSeconds);
+    return timeIntervalRoundedTo5Minutes;
+}
 
 @end
