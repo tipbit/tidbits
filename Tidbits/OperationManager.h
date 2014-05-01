@@ -11,6 +11,11 @@
 #import "StandardBlocks.h"
 
 
+#ifndef OPERATIONMANAGER_TRACK_OPERATIONS
+#define OPERATIONMANAGER_TRACK_OPERATIONS DEBUG
+#endif
+
+
 typedef void(^IdOperationBlock)(IdBlock onSuccess, NSErrorBlock onFailure);
 typedef void(^VoidOperationBlock)(VoidBlock onSuccess, NSErrorBlock onFailure);
 typedef void(^NSDataOperationBlock)(NSDataBlock onSuccess, NSErrorBlock onFailure);
@@ -26,8 +31,22 @@ typedef void(^NSDataOperationBlock)(NSDataBlock onSuccess, NSErrorBlock onFailur
  */
 @interface OperationManager : NSObject
 
+-(id)init:(NSString *)name;
+
 -(void)performId:(id<NSCopying>)key onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(IdOperationBlock)op;
 -(void)performNSData:(id<NSCopying>)key onSuccess:(NSDataBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(NSDataOperationBlock)op;
 -(void)performVoid:(id<NSCopying>)key onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(VoidOperationBlock)op;
+
+
+#if OPERATIONMANAGER_TRACK_OPERATIONS
+
+/**
+ * @return Metadata for all current OperationManager instances, yours to own.
+ * @[@{@"name": NSString, @"operations": @{NSString: @{@"status": NSString, @"callbackCount": NSNumber, "startedAt": [NSDate iso8601String]}}}].
+ */
++(NSMutableArray *)describeAll;
+
+#endif
+
 
 @end
