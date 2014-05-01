@@ -279,9 +279,12 @@ static NSString * const kTTTOrdinalNumberFormatterDefaultOrdinalIndicator = @"."
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     self.ordinalIndicator = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(ordinalIndicator))];
     self.grammaticalGender = (TTTOrdinalNumberFormatterPredicateGrammaticalGender)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(grammaticalGender))];
     self.grammaticalNumber = (TTTOrdinalNumberFormatterPredicateGrammaticalNumber)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(grammaticalNumber))];
+#pragma clang diagnostic pop
 
     return self;
 }

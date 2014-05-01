@@ -348,10 +348,13 @@ static inline double CLLocationSpeedToMilesPerHour(CLLocationSpeed speed) {
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     self.numberFormatter = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(numberFormatter))];
     self.coordinateOrder = (TTTLocationFormatterCoordinateOrder)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(coordinateOrder))];
     self.bearingStyle = (TTTLocationFormatterBearingStyle)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(bearingStyle))];
     self.unitSystem = (TTTLocationUnitSystem)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(unitSystem))];
+#pragma clang diagnostic pop
 
     return self;
 }

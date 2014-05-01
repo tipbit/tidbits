@@ -175,6 +175,8 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     self.arrayStyle = (TTTArrayFormatterStyle)[aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(arrayStyle))];
     self.delimiter = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(delimiter))];
     self.separator = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(separator))];
@@ -182,7 +184,8 @@
     self.abbreviatedConjunction = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(abbreviatedConjunction))];
     self.usesAbbreviatedConjunction = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesAbbreviatedConjunction))];
     self.usesSerialDelimiter = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesSerialDelimiter))];
-
+#pragma clang diagnostic pop
+    
     return self;
 }
 

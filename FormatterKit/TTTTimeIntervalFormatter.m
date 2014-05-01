@@ -514,6 +514,8 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     self.locale = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(locale))];
     self.pastDeicticExpression = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(pastDeicticExpression))];
     self.presentDeicticExpression = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(presentDeicticExpression))];
@@ -524,6 +526,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     self.usesAbbreviatedCalendarUnits = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesAbbreviatedCalendarUnits))];
     self.usesApproximateQualifier = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesApproximateQualifier))];
     self.usesIdiomaticDeicticExpressions = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesIdiomaticDeicticExpressions))];
+#pragma clang diagnostic pop
 
     return self;
 }
