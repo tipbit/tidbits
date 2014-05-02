@@ -93,6 +93,8 @@ typedef enum {
 - (NSUInteger) platformType;
 - (NSString *) platformString;
 
+- (NSString *) kernOsVersion;
+
 - (NSUInteger) cpuFrequency;
 - (NSUInteger) busFrequency;
 - (NSUInteger) cpuCount;

@@ -43,6 +43,11 @@
     return [self getSysInfoByName:"hw.model"];
 }
 
+- (NSString *) kernOsVersion
+{
+    return [self getSysInfoByName:"kern.osversion"];
+}
+
 #pragma mark sysctl utils
 - (NSUInteger) getSysInfo: (uint) typeSpecifier
 {
