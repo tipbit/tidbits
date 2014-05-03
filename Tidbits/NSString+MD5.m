@@ -21,5 +21,10 @@
     return [[NSUUID alloc] initWithUUIDBytes:digest];
 }
 
+-(NSUUID*)uuid
+{
+    return [[NSUUID alloc] initWithUUIDString:self];
+}
+
 
 @end

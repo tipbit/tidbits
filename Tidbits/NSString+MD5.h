@@ -11,5 +11,6 @@
 @interface NSString (MD5)
 
 -(NSUUID*)md5uuid;
+-(NSUUID*)uuid;
 
 @end
