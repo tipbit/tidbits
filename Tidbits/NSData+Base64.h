@@ -44,4 +44,11 @@
 @interface NSData (Hex)
 + (NSData *) dataFromHexidecimal: (NSString *)hexString;
 - (NSString *) hexString;
+- (NSUUID *)uuidFromData;
+@end
+
+
+@interface NSString (Base64)
+- (NSData *)base64urlDecodedString;
+- (NSUUID *)uuidFromBase64urlEncodedString;
 @end

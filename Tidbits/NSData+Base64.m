@@ -387,5 +387,28 @@ static char *NewBase64Encode(
             stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
+-(NSUUID *)uuidFromData
+{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDBytes:self.bytes];
+    return uuid;
+}
+
+@end
+
+@implementation NSString (Base64)
+- (NSData *)base64urlDecodedString
+{
+    NSString *str = [[self
+                      stringByReplacingOccurrencesOfString:@"-" withString:@"+"]
+                     stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    //note that we are ignoring stringByReplacingOccurrencesOfString:@"=" withString:@""];
+    return [NSData dataFromBase64String:str];
+}
+- (NSUUID *)uuidFromBase64urlEncodedString
+{
+    NSData *data = [self base64urlDecodedString];
+    NSUUID *uuid = [data uuidFromData];
+    return uuid;
+}
 
 @end
