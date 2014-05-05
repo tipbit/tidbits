@@ -22,7 +22,7 @@
 - (id)objectWithJSONSafeObjects
 {
 	if ([self isKindOfClass:[NSDictionary class]])
-		return [self safeDictionaryFromDictionary:self];
+		return [self safeDictionaryFromDictionary:(NSDictionary*)self];
 
 	else if ([self isKindOfClass:[NSArray class]] || [self isKindOfClass:[NSSet class]])
 		return [self safeArrayFromArray:self];
@@ -40,7 +40,7 @@
 	NSMutableString *subscriptKey	= [NSMutableString string];
 	NSMutableString *string			= path;
 
-	for (int i = 0; i < keyPath.length; i++) {
+	for (NSUInteger i = 0; i < keyPath.length; i++) {
 
 		unichar c = [keyPath characterAtIndex:i];
 
@@ -55,19 +55,20 @@
 		if (c == ']') {
 			if (!currentObject) return nil;
 			if (![currentObject isKindOfClass:[NSArray class]]) return nil;
+            NSArray * currentArray = currentObject;
 			NSUInteger index = 0;
 			if ([subscriptKey isEqualToString:@"first"]) {
 				index = 0;
 			}
 			else if ([subscriptKey isEqualToString:@"last"]) {
-				index = [currentObject count] - 1;
+				index = [currentArray count] - 1;
 			}
 			else {
 				index = [subscriptKey intValue];
 			}
-            if ([currentObject count] == 0) return nil;
-			if (index > [currentObject count] - 1) return nil;
-			currentObject = [currentObject objectAtIndex:index];
+            if ([currentArray count] == 0) return nil;
+			if (index > [currentArray count] - 1) return nil;
+			currentObject = [currentArray objectAtIndex:index];
 			if ([currentObject isKindOfClass:[NSNull class]]) return nil;
 			[path setString:@""];
 			string = path;
@@ -110,7 +111,7 @@
 
 #pragma mark - Private Methods
 
-- (id)safeDictionaryFromDictionary:(id)dictionary
+- (id)safeDictionaryFromDictionary:(NSDictionary *)dictionary
 {
 
 	NSMutableDictionary *cleanDictionary = [NSMutableDictionary dictionary];
