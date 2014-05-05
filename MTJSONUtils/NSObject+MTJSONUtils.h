@@ -6,14 +6,6 @@
 //  Copyright (c) 2012 Mysterious Trousers. All rights reserved.
 //
 
-// swaps NSNull for nil
-#define NILL(a) ([a isKindOfClass:[NSNull class]] ? nil : a)
-// swaps nil for NSNull
-#define NUL(a) (a ? a : [NSNull null])
-// same as NUL but swaps nil for empty string (plist safe)
-#define NULS(a) (a ? a : @"")
-
-
 @interface NSObject (MTJSONUtils)
 
 - (NSData *)JSONData;
