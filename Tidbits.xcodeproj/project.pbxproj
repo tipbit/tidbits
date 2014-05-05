@@ -164,6 +164,7 @@
 		40E3ED25176EAEB500FFF503 /* NSDate+Ext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E3ED22176EAD5700FFF503 /* NSDate+Ext.h */; };
 		40ECA82517F899230081D51E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECA82417F899230081D51E /* XCTest.framework */; };
 		40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */; };
+		40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F65070191772BB00142318 /* NSObject+MTJSONUtils.m */; };
 		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
 		40FB91C117ACA22600F6EC64 /* NSBundle+Versions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */; };
 		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
@@ -470,6 +471,8 @@
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
 		40ECA82417F899230081D51E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureMacros.h; sourceTree = "<group>"; };
+		40F6506F191772BB00142318 /* NSObject+MTJSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTJSONUtils.h"; sourceTree = "<group>"; usesTabs = 1; };
+		40F65070191772BB00142318 /* NSObject+MTJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTJSONUtils.m"; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Versions.h"; sourceTree = "<group>"; };
 		40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Versions.m"; sourceTree = "<group>"; };
 		40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
@@ -571,6 +574,7 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
+				40F6506D191772BB00142318 /* MTJSONUtils */,
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				402C044118754151009D105B /* CBL */,
 				40C2A2F0177A56E0003276AB /* SRVResolver */,
@@ -824,6 +828,15 @@
 			path = SRVResolver;
 			sourceTree = "<group>";
 		};
+		40F6506D191772BB00142318 /* MTJSONUtils */ = {
+			isa = PBXGroup;
+			children = (
+				40F6506F191772BB00142318 /* NSObject+MTJSONUtils.h */,
+				40F65070191772BB00142318 /* NSObject+MTJSONUtils.m */,
+			);
+			path = MTJSONUtils;
+			sourceTree = "<group>";
+		};
 		40FB91CB17ACA50700F6EC64 /* uidevice-extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1059,7 @@
 				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
+				40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
