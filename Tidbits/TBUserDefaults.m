@@ -239,8 +239,10 @@ static NSString* preferencesDir;
     @synchronized (self.dirtyProtectionLevels) {
         [self.dirtyProtectionLevels addObject:protection];
     }
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(synchronizeBackground) object:nil];
-    [self performSelector:@selector(synchronizeBackground) withObject:nil afterDelay:30.0];
+    dispatchAsyncMainThread(^{
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(synchronizeBackground) object:nil];
+        [self performSelector:@selector(synchronizeBackground) withObject:nil afterDelay:30.0];
+    });
 }
 
 
