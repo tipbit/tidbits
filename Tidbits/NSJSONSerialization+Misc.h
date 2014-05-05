@@ -21,4 +21,14 @@
  */
 +(NSString *)stringWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error;
 
+/**
+ * Equivalent to [NSJSONSerialization stringWithJSONObject:[obj objectWithJSONSafeObjects] options:0 error:error].
+ */
++(NSString *)stringWithJSONObjectMadeSafe:(id)obj error:(NSError *__autoreleasing *)error;
+
+/**
+ * Equivalent to [NSString stringWithUTF8Data:[NSJSONSerialization dataWithJSONObject:[obj objectWithJSONSafeObjects] options:opt error:error]].
+ */
++(NSString *)stringWithJSONObjectMadeSafe:(id)obj options:(NSJSONWritingOptions)opt error:(NSError *__autoreleasing *)error;
+
 @end
