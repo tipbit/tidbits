@@ -54,3 +54,8 @@ Couchbase, Inc, and licensed using the Apache Liense 2.0.  That code in
 turn includes code from SQLite, which is in the public domain, and credits
 Astronomical Algorithms by Jean Meeus.  The CBL code also credits @nirvana and
 @AnuragMishra for earlier work.
+
+
+Code in the MTJSONUtils subdirectory is from MTJSONUtils,
+https://github.com/mysterioustrousers/MTJSONUtils, Copyright (c) 2012,
+Mysterious Trousers and MIT licensed. See MTJSONUtils/LICENSE for details.
