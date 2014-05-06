@@ -38,13 +38,13 @@
  * RFC 4648's base64url encoding.
  */
 - (NSString*)base64urlEncodedString;
+- (NSUUID *)uuidFromData;
 
 @end
 
 @interface NSData (Hex)
 + (NSData *) dataFromHexidecimal: (NSString *)hexString;
 - (NSString *) hexString;
-- (NSUUID *)uuidFromData;
 @end
 
 
