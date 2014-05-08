@@ -64,8 +64,11 @@ static bool we_have_initialized = false;
 
 -(BOOL)tb_synchronize {
     DLog(@"");
-    if ([[UIApplication sharedApplication] isProtectedDataAvailable])
+    UIApplication* app = [UIApplication sharedApplication];  // app is nil if we're running unit tests.
+                                                             // Assume isProtectedDataAvailable=true in that case.
+    if (app == nil || app.isProtectedDataAvailable) {
         return [self synchronize];
+    }
     else {
         DLog(@"Refusing to synchronize NSUserDefaults because isProtectedDataAvailable = false");
         return NO;
