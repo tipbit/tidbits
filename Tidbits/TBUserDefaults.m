@@ -236,10 +236,24 @@ static NSString* preferencesDir;
         to_sync = [self.dirtyProtectionLevels allObjects];
         [self.dirtyProtectionLevels removeAllObjects];
     }
+    NSMutableArray * failed = nil;
     @synchronized (self.settingsByProtection) {
         for (NSString* protection in to_sync) {
             NSDictionary* settings = self.settingsByProtection[protection];
-            [self savePlist:protection settings:settings];
+            BOOL ok = [self savePlist:protection settings:settings];
+            if (!ok) {
+                if (failed == nil) {
+                    failed = [NSMutableArray array];
+                }
+                [failed addObject:protection];
+            }
+        }
+    }
+    if (failed != nil) {
+        DLog(@"Failed to synchronize %@; marking them as dirty again so that we can try again later.",
+             [failed componentsJoinedByString:@", "]);
+        @synchronized (self.dirtyProtectionLevels) {
+            [self.dirtyProtectionLevels addObjectsFromArray:failed];
         }
     }
     return YES;
