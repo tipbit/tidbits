@@ -24,6 +24,7 @@ void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec
 
 //without the macros for debugging.  With the macros I cannot step into the code.
 void dispatchOnMainThreadWithDelay(int delay_msec, dispatch_block_t block);
+void dispatchAsyncOnMainThread(dispatch_block_t block);
 
 id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_with_result_t block);
 
