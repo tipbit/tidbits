@@ -69,6 +69,11 @@
 +(NSArray*)allRegisteredSettings;
 
 /**
+ * Write all changes to the plists for all instances immediately.
+ */
++(BOOL)synchronizeAll;
+
+/**
  * Write all changes to the plists immediately.
  */
 -(BOOL)synchronize;

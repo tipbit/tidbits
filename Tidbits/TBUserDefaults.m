@@ -206,6 +206,17 @@ static NSString* preferencesDir;
 }
 
 
++(BOOL)synchronizeAll {
+    BOOL result = YES;
+    @synchronized (instancesByUser) {
+        for (TBUserDefaults * instance in [instancesByUser allValues]) {
+            result &= [instance synchronize];
+        }
+    }
+    return result;
+}
+
+
 -(id)init:(NSString *)user {
     self = [super init];
     if (self) {
