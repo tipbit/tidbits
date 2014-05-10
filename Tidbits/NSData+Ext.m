@@ -17,58 +17,52 @@
 @implementation NSData (Ext)
 
 
--(void)writeToTemporaryFileWithName:(NSString*)filename onSuccess:(NSURLBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1))) {
+-(NSURL *)writeToTemporaryFileWithName:(NSString *)filename attributes:(NSDictionary *)attributes error:(NSError **)error __attribute__((nonnull(1))) {
     AssertOnBackgroundThread();
     NSParameterAssert(filename);
 
     filename = [filename stringBySanitizingFilename];
 
-    NSFileManager* nsfm = [NSFileManager defaultManager];
-    __block NSURL* tempDir = nil;
+    NSFileManager * nsfm = [NSFileManager defaultManager];
+    NSURL * tempDir = nil;
 
-    NSErrorBlock myOnFailure = ^(NSError* err) {
-        if (tempDir)
-            [[NSFileManager defaultManager] removeItemAtURLAsync:tempDir];
-
-        if (onFailure)
-            onFailure(err);
-    };
-
-    NSArray *cacheDirs = [nsfm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    NSArray * cacheDirs = [nsfm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     if (cacheDirs.count == 0) {
-        NSLog(@"Failed to find NSCachesDirectory!  Can't create temporary file for %@.", filename);
-        NSError* err2 = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileNoSuchFileError userInfo:nil];
-        myOnFailure(err2);
-        return;
+        NSLogError(@"Failed to find NSCachesDirectory!  Can't create temporary file for %@.", filename);
+        if (error) {
+            *error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileNoSuchFileError userInfo:nil];
+        }
+        return nil;
     }
 
-    NSError* err = nil;
-    NSURL *cacheDir = cacheDirs[0];
-    tempDir = [nsfm URLForDirectory:NSItemReplacementDirectory inDomain:NSUserDomainMask appropriateForURL:cacheDir create:YES error:&err];
+    NSURL * cacheDir = cacheDirs[0];
+    tempDir = [nsfm URLForDirectory:NSItemReplacementDirectory inDomain:NSUserDomainMask appropriateForURL:cacheDir create:YES error:error];
     if (tempDir == nil) {
-        NSLog(@"Error creating temp dir for %@ at %@: %@", filename, cacheDir, err);
-        myOnFailure(err);
-        return;
+        NSLogWarn(@"Error creating temp dir for %@ at %@: %@", filename, cacheDir, *error);
+        return nil;
     }
 
     NSURL* tempFile = [tempDir URLByAppendingPathComponent:filename.lastPathComponent];
     if (tempFile == nil) {
-        NSLog(@"Error creating temp file URL for %@ at %@", filename, tempDir);
-        NSError* err2 = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:nil];
-        myOnFailure(err2);
-        return;
+        NSLogError(@"Error creating temp file URL for %@ at %@", filename, tempDir);
+        [nsfm removeItemAtURLAsync:tempDir];
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:nil];
+        }
+        return nil;
     }
 
-    BOOL ok = [nsfm createFileAtPath:tempFile.path contents:self attributes:@{NSFileProtectionKey: NSFileProtectionComplete}];
+    BOOL ok = [nsfm createFileAtPath:tempFile.path contents:self attributes:attributes];
     if (!ok) {
-        NSLog(@"Error creating %@", tempFile);
-        NSError* err2 = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
-        myOnFailure(err2);
-        return;
+        NSLogWarn(@"Error creating %@", tempFile);
+        [nsfm removeItemAtURLAsync:tempDir];
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
+        }
+        return nil;
     }
 
-    if (onSuccess)
-        onSuccess(tempFile);
+    return tempFile;
 }
 
 
