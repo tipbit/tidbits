@@ -16,8 +16,11 @@
 -(NSInteger)readUint32:(uint32_t*)result;
 
 /**
- * @return The total number of bytes written, or a negative errno on failure.
+ * @param length May be NSUIntegerMax, in which case no checks are performed.  Otherwise, this is used to check that the correct data were read.
+ * @param error May be nil.
+ * @return The data that was written to the file, using NSDataReadingMappedIfSafe to hopefully avoid reading it back from disk unless the caller needs it.
+ * nil on failure, in which case *error will be set.
  */
--(NSInteger)writeToFile:(NSString *)filepath attributes:(NSDictionary*)attributes;
+-(NSData *)writeToFileAndNSData:(NSString *)filepath attributes:(NSDictionary*)attributes length:(NSUInteger)length error:(NSError **)error __attribute__((nonnull(1,2)));
 
 @end

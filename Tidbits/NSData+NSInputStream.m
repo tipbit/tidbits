@@ -6,27 +6,51 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import "LoggingMacros.h"
+
 #import "NSData+NSInputStream.h"
+
 
 #define BUFSIZE 65536U
 
+
 @implementation NSData (NSInputStream)
 
-+(NSData *)dataWithContentsOfStream:(NSInputStream *)input initialCapacity:(NSUInteger)capacity {
+
++(NSData *)dataWithContentsOfStream:(NSInputStream *)input initialCapacity:(NSUInteger)capacity error:(NSError **)error {
     size_t bufsize = MIN(BUFSIZE, capacity);
-    uint8_t* buf = malloc(bufsize);
-    NSMutableData* result = [NSMutableData dataWithCapacity:capacity];
-    while (true) {
-        NSInteger n = [input read:buf maxLength:bufsize];
-        if (n < 0) {
-            result = nil;
-            break;
+    uint8_t * buf = malloc(bufsize);
+    if (buf == NULL) {
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:nil];
         }
-        else if (n == 0) {
-            break;
+        return nil;
+    }
+
+    NSMutableData* result = capacity == NSUIntegerMax ? [NSMutableData data] : [NSMutableData dataWithCapacity:capacity];
+    @try {
+        while (true) {
+            NSInteger n = [input read:buf maxLength:bufsize];
+            if (n < 0) {
+                result = nil;
+                if (error) {
+                    *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
+                }
+                break;
+            }
+            else if (n == 0) {
+                break;
+            }
+            else {
+                [result appendBytes:buf length:n];
+            }
         }
-        else {
-            [result appendBytes:buf length:n];
+    }
+    @catch (NSException * exn) {
+        NSLogWarn(@"Caught exception writing to file: %@", exn);
+        result = nil;
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EIO userInfo:nil];
         }
     }
 

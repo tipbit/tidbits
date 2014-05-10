@@ -7,6 +7,7 @@
 //
 
 #import "LoggingMacros.h"
+#import "NSData+NSInputStream.h"
 #import "NSError+Ext.h"
 #import "TBUserDefaults+Tidbits.h"
 
@@ -39,70 +40,104 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
 }
 
 
--(NSInteger)writeToFile:(NSString *)filepath attributes:(NSDictionary *)attributes {
-    NSFileManager* nsfm = [NSFileManager defaultManager];
+-(NSData *)writeToFileAndNSData:(NSString *)filepath attributes:(NSDictionary *)attributes length:(NSUInteger)length error:(NSError **)error __attribute__((nonnull(1,2))) {
+    NSParameterAssert(filepath);
+    NSParameterAssert(attributes);
 
-    NSString* temppath = [filepath stringByAppendingPathExtension:@"tmp"];
-    BOOL ok = createEmptyFile(temppath, attributes);
-    if (!ok) {
-        NSLog(@"Got error trying to create %@: %s", temppath, strerror(errno));
-        return -errno;
+    NSError * err = nil;
+    NSFileManager * nsfm = [NSFileManager defaultManager];
+    BOOL ok = [nsfm removeItemAtPath:filepath error:&err];
+    if ((!ok || err != nil) && !err.isNoSuchFile) {
+        DLog(@"Warning: failed to remove %@: %@.  Ignoring, but this probably will cause the move to fail.", filepath, err);
     }
 
-    NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:temppath];
+    NSString * temppath = [filepath stringByAppendingPathExtension:@"tmp"];
+    NSFileHandle * file = openFile(temppath, attributes);
     if (file == nil) {
-        NSLog(@"Got error trying to open %@: %s", temppath, strerror(errno));
-        return -errno;
+        DLog(@"Cannot open file %@; falling back to just returning the NSData", filepath);
+        return [NSData dataWithContentsOfStream:self initialCapacity:length error:error];
     }
 
-    uint8_t* buf = malloc(BUFSIZE);
-    if (buf == NULL) {
-        [file closeFile];
-        return -ENOMEM;
-    }
+    NSData * result;
+    ok = [self writeToFileHandle:file error:error];
+    if (ok) {
+        err = nil;
+        ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
+        if (!ok || err != nil) {
+            NSLog(@"Got error when trying to move %@ to %@: %@.  Just returning the data.", temppath, filepath, err);
+        }
 
-    NSInteger result = 0;
-    @try {
-        while (true) {
-            NSInteger n = [self read:buf maxLength:BUFSIZE];
-            if (n < 0) {
-                result = n;
-                break;
+        result = [NSData dataWithContentsOfFile:filepath options:NSDataReadingMappedIfSafe error:error];
+        if (result == nil) {
+            NSLogError(@"Failed to load data %@ having just successfully put it there: %@", filepath, *error);
+        }
+        if (length != NSUIntegerMax && result.length != length) {
+            NSLogError(@"Content of %@ is not the right length %lu; discarding.", filepath, (unsigned long)length);
+            if (error) {
+                *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EIO userInfo:nil];
             }
-            else if (n == 0) {
-                break;
-            }
-            else {
-                [file writeData:[NSData dataWithBytes:buf length:n]];
-                result += n;
-            }
+            result = nil;
         }
     }
-    @catch (NSException* exn) {
-        NSLog(@"Caught exception writing to %@: %@", temppath, exn);
-        result = -EIO;
+    else {
+        result = nil;
     }
 
+    // Note that we don't close the file until we have made the NSData.
+    // If the file is using FileProtectionCompleteUnlessOpen, this is important.
     [file closeFile];
-    free(buf);
-
-    NSError* err = nil;
-    ok = [nsfm removeItemAtPath:filepath error:&err];
-    if ((!ok || err != nil) && !err.isNoSuchFile) {
-        NSLog(@"Warning: failed to remove %@: %@.  Ignoring, but this probably will cause the move to fail.", filepath, err);
-    }
-
-    err = nil;
-    ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
-    if (!ok || err != nil) {
-        NSLog(@"Got error when trying to move %@ to %@: %@", temppath, filepath, err);
-        return -EIO;
-    }
 
     return result;
 }
 
 
+/**
+ * @return true on success, false otherwise with *error set.
+ */
+-(bool)writeToFileHandle:(NSFileHandle *)file error:(NSError **)error {
+
+    uint8_t * buf = malloc_buf(error);
+    if (buf == NULL) {
+        return false;
+    }
+
+    bool result = false;
+    @try {
+        while (true) {
+            NSInteger n = [self read:buf maxLength:BUFSIZE];
+            if (n < 0) {
+                result = false;
+                if (error) {
+                    *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
+                }
+                break;
+            }
+            else if (n == 0) {
+                result = true;
+                break;
+            }
+            else {
+                [file writeData:[NSData dataWithBytes:buf length:n]];
+            }
+        }
+    }
+    @catch (NSException* exn) {
+        NSLogWarn(@"Caught exception writing to file: %@", exn);
+        result = false;
+        if (error) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EIO userInfo:nil];
+        }
+    }
+
+    free(buf);
+
+    return result;
+}
+
+
+/**
+ * @return YES on success, NO otherwise with errno set.
+ */
 static BOOL createEmptyFile(NSString * path, NSDictionary * attributes) {
     BOOL sim_failure = false;
 #if DEBUG
@@ -117,6 +152,35 @@ static BOOL createEmptyFile(NSString * path, NSDictionary * attributes) {
         NSFileManager* nsfm = [NSFileManager defaultManager];
         return [nsfm createFileAtPath:path contents:nil attributes:attributes];
     }
+}
+
+
+/**
+ * @return An open NSFileHandle on success, nil otherwise with errno set.
+ */
+static NSFileHandle * openFile(NSString * path, NSDictionary * attributes) {
+    BOOL ok = createEmptyFile(path, attributes);
+    if (!ok) {
+        DLog(@"Got error trying to create %@: %s", path, strerror(errno));
+        return nil;
+    }
+
+    NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:path];
+    if (file == nil) {
+        DLog(@"Got error trying to open %@: %s", path, strerror(errno));
+        return nil;
+    }
+
+    return file;
+}
+
+
+static uint8_t * malloc_buf(NSError ** error) {
+    uint8_t * result = malloc(BUFSIZE);
+    if (result == NULL && error) {
+        *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:nil];
+    }
+    return result;
 }
 
 
