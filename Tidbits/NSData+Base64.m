@@ -402,6 +402,21 @@ static char *NewBase64Encode(
                       stringByReplacingOccurrencesOfString:@"-" withString:@"+"]
                      stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
     //note that we are ignoring stringByReplacingOccurrencesOfString:@"=" withString:@""];
+    switch (str.length %4) {
+        case 3:
+            str = [str stringByAppendingString:@"="];
+            break;
+        case 2:
+            str = [str stringByAppendingString:@"=="];
+            break;
+        case 1:
+            str = [str stringByAppendingString:@"==="];
+            break;
+            
+        default:
+            break;
+    }
+
     return [NSData dataFromBase64String:str];
 }
 - (NSUUID *)uuidFromBase64urlEncodedString
