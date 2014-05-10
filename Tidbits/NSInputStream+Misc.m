@@ -8,6 +8,7 @@
 
 #import "LoggingMacros.h"
 #import "NSError+Ext.h"
+#import "TBUserDefaults+Tidbits.h"
 
 #import "NSInputStream+Misc.h"
 
@@ -42,7 +43,7 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
     NSFileManager* nsfm = [NSFileManager defaultManager];
 
     NSString* temppath = [filepath stringByAppendingPathExtension:@"tmp"];
-    BOOL ok = [nsfm createFileAtPath:temppath contents:nil attributes:attributes];
+    BOOL ok = createEmptyFile(temppath, attributes);
     if (!ok) {
         NSLog(@"Got error trying to create %@: %s", temppath, strerror(errno));
         return -errno;
@@ -99,6 +100,23 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
     }
 
     return result;
+}
+
+
+static BOOL createEmptyFile(NSString * path, NSDictionary * attributes) {
+    BOOL sim_failure = false;
+#if DEBUG
+    TBUserDefaults * ud = [TBUserDefaults userDefaultsForUnauthenticatedUser];
+    sim_failure = ud.debugSimulateNSFileProtectionFailures;
+#endif
+    if (sim_failure) {
+        errno = EPERM;
+        return NO;
+    }
+    else {
+        NSFileManager* nsfm = [NSFileManager defaultManager];
+        return [nsfm createFileAtPath:path contents:nil attributes:attributes];
+    }
 }
 
 

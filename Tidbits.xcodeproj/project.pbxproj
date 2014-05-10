@@ -170,6 +170,7 @@
 		40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */; };
 		40FB91D217ACA53100F6EC64 /* UIDevice-Hardware.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40FB91CC17ACA50700F6EC64 /* UIDevice-Hardware.h */; };
 		40FD7882191D6CB0004B82D7 /* IdleState.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FD7881191D6CB0004B82D7 /* IdleState.m */; };
+		40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */; };
 		4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */; };
 		4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */; };
 /* End PBXBuildFile section */
@@ -480,6 +481,8 @@
 		40FB91CD17ACA50700F6EC64 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		40FD7880191D6CB0004B82D7 /* IdleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdleState.h; sourceTree = "<group>"; };
 		40FD7881191D6CB0004B82D7 /* IdleState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdleState.m; sourceTree = "<group>"; };
+		40FD7883191DF013004B82D7 /* TBUserDefaults+Tidbits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBUserDefaults+Tidbits.h"; sourceTree = "<group>"; };
+		40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBUserDefaults+Tidbits.m"; sourceTree = "<group>"; };
 		4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+PerUser.h"; sourceTree = "<group>"; };
 		4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+PerUser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -733,6 +736,8 @@
 				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
 				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
 				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
+				40FD7883191DF013004B82D7 /* TBUserDefaults+Tidbits.h */,
+				40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */,
 				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
@@ -1037,6 +1042,7 @@
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				404753B018F3A74300115A82 /* CPUTime.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
+				40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
