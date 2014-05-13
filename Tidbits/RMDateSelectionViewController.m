@@ -389,11 +389,13 @@ static NSString *_localizedSelectTitle = @"Select";
 
 #pragma mark - Helper
 - (void)addMotionEffects {
-    [self.view addMotionEffect:self.motionEffectGroup];
+    if(self.motionEffectGroup)
+        [self.view addMotionEffect:self.motionEffectGroup];
 }
 
 - (void)removeMotionEffects {
-    [self.view removeMotionEffect:self.motionEffectGroup];
+    if(self.motionEffectGroup)
+        [self.view removeMotionEffect:self.motionEffectGroup];
 }
 
 #pragma mark - Properties
@@ -418,9 +420,10 @@ static NSString *_localizedSelectTitle = @"Select";
         UIInterpolatingMotionEffect *horizontalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
         horizontalMotionEffect.minimumRelativeValue = @(-10);
         horizontalMotionEffect.maximumRelativeValue = @(10);
-        
-        _motionEffectGroup = [UIMotionEffectGroup new];
-        _motionEffectGroup.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+        if(verticalMotionEffect && horizontalMotionEffect){
+            _motionEffectGroup = [UIMotionEffectGroup new];
+            _motionEffectGroup.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+        }
     }
     
     return _motionEffectGroup;
