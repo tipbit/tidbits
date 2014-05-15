@@ -114,6 +114,7 @@ typedef void (^RMDatePickerBlock)(UIDatePicker *picker);
  */
 @property (assign, nonatomic) BOOL hideNowButton;
 
+@property (nonatomic) UIView *customView;
 /// @name Class Methods
 
 /**

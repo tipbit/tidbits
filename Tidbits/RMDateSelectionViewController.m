@@ -210,8 +210,9 @@ static NSString *_localizedSelectTitle = @"Select";
 #pragma mark - Init and Dealloc
 - (void)setupUIElements {
     //Instantiate elements
-    if(!self.hideNowButton)
+    if(!self.hideNowButton || self.customView){
         self.nowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    }
     
     self.datePickerContainer = [[UIView alloc] initWithFrame:CGRectZero];
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
@@ -222,8 +223,14 @@ static NSString *_localizedSelectTitle = @"Select";
     self.selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     //Add elements to their subviews
-    if(!self.hideNowButton)
+    if(!self.hideNowButton && !self.customView){
         [self.view addSubview:self.nowButton];
+    }
+    
+    if (self.customView) {
+        [self.view addSubview:self.customView];
+    }
+    
     [self.view addSubview:self.datePickerContainer];
     [self.view addSubview:self.cancelAndSelectButtonContainer];
     
@@ -252,7 +259,7 @@ static NSString *_localizedSelectTitle = @"Select";
     }
 
     //Setup properties of elements
-    if(!self.hideNowButton) {
+    if(!self.hideNowButton || self.customView) {
         [self.nowButton setTitle:[RMDateSelectionViewController localizedTitleForNowButton] forState:UIControlStateNormal];
         [self.nowButton setTitleColor:[UIColor colorWithRed:0 green:122.0f/255 blue:1 alpha:1] forState:UIControlStateNormal];
         [self.nowButton addTarget:self action:@selector(nowButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -317,12 +324,21 @@ static NSString *_localizedSelectTitle = @"Select";
     [self.cancelAndSelectButtonContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[seperator]-(0)-|" options:0 metrics:nil views:bindingsDict]];
     [self.cancelAndSelectButtonContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[select]-(0)-|" options:0 metrics:nil views:bindingsDict]];
     
-    if(!self.hideNowButton) {
+    if(!self.hideNowButton && !self.customView) {
         UIButton *now = self.nowButton;
         bindingsDict = NSDictionaryOfVariableBindings(now, pickerContainer);
         
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(10)-[now]-(10)-|" options:0 metrics:nil views:bindingsDict]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[now(44)]-(10)-[pickerContainer]" options:0 metrics:nil views:bindingsDict]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[now(60)]-(10)-[pickerContainer]" options:0 metrics:nil views:bindingsDict]];
+    }
+    
+    if (self.customView) {
+        UIView *customView = self.customView;
+        self.customView.translatesAutoresizingMaskIntoConstraints = NO;
+        bindingsDict = NSDictionaryOfVariableBindings(customView, pickerContainer);
+        
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(10)-[customView]-(10)-|" options:0 metrics:nil views:bindingsDict]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[customView(44)]-(10)-[pickerContainer]" options:0 metrics:nil views:bindingsDict]];
     }
 }
 
