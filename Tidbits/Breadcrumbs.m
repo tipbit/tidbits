@@ -66,7 +66,7 @@ static Breadcrumbs* instance = nil;
 
 
 +(void)track:(NSString*)tag {
-    [instance track:tag];
+    [instance track:tag method:Track];
 }
 
 
@@ -83,7 +83,7 @@ static Breadcrumbs* instance = nil;
 -(void)push:(NSString*)tag {
     AssertOnMainThread();
     [self.crumbStack addObject:tag];
-    [self track:tag];
+    [self track:tag method:Push];
 }
 
 
@@ -92,21 +92,21 @@ static Breadcrumbs* instance = nil;
     if (self.crumbStack.count) {
         NSString *oldTag = [self.crumbStack lastObject];
         if (tag != nil && ![oldTag isEqualToString:tag]) {
-            [self track:[NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag]];
+            [self track:[NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag] method:Pop];
         }
         else {
             NSString *popTag = [NSString stringWithFormat:@"<%@", [self.crumbStack lastObject]];
             [self.crumbStack removeLastObject];
-            [self track:popTag];
+            [self track:popTag method:Pop];
         }
     }
     else {
-        [self track:[NSString stringWithFormat:@"overpopped-%@", tag]];
+        [self track:[NSString stringWithFormat:@"overpopped-%@", tag] method:Pop];
     }
 }
 
 
--(void)track:(NSString*)tag {
+-(void)track:(NSString*)tag method:(TrackMethod)meth{
     NSObject<BreadcrumbsDelegate>* mydelegate = self.delegate;
 
     @synchronized(self.breadCrumbs) {
@@ -129,8 +129,8 @@ static Breadcrumbs* instance = nil;
             [mydelegate breadcrumbsSaveTrail:self.breadCrumbs];
     }
 
-    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:)])
-        [mydelegate breadcrumbsTrack:tag];
+    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:method:)])
+        [mydelegate breadcrumbsTrack:tag method:meth];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum { Pop=0, Push, Track } TrackMethod;
 
 /**
  * This delegate is called whenever one of the Breadcrumbs methods is called.  You can use this to persist the breadcumb trail somewhere
@@ -27,7 +28,7 @@
  * @discussion This call is executed inline with the call to Breadcrumbs.track -- be quick!
  * Note that Breadcrumbs.push and Breadcrumbs.pop call Breadcrumbs.track internally, so you'll see those calls too.
  */
--(void)breadcrumbsTrack:(NSString*)tag;
+-(void)breadcrumbsTrack:(NSString*)tag method:(TrackMethod)method;
 
 @end
 
@@ -68,7 +69,7 @@
 
 -(void)push:(NSString*)tag;
 -(void)pop:(NSString*)tag;
--(void)track:(NSString*)tag;
+-(void)track:(NSString*)tag method:(TrackMethod)method;
 
 
 @end
