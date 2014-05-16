@@ -11,6 +11,7 @@
 #ifndef Tidbits_StandardBlocks_h
 #define Tidbits_StandardBlocks_h
 
+typedef void (^BOOLBlock)(BOOL flag);
 typedef void (^BOOLPtrBlock)(BOOL *flag);
 typedef void (^IdBlock)(id obj);
 typedef void (^IdIdBlock)(id obj1, id obj2);
@@ -27,6 +28,7 @@ typedef void (^UIActionSheetBlock)(UIActionSheet *sheet);
 typedef void (^NSDateBlock)(NSDate* date);
 typedef void (^NSIntegerBlock)(NSInteger i);
 typedef void (^NSMutableArrayBlock)(NSMutableArray* array);
+typedef void (^NSObjectBlock)(NSObject * obj);
 typedef void (^NSOperationQueueBlock)(NSOperationQueue* queue);
 typedef void (^NSStringBlock)(NSString* str);
 typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
