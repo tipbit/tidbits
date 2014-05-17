@@ -65,6 +65,7 @@
 +(NSDate*)startOf7DaysAgo;
 +(NSDate*)startOf30DaysAgo;
 +(NSDate*)startOf60DaysAgo;
++(NSDate*)startOfNextWeek;
 +(NSDate*)startOfThisMonth;
 
 +(NSTimeInterval)timeIntervalFromDays:(NSInteger)days;

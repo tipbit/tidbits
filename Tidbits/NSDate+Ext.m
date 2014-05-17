@@ -158,10 +158,21 @@ static NSDateFormatter* makeISO8601Formatter() {
     return [cal dateFromComponents:comp];
 }
 
+- (NSDate*) startOfNextWeek {
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [cal setTimeZone:[NSTimeZone systemTimeZone]];
+    NSInteger weekdayOfDate = [cal ordinalityOfUnit:NSWeekdayCalendarUnit inUnit:NSWeekCalendarUnit forDate:[self startOfDay]];
+    NSInteger numberOfDaysToStartOfCurrentWeek = weekdayOfDate - 1;
+    NSDateComponents *oneWeek = [[NSDateComponents alloc] init];
+    [oneWeek setWeek:1]; // add one week
+    [oneWeek setDay:-numberOfDaysToStartOfCurrentWeek]; // ... and subtract a couple of days to get the first day of the week
+    NSDate *startOfNextWeek = [cal dateByAddingComponents:oneWeek toDate:[self startOfDay] options:0];
+    return startOfNextWeek;
+}
+
 - (NSDate*) todayCurrentHour {
     return [self thisDayAtHour:[self currentHour] minute:0 second:0 tz:[NSTimeZone systemTimeZone]];
 }
-
 
 - (NSInteger)currentHour
 {
@@ -255,6 +266,9 @@ static NSDate* cachedStartOf60DaysAgo = nil;
     return cachedStartOf60DaysAgo;
 }
 
++(NSDate*) startOfNextWeek {
+    return [[NSDate date] startOfNextWeek];
+}
 
 static NSDate* cachedStartOfThisMonth = nil;
 +(NSDate*) startOfThisMonth {
