@@ -389,8 +389,8 @@ static char *NewBase64Encode(
 
 -(NSUUID *)uuidFromData
 {
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDBytes:self.bytes];
-    return uuid;
+    const void * bytes = self.bytes;
+    return bytes == NULL ? nil : [[NSUUID alloc] initWithUUIDBytes:bytes];
 }
 
 @end
