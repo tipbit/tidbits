@@ -23,6 +23,7 @@
 
 static NSLocale* posix_locale = nil;
 static NSCalendar* gregorian_calendar = nil;
+static NSTimeZone* local_timezone = nil;
 static NSTimeZone* utc_timezone = nil;
 static NSTimeInterval k1970ToReferenceDate;
 
@@ -30,6 +31,7 @@ static NSTimeInterval k1970ToReferenceDate;
 +(void)load {
     posix_locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     gregorian_calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    local_timezone = [NSTimeZone localTimeZone];
     utc_timezone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     k1970ToReferenceDate = [[NSDate dateWithTimeIntervalSince1970:0.0] timeIntervalSinceReferenceDate];
 }
@@ -69,6 +71,12 @@ static NSTimeInterval k1970ToReferenceDate;
 }
 
 
+-(NSString*) iso8601String_local_23 {
+    NSDateFormatter* f = makeLocalFormatter(FORMAT_23);
+    return [f stringFromDate:self];
+}
+
+
 -(NSString*) iso8601String_24 {
     NSDateFormatter* f = makeFormatter(FORMAT_24);
     return [f stringFromDate:self];
@@ -76,11 +84,21 @@ static NSTimeInterval k1970ToReferenceDate;
 
 
 static NSDateFormatter* makeFormatter(NSString* format) {
+    return makeFormatter_(format, utc_timezone);
+}
+
+
+static NSDateFormatter* makeLocalFormatter(NSString* format) {
+    return makeFormatter_(format, local_timezone);
+}
+
+
+static NSDateFormatter* makeFormatter_(NSString* format, NSTimeZone * tz) {
     NSDateFormatter* f = [[NSDateFormatter alloc] init];
     f.calendar = gregorian_calendar;
     f.dateFormat = format;
     f.locale = posix_locale;
-    f.timeZone = utc_timezone;
+    f.timeZone = tz;
     return f;
 }
 
