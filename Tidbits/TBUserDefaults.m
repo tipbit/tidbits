@@ -344,7 +344,7 @@ static id valueFromString(NSString * value, NSString * type) {
     if ([type isEqualToString:@"NSString"]) {
         return value;
     }
-    else if ([type isEqualToString:@"NSNumber"]) {
+    else if ([type isEqualToString:@"NSNumber"] || [type isEqualToString:@"NSInteger"]) {
         NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
         f.lenient = YES;
         return [f numberFromString:value];
