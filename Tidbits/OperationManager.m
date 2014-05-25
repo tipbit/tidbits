@@ -217,16 +217,20 @@ static NSHashTable * operationManagerCache = nil;
 
 
 -(void)performFailure:(id<NSCopying>)key error:(NSError*)err {
+#if OPERATIONMANAGER_TRACK_OPERATIONS
     NSString * msg = [NSString stringWithFormat:@"performFailure %@ calling", err.description];
     SET_STATUS(msg);
+#endif
 
     NSArray* callbacks = [self getCallbacks:key];
     for (CallbackPair * callback in callbacks) {
         callback.onFailure(err);
     }
 
+#if OPERATIONMANAGER_TRACK_OPERATIONS
     msg = [NSString stringWithFormat:@"performFailure %@ done", err.description];
     SET_STATUS(msg);
+#endif
 }
 
 
