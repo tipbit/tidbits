@@ -309,7 +309,7 @@ static NSString *_localizedSelectTitle = @"Select";
     
     self.customView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSDictionary *bindingsDict = NSDictionaryOfVariableBindings(cancelSelectContainer, seperator, pickerContainer, cancel, select, picker);
+    NSDictionary *bindingsDict;
     
     if (self.customView) {
         bindingsDict = NSDictionaryOfVariableBindings(cancelSelectContainer, seperator, pickerContainer, cancel, select, picker, customView);
