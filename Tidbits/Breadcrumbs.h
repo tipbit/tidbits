@@ -30,6 +30,12 @@ typedef enum { Pop=0, Push, Track } TrackMethod;
  */
 -(void)breadcrumbsTrack:(NSString*)tag method:(TrackMethod)method;
 
+
+/**
+ * @discussion This call is an to track an event with properties
+ */
+-(void)breadcrumbsTrack:(NSString*)tag with:(NSDictionary*)props;
+
 @end
 
 
@@ -56,10 +62,10 @@ typedef enum { Pop=0, Push, Track } TrackMethod;
 +(void)pop:(NSString*)tag;
 
 /**
- * General event.
+ * General event.  One without props and one with props
  */
 +(void)track:(NSString*)tag;
-
++(void)track:(NSString*)tag with:(NSDictionary*)props;
 
 /**
  * May be nil.  Is accessed with no locking, since it is intended to be set at start-of-day.
@@ -70,6 +76,6 @@ typedef enum { Pop=0, Push, Track } TrackMethod;
 -(void)push:(NSString*)tag;
 -(void)pop:(NSString*)tag;
 -(void)track:(NSString*)tag method:(TrackMethod)method;
-
+-(void)track:(NSString*)tag with:(NSDictionary*)props;
 
 @end

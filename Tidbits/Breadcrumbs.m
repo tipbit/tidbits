@@ -69,6 +69,9 @@ static Breadcrumbs* instance = nil;
     [instance track:tag method:Track];
 }
 
++(void)track:(NSString*)tag with:(NSDictionary*)props{
+    [instance track:tag with:props];
+}
 
 -(instancetype)init {
     self = [super init];
@@ -133,6 +136,13 @@ static Breadcrumbs* instance = nil;
         [mydelegate breadcrumbsTrack:tag method:meth];
 }
 
+
+-(void)track:(NSString*)tag with:(NSDictionary*)props{
+    NSObject<BreadcrumbsDelegate>* mydelegate = self.delegate;
+    
+    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:with:)])
+        [mydelegate breadcrumbsTrack:tag with:props];
+}
 
 // Assumes that it is already locked under @synchronized (crumbs).
 static NSArray* lastCrumbBits(NSArray* crumbs) {
