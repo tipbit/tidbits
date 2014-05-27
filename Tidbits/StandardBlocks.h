@@ -13,6 +13,7 @@
 
 typedef void (^BOOLBlock)(BOOL flag);
 typedef void (^BOOLPtrBlock)(BOOL *flag);
+typedef void (^BoolBlock)(bool flag);
 typedef void (^IdBlock)(id obj);
 typedef void (^IdIdBlock)(id obj1, id obj2);
 typedef void (^IdIdIdBlock)(id obj1, id obj2, id obj3);
