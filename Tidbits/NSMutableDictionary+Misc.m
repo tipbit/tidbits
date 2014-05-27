@@ -30,4 +30,17 @@
     }];
 }
 
+
+-(BOOL)removeEntriesPassingTest:(BOOL (^)(id, id, BOOL *))predicate {
+    NSSet * to_remove = [self keysOfEntriesPassingTest:predicate];
+    if (to_remove.count > 0) {
+        [self removeObjectsForKeys:[to_remove allObjects]];
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+
 @end

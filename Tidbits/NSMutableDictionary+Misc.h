@@ -18,4 +18,9 @@
 
 -(void) mergeLeft:(NSDictionary*)dict;
 
+/**
+ * @return true if anything was removed.
+ */
+-(BOOL)removeEntriesPassingTest:(BOOL (^)(id key, id val, BOOL * stop))predicate;
+
 @end
