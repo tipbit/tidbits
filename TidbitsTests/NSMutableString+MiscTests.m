@@ -28,4 +28,34 @@
 }
 
 
+-(void)testReplaceAllNormal {
+    NSMutableString * input = [NSMutableString stringWithString:@"This [[A]] has [[B]]"];
+    [input replaceAll:@{@"[[A]]": @"test",
+                        @"[[B]]": @"passed"}];
+    XCTAssertEqualObjects(input, @"This test has passed");
+}
+
+
+-(void)testReplaceAllNil {
+    NSMutableString * input = [NSMutableString stringWithString:@"This [[A]] has [[B]]"];
+    [input replaceAll:nil];
+    XCTAssertEqualObjects(input, @"This [[A]] has [[B]]");
+}
+
+
+-(void)testReplaceAllBlank {
+    NSMutableString * input = [NSMutableString stringWithString:@"This [[A]] has [[B]]"];
+    [input replaceAll:@{}];
+    XCTAssertEqualObjects(input, @"This [[A]] has [[B]]");
+}
+
+
+-(void)testReplaceAllNoHits {
+    NSMutableString * input = [NSMutableString stringWithString:@"This [[A]] has [[B]]"];
+    [input replaceAll:@{@"[[C]]": @"test",
+                        @"[[D]]": @"failed"}];
+    XCTAssertEqualObjects(input, @"This [[A]] has [[B]]");
+}
+
+
 @end

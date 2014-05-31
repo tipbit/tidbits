@@ -17,4 +17,11 @@
 }
 
 
+-(void)replaceAll:(NSDictionary *)replacements {
+    [replacements enumerateKeysAndObjectsUsingBlock:^(NSString * key, NSString * value, __unused BOOL * stop) {
+        [self replaceOccurrencesOfString:key withString:value options:0 range:NSMakeRange(0, self.length)];
+    }];
+}
+
+
 @end

@@ -15,4 +15,14 @@
  */
 -(void)appendStringOrNil:(NSString *)aString;
 
+/**
+ * Call replaceOccurrencesOfString for each of the key-value pairs in replacements,
+ * replacing all occurrences of the key with the value.
+ *
+ * This will happen in indeterminate order, so don't have keys that appear in the values.
+ *
+ * @param replacements May be nil or empty, in which case nothing happens.
+ */
+-(void)replaceAll:(NSDictionary *)replacements;
+
 @end
