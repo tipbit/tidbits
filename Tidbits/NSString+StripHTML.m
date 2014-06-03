@@ -100,7 +100,7 @@ static NSCharacterSet* endTagCharacterSet = nil;
 	[scanner setCharactersToBeSkipped:nil];
 	NSMutableString *result = [[NSMutableString alloc] init];
 	NSString *temp;
-	NSMutableCharacterSet *newLineAndWhitespaceCharacters = [NSCharacterSet characterSetWithCharactersInString:@" \t\n\r"];
+	NSMutableCharacterSet *newLineAndWhitespaceCharacters = [[NSCharacterSet characterSetWithCharactersInString:@" \t\n\r"] mutableCopy];
     [newLineAndWhitespaceCharacters addCharactersInRange:NSMakeRange(0x0085, 1)];
     [newLineAndWhitespaceCharacters addCharactersInRange:NSMakeRange(0x000C, 1)];
     [newLineAndWhitespaceCharacters addCharactersInRange:NSMakeRange(0x2028, 2)];
