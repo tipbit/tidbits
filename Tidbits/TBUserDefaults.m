@@ -333,7 +333,7 @@ static NSString* preferencesDir;
     }
     id val = valueFromString(value, type);
     if (val == nil) {
-        NSLog(@"Refusing to set %@ = %@ because it can't be parsed as a %@", key, value, type);
+        DLog(@"Refusing to set %@ = %@ because it can't be parsed as a %@", key, value, type);
         return NO;
     }
     return [self setObject:val forKey:key];
@@ -499,7 +499,7 @@ static id valueFromString(NSString * value, NSString * type) {
             return settings;
         }
         else {
-            NSLogError(@"Failed to create %@: %@", defPath, err);
+            NSLogError(@"Failed to create PList: %@", err);
             return nil;
         }
     }
@@ -517,7 +517,7 @@ static id valueFromString(NSString * value, NSString * type) {
     NSString* defPath = [self defaultsPath:protection];
     BOOL ok = [settings writeToFile:defPath atomically:YES];
     if (!ok) {
-        NSLogError(@"Failed to serialize %@", defPath);
+        NSLog(@"Failed to serialize PList");
         return NO;
     }
 
@@ -525,7 +525,7 @@ static id valueFromString(NSString * value, NSString * type) {
     NSError* err = nil;
     ok = [nsfm setAttributes:@{NSFileProtectionKey: protection} ofItemAtPath:defPath error:&err];
     if (!ok) {
-        NSLogError(@"Failed to set attributes on %@: %@", defPath, err);
+        NSLogError(@"Failed to set attributes on PList: %@", err);
     }
 
     return ok;
@@ -660,7 +660,7 @@ FROM_NSNUMBER(BOOL, bool, Bool, boolValue)
                 }
                 else {
                     if (![dict[@"protection"] isEqualToString:prot]) {
-                        NSLog(@"Found setting %@ at the wrong protection level %@ != %@", key, dict[@"protection"], prot);
+                        DLog(@"Found setting %@ at the wrong protection level %@ != %@", key, dict[@"protection"], prot);
                         dict[@"protection"] = prot;
                         dict[@"error"] = @"Wrong protection level";
                     }
