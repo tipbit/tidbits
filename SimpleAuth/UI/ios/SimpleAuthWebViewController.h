@@ -12,12 +12,12 @@
 
 typedef void (^SimpleAuthWebViewControllerCompletionHandler) (UIViewController *controller, NSURL *URL, NSError *error);
 
-@interface SimpleAuthWebViewController : UIViewController <UIWebViewDelegate>
+@protocol SimpleAuthWebViewController <NSObject>
 
-@property (nonatomic, readonly) UIWebView *webView;
-@property (nonatomic, readonly, copy) NSDictionary *options;
-@property (nonatomic, readonly, copy) NSDictionary *requestToken;
-@property (nonatomic, copy) SimpleAuthWebViewControllerCompletionHandler completion;
+- (UIWebView *)webView;
+- (NSDictionary *)options;
+- (NSDictionary *)requestToken;
+- (void)setCompletion:(SimpleAuthWebViewControllerCompletionHandler)completion;
 
 /**
  Initializes a basic web login view controller.
@@ -49,5 +49,9 @@ typedef void (^SimpleAuthWebViewControllerCompletionHandler) (UIViewController *
  @return `YES` if the URL is the desired redirect URL, `NO` if it is not.
  */
 - (BOOL)isTargetRedirectURL:(NSURL *)URL;
+
+@end
+
+@interface SimpleAuthWebViewController : UIViewController <SimpleAuthWebViewController>
 
 @end

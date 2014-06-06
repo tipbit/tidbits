@@ -232,8 +232,8 @@
     
     // Blogs
     NSArray *blogs = account[@"blogs"];
-    blogs = [[blogs.rac_sequence map:^(NSDictionary *dictionary) {
-        return [dictionary dictionaryWithValuesForKeys:@[ @"name", @"url", @"title" ]];
+    blogs = [[blogs.rac_sequence map:^(NSDictionary *dict) {
+        return [dict dictionaryWithValuesForKeys:@[ @"name", @"url", @"title" ]];
     }] array];
     
     // Profile image

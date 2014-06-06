@@ -6,6 +6,9 @@
 //  Copyright (c) 2013-2014 Byliner, Inc. All rights reserved.
 //
 
+@class UIWindow;
+@class UIViewController;
+
 extern NSString * const SimpleAuthErrorDomain;
 enum {
     SimpleAuthErrorUserCancelled

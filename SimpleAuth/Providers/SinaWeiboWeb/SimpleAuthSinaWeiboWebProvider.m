@@ -67,8 +67,8 @@
 - (RACSignal *)authorizationCode {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            SimpleAuthSinaWeiboWebLoginViewController *login = [[SimpleAuthSinaWeiboWebLoginViewController alloc] initWithOptions:self.options];
-            login.completion = ^(UIViewController *login, NSURL *URL, NSError *error) {
+            SimpleAuthSinaWeiboWebLoginViewController *login0 = [[SimpleAuthSinaWeiboWebLoginViewController alloc] initWithOptions:self.options];
+            login0.completion = ^(UIViewController *login, NSURL *URL, NSError *error) {
                 SimpleAuthInterfaceHandler dismissBlock = self.options[SimpleAuthDismissInterfaceBlockKey];
                 dismissBlock(login);
                 
@@ -89,7 +89,7 @@
             };
             
             SimpleAuthInterfaceHandler block = self.options[SimpleAuthPresentInterfaceBlockKey];
-            block(login);
+            block(login0);
         });
         return nil;
     }];

@@ -8,16 +8,16 @@
 
 #import "SimpleAuthWebViewController.h"
 
-@interface SimpleAuthWebViewController ()
+@interface SimpleAuthWebViewController ()<UIWebViewDelegate>
 
 @property (nonatomic, copy) NSDictionary *options;
 @property (nonatomic, copy) NSDictionary *requestToken;
-
+@property (nonatomic) UIWebView *webView;
+@property (nonatomic, copy) SimpleAuthWebViewControllerCompletionHandler completion;
+@property (nonatomic)BOOL hasInitialLoad;
 @end
 
-@implementation SimpleAuthWebViewController {
-    BOOL _hasInitialLoad;
-}
+@implementation SimpleAuthWebViewController
 
 @synthesize webView = _webView;
 
@@ -93,7 +93,7 @@
 + (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
     [mutableRequest setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
-    [mutableRequest setHTTPShouldHandleCookies:YES];
+    [mutableRequest setHTTPShouldHandleCookies:YES]; //Navi-- LinkedIn needs a YES. original code had it as NO.
     return mutableRequest;
 }
 

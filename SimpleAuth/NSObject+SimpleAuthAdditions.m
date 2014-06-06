@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+SimpleAuthAdditions.h"
+#import "SimpleAuthWebViewController.h"
 
 #import <objc/runtime.h>
 
@@ -18,13 +19,17 @@
     objc_getClassList(allClasses, numberOfClasses);
     for (int i = 0; i < numberOfClasses; i++) {
         Class klass = allClasses[i];
+        BOOL stop = NO;
         if (SimpleAuthClassIsSubclassOfClass(klass, self)) {
-            BOOL stop = NO;
             block(klass, &stop);
             if (stop) {
                 return;
             }
         }
+//        else if(class_conformsToProtocol(klass, @protocol(SimpleAuthWebViewController)))
+//        {
+//            block(klass, &stop);
+//        }
     }
 }
 
@@ -42,3 +47,4 @@ static inline BOOL SimpleAuthClassIsSubclassOfClass(Class classOne, Class classT
         return SimpleAuthClassIsSubclassOfClass(superclass, classTwo);
     }
 }
+

@@ -80,17 +80,17 @@
 - (RACSignal *)systemAccountFromAccounts:(NSArray *)accounts {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIActionSheet *sheet = [UIActionSheet new];
+            UIActionSheet *sheet0 = [UIActionSheet new];
             for (ACAccount *account in accounts) {
                 NSString *title = [NSString stringWithFormat:@"@%@", account.username];
-                [sheet addButtonWithTitle:title];
+                [sheet0 addButtonWithTitle:title];
             }
-            sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-            sheet.cancelButtonIndex = [sheet addButtonWithTitle:NSLocalizedString(@"GENERAL_CANCEL", nil)];
+            sheet0.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+            sheet0.cancelButtonIndex = [sheet0 addButtonWithTitle:NSLocalizedString(@"GENERAL_CANCEL", nil)];
             
             SEL s = @selector(actionSheet:clickedButtonAtIndex:);
             Protocol *p = @protocol(UIActionSheetDelegate);
-            [[sheet rac_signalForSelector:s fromProtocol:p] subscribeNext:^(RACTuple *tuple) {
+            [[sheet0 rac_signalForSelector:s fromProtocol:p] subscribeNext:^(RACTuple *tuple) {
                 RACTupleUnpack(UIActionSheet *sheet, NSNumber *number) = tuple;
                 NSInteger index = [number integerValue];
                 if (index == sheet.cancelButtonIndex) {
@@ -104,9 +104,9 @@
                 }
             }];
             
-            sheet.delegate = (id)sheet;
+            sheet0.delegate = (id)sheet0;
             SimpleAuthInterfaceHandler block = self.options[SimpleAuthPresentInterfaceBlockKey];
-            block(sheet);
+            block(sheet0);
         });
         return nil;
     }];
