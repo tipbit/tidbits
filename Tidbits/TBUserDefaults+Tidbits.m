@@ -13,12 +13,9 @@
 #import "TBUserDefaults+Tidbits.h"
 
 
-#define kDebugSimulateNSFileProtectionFailures @"debugSimulateNSFileProtectionFailures"
-
-
 @implementation TBUserDefaults (Tidbits)
 
-TBUSERDEFAULTS_REGISTER_BOOL(debugSimulateNSFileProtectionFailures, setDebugSimulateNSFileProtectionFailures, kDebugSimulateNSFileProtectionFailures, NSFileProtectionCompleteUntilFirstUserAuthentication, NO)
+TBUSERDEFAULTS_REGISTER_BOOL_STANDARD(debugSimulateNSFileProtectionFailures, setDebugSimulateNSFileProtectionFailures, NSFileProtectionCompleteUntilFirstUserAuthentication, NO)
 
 @end
 
