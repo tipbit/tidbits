@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+Map.h"
+#import "NSMutableString+Misc.h"
 
 #import "NSString+Misc.h"
 
@@ -136,6 +137,13 @@
         return [((NSString*)obj) trim];
     }];
     return [trimmed_bits componentsJoinedByString:@"."];
+}
+
+
+-(NSString *)stringByReplacingAll:(NSDictionary *)replacements {
+    NSMutableString * result = [self mutableCopy];
+    [result replaceAll:replacements];
+    return result;
 }
 
 

@@ -59,6 +59,11 @@
  */
 -(NSString*)stringBySanitizingFilename;
 
+/**
+ * @return A copy of this string, with [NSMutableString replaceAll:replacements] called on it.
+ */
+-(NSString *)stringByReplacingAll:(NSDictionary *)replacements;
+
 +(NSString*)stringWithUTF8Data:(NSData*)data;
 
 @end
