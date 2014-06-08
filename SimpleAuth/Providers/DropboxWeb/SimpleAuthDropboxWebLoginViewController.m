@@ -24,7 +24,8 @@
     NSDictionary *parameters = @{
         @"client_id" : self.options[@"client_id"],
         @"redirect_uri" : self.options[SimpleAuthRedirectURIKey],
-        @"response_type" : @"token"
+        @"response_type" : @"token",
+        @"state" : self.options[@"state"],
     };
     NSString *URLString = [NSString stringWithFormat:
                            @"https://www.dropbox.com/1/oauth2/authorize?%@",

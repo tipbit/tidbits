@@ -45,14 +45,7 @@ static UIWindow *__window;
 
 + (UIWindow *)window
 {
-    if (__window)
-        return __window;
     return [[[UIApplication sharedApplication] delegate] window];
-}
-
-+ (void)setWindow:(UIWindow *)window
-{
-    __window = window;
 }
 
 + (UIViewController *)presentedViewController

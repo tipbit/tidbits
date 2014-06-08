@@ -74,8 +74,7 @@ extern NSString * const SimpleAuthEndActivityBlockKey;
  */
 + (NSMutableDictionary *)configuration;
 
-+ (UIWindow *)window;
-+ (void)setWindow:(UIWindow *)window;
+//+ (UIWindow *)window;
 + (UIViewController *)presentedViewController;
 
 /**

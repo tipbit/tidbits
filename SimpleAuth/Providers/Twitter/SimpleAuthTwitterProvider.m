@@ -26,8 +26,7 @@
 
 + (NSDictionary *)defaultOptions {
     void (^actionSheetBlock) (UIActionSheet *) = ^(UIActionSheet *sheet) {
-        UIWindow *window = SimpleAuth.window;
-//        UIWindow *window = [UIWindow SimpleAuth_mainWindow];
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
         [sheet showInView:window];
     };
     
