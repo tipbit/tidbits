@@ -32,7 +32,7 @@
  */
 
 #import "GCOAuth.h"
-
+#import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
 
 #import "NSData+Base64.h"
@@ -152,7 +152,10 @@ static BOOL GCOAuthUseHTTPSCookieStorage = YES;
     [parameters addEntriesFromDictionary:OAuthParameters];
     [parameters addEntriesFromDictionary:self.requestParameters];
     NSMutableArray *entries = [NSMutableArray arrayWithCapacity:[parameters count]];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     NSArray *keys = [[parameters allKeys] sortedArrayUsingSelector:@selector(compare:)];
+#pragma clang diagnostic pop
     for (NSString *key in keys) {
         NSString *obj = [parameters objectForKey:key];
         NSString *entry = [NSString stringWithFormat:@"%@=%@", [key pcen], [obj pcen]];
