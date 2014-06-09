@@ -67,11 +67,12 @@
         key = key ?: @"";
         
         NSArray *values = [value componentsSeparatedByString:@","];
-        for (__strong NSString *value in values) {
-            value = [value cmd_stringByRemovingEscapes];
-            value = value ?: @"";
+        NSString *vv;
+        for (NSString *v in values) {
+            vv = [v cmd_stringByRemovingEscapes];
+            vv = vv ?: @"";
             
-            block(key, value);
+            block(key, vv);
         }
     }
 }
