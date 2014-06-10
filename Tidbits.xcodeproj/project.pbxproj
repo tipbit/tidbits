@@ -19,44 +19,6 @@
 		18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784718F0D63F00E8A968 /* BlockButton.m */; };
 		18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */; };
 		18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */; };
-		18F3BB061940F5180007E978 /* SimpleAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC11940F5180007E978 /* SimpleAuthWebViewController.m */; };
-		18F3BB071940F5180007E978 /* UIViewController+SimpleAuthAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC31940F5180007E978 /* UIViewController+SimpleAuthAdditions.m */; };
-		18F3BB081940F5180007E978 /* UIWindow+SimpleAuthAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC51940F5180007E978 /* UIWindow+SimpleAuthAdditions.m */; };
-		18F3BB091940F5180007E978 /* SimpleAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC61940F5180007E978 /* SimpleAuth.m */; };
-		18F3BB0A1940F5180007E978 /* SimpleAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC71940F5180007E978 /* SimpleAuthProvider.m */; };
-		18F3BB0B1940F5180007E978 /* ACAccountStore+SimpleAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAC91940F5180007E978 /* ACAccountStore+SimpleAuth.m */; };
-		18F3BB0C1940F5180007E978 /* NSObject+SimpleAuthAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BACB1940F5180007E978 /* NSObject+SimpleAuthAdditions.m */; };
-		18F3BB0D1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BACF1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.m */; };
-		18F3BB0E1940F5180007E978 /* SimpleAuthDropboxWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAD11940F5180007E978 /* SimpleAuthDropboxWebProvider.m */; };
-		18F3BB0F1940F5180007E978 /* SimpleAuthFacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAD41940F5180007E978 /* SimpleAuthFacebookProvider.m */; };
-		18F3BB101940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAD71940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.m */; };
-		18F3BB111940F5180007E978 /* SimpleAuthFaceBookWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAD91940F5180007E978 /* SimpleAuthFaceBookWebProvider.m */; };
-		18F3BB121940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BADC1940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.m */; };
-		18F3BB131940F5180007E978 /* SimpleAuthFoursquareWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BADE1940F5180007E978 /* SimpleAuthFoursquareWebProvider.m */; };
-		18F3BB141940F5180007E978 /* SimpleAuthInstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAE11940F5180007E978 /* SimpleAuthInstagramLoginViewController.m */; };
-		18F3BB151940F5180007E978 /* SimpleAuthInstagramProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAE31940F5180007E978 /* SimpleAuthInstagramProvider.m */; };
-		18F3BB161940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAE61940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.m */; };
-		18F3BB171940F5180007E978 /* SimpleAuthLinkedInWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAE81940F5180007E978 /* SimpleAuthLinkedInWebProvider.m */; };
-		18F3BB181940F5180007E978 /* SimpleAuthMeetupLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAEB1940F5180007E978 /* SimpleAuthMeetupLoginViewController.m */; };
-		18F3BB191940F5180007E978 /* SimpleAuthMeetupProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAED1940F5180007E978 /* SimpleAuthMeetupProvider.m */; };
-		18F3BB1A1940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAF01940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.m */; };
-		18F3BB1B1940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAF21940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.m */; };
-		18F3BB1C1940F5180007E978 /* SimpleAuthTumblrLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAF51940F5180007E978 /* SimpleAuthTumblrLoginViewController.m */; };
-		18F3BB1D1940F5180007E978 /* SimpleAuthTumblrProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAF71940F5180007E978 /* SimpleAuthTumblrProvider.m */; };
-		18F3BB1E1940F5180007E978 /* SimpleAuthTwitterProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAFA1940F5180007E978 /* SimpleAuthTwitterProvider.m */; };
-		18F3BB1F1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAFD1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.m */; };
-		18F3BB201940F5180007E978 /* SimpleAuthTwitterWebProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BAFF1940F5180007E978 /* SimpleAuthTwitterWebProvider.m */; };
-		18F3BB211940F5180007E978 /* SimpleAuthTwitterUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB051940F5180007E978 /* SimpleAuthTwitterUtilities.m */; };
-		18F3BB341940F5520007E978 /* CMDQueryStringArrayTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB231940F5520007E978 /* CMDQueryStringArrayTransformer.m */; };
-		18F3BB351940F5520007E978 /* CMDQueryStringDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB251940F5520007E978 /* CMDQueryStringDateTransformer.m */; };
-		18F3BB361940F5520007E978 /* CMDQueryStringNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB271940F5520007E978 /* CMDQueryStringNumberTransformer.m */; };
-		18F3BB371940F5520007E978 /* CMDQueryStringReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB291940F5520007E978 /* CMDQueryStringReader.m */; };
-		18F3BB381940F5520007E978 /* CMDQueryStringSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB2B1940F5520007E978 /* CMDQueryStringSerialization.m */; };
-		18F3BB391940F5520007E978 /* CMDQueryStringStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB2D1940F5520007E978 /* CMDQueryStringStringTransformer.m */; };
-		18F3BB3A1940F5520007E978 /* CMDQueryStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB2F1940F5520007E978 /* CMDQueryStringValueTransformer.m */; };
-		18F3BB3B1940F5520007E978 /* CMDQueryStringWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB311940F5520007E978 /* CMDQueryStringWriter.m */; };
-		18F3BB3C1940F5520007E978 /* NSString+CMDQueryStringSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BB331940F5520007E978 /* NSString+CMDQueryStringSerialization.m */; };
-		18F3BC6F1940FFEB0007E978 /* GCOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BC6E1940FFEB0007E978 /* GCOAuth.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
@@ -344,84 +306,6 @@
 		18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIActionSheet+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockButtons.h"; sourceTree = "<group>"; };
 		18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIAlertView+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		18F3BAC01940F5180007E978 /* SimpleAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthWebViewController.h; sourceTree = "<group>"; };
-		18F3BAC11940F5180007E978 /* SimpleAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthWebViewController.m; sourceTree = "<group>"; };
-		18F3BAC21940F5180007E978 /* UIViewController+SimpleAuthAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SimpleAuthAdditions.h"; sourceTree = "<group>"; };
-		18F3BAC31940F5180007E978 /* UIViewController+SimpleAuthAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SimpleAuthAdditions.m"; sourceTree = "<group>"; };
-		18F3BAC41940F5180007E978 /* UIWindow+SimpleAuthAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SimpleAuthAdditions.h"; sourceTree = "<group>"; };
-		18F3BAC51940F5180007E978 /* UIWindow+SimpleAuthAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SimpleAuthAdditions.m"; sourceTree = "<group>"; };
-		18F3BAC61940F5180007E978 /* SimpleAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleAuth.m; path = SimpleAuth/SimpleAuth.m; sourceTree = "<group>"; };
-		18F3BAC71940F5180007E978 /* SimpleAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleAuthProvider.m; path = SimpleAuth/SimpleAuthProvider.m; sourceTree = "<group>"; };
-		18F3BAC81940F5180007E978 /* ACAccountStore+SimpleAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ACAccountStore+SimpleAuth.h"; path = "SimpleAuth/ACAccountStore+SimpleAuth.h"; sourceTree = "<group>"; };
-		18F3BAC91940F5180007E978 /* ACAccountStore+SimpleAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ACAccountStore+SimpleAuth.m"; path = "SimpleAuth/ACAccountStore+SimpleAuth.m"; sourceTree = "<group>"; };
-		18F3BACA1940F5180007E978 /* NSObject+SimpleAuthAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SimpleAuthAdditions.h"; path = "SimpleAuth/NSObject+SimpleAuthAdditions.h"; sourceTree = "<group>"; };
-		18F3BACB1940F5180007E978 /* NSObject+SimpleAuthAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SimpleAuthAdditions.m"; path = "SimpleAuth/NSObject+SimpleAuthAdditions.m"; sourceTree = "<group>"; };
-		18F3BACE1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthDropboxWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BACF1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthDropboxWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAD01940F5180007E978 /* SimpleAuthDropboxWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthDropboxWebProvider.h; sourceTree = "<group>"; };
-		18F3BAD11940F5180007E978 /* SimpleAuthDropboxWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthDropboxWebProvider.m; sourceTree = "<group>"; };
-		18F3BAD31940F5180007E978 /* SimpleAuthFacebookProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthFacebookProvider.h; sourceTree = "<group>"; };
-		18F3BAD41940F5180007E978 /* SimpleAuthFacebookProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthFacebookProvider.m; sourceTree = "<group>"; };
-		18F3BAD61940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthFacebookWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAD71940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthFacebookWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAD81940F5180007E978 /* SimpleAuthFaceBookWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthFaceBookWebProvider.h; sourceTree = "<group>"; };
-		18F3BAD91940F5180007E978 /* SimpleAuthFaceBookWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthFaceBookWebProvider.m; sourceTree = "<group>"; };
-		18F3BADB1940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthFoursquareWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BADC1940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthFoursquareWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BADD1940F5180007E978 /* SimpleAuthFoursquareWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthFoursquareWebProvider.h; sourceTree = "<group>"; };
-		18F3BADE1940F5180007E978 /* SimpleAuthFoursquareWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthFoursquareWebProvider.m; sourceTree = "<group>"; };
-		18F3BAE01940F5180007E978 /* SimpleAuthInstagramLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthInstagramLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAE11940F5180007E978 /* SimpleAuthInstagramLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthInstagramLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAE21940F5180007E978 /* SimpleAuthInstagramProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthInstagramProvider.h; sourceTree = "<group>"; };
-		18F3BAE31940F5180007E978 /* SimpleAuthInstagramProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthInstagramProvider.m; sourceTree = "<group>"; };
-		18F3BAE51940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthLinkedInWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAE61940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthLinkedInWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAE71940F5180007E978 /* SimpleAuthLinkedInWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthLinkedInWebProvider.h; sourceTree = "<group>"; };
-		18F3BAE81940F5180007E978 /* SimpleAuthLinkedInWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthLinkedInWebProvider.m; sourceTree = "<group>"; };
-		18F3BAEA1940F5180007E978 /* SimpleAuthMeetupLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthMeetupLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAEB1940F5180007E978 /* SimpleAuthMeetupLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthMeetupLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAEC1940F5180007E978 /* SimpleAuthMeetupProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthMeetupProvider.h; sourceTree = "<group>"; };
-		18F3BAED1940F5180007E978 /* SimpleAuthMeetupProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthMeetupProvider.m; sourceTree = "<group>"; };
-		18F3BAEF1940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthSinaWeiboWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAF01940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthSinaWeiboWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAF11940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthSinaWeiboWebProvider.h; sourceTree = "<group>"; };
-		18F3BAF21940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthSinaWeiboWebProvider.m; sourceTree = "<group>"; };
-		18F3BAF41940F5180007E978 /* SimpleAuthTumblrLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthTumblrLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAF51940F5180007E978 /* SimpleAuthTumblrLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthTumblrLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAF61940F5180007E978 /* SimpleAuthTumblrProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthTumblrProvider.h; sourceTree = "<group>"; };
-		18F3BAF71940F5180007E978 /* SimpleAuthTumblrProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthTumblrProvider.m; sourceTree = "<group>"; };
-		18F3BAF91940F5180007E978 /* SimpleAuthTwitterProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthTwitterProvider.h; sourceTree = "<group>"; };
-		18F3BAFA1940F5180007E978 /* SimpleAuthTwitterProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthTwitterProvider.m; sourceTree = "<group>"; };
-		18F3BAFC1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthTwitterWebLoginViewController.h; sourceTree = "<group>"; };
-		18F3BAFD1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthTwitterWebLoginViewController.m; sourceTree = "<group>"; };
-		18F3BAFE1940F5180007E978 /* SimpleAuthTwitterWebProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAuthTwitterWebProvider.h; sourceTree = "<group>"; };
-		18F3BAFF1940F5180007E978 /* SimpleAuthTwitterWebProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAuthTwitterWebProvider.m; sourceTree = "<group>"; };
-		18F3BB001940F5180007E978 /* SimpleAuth-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SimpleAuth-Prefix.pch"; path = "SimpleAuth/SimpleAuth-Prefix.pch"; sourceTree = "<group>"; };
-		18F3BB011940F5180007E978 /* SimpleAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleAuth.h; path = SimpleAuth/SimpleAuth.h; sourceTree = "<group>"; };
-		18F3BB021940F5180007E978 /* SimpleAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleAuthProvider.h; path = SimpleAuth/SimpleAuthProvider.h; sourceTree = "<group>"; };
-		18F3BB031940F5180007E978 /* SimpleAuthSingleSignOnProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleAuthSingleSignOnProvider.h; path = SimpleAuth/SimpleAuthSingleSignOnProvider.h; sourceTree = "<group>"; };
-		18F3BB041940F5180007E978 /* SimpleAuthTwitterUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleAuthTwitterUtilities.h; path = SimpleAuth/SimpleAuthTwitterUtilities.h; sourceTree = "<group>"; };
-		18F3BB051940F5180007E978 /* SimpleAuthTwitterUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleAuthTwitterUtilities.m; path = SimpleAuth/SimpleAuthTwitterUtilities.m; sourceTree = "<group>"; };
-		18F3BB221940F5520007E978 /* CMDQueryStringArrayTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringArrayTransformer.h; path = CMDQueryStringSerialization/CMDQueryStringArrayTransformer.h; sourceTree = "<group>"; };
-		18F3BB231940F5520007E978 /* CMDQueryStringArrayTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringArrayTransformer.m; path = CMDQueryStringSerialization/CMDQueryStringArrayTransformer.m; sourceTree = "<group>"; };
-		18F3BB241940F5520007E978 /* CMDQueryStringDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringDateTransformer.h; path = CMDQueryStringSerialization/CMDQueryStringDateTransformer.h; sourceTree = "<group>"; };
-		18F3BB251940F5520007E978 /* CMDQueryStringDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringDateTransformer.m; path = CMDQueryStringSerialization/CMDQueryStringDateTransformer.m; sourceTree = "<group>"; };
-		18F3BB261940F5520007E978 /* CMDQueryStringNumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringNumberTransformer.h; path = CMDQueryStringSerialization/CMDQueryStringNumberTransformer.h; sourceTree = "<group>"; };
-		18F3BB271940F5520007E978 /* CMDQueryStringNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringNumberTransformer.m; path = CMDQueryStringSerialization/CMDQueryStringNumberTransformer.m; sourceTree = "<group>"; };
-		18F3BB281940F5520007E978 /* CMDQueryStringReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringReader.h; path = CMDQueryStringSerialization/CMDQueryStringReader.h; sourceTree = "<group>"; };
-		18F3BB291940F5520007E978 /* CMDQueryStringReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringReader.m; path = CMDQueryStringSerialization/CMDQueryStringReader.m; sourceTree = "<group>"; };
-		18F3BB2A1940F5520007E978 /* CMDQueryStringSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringSerialization.h; path = CMDQueryStringSerialization/CMDQueryStringSerialization.h; sourceTree = "<group>"; };
-		18F3BB2B1940F5520007E978 /* CMDQueryStringSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringSerialization.m; path = CMDQueryStringSerialization/CMDQueryStringSerialization.m; sourceTree = "<group>"; };
-		18F3BB2C1940F5520007E978 /* CMDQueryStringStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringStringTransformer.h; path = CMDQueryStringSerialization/CMDQueryStringStringTransformer.h; sourceTree = "<group>"; };
-		18F3BB2D1940F5520007E978 /* CMDQueryStringStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringStringTransformer.m; path = CMDQueryStringSerialization/CMDQueryStringStringTransformer.m; sourceTree = "<group>"; };
-		18F3BB2E1940F5520007E978 /* CMDQueryStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringValueTransformer.h; path = CMDQueryStringSerialization/CMDQueryStringValueTransformer.h; sourceTree = "<group>"; };
-		18F3BB2F1940F5520007E978 /* CMDQueryStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringValueTransformer.m; path = CMDQueryStringSerialization/CMDQueryStringValueTransformer.m; sourceTree = "<group>"; };
-		18F3BB301940F5520007E978 /* CMDQueryStringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMDQueryStringWriter.h; path = CMDQueryStringSerialization/CMDQueryStringWriter.h; sourceTree = "<group>"; };
-		18F3BB311940F5520007E978 /* CMDQueryStringWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMDQueryStringWriter.m; path = CMDQueryStringSerialization/CMDQueryStringWriter.m; sourceTree = "<group>"; };
-		18F3BB321940F5520007E978 /* NSString+CMDQueryStringSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CMDQueryStringSerialization.h"; path = "CMDQueryStringSerialization/NSString+CMDQueryStringSerialization.h"; sourceTree = "<group>"; };
-		18F3BB331940F5520007E978 /* NSString+CMDQueryStringSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CMDQueryStringSerialization.m"; path = "CMDQueryStringSerialization/NSString+CMDQueryStringSerialization.m"; sourceTree = "<group>"; };
-		18F3BC6D1940FFEB0007E978 /* GCOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCOAuth.h; path = "SimpleAuth/cocoa-oauth/GCOAuth.h"; sourceTree = "<group>"; };
-		18F3BC6E1940FFEB0007E978 /* GCOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCOAuth.m; path = "SimpleAuth/cocoa-oauth/GCOAuth.m"; sourceTree = "<group>"; };
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
@@ -663,228 +547,6 @@
 			name = FormatterKit;
 			sourceTree = "<group>";
 		};
-		18F3BABB1940F4AC0007E978 /* SimpleAuth */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BC6C1940FFC60007E978 /* Cocoa-Oauth */,
-				18F3BACC1940F5180007E978 /* Providers */,
-				18F3BABE1940F5180007E978 /* UI */,
-				18F3BAC61940F5180007E978 /* SimpleAuth.m */,
-				18F3BAC71940F5180007E978 /* SimpleAuthProvider.m */,
-				18F3BAC81940F5180007E978 /* ACAccountStore+SimpleAuth.h */,
-				18F3BAC91940F5180007E978 /* ACAccountStore+SimpleAuth.m */,
-				18F3BACA1940F5180007E978 /* NSObject+SimpleAuthAdditions.h */,
-				18F3BACB1940F5180007E978 /* NSObject+SimpleAuthAdditions.m */,
-				18F3BB001940F5180007E978 /* SimpleAuth-Prefix.pch */,
-				18F3BB011940F5180007E978 /* SimpleAuth.h */,
-				18F3BB021940F5180007E978 /* SimpleAuthProvider.h */,
-				18F3BB031940F5180007E978 /* SimpleAuthSingleSignOnProvider.h */,
-				18F3BB041940F5180007E978 /* SimpleAuthTwitterUtilities.h */,
-				18F3BB051940F5180007E978 /* SimpleAuthTwitterUtilities.m */,
-			);
-			name = SimpleAuth;
-			sourceTree = "<group>";
-		};
-		18F3BABC1940F4BE0007E978 /* CMDQueryStringSerialization */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BC521940F6BA0007E978 /* Transofrmers */,
-				18F3BB2A1940F5520007E978 /* CMDQueryStringSerialization.h */,
-				18F3BB2B1940F5520007E978 /* CMDQueryStringSerialization.m */,
-			);
-			name = CMDQueryStringSerialization;
-			sourceTree = "<group>";
-		};
-		18F3BABE1940F5180007E978 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BABF1940F5180007E978 /* ios */,
-			);
-			name = UI;
-			path = SimpleAuth/UI;
-			sourceTree = "<group>";
-		};
-		18F3BABF1940F5180007E978 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAC01940F5180007E978 /* SimpleAuthWebViewController.h */,
-				18F3BAC11940F5180007E978 /* SimpleAuthWebViewController.m */,
-				18F3BAC21940F5180007E978 /* UIViewController+SimpleAuthAdditions.h */,
-				18F3BAC31940F5180007E978 /* UIViewController+SimpleAuthAdditions.m */,
-				18F3BAC41940F5180007E978 /* UIWindow+SimpleAuthAdditions.h */,
-				18F3BAC51940F5180007E978 /* UIWindow+SimpleAuthAdditions.m */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		18F3BACC1940F5180007E978 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BACD1940F5180007E978 /* DropboxWeb */,
-				18F3BAD21940F5180007E978 /* Facebook */,
-				18F3BAD51940F5180007E978 /* FacebookWeb */,
-				18F3BADA1940F5180007E978 /* FoursquareWeb */,
-				18F3BADF1940F5180007E978 /* Instagram */,
-				18F3BAE41940F5180007E978 /* LinkedIn */,
-				18F3BAE91940F5180007E978 /* Meetup */,
-				18F3BAEE1940F5180007E978 /* SinaWeiboWeb */,
-				18F3BAF31940F5180007E978 /* Tumblr */,
-				18F3BAF81940F5180007E978 /* Twitter */,
-				18F3BAFB1940F5180007E978 /* TwitterWeb */,
-			);
-			name = Providers;
-			path = SimpleAuth/Providers;
-			sourceTree = "<group>";
-		};
-		18F3BACD1940F5180007E978 /* DropboxWeb */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BACE1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.h */,
-				18F3BACF1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.m */,
-				18F3BAD01940F5180007E978 /* SimpleAuthDropboxWebProvider.h */,
-				18F3BAD11940F5180007E978 /* SimpleAuthDropboxWebProvider.m */,
-			);
-			path = DropboxWeb;
-			sourceTree = "<group>";
-		};
-		18F3BAD21940F5180007E978 /* Facebook */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAD31940F5180007E978 /* SimpleAuthFacebookProvider.h */,
-				18F3BAD41940F5180007E978 /* SimpleAuthFacebookProvider.m */,
-			);
-			path = Facebook;
-			sourceTree = "<group>";
-		};
-		18F3BAD51940F5180007E978 /* FacebookWeb */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAD61940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.h */,
-				18F3BAD71940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.m */,
-				18F3BAD81940F5180007E978 /* SimpleAuthFaceBookWebProvider.h */,
-				18F3BAD91940F5180007E978 /* SimpleAuthFaceBookWebProvider.m */,
-			);
-			path = FacebookWeb;
-			sourceTree = "<group>";
-		};
-		18F3BADA1940F5180007E978 /* FoursquareWeb */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BADB1940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.h */,
-				18F3BADC1940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.m */,
-				18F3BADD1940F5180007E978 /* SimpleAuthFoursquareWebProvider.h */,
-				18F3BADE1940F5180007E978 /* SimpleAuthFoursquareWebProvider.m */,
-			);
-			path = FoursquareWeb;
-			sourceTree = "<group>";
-		};
-		18F3BADF1940F5180007E978 /* Instagram */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAE01940F5180007E978 /* SimpleAuthInstagramLoginViewController.h */,
-				18F3BAE11940F5180007E978 /* SimpleAuthInstagramLoginViewController.m */,
-				18F3BAE21940F5180007E978 /* SimpleAuthInstagramProvider.h */,
-				18F3BAE31940F5180007E978 /* SimpleAuthInstagramProvider.m */,
-			);
-			path = Instagram;
-			sourceTree = "<group>";
-		};
-		18F3BAE41940F5180007E978 /* LinkedIn */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAE51940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.h */,
-				18F3BAE61940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.m */,
-				18F3BAE71940F5180007E978 /* SimpleAuthLinkedInWebProvider.h */,
-				18F3BAE81940F5180007E978 /* SimpleAuthLinkedInWebProvider.m */,
-			);
-			path = LinkedIn;
-			sourceTree = "<group>";
-		};
-		18F3BAE91940F5180007E978 /* Meetup */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAEA1940F5180007E978 /* SimpleAuthMeetupLoginViewController.h */,
-				18F3BAEB1940F5180007E978 /* SimpleAuthMeetupLoginViewController.m */,
-				18F3BAEC1940F5180007E978 /* SimpleAuthMeetupProvider.h */,
-				18F3BAED1940F5180007E978 /* SimpleAuthMeetupProvider.m */,
-			);
-			path = Meetup;
-			sourceTree = "<group>";
-		};
-		18F3BAEE1940F5180007E978 /* SinaWeiboWeb */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAEF1940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.h */,
-				18F3BAF01940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.m */,
-				18F3BAF11940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.h */,
-				18F3BAF21940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.m */,
-			);
-			path = SinaWeiboWeb;
-			sourceTree = "<group>";
-		};
-		18F3BAF31940F5180007E978 /* Tumblr */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAF41940F5180007E978 /* SimpleAuthTumblrLoginViewController.h */,
-				18F3BAF51940F5180007E978 /* SimpleAuthTumblrLoginViewController.m */,
-				18F3BAF61940F5180007E978 /* SimpleAuthTumblrProvider.h */,
-				18F3BAF71940F5180007E978 /* SimpleAuthTumblrProvider.m */,
-			);
-			path = Tumblr;
-			sourceTree = "<group>";
-		};
-		18F3BAF81940F5180007E978 /* Twitter */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAF91940F5180007E978 /* SimpleAuthTwitterProvider.h */,
-				18F3BAFA1940F5180007E978 /* SimpleAuthTwitterProvider.m */,
-			);
-			path = Twitter;
-			sourceTree = "<group>";
-		};
-		18F3BAFB1940F5180007E978 /* TwitterWeb */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BAFC1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.h */,
-				18F3BAFD1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.m */,
-				18F3BAFE1940F5180007E978 /* SimpleAuthTwitterWebProvider.h */,
-				18F3BAFF1940F5180007E978 /* SimpleAuthTwitterWebProvider.m */,
-			);
-			path = TwitterWeb;
-			sourceTree = "<group>";
-		};
-		18F3BC521940F6BA0007E978 /* Transofrmers */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BB281940F5520007E978 /* CMDQueryStringReader.h */,
-				18F3BB291940F5520007E978 /* CMDQueryStringReader.m */,
-				18F3BB301940F5520007E978 /* CMDQueryStringWriter.h */,
-				18F3BB311940F5520007E978 /* CMDQueryStringWriter.m */,
-				18F3BB321940F5520007E978 /* NSString+CMDQueryStringSerialization.h */,
-				18F3BB331940F5520007E978 /* NSString+CMDQueryStringSerialization.m */,
-				18F3BB221940F5520007E978 /* CMDQueryStringArrayTransformer.h */,
-				18F3BB231940F5520007E978 /* CMDQueryStringArrayTransformer.m */,
-				18F3BB241940F5520007E978 /* CMDQueryStringDateTransformer.h */,
-				18F3BB251940F5520007E978 /* CMDQueryStringDateTransformer.m */,
-				18F3BB261940F5520007E978 /* CMDQueryStringNumberTransformer.h */,
-				18F3BB271940F5520007E978 /* CMDQueryStringNumberTransformer.m */,
-				18F3BB2C1940F5520007E978 /* CMDQueryStringStringTransformer.h */,
-				18F3BB2D1940F5520007E978 /* CMDQueryStringStringTransformer.m */,
-				18F3BB2E1940F5520007E978 /* CMDQueryStringValueTransformer.h */,
-				18F3BB2F1940F5520007E978 /* CMDQueryStringValueTransformer.m */,
-			);
-			name = Transofrmers;
-			sourceTree = "<group>";
-		};
-		18F3BC6C1940FFC60007E978 /* Cocoa-Oauth */ = {
-			isa = PBXGroup;
-			children = (
-				18F3BC6D1940FFEB0007E978 /* GCOAuth.h */,
-				18F3BC6E1940FFEB0007E978 /* GCOAuth.m */,
-			);
-			name = "Cocoa-Oauth";
-			sourceTree = "<group>";
-		};
 		4020ED40183E095B0040B096 /* UnitTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,8 +580,6 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
-				18F3BABC1940F4BE0007E978 /* CMDQueryStringSerialization */,
-				18F3BABB1940F4AC0007E978 /* SimpleAuth */,
 				402C044118754151009D105B /* CBL */,
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
@@ -1358,8 +1018,6 @@
 				40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
-				18F3BB1C1940F5180007E978 /* SimpleAuthTumblrLoginViewController.m in Sources */,
-				18F3BB3B1940F5520007E978 /* CMDQueryStringWriter.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
 				40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */,
@@ -1372,103 +1030,67 @@
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
-				18F3BB351940F5520007E978 /* CMDQueryStringDateTransformer.m in Sources */,
 				18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
 				40FD7882191D6CB0004B82D7 /* IdleState.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
-				18F3BB1B1940F5180007E978 /* SimpleAuthSinaWeiboWebProvider.m in Sources */,
 				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
-				18F3BB091940F5180007E978 /* SimpleAuth.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
-				18F3BB371940F5520007E978 /* CMDQueryStringReader.m in Sources */,
-				18F3BB121940F5180007E978 /* SimpleAuthFoursquareWebLoginViewController.m in Sources */,
-				18F3BB211940F5180007E978 /* SimpleAuthTwitterUtilities.m in Sources */,
 				40937F1019049D7500A4A8BB /* TBUserDefaults.m in Sources */,
 				405AE477190D884C006F2BF1 /* WaitFor.m in Sources */,
-				18F3BB3C1940F5520007E978 /* NSString+CMDQueryStringSerialization.m in Sources */,
 				40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */,
 				404753B018F3A74300115A82 /* CPUTime.m in Sources */,
-				18F3BB201940F5180007E978 /* SimpleAuthTwitterWebProvider.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
 				40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
-				18F3BB061940F5180007E978 /* SimpleAuthWebViewController.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
-				18F3BB161940F5180007E978 /* SimpleAuthLinkedInWebLoginViewController.m in Sources */,
-				18F3BB1E1940F5180007E978 /* SimpleAuthTwitterProvider.m in Sources */,
-				18F3BB151940F5180007E978 /* SimpleAuthInstagramProvider.m in Sources */,
-				18F3BB131940F5180007E978 /* SimpleAuthFoursquareWebProvider.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
-				18F3BB141940F5180007E978 /* SimpleAuthInstagramLoginViewController.m in Sources */,
 				181BC4D91902069300D53080 /* UIView+Misc.m in Sources */,
-				18F3BB0B1940F5180007E978 /* ACAccountStore+SimpleAuth.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
-				18F3BB171940F5180007E978 /* SimpleAuthLinkedInWebProvider.m in Sources */,
-				18F3BB111940F5180007E978 /* SimpleAuthFaceBookWebProvider.m in Sources */,
 				407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */,
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
 				40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */,
-				18F3BB0E1940F5180007E978 /* SimpleAuthDropboxWebProvider.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
-				18F3BB1D1940F5180007E978 /* SimpleAuthTumblrProvider.m in Sources */,
 				408E8997176A47D4001B61E6 /* NSMutableArray+Sorted.m in Sources */,
-				18F3BB1A1940F5180007E978 /* SimpleAuthSinaWeiboWebLoginViewController.m in Sources */,
 				400C95B51853C14A0095B9DC /* NSMutableArray+Ext.m in Sources */,
 				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
-				18F3BB361940F5520007E978 /* CMDQueryStringNumberTransformer.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */,
-				18F3BB181940F5180007E978 /* SimpleAuthMeetupLoginViewController.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
 				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
-				18F3BB071940F5180007E978 /* UIViewController+SimpleAuthAdditions.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */,
-				18F3BB341940F5520007E978 /* CMDQueryStringArrayTransformer.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
-				18F3BB0F1940F5180007E978 /* SimpleAuthFacebookProvider.m in Sources */,
-				18F3BB191940F5180007E978 /* SimpleAuthMeetupProvider.m in Sources */,
-				18F3BB081940F5180007E978 /* UIWindow+SimpleAuthAdditions.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
-				18F3BB1F1940F5180007E978 /* SimpleAuthTwitterWebLoginViewController.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
 				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
 				181BC4D81902069300D53080 /* RMDateSelectionViewController.m in Sources */,
-				18F3BB101940F5180007E978 /* SimpleAuthFacebookWebLoginViewController.m in Sources */,
 				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
 				4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */,
 				181E010B1912ADF100DEE28C /* TTTAddressFormatter.m in Sources */,
 				181E01111912ADF100DEE28C /* TTTUnitOfInformationFormatter.m in Sources */,
-				18F3BC6F1940FFEB0007E978 /* GCOAuth.m in Sources */,
-				18F3BB381940F5520007E978 /* CMDQueryStringSerialization.m in Sources */,
-				18F3BB0A1940F5180007E978 /* SimpleAuthProvider.m in Sources */,
 				181E01101912ADF100DEE28C /* TTTTimeIntervalFormatter.m in Sources */,
 				181E010D1912ADF100DEE28C /* TTTColorFormatter.m in Sources */,
 				181E01121912ADF100DEE28C /* TTTURLRequestFormatter.m in Sources */,
-				18F3BB391940F5520007E978 /* CMDQueryStringStringTransformer.m in Sources */,
 				181E010F1912ADF100DEE28C /* TTTOrdinalNumberFormatter.m in Sources */,
 				181E010C1912ADF100DEE28C /* TTTArrayFormatter.m in Sources */,
-				18F3BB0C1940F5180007E978 /* NSObject+SimpleAuthAdditions.m in Sources */,
-				18F3BB3A1940F5520007E978 /* CMDQueryStringValueTransformer.m in Sources */,
-				18F3BB0D1940F5180007E978 /* SimpleAuthDropboxWebLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
