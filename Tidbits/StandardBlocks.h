@@ -11,6 +11,17 @@
 #ifndef Tidbits_StandardBlocks_h
 #define Tidbits_StandardBlocks_h
 
+//http://fuckingblocksyntax.com/
+//How Do I Declare A Block in Objective-C?
+//    As a local variable:
+//        returnType (^blockName)(parameterTypes) = ^returnType(parameters) {...};
+//    As a property:
+//        @property (nonatomic, copy) returnType (^blockName)(parameterTypes);
+//    As a method parameter:
+//        - (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
+//    As an argument to a method call:
+//        [someObject someMethodThatTakesABlock: ^returnType (parameters) {...}];
+
 typedef void (^BOOLBlock)(BOOL flag);
 typedef void (^BOOLPtrBlock)(BOOL *flag);
 typedef void (^BoolBlock)(bool flag);
@@ -21,6 +32,7 @@ typedef void (^IdIdIdPtrBoolPtrBlock)(id obj1, id obj2, id* result, bool* done);
 typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
 typedef void (^NSArrayNSErrorBlock)(NSArray* array, NSError* error);
+typedef void (^NSDictionaryNSErrorBlock)(NSDictionary* dict, NSError* error);
 typedef void (^NSDataBlock)(NSData* data);
 typedef void (^NSDataNSErrorBlock)(NSData* data, NSError* error);
 typedef void (^NSDateBlock)(NSDate* date);
