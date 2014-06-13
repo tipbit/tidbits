@@ -34,7 +34,7 @@ static void TTTGetCMYKComponentsFromColor(UIColor *color, CGFloat *cyan, CGFloat
     CGFloat r = 0.0f, g = 0.0f, b = 0.0f;
     TTTGetRGBAComponentsFromColor(color, &r, &g, &b, NULL);
 
-    CGFloat k = 1.0f - fmax(fmax(r, g), b);
+    CGFloat k = 1.0f - fmaxf(fmaxf(r, g), b);
     CGFloat dK = 1.0f - k;
 
     CGFloat c = (1.0f - (r + k)) / dK;
@@ -53,8 +53,8 @@ static void TTTGetHSLComponentsFromColor(UIColor *color, CGFloat *hue, CGFloat *
 
     CGFloat h = 0.0f, s = 0.0f, l = 0.0f;
 
-    CGFloat v = fmax(fmax(r, g), b);
-    CGFloat m = fmin(fmin(r, g), b);
+    CGFloat v = fmaxf(fmaxf(r, g), b);
+    CGFloat m = fminf(fminf(r, g), b);
     l = (m + v) / 2.0f;
 
     CGFloat vm = v - m;
