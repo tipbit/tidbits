@@ -29,7 +29,7 @@
 @implementation NSMutableString (TTTURLRequestFormatter)
 
 - (void)appendCommandLineArgument:(NSString *)arg {
-    [self appendFormat:@" %@", [arg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    [self appendFormat:@"\n%@", [arg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
 }
 
 @end
@@ -42,17 +42,23 @@
     return [NSString stringWithFormat:@"%@ '%@'", [request HTTPMethod], [[request URL] absoluteString]];
 }
 
-+ (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request {
-    NSMutableString *command = [NSMutableString stringWithString:@"curl"];
-
-    [command appendCommandLineArgument:[NSString stringWithFormat:@"-X %@", [request HTTPMethod]]];
-
++ (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request
+{
+    return [self cURLCommandFromURLRequest:request escape:NO];
+}
++ (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request escape:(BOOL)escape
+{
+    NSMutableString *command = [NSMutableString stringWithFormat:@"curl -X %@ \"%@\"", [request HTTPMethod], [[request URL] absoluteString]];
+    
     if ([[request HTTPBody] length] > 0) {
         NSMutableString *HTTPBodyString = [[NSMutableString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-        [HTTPBodyString replaceOccurrencesOfString:@"\\" withString:@"\\\\" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
-        [HTTPBodyString replaceOccurrencesOfString:@"`" withString:@"\\`" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
-        [HTTPBodyString replaceOccurrencesOfString:@"\"" withString:@"\\\"" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
-        [HTTPBodyString replaceOccurrencesOfString:@"$" withString:@"\\$" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
+        if (escape) {
+            [HTTPBodyString replaceOccurrencesOfString:@"\\" withString:@"\\\\" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
+            [HTTPBodyString replaceOccurrencesOfString:@"`" withString:@"\\`" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
+            [HTTPBodyString replaceOccurrencesOfString:@"\"" withString:@"\\\"" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
+            [HTTPBodyString replaceOccurrencesOfString:@"$" withString:@"\\$" options:0 range:NSMakeRange(0, [HTTPBodyString length])];
+        }
+        
         [command appendCommandLineArgument:[NSString stringWithFormat:@"-d \"%@\"", HTTPBodyString]];
     }
 
@@ -71,8 +77,6 @@
     for (id field in [request allHTTPHeaderFields]) {
         [command appendCommandLineArgument:[NSString stringWithFormat:@"-H %@", [NSString stringWithFormat:@"'%@: %@'", field, [[request valueForHTTPHeaderField:field] stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"]]]];
     }
-
-    [command appendCommandLineArgument:[NSString stringWithFormat:@"\"%@\"", [[request URL] absoluteString]]];
 
     return [NSString stringWithString:command];
 }

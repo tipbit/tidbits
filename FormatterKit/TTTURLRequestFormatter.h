@@ -46,6 +46,7 @@
  @param request The request to format.
  */
 + (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request;
++ (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request escape:(BOOL)escape;
 
 /**
  Returns a `wget` command string equivalent of the specified request object.
