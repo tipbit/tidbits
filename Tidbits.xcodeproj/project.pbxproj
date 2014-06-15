@@ -865,7 +865,7 @@
 			buildConfigurationList = 4072B7E518415744003B7703 /* Build configuration list for PBXLegacyTarget "Tidbits Documentation" */;
 			buildPhases = (
 			);
-			buildToolPath = /usr/local/bin/appledoc;
+			buildToolPath = /opt/local/bin/appledoc;
 			buildWorkingDirectory = "$(SOURCE_ROOT)";
 			dependencies = (
 			);
