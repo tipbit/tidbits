@@ -62,11 +62,10 @@
         [command appendCommandLineArgument:[NSString stringWithFormat:@"-d \"%@\"", HTTPBodyString]];
     }
 
-    NSString *acceptEncodingHeader = [[request allHTTPHeaderFields] valueForKey:@"Accept-Encoding"];
-    if ([acceptEncodingHeader rangeOfString:@"gzip"].location != NSNotFound) {
-        [command appendCommandLineArgument:@"--compressed"];
+    for (id field in [request allHTTPHeaderFields]) {
+        [command appendCommandLineArgument:[NSString stringWithFormat:@"-H %@", [NSString stringWithFormat:@"'%@: %@'", field, [[request valueForHTTPHeaderField:field] stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"]]]];
     }
-
+    
     if ([request URL]) {
         NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[request URL]];
         for (NSHTTPCookie *cookie in cookies) {
@@ -74,10 +73,11 @@
         }
     }
 
-    for (id field in [request allHTTPHeaderFields]) {
-        [command appendCommandLineArgument:[NSString stringWithFormat:@"-H %@", [NSString stringWithFormat:@"'%@: %@'", field, [[request valueForHTTPHeaderField:field] stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"]]]];
+    NSString *acceptEncodingHeader = [[request allHTTPHeaderFields] valueForKey:@"Accept-Encoding"];
+    if ([acceptEncodingHeader rangeOfString:@"gzip"].location != NSNotFound) {
+        [command appendCommandLineArgument:@"--compressed"];
     }
-
+    
     return [NSString stringWithString:command];
 }
 
