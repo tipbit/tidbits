@@ -41,4 +41,20 @@
 }
 
 
+-(void)testShuffleNormal {
+    NSMutableArray * input = [NSMutableArray arrayWithArray:@[@0, @1, @2, @3, @4]];
+    [input shuffle];
+    XCTAssertEqual(input.count, 5U);
+    for (NSUInteger i = 0; i < 5; i++) {
+        XCTAssert([input containsObject:@(i)]);
+    }
+}
+
+-(void)testShuffleEmpty {
+    NSMutableArray * input = [NSMutableArray array];
+    [input shuffle];
+    XCTAssertEqual(input.count, 0U);
+}
+
+
 @end

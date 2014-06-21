@@ -46,4 +46,15 @@
 }
 
 
+-(void)shuffle {
+    // Same as http://en.wikipedia.org/wiki/Fisher–Yates_shuffle,
+    // but with i adjusted up by 1 to avoid wrap-around if self.count == 0.
+    for (NSUInteger i = self.count; i >= 2; i--) {
+        NSUInteger iminus1 = i - 1;
+        NSUInteger j = arc4random_uniform(iminus1);
+        [self exchangeObjectAtIndex:(iminus1) withObjectAtIndex:j];
+    }
+}
+
+
 @end

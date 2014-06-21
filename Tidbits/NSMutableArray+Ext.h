@@ -23,4 +23,9 @@
  */
 -(void)removeDuplicates;
 
+/**
+ * In-place Fischer-Yates shuffle.
+ */
+-(void)shuffle;
+
 @end
