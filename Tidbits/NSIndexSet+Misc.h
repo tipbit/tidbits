@@ -21,4 +21,10 @@
  */
 -(NSArray*)indexPathsInSection:(NSInteger)section;
 
+/**
+ * Create a new NSIndexPath array, with all the paths pointing to (section, row) pairs where the rows are 0 and the section numbers are as specified by this NSIndexSet.
+ * c.f. NSIndexPath (UITableView).
+ */
+-(NSArray*)zeroRowIndexPathsForSections;
+
 @end

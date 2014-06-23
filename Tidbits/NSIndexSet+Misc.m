@@ -31,5 +31,13 @@
     return result;
 }
 
+-(NSArray*)zeroRowIndexPathsForSections {
+    NSMutableArray* result = [NSMutableArray arrayWithCapacity:self.count];
+    [self enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+        [result addObject:[NSIndexPath indexPathForRow:0 inSection:idx]];
+    }];
+    return result;
+}
+
 
 @end
