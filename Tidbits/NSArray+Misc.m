@@ -19,6 +19,11 @@
 }
 
 
++(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper {
+    return [[NSMutableArray alloc] initWithEnumeration:objects mapper:mapper];
+}
+
+
 -(NSDictionary*)dictAtIndex:(NSUInteger)index {
     id result = [self objectAtIndex:index withDefault:nil];
     return [result isKindOfClass:[NSDictionary class]] ? result : nil;

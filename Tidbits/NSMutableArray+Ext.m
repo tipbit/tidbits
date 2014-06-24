@@ -22,6 +22,20 @@
 }
 
 
+-(instancetype)initWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper {
+    self = [self init];
+    if (self) {
+        for (id obj in objects) {
+            id new_obj = mapper(obj);
+            if (new_obj != nil) {
+                [self addObject:new_obj];
+            }
+        }
+    }
+    return self;
+}
+
+
 -(void)filterUsingBlock:(predicate_t)predicate {
     [self filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return predicate(evaluatedObject);

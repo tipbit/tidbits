@@ -15,6 +15,16 @@
 
 -(instancetype)initWithEnumeration:(id<NSFastEnumeration>)objects;
 
+/**
+ * Initialize this NSMutableArray with the contents set to mapper(x) for each x in objects.
+ *
+ * mapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be shorter than self).
+ *
+ * This is the same as NSArray.map in NSArray+Map, but generalized to any NSFastEnumeration.
+ */
+-(instancetype)initWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper;
+
 -(void)filterUsingBlock:(predicate_t)predicate;
 
 /**

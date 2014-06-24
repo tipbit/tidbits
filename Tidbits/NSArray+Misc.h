@@ -14,6 +14,7 @@
 @interface NSArray (Misc)
 
 +(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects;
++(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper;
 
 -(NSDictionary*)dictAtIndex:(NSUInteger)index;
 
