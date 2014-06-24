@@ -19,7 +19,7 @@
 -(NSMutableArray*)filter:(predicate_t)filter;
 
 /**
- * Create a new NSArray with the contents set to mapper(x) for each x in self.
+ * Create a new NSMutableArray with the contents set to mapper(x) for each x in self.
  *
  * mapper may return nil, in which case no entry is added to the result
  * (i.e. the result will be shorter than self).
