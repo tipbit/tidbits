@@ -15,6 +15,7 @@
  * @discussion Alerts without delegates. - cancelButtonTitle:@"OK".
  */
 + (instancetype)showWithTitle:(NSString *)title;
++ (instancetype)showWithMessage:(NSString *)title;
 + (instancetype)showWithTitle:(NSString *)title
                       message:(NSString *)message;
 

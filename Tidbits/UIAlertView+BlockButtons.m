@@ -108,6 +108,20 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     return alert;
 }
 
++(instancetype) showWithMessage:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:nil
+                          message:message
+                          delegate:[UIAlertViewHelper sharedHelper]
+                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                          otherButtonTitles: nil];
+    alert.accessibilityLabel = message;
+    
+    [alert show];
+    
+    return alert;
+}
 
 +(instancetype) showWithTitle:(NSString *)title
                       message:(NSString *)message
