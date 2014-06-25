@@ -198,6 +198,32 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     return alert;
 }
 
++ (instancetype)askForPasswordWithTitle:(NSString *)title
+                                message:(NSString *)message
+                           cancelButton:(BlockButton *)cancelButton
+                            otherButton:(BlockButton *)okButton
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:[UIAlertViewHelper sharedHelper]
+                                          cancelButtonTitle:cancelButton.label
+                                          otherButtonTitles:okButton.label, nil];
+    alert.accessibilityLabel = title;
+    
+    alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    
+    //----
+    NSMutableArray *buttonsArray = [NSMutableArray arrayWithObjects:cancelButton, okButton, nil];
+    for(BlockButton *button in buttonsArray)
+        button.parentView = alert;
+    
+    [[UIAlertViewHelper sharedHelper] setButtons:buttonsArray forAlert:alert];
+    
+    [alert show];
+    
+    return alert;
+}
+
 +(instancetype) showWithTitle:(NSString *)title
                       message:(NSString *)message
                      userName:(NSString *)userName

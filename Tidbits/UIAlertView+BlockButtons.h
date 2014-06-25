@@ -59,6 +59,11 @@
                  cancelButton:(BlockButton *)cancelButton
                   otherButton:(BlockButton *)okButton;
 
++ (instancetype)askForPasswordWithTitle:(NSString *)title
+                                message:(NSString *)message
+                           cancelButton:(BlockButton *)cancelButton
+                            otherButton:(BlockButton *)okButton;
+
 /**
  * @discussion Alert using username/pasword editable text boxes.
  */
