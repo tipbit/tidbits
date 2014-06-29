@@ -19,6 +19,10 @@
 		18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784718F0D63F00E8A968 /* BlockButton.m */; };
 		18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */; };
 		18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */; };
+		18F1E611195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60A195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m */; };
+		18F1E612195E6969008E3161 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60C195E6969008E3161 /* TPKeyboardAvoidingScrollView.m */; };
+		18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */; };
+		18F1E614195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
@@ -306,6 +310,14 @@
 		18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIActionSheet+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockButtons.h"; sourceTree = "<group>"; };
 		18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIAlertView+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		18F1E609195E6969008E3161 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingCollectionView.h; path = TPKeyboardAvoiding/TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		18F1E60A195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingCollectionView.m; path = TPKeyboardAvoiding/TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		18F1E60B195E6969008E3161 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		18F1E60C195E6969008E3161 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		18F1E60D195E6969008E3161 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = TPKeyboardAvoiding/TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		18F1E60F195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
@@ -547,6 +559,21 @@
 			name = FormatterKit;
 			sourceTree = "<group>";
 		};
+		18F1E607195E6850008E3161 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				18F1E609195E6969008E3161 /* TPKeyboardAvoidingCollectionView.h */,
+				18F1E60A195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m */,
+				18F1E60B195E6969008E3161 /* TPKeyboardAvoidingScrollView.h */,
+				18F1E60C195E6969008E3161 /* TPKeyboardAvoidingScrollView.m */,
+				18F1E60D195E6969008E3161 /* TPKeyboardAvoidingTableView.h */,
+				18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */,
+				18F1E60F195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
 		4020ED40183E095B0040B096 /* UnitTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +607,7 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
+				18F1E607195E6850008E3161 /* TPKeyboardAvoiding */,
 				402C044118754151009D105B /* CBL */,
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
@@ -1035,6 +1063,7 @@
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
 				40FD7882191D6CB0004B82D7 /* IdleState.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
+				18F1E614195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
 				4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */,
 				40937F1019049D7500A4A8BB /* TBUserDefaults.m in Sources */,
@@ -1054,6 +1083,7 @@
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
 				40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
+				18F1E612195E6969008E3161 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
 				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
@@ -1062,6 +1092,7 @@
 				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
+				18F1E611195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */,
@@ -1075,6 +1106,7 @@
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
+				18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
