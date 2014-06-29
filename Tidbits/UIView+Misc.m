@@ -12,6 +12,13 @@
 @implementation UIView (Misc)
 
 
+-(void)setBorderColor:(UIColor *)color width:(CGFloat)width {
+    CALayer * l = self.layer;
+    l.borderColor = color.CGColor;
+    l.borderWidth = width;
+}
+
+
 -(void)setRoundMask {
     [self setRoundMask:self.layer.frame.size.width / 2.0f];
 }
