@@ -13,9 +13,15 @@
 
 
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width {
+    [self setBorderColor:color width:width radius:0.0f];
+}
+
+
+-(void)setBorderColor:(UIColor *)color width:(CGFloat)width radius:(CGFloat)radius {
     CALayer * l = self.layer;
     l.borderColor = color.CGColor;
     l.borderWidth = width;
+    l.cornerRadius = radius;
 }
 
 

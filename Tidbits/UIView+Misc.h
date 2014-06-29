@@ -11,6 +11,7 @@
 @interface UIView (Misc)
 
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width;
+-(void)setBorderColor:(UIColor *)color width:(CGFloat)width radius:(CGFloat)radius;
 
 -(void)setRoundMask;
 -(void)setRoundMask:(CGFloat)cornerRadius;
