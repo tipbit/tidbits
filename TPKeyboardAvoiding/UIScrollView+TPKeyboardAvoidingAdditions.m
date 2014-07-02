@@ -135,7 +135,12 @@ static const int kStateKey;
     [self TPKeyboardAvoiding_findTextFieldAfterTextField:firstResponder beneathView:self minY:&minY foundView:&view];
     
     if ( view ) {
+        // Xcode 5.1.1 warns about becomeFirstResponder below.  It's just plain wrong as far as I can tell.
+        // It's declared in UISelector, a superclass of UIView.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
         [view performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.0];
+#pragma clang diagnostic pop
         return YES;
     }
     

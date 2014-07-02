@@ -15,8 +15,13 @@
 #pragma mark - Setup/Teardown
 
 - (void)setup {
+    // Xcode 5.1.1 can't see that this class is a subclass of UIScrollView and the selectors are
+    // declared in UIScrollView+TPKeyboardAvoidingAdditions.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+#pragma clang diagnostic pop
 }
 
 -(id)initWithFrame:(CGRect)frame {
@@ -84,8 +89,13 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
+    // Xcode 5.1.1 can't see that this class is a subclass of UIScrollView and the selectors are
+    // declared in UIScrollView+TPKeyboardAvoidingAdditions.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) object:self];
     [self performSelector:@selector(TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:) withObject:self afterDelay:0.1];
+#pragma clang diagnostic pop
 }
 
 @end
