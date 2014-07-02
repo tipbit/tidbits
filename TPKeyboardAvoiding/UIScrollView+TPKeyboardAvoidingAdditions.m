@@ -269,16 +269,20 @@ static const int kStateKey;
 }
 
 - (void)TPKeyboardAvoiding_initializeView:(UIView*)view {
-    if ( [view isKindOfClass:[UITextField class]] && ((UITextField*)view).returnKeyType == UIReturnKeyDefault && (![(id)view delegate] || [(id)view delegate] == self) ) {
-        [(id)view setDelegate:self];
-        UIView *otherView = nil;
-        CGFloat minY = CGFLOAT_MAX;
-        [self TPKeyboardAvoiding_findTextFieldAfterTextField:view beneathView:self minY:&minY foundView:&otherView];
-        
-        if ( otherView ) {
-            ((UITextField*)view).returnKeyType = UIReturnKeyNext;
-        } else {
-            ((UITextField*)view).returnKeyType = UIReturnKeyDone;
+    if ([view isKindOfClass:[UITextField class]]) {
+        UITextField * tf = (UITextField*)view;
+        id<UITextFieldDelegate> self_as_delegate = (id<UITextFieldDelegate>)self;
+        if (tf.returnKeyType == UIReturnKeyDefault && (!tf.delegate || tf.delegate == self_as_delegate)) {
+            tf.delegate = self_as_delegate;
+            UIView *otherView = nil;
+            CGFloat minY = CGFLOAT_MAX;
+            [self TPKeyboardAvoiding_findTextFieldAfterTextField:view beneathView:self minY:&minY foundView:&otherView];
+
+            if ( otherView ) {
+                ((UITextField*)view).returnKeyType = UIReturnKeyNext;
+            } else {
+                ((UITextField*)view).returnKeyType = UIReturnKeyDone;
+            }
         }
     }
 }
