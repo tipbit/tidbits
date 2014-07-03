@@ -11,11 +11,13 @@
 #import "NSUserDefaults+PerUser.h"
 
 #define kTipbitUser @"USER"
+#define kTipbitUserType @"USERTYPE"
 
 @implementation NSUserDefaults (PerUser)
 
 // Cache for Tipbit user.  Cleared on logout.
 static NSString *cacheUser = nil;
+static NSString *cacheUserType = nil;
 
 -(NSString*)getTipbitUser {
     if (cacheUser == nil) {
@@ -24,17 +26,28 @@ static NSString *cacheUser = nil;
     
     return cacheUser;
 }
+-(NSString*)getTipbitUserType {
+    if (cacheUserType == nil) {
+        cacheUserType = [self stringForKey:kTipbitUserType];
+    }
+    
+    return cacheUserType;
+}
 
--(void)setTipbitUserAndSynchronize:(NSString *)user {
+-(void)setTipbitUserAndSynchronize:(NSString *)user userType:(NSString *)userType{
     [self setObject:user forKey:kTipbitUser];
+    [self setObject:userType forKey:kTipbitUserType];
     [self tb_synchronize];
     cacheUser = user;
+    cacheUserType = userType;
 }
 
 -(void)clearTipbitUserAndSynchronize {
     [self removeObjectForKey:kTipbitUser];
+    [self removeObjectForKey:kTipbitUserType];
     [self tb_synchronize];
     cacheUser = nil;
+    cacheUserType = nil;
 }
 
 -(NSString*)PUKey:(NSString*) key {

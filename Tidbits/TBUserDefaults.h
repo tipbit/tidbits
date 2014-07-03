@@ -43,7 +43,7 @@
  * This includes reading it from [TBUserDefaults userDefaultsForUnauthenticatedUser] if necessary.  May be nil.
  */
 +(NSString *)user;
-
++(NSString *)userType;
 /**
  * Set the user that standardUserDefaults should use from now on.
  * This also saves the user in [TBUserDefaults userDefaultsForUnauthenticatedUser], with key = @"USER",
@@ -52,11 +52,12 @@
  * @param user May be nil, for signing out.
  */
 +(void)setUser:(NSString *)user;
++(void)setUserType:(NSString *)userType;
 
 /**
  * Equivalent to [TBUserDefaults setUser:user]; [[TBUserDefaults userDefaultsForUnauthenticatedUser] synchronize].
  */
-+(void)setUserAndSynchronize:(NSString *)user;
++(void)setUserAndSynchronize:(NSString *)user type:(NSString *)type;
 
 /**
  * @return YES if the given key has previously been registered through TBUserDefaultsRegisteredSettings.h.
