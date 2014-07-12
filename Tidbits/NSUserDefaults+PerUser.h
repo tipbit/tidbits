@@ -18,8 +18,9 @@
 // fetch.  We clear the cache on signout.
 -(NSString*)getTipbitUser;
 -(NSString*)getTipbitUserType;
+-(NSString*)getTipbitUserAccountId;
 
--(void)setTipbitUserAndSynchronize:(NSString*)user userType:(NSString *)userType;
+-(void)setTipbitUserAndSynchronize:(NSString*)user userType:(NSString *)userType userAccountId:(NSString *)accountId;
 -(void)clearTipbitUserAndSynchronize;
 
 // Per user keys

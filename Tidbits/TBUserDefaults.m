@@ -44,6 +44,7 @@
 
 static NSString * currentUser;
 static NSString * currentUserType;
+static NSString * currentUserAccountId;
 
 /**
  * id -> TBUserDefaults.  The key is either an NSString (the user ID) or [NSNull null] to indicate that the user is unknown.
@@ -79,6 +80,7 @@ static NSString* preferencesDir;
 #define kUnauthenticatedUser @"TBUserDefaults-unauthenticated"
 #define kUser @"USER"
 #define kUserType @"USERTYPE"
+#define kUserAccountId @"USERACCOUNTID"
 
 @implementation TBUserDefaults
 
@@ -191,6 +193,13 @@ static NSString* preferencesDir;
     return currentUserType;
 }
 
++(NSString *)userAccountId {
+    if (currentUserAccountId == nil) {
+        currentUserAccountId = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUserAccountId protection:NSFileProtectionNone defaultValue:nil];
+    }
+    return currentUserAccountId;
+}
+
 +(void)setUser:(NSString *)user{
     [self setUser_:user];
 }
@@ -198,9 +207,12 @@ static NSString* preferencesDir;
 +(void)setUserType:(NSString *)type{
     [self setUserType_:type];
 }
++(void)setUserAccountId:(NSString *)accountId{
+    [self setUserAccountId_:accountId];
+}
 
-+(void)setUserAndSynchronize:(NSString *)user type:(NSString *)type{
-    [self setUser_:user type:type synchronize:YES];
++(void)setUserAndSynchronize:(NSString *)user userType:(NSString *)type userAccountId:(NSString *)accountId{
+    [self setUser_:user userType:type userAccountId:accountId synchronize:YES];
 }
 
 +(void)setUser_:(NSString *)user{
@@ -216,15 +228,23 @@ static NSString* preferencesDir;
     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
     [unauthDefaults setString:type forKey:kUserType protection:NSFileProtectionNone];
 }
++(void)setUserAccountId_:(NSString *)accountId {
+    currentUserAccountId = accountId;
+    TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
+    [unauthDefaults setString:accountId forKey:kUserAccountId protection:NSFileProtectionNone];
+    [unauthDefaults synchronize];
+}
 
-+(void)setUser_:(NSString *)user type:(NSString *)type synchronize:(BOOL)sync {
++(void)setUser_:(NSString *)user userType:(NSString *)type userAccountId:(NSString *)accountId synchronize:(BOOL)sync {
     assert(![user isEqualToString:kUnauthenticatedUser]);
 
     currentUser = user;
     currentUserType = type;
+    currentUserAccountId = accountId;
     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
-    [unauthDefaults setString:user forKey:kUser protection:NSFileProtectionNone];
-    [unauthDefaults setString:type forKey:kUserType protection:NSFileProtectionNone];
+    [unauthDefaults setString:user      forKey:kUser protection:NSFileProtectionNone];
+    [unauthDefaults setString:type      forKey:kUserType protection:NSFileProtectionNone];
+    [unauthDefaults setString:accountId forKey:kUserAccountId protection:NSFileProtectionNone];
     if (sync) {
         [unauthDefaults synchronize];
     }
