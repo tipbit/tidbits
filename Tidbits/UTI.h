@@ -10,3 +10,4 @@
 
 extern NSString* utiFilenameToMIME(NSString* fname);
 extern NSString* utiMIMEToExtension(NSString* mime);
+extern NSString * utiHumanReadableDescription(NSString * uti);

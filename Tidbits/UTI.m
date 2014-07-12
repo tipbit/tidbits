@@ -49,3 +49,9 @@ NSString* utiMIMEToExtension(NSString* mime) {
 
     return nil;
 }
+
+
+NSString * utiHumanReadableDescription(NSString * uti) {
+    CFStringRef uti_ref = (__bridge_retained CFStringRef)uti;
+    return (__bridge_transfer NSString *)UTTypeCopyDescription(uti_ref);
+}
