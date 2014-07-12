@@ -152,4 +152,23 @@
 }
 
 
++(NSString *)stringByJoining:(NSString *)first with:(NSString *)last {
+    bool first_is_not_whitespace = [first isNotWhitespace];
+    bool last_is_not_whitespace = [last isNotWhitespace];
+
+    if (first_is_not_whitespace && last_is_not_whitespace) {
+        return [NSString stringWithFormat:@"%@ %@", [first trim], [last trim]];
+    }
+    else if (first_is_not_whitespace) {
+        return [first trim];
+    }
+    else if (last_is_not_whitespace) {
+        return [last trim];
+    }
+    else {
+        return @"";
+    }
+}
+
+
 @end

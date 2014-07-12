@@ -64,6 +64,12 @@
  */
 -(NSString *)stringByReplacingAll:(NSDictionary *)replacements;
 
+/**
+ * @return The equivalent of [[NSString stringWithFormat:@"%@ %@", first, last] trim],
+ * but with all the cases where first and last are nil handled cleanly, and where any whitespace between the two words is reduced two a single space.
+ */
++(NSString *)stringByJoining:(NSString *)first with:(NSString *)last;
+
 +(NSString*)stringWithUTF8Data:(NSData*)data;
 
 @end

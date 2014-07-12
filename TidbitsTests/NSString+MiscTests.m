@@ -141,4 +141,13 @@
 }
 
 
+-(void)testStringByJoining {
+    XCTAssertEqualStrings(@"", [NSString stringByJoining:nil with:nil]);
+    XCTAssertEqualStrings(@"", [NSString stringByJoining:@"   " with:nil]);
+    XCTAssertEqualStrings(@"Foo bar", [NSString stringByJoining:@" Foo  " with:@" bar  "]);
+    XCTAssertEqualStrings(@"Foo", [NSString stringByJoining:@" Foo  " with:@"   "]);
+    XCTAssertEqualStrings(@"bar", [NSString stringByJoining:nil with:@" bar  "]);
+}
+
+
 @end
