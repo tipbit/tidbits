@@ -366,7 +366,7 @@ static NSString* preferencesDir;
 -(BOOL)setObjectFromString:(NSString *)value forKey:(NSString *)key {
     if (value == nil || [value isEqualToString:@""]) {
         [self removeObjectForKey:key];
-        return NO;
+        return YES;
     }
 
     NSString* type;
