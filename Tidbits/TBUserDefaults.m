@@ -238,13 +238,17 @@ static NSString* preferencesDir;
 +(void)setUser_:(NSString *)user userType:(NSString *)type userAccountId:(NSString *)accountId synchronize:(BOOL)sync {
     assert(![user isEqualToString:kUnauthenticatedUser]);
 
-    currentUser = user;
-    currentUserType = type;
-    currentUserAccountId = accountId;
     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
+
+    currentUser = user;
     [unauthDefaults setString:user      forKey:kUser protection:NSFileProtectionNone];
+
+    currentUserType = type;
     [unauthDefaults setString:type      forKey:kUserType protection:NSFileProtectionNone];
-    [unauthDefaults setString:accountId forKey:kUserAccountId protection:NSFileProtectionNone];
+
+//We do do not do this here, but do so explicitly using setUserAccountId.
+//    currentUserAccountId = accountId;
+//    [unauthDefaults setString:accountId forKey:kUserAccountId protection:NSFileProtectionNone];
     if (sync) {
         [unauthDefaults synchronize];
     }
