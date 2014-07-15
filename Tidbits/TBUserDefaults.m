@@ -243,8 +243,10 @@ static NSString* preferencesDir;
     currentUser = user;
     [unauthDefaults setString:user      forKey:kUser protection:NSFileProtectionNone];
 
-    currentUserType = type;
-    [unauthDefaults setString:type      forKey:kUserType protection:NSFileProtectionNone];
+    if (type) {
+        currentUserType = type;
+        [unauthDefaults setString:type      forKey:kUserType protection:NSFileProtectionNone];
+    }
 
 //We do do not do this here, but do so explicitly using setUserAccountId.
 //    currentUserAccountId = accountId;

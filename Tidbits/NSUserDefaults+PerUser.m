@@ -55,11 +55,11 @@ static NSString *cacheUserAccountId = nil;
 
 -(void)clearTipbitUserAndSynchronize {
     [self removeObjectForKey:kTipbitUser];
-    [self removeObjectForKey:kTipbitUserType];
+//    [self removeObjectForKey:kTipbitUserType];//we do not do this as we use this value for the signIn prompt with getLastTipbitSignoutUser
     [self removeObjectForKey:kTipbitUserAccountId];
     [self tb_synchronize];
     cacheUser = nil;
-    cacheUserType = nil;
+//    cacheUserType = nil; //we do not do this as we use this value for the signIn prompt with getLastTipbitSignoutUser
     cacheUserAccountId = nil;
 }
 
