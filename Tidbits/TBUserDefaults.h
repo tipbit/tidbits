@@ -59,7 +59,7 @@
 /**
  * Equivalent to [TBUserDefaults setUser:user]; [[TBUserDefaults userDefaultsForUnauthenticatedUser] synchronize].
  */
-+(void)setUserAndSynchronize:(NSString *)user userType:(NSString *)type userAccountId:(NSString *)accountId;
++(void)setUserAndSynchronize:(NSString *)user;
 
 /**
  * @return YES if the given key has previously been registered through TBUserDefaultsRegisteredSettings.h.
