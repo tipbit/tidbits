@@ -14,6 +14,7 @@
 
 +(NSDate*)year2038;
 
+-(NSString*) dateAtTimeString;
 -(NSString*)userShortDateString;
 -(NSString*)userShortDateAndTimeString;
 -(NSString*)userYearlessDateString;

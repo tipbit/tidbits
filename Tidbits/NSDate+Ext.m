@@ -66,6 +66,12 @@ static NSDateFormatter* makeISO8601Formatter() {
     return formatter;
 }
 
+- (NSString *) dateAtTimeString {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MMM d, yyyy 'at' h:mm a";
+    return [formatter stringFromDate:self];;
+}
+
 
 -(NSString*)userShortDateString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
