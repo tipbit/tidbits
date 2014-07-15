@@ -205,7 +205,7 @@ static NSString* preferencesDir;
 }
 
 +(void)setUserType:(NSString *)type{
-    [self setUserType_:type];
+    [self setUserType_:type synchronize:YES];
 }
 +(void)setUserAccountId:(NSString *)accountId{
     [self setUserAccountId_:accountId];
@@ -223,10 +223,14 @@ static NSString* preferencesDir;
     [unauthDefaults setString:user forKey:kUser protection:NSFileProtectionNone];
 }
 
-+(void)setUserType_:(NSString *)type {
++(void)setUserType_:(NSString *)type  synchronize:(BOOL)sync{
     currentUserType = type;
     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
     [unauthDefaults setString:type forKey:kUserType protection:NSFileProtectionNone];
+    
+    if (sync) {
+        [unauthDefaults synchronize];
+    }
 }
 +(void)setUserAccountId_:(NSString *)accountId {
     currentUserAccountId = accountId;
