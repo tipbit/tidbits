@@ -60,6 +60,7 @@
 
 #import "RMDateSelectionViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FeatureMacros.h"
 
 @interface RMDateSelectionViewController ()
 
@@ -155,9 +156,15 @@ static NSString *_localizedSelectTitle = @"Select";
     }
     
     aViewController.xConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
-    aViewController.yConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeBottom multiplier:1 constant:height];
-    aViewController.widthConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
     aViewController.heightConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:height];
+    
+    if (IS_IPAD) {
+        aViewController.yConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:-22];
+        aViewController.widthConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:304];
+    } else {
+        aViewController.yConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeBottom multiplier:1 constant:height];
+        aViewController.widthConstraint = [NSLayoutConstraint constraintWithItem:aViewController.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+    }
     
     [rootViewController.view addConstraint:aViewController.xConstraint];
     [rootViewController.view addConstraint:aViewController.yConstraint];
@@ -167,8 +174,10 @@ static NSString *_localizedSelectTitle = @"Select";
     [rootViewController.view setNeedsUpdateConstraints];
     [rootViewController.view layoutIfNeeded];
     
-    aViewController.yConstraint.constant = -10;
-    [rootViewController.view setNeedsUpdateConstraints];
+    if (!IS_IPAD) {
+        aViewController.yConstraint.constant = -10;
+        [rootViewController.view setNeedsUpdateConstraints];
+    }
     
     CGFloat damping = 1.0f;
     CGFloat duration = 0.3f;
@@ -186,8 +195,10 @@ static NSString *_localizedSelectTitle = @"Select";
 }
 
 + (void)dismissDateSelectionViewController:(RMDateSelectionViewController *)aViewController fromViewController:(UIViewController *)rootViewController {
-    aViewController.yConstraint.constant = RM_DATE_SELECTION_VIEW_HEIGHT_PORTAIT;
-    [rootViewController.view setNeedsUpdateConstraints];
+    if (!IS_IPAD) {
+        aViewController.yConstraint.constant = RM_DATE_SELECTION_VIEW_HEIGHT_PORTAIT;
+        [rootViewController.view setNeedsUpdateConstraints];
+    }
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         aViewController.backgroundView.alpha = 0;
