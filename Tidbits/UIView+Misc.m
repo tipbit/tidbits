@@ -107,4 +107,13 @@
 }
 
 
+-(void)addFixedSubview:(UIView *)subview {
+    [self addSubview:subview];
+    CGRect frame = self.frame;
+    subview.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(frame), CGRectGetHeight(frame));
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[subview]-0-|" options:0 metrics:nil views:@{@"subview": subview}]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[subview]-0-|" options:0 metrics:nil views:@{@"subview": subview}]];
+}
+
+
 @end

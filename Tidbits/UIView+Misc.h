@@ -55,4 +55,9 @@
  */
 -(void)adjustBottomTo:(CGFloat)bottom;
 
+/**
+ * Call [self addSubview:subview], then add constraints so that it fills this view entirely.
+ */
+-(void)addFixedSubview:(UIView *)subview;
+
 @end
