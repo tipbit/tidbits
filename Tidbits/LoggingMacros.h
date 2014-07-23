@@ -11,6 +11,7 @@
 
 #include <Lumberjack/DDLog.h>
 
+
 //undefine the lumberjack defaults
 #if 1
 #undef LOG_FLAG_ERROR
@@ -119,5 +120,16 @@
 #endif
 
 #define ELog(__err) {if (__err) NSLogError(@"%@", __err)}
+
+#define CALLSTACK ({NSArray *callStack = [NSThread callStackSymbols];callStack;})
+#define CALLEDBY ({NSArray *callStack = [NSThread callStackSymbols]; \
+        NSString *caller; \
+        if(callStack.count){ \
+            caller = callStack[1]; \
+            NSRange range = [caller rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"-+"]]; \
+            if(!(range.location == NSNotFound)) \
+                caller = [caller substringFromIndex:range.location]; \
+        }caller; \
+     })
 
 #endif
