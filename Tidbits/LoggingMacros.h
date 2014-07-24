@@ -124,11 +124,15 @@
 #define CALLSTACK ({NSArray *callStack = [NSThread callStackSymbols];callStack;})
 #define CALLEDBY ({NSArray *callStack = [NSThread callStackSymbols]; \
         NSString *caller; \
-        if(callStack.count){ \
+        if(callStack.count >= 2){ \
             caller = callStack[1]; \
             NSRange range = [caller rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"-+"]]; \
-            if(!(range.location == NSNotFound)) \
+            if(!(range.location == NSNotFound)){ \
                 caller = [caller substringFromIndex:range.location]; \
+                range = [caller rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"+"]]; \
+                if(!(range.location == NSNotFound)) \
+                    caller = [caller substringToIndex:range.location]; \
+            }\
         }caller; \
      })
 
