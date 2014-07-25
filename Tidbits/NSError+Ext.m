@@ -11,21 +11,45 @@
 @implementation NSError (Ext)
 
 
--(bool)isNoSuchFile {
-    return ((self.domain == NSCocoaErrorDomain && self.code == NSFileNoSuchFileError) ||
-            (self.domain == NSPOSIXErrorDomain && self.code == ENOENT));
-}
-
-+ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message
-{
++(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message {
     NSMutableDictionary* details = [NSMutableDictionary dictionary];
     details[NSLocalizedDescriptionKey] = message;
     return [NSError errorWithDomain:domain code:code userInfo:details];
 }
 
-- (NSString *)message
-{
+
+-(bool)isNetworkError {
+    if ([self.domain isEqualToString:NSURLErrorDomain]) {
+        switch (self.code) {
+            case NSURLErrorTimedOut:
+            case NSURLErrorCannotFindHost:
+            case NSURLErrorCannotConnectToHost:
+            case NSURLErrorNetworkConnectionLost:
+            case NSURLErrorDNSLookupFailed:
+            case NSURLErrorNotConnectedToInternet:
+            case NSURLErrorInternationalRoamingOff:
+            case NSURLErrorCallIsActive:
+            case NSURLErrorDataNotAllowed:
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+    return false;
+}
+
+
+-(bool)isNoSuchFile {
+    return ((self.domain == NSCocoaErrorDomain && self.code == NSFileNoSuchFileError) ||
+            (self.domain == NSPOSIXErrorDomain && self.code == ENOENT));
+}
+
+
+-(NSString *)message {
     return self.userInfo[NSLocalizedDescriptionKey];
 }
+
 
 @end

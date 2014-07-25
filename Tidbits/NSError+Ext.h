@@ -10,7 +10,11 @@
 
 @interface NSError (Ext)
 
++(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
+
+-(bool)isNetworkError;
 -(bool)isNoSuchFile;
-+ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
-- (NSString *)message;
+
+-(NSString *)message;
+
 @end
