@@ -48,13 +48,13 @@
                 if (value) {
                     [propPrint appendString:@"\n"];
                     if ([value isKindOfClass:NSNumber.class]) {
-                        if ([propNameString caseInsensitiveCompare:@"password"] == NSOrderedSame){
-                            value = @"********";
-                        }
 
                         [propPrint appendString:[NSString stringWithFormat:@"%@\"%@\" : %@", indentString, propNameString, value]];
                     }
                     else{
+                        if ([propNameString caseInsensitiveCompare:@"password"] == NSOrderedSame){
+                            value = @"********";
+                        }
                         [propPrint appendString:[NSString stringWithFormat:@"%@\"%@\" : \"%@\"", indentString, propNameString, value]];
                     }
                     if (i < count-1 || hasSuperClass)
