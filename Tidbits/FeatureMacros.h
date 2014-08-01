@@ -12,5 +12,7 @@
 #define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
 #define IS_IPHONE5 (UIScreen.mainScreen.bounds.size.height > 567)
 #define IS_IOS6 (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+#define IS_IOS7 (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_6_1 && floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)
+
 
 #endif
