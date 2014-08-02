@@ -19,24 +19,36 @@
 
 
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY {
+    LogFormatter * aslFormatter = [LogFormatter formatterRegisteredAsDefaultASL];
+    [LogFormatter registerDefaultTTYLogger];
+    return aslFormatter;
+}
+
+
++(LogFormatter*)formatterRegisteredAsDefaultASL {
     LogFormatter* aslFormatter = [[LogFormatter alloc] init];
     DDASLLogger* aslLogger = [DDASLLogger sharedInstance];
     aslLogger.logFormatter = aslFormatter;
     [DDLog addLogger:aslLogger withLogLevel:255];
 
+    return aslFormatter;
+}
+
+
++(void)registerDefaultTTYLogger {
     DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
-    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];
+    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];;
     [DDLog addLogger:ttyLogger withLogLevel:255];
 
     [ttyLogger setColorsEnabled:YES];
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     [ttyLogger setForegroundColor:[UIColor brownColor] backgroundColor:nil forFlag:LOG_FLAG_USER];
     [ttyLogger setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
     [ttyLogger setForegroundColor:[UIColor purpleColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [ttyLogger setForegroundColor:[UIColor darkGrayColor] backgroundColor:nil forFlag:LOG_FLAG_DEBUG];
     [ttyLogger setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:LOG_FLAG_HTTP];
     [ttyLogger setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
-
-    return aslFormatter;
+#endif
 }
 
 
