@@ -174,7 +174,7 @@ static NSDateFormatter* makeISO8601Formatter() {
     NSInteger weekdayOfDate = [cal ordinalityOfUnit:NSWeekdayCalendarUnit inUnit:NSWeekCalendarUnit forDate:[self startOfDay]];
     NSInteger numberOfDaysToStartOfCurrentWeek = weekdayOfDate - 1;
     NSDateComponents *oneWeek = [[NSDateComponents alloc] init];
-    [oneWeek setWeek:1]; // add one week
+    [oneWeek setWeekOfYear:1]; // add one week
     [oneWeek setDay:-numberOfDaysToStartOfCurrentWeek]; // ... and subtract a couple of days to get the first day of the week
     NSDate *startOfNextWeek = [cal dateByAddingComponents:oneWeek toDate:[self startOfDay] options:0];
     return startOfNextWeek;
