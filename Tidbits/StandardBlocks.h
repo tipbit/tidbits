@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #import <UIKit/UIApplication.h>
+#endif
 
 #ifndef Tidbits_StandardBlocks_h
 #define Tidbits_StandardBlocks_h
@@ -49,8 +51,10 @@ typedef void (^NSStringNSErrorBlock)(NSString* str, NSError* error);
 typedef void (^NSString2Block)(NSString* str1, NSString* str2);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
 typedef void (^NSURLBlock)(NSURL* url);
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 typedef void (^UIActionSheetBlock)(UIActionSheet *sheet);
 typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
+#endif
 typedef void (^VoidBlock)(void);
 
 typedef bool (^GetBoolBlock)();

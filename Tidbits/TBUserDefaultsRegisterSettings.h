@@ -15,6 +15,7 @@
  */
 
 
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #define TBUSERDEFAULTS_REGISTER_FROM_NSNUMBER(__getter, __setter, __t, __f, __F, __key, __prot, __def)      \
 +(void)registerSetting_ ## __getter {                                                                       \
     [self registerSetting:__key type:@#__t protection:__prot defaultValue:@(__def)];                        \
@@ -41,6 +42,37 @@
 -(void)__setter:(__t*)value {                                                                               \
     [self set ## __F:value forKey:__key protection:__prot];                                                 \
 }                                                                                                           \
+
+#else
+
+#define TBUSERDEFAULTS_REGISTER_FROM_NSNUMBER(__getter, __setter, __t, __f, __F, __key, __prot, __def)      \
++(void)registerSetting_ ## __getter {                                                                       \
+    [self registerSetting:__key type:@#__t protection:@"" defaultValue:@(__def)];                           \
+}                                                                                                           \
+                                                                                                            \
+-(__t)__getter {                                                                                            \
+    return [self __f ## ForKey:__key protection:@"" defaultValue:__def];                                    \
+}                                                                                                           \
+                                                                                                            \
+-(void)__setter:(__t)value {                                                                                \
+    [self set ## __F:value forKey:__key protection:@""];                                                    \
+}                                                                                                           \
+
+
+#define TBUSERDEFAULTS_REGISTER_OBJECT_WITH_DEFAULT(__getter, __setter, __t, __f, __F, __key, __prot, __def)\
++(void)registerSetting_ ## __getter {                                                                       \
+    [self registerSetting:__key type:@#__t protection:@"" defaultValue:__def];                              \
+}                                                                                                           \
+                                                                                                            \
+-(__t*)__getter {                                                                                           \
+    return [self __f ## ForKey:__key protection:@"" defaultValue:__def];                                    \
+}                                                                                                           \
+                                                                                                            \
+-(void)__setter:(__t*)value {                                                                               \
+    [self set ## __F:value forKey:__key protection:@""];                                                    \
+}                                                                                                           \
+
+#endif
 
 
 #define TBUSERDEFAULTS_REGISTER_OBJECT_WITH_DEFAULT_STANDARD(__getter, __setter, __t, __f, __F, __prot, __def) \

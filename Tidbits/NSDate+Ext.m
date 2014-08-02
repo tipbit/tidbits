@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #import <UIKit/UIApplication.h>
+#endif
 
 #import "NSDate+Ext.h"
 
@@ -19,7 +21,9 @@
 
 +(void)load {
     _year2038 = [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
+#endif
 }
 
 

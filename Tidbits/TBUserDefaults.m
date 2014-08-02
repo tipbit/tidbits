@@ -17,6 +17,11 @@
 #import "TBUserDefaults.h"
 
 
+#if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
+#define NSFileProtectionNone @""
+#endif
+
+
 @interface TBUserDefaults ()
 
 /**
@@ -568,12 +573,14 @@ static id valueFromString(NSString * value, NSString * type) {
         return NO;
     }
 
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     NSFileManager* nsfm = [[NSFileManager alloc] init];
     NSError* err = nil;
     ok = [nsfm setAttributes:@{NSFileProtectionKey: protection} ofItemAtPath:defPath error:&err];
     if (!ok) {
         NSLogError(@"Failed to set attributes on PList: %@", err);
     }
+#endif
 
     return ok;
 }
@@ -593,6 +600,7 @@ static NSDataWritingOptions writingOptions(NSString* protection) {
 }
 
 static NSDataWritingOptions writingOptionForProtection(NSString* protection) {
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     if ([protection isEqualToString:NSFileProtectionNone]) {
         return NSDataWritingFileProtectionNone;
     }
@@ -608,6 +616,9 @@ static NSDataWritingOptions writingOptionForProtection(NSString* protection) {
     else {
         assert(false);
     }
+#else
+    return 0;
+#endif
 }
 
 
