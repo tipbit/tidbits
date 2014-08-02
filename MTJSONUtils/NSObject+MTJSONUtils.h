@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Mysterious Trousers. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @interface NSObject (MTJSONUtils)
 
 - (NSData *)JSONData;
