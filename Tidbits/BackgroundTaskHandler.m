@@ -74,14 +74,6 @@
     int thisForegroundCounter = self.foregroundCounter;
     BackgroundTaskHandler* __weak weakSelf = self;
 
-    if (IS_IOS6) {
-        // iOS 6 does not support beginBackgroundTaskWithName.  Do a cleanup but without the task registered, so we'll get less time.
-        dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
-            [weakSelf onBackground_:thisForegroundCounter task:UIBackgroundTaskInvalid];
-        });
-        return;
-    }
-
     UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithName:self.taskName expirationHandler:^{
         NSLog(@"Background task %@ ran out of time!  This should never happen if we're watching for this in the background task.", self.taskName);
     }];
