@@ -22,6 +22,11 @@
 @property (nonatomic, copy, readonly) TaskBlock taskBlock;
 
 /**
+ * May only be accessed under @synchronized (self).
+ */
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;
+
+/**
  * The number of times that the app has come into the foreground.
  * This is used to tell us to stop the background cleanup tasks if the counter changes.
  * I've seen situations where onBackground queued the task but they didn't run in the timeslice before the app was suspended
@@ -44,6 +49,7 @@
         _taskName = taskName;
         _taskBlock = taskBlock;
         _foregroundCounter = 1;
+        _backgroundTaskId = UIBackgroundTaskInvalid;
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
@@ -74,25 +80,44 @@
     int thisForegroundCounter = self.foregroundCounter;
     BackgroundTaskHandler* __weak weakSelf = self;
 
-    UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithName:self.taskName expirationHandler:^{
-        NSLog(@"Background task %@ ran out of time!  This should never happen if we're watching for this in the background task.", self.taskName);
-    }];
+    @synchronized (self) {
+        if (self.backgroundTaskId == UIBackgroundTaskInvalid) {
+            self.backgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithName:self.taskName expirationHandler:^{
+                [weakSelf handleBackgroundTaskExpired];
+            }];
+        }
+    }
 
     dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
-        [weakSelf onBackground_:thisForegroundCounter task:task];
+        [weakSelf onBackground_:thisForegroundCounter];
     });
 }
 
 
--(void)onBackground_:(int)thisForegroundCounter task:(UIBackgroundTaskIdentifier)task {
+-(void)onBackground_:(int)thisForegroundCounter {
     BackgroundTaskHandler* __weak weakSelf = self;
     self.taskBlock(^bool{
         return [weakSelf gameOver:thisForegroundCounter];
     });
     NSTimeInterval remaining = [[UIApplication sharedApplication] backgroundTimeRemaining];
     NSLog(@"Background task %@ complete with %lf remaining.", self.taskName, remaining > 1e10 ? -1.0 : remaining);
-    if (task != UIBackgroundTaskInvalid)
-        [[UIApplication sharedApplication] endBackgroundTask:task];
+    [self endBackgroundTask];
+}
+
+
+-(void)handleBackgroundTaskExpired {
+    NSLogWarn(@"Background task %@ ran out of time!  This should never happen if we're watching for this in the background task.", self.taskName);
+    [self endBackgroundTask];
+}
+
+
+-(void)endBackgroundTask {
+    @synchronized (self) {
+        if (self.backgroundTaskId != UIBackgroundTaskInvalid) {
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskId];
+            self.backgroundTaskId = UIBackgroundTaskInvalid;
+        }
+    }
 }
 
 
