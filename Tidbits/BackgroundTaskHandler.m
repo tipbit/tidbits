@@ -85,6 +85,7 @@
             self.backgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithName:self.taskName expirationHandler:^{
                 [weakSelf handleBackgroundTaskExpired];
             }];
+            NSLog(@"Started background task %lu", (unsigned long)self.backgroundTaskId);
         }
     }
 
@@ -100,13 +101,13 @@
         return [weakSelf gameOver:thisForegroundCounter];
     });
     NSTimeInterval remaining = [[UIApplication sharedApplication] backgroundTimeRemaining];
-    NSLog(@"Background task %@ complete with %lf remaining.", self.taskName, remaining > 1e10 ? -1.0 : remaining);
+    NSLog(@"Background task %@ %lu complete with %lf remaining.", self.taskName, (unsigned long)self.backgroundTaskId, remaining > 1e10 ? -1.0 : remaining);
     [self endBackgroundTask];
 }
 
 
 -(void)handleBackgroundTaskExpired {
-    NSLogWarn(@"Background task %@ ran out of time!  This should never happen if we're watching for this in the background task.", self.taskName);
+    NSLogWarn(@"Background task %@ %lu ran out of time!  This should never happen if we're watching for this in the background task.", self.taskName, (unsigned long)self.backgroundTaskId);
     [self endBackgroundTask];
 }
 
@@ -115,6 +116,7 @@
     @synchronized (self) {
         if (self.backgroundTaskId != UIBackgroundTaskInvalid) {
             [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskId];
+            NSLog(@"Ended background task %@ %lu.", self.taskName, (unsigned long)self.backgroundTaskId);
             self.backgroundTaskId = UIBackgroundTaskInvalid;
         }
     }
