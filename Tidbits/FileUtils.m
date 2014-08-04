@@ -21,7 +21,7 @@
             NSError* err = nil;
             NSData* data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:&err];
             if (data == nil || err != nil) {
-                NSLog(@"Failed to read data from file %@: %@", path, err);
+                NSLogError(@"Failed to read data from file %@: %@", path, err);
                 fileNotFound();
             }
             else {
@@ -43,7 +43,7 @@
         NSError* err = nil;
         BOOL ok = [fm createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&err];
         if (!ok) {
-            NSLog(@"Failed to create directory %@ for write of %@: %@", dir, path, err);
+            NSLogError(@"Failed to create directory %@ for write of %@: %@", dir, path, err);
             onFailure(err);
             return;
         }
@@ -54,7 +54,7 @@
             onSuccess();
         }
         else {
-            NSLog(@"Failed to write data to file %@: %@", path, err);
+            NSLogError(@"Failed to write data to file %@: %@", path, err);
             onFailure(err);
         }
     });
