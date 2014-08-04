@@ -17,9 +17,9 @@
 
 @interface BackgroundTaskHandler ()
 
-@property (nonatomic, copy) NSString* taskName;
+@property (nonatomic, copy, readonly) NSString* taskName;
 
-@property (nonatomic, copy) TaskBlock taskBlock;
+@property (nonatomic, copy, readonly) TaskBlock taskBlock;
 
 /**
  * The number of times that the app has come into the foreground.
