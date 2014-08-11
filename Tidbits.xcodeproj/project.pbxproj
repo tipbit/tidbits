@@ -360,6 +360,27 @@
 			remoteGlobalIDString = DCB3185014EB418E001CFBEE;
 			remoteInfo = Lumberjack;
 		};
+		40F45DDF19997B8E00E78240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408E88571768DEF6001B61E6;
+			remoteInfo = Tidbits;
+		};
+		40F45DE119997BD900E78240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408E88571768DEF6001B61E6;
+			remoteInfo = Tidbits;
+		};
+		40F45DE319997BE700E78240 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408E88571768DEF6001B61E6;
+			remoteInfo = Tidbits;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1227,6 +1248,9 @@
 			dependencies = (
 				408E88701768DEF7001B61E6 /* PBXTargetDependency */,
 				40E48B9B198B26B60015C54E /* PBXTargetDependency */,
+				40F45DE019997B8E00E78240 /* PBXTargetDependency */,
+				40F45DE219997BD900E78240 /* PBXTargetDependency */,
+				40F45DE419997BE700E78240 /* PBXTargetDependency */,
 			);
 			name = TidbitsTests;
 			productName = TidbitsTests;
@@ -1560,6 +1584,21 @@
 			isa = PBXTargetDependency;
 			name = Lumberjack;
 			targetProxy = 40E48BAD198B289C0015C54E /* PBXContainerItemProxy */;
+		};
+		40F45DE019997B8E00E78240 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 408E88571768DEF6001B61E6 /* Tidbits */;
+			targetProxy = 40F45DDF19997B8E00E78240 /* PBXContainerItemProxy */;
+		};
+		40F45DE219997BD900E78240 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 408E88571768DEF6001B61E6 /* Tidbits */;
+			targetProxy = 40F45DE119997BD900E78240 /* PBXContainerItemProxy */;
+		};
+		40F45DE419997BE700E78240 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 408E88571768DEF6001B61E6 /* Tidbits */;
+			targetProxy = 40F45DE319997BE700E78240 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
