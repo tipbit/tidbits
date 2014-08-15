@@ -60,4 +60,9 @@
  */
 -(void)addFixedSubview:(UIView *)subview;
 
+/**
+ * Call [self addSubview:subview], then add constraints so that it is positioned as specified.
+ */
+-(void)addFixedSubview:(UIView *)subview x:(CGFloat)x y:(CGFloat)y w:(CGFloat)w h:(CGFloat)h;
+
 @end
