@@ -66,6 +66,7 @@
 		405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 405F4930186B724100E9B072 /* BackgroundTaskHandler.m */; };
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
+		406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 406212E7199E98EF0083BB3C /* FileCompressor.m */; };
 		406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FA38D1805A5B700C408CE /* NSArray+MapTests.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
 		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
@@ -552,6 +553,8 @@
 		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
+		406212E6199E98EF0083BB3C /* FileCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCompressor.h; sourceTree = "<group>"; };
+		406212E7199E98EF0083BB3C /* FileCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCompressor.m; sourceTree = "<group>"; };
 		406FA38D1805A5B700C408CE /* NSArray+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MapTests.m"; sourceTree = "<group>"; };
 		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
 		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
@@ -972,6 +975,8 @@
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
 				18E71B9C198C1F770060DEC9 /* NSObject+Extras.h */,
 				18E71B9D198C1F770060DEC9 /* NSObject+Extras.m */,
+				406212E6199E98EF0083BB3C /* FileCompressor.h */,
+				406212E7199E98EF0083BB3C /* FileCompressor.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -1406,6 +1411,7 @@
 				408E88E11768E6BE001B61E6 /* GTMURLBuilder.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
+				406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */,
 				18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,

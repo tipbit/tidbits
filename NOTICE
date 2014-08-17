@@ -59,3 +59,6 @@ Astronomical Algorithms by Jean Meeus.  The CBL code also credits @nirvana and
 Code in the MTJSONUtils subdirectory is from MTJSONUtils,
 https://github.com/mysterioustrousers/MTJSONUtils, Copyright (c) 2012,
 Mysterious Trousers and MIT licensed. See MTJSONUtils/LICENSE for details.
+
+FileCompressor.m is loosely based upon CompressingLogFileManager.m from
+CocoaLumberjack, Copyright (c) 2010, Deusty, LLC and BSD licensed.
