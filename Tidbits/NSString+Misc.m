@@ -171,4 +171,9 @@
 }
 
 
++(NSString *)stringWithUTF8StringOrEmpty:(const char *)bytes {
+    return bytes == NULL ? @"" : [NSString stringWithUTF8String:bytes];
+}
+
+
 @end

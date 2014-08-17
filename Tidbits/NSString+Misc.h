@@ -72,4 +72,9 @@
 
 +(NSString*)stringWithUTF8Data:(NSData*)data;
 
+/**
+ * Equivalent to bytes == NULL ? @"" : [NSString stringWithUTF8String:bytes].
+ */
++(NSString*)stringWithUTF8StringOrEmpty:(const char *)bytes;
+
 @end
