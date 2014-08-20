@@ -59,6 +59,8 @@
 
 @property (nonatomic) BOOL isHeader;
 
+- (void) executeAction;
+
 @end
 
 /**

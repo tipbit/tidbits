@@ -82,6 +82,14 @@
 	return [[super description] stringByAppendingFormat:@"  Label: %@", self.label];
 }
 
+- (void) executeAction
+{
+    if (self.action)
+        self.action();
+    if (self.actionWithText)
+        self.actionWithText(self.label);
+}
+
 @end
 
 /**
