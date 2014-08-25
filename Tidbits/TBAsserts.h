@@ -18,6 +18,18 @@
 #endif
 
 
+#define TBCAssertAllBuilds(__cond, __breadcrumb, __desc, ...)                                        \
+    do {                                                                                             \
+        if (!(__cond)) {                                                                             \
+            [Breadcrumbs track:[NSString stringWithFormat:(__breadcrumb), ## __VA_ARGS__]];          \
+            NSLogError((__desc), ## __VA_ARGS__);                                                    \
+            [DDLog flushLog];                                                                        \
+            [[NSAssertionHandler currentHandler] handleFailureInFunction:@(__PRETTY_FUNCTION__)      \
+                                                                    file:@(__FILE__)                 \
+                                                              lineNumber:__LINE__                    \
+                                                             description:(__desc), ## __VA_ARGS__];  \
+        }                                                                                            \
+    } while (false)
 
 
 #define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread.  GCOV_EXCL_LINE")
