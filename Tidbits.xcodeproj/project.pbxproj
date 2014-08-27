@@ -63,6 +63,7 @@
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
 		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
 		405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */; };
+		405EE42519ADB2A40062DAE7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 405EE42419ADB2A40062DAE7 /* libz.dylib */; };
 		405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 405F4930186B724100E9B072 /* BackgroundTaskHandler.m */; };
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
@@ -548,6 +549,7 @@
 		405AE48E190DC9DE006F2BF1 /* NSJSONSerialization+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Misc.h"; sourceTree = "<group>"; };
 		405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Misc.m"; sourceTree = "<group>"; };
 		405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+MiscTests.m"; sourceTree = "<group>"; };
+		405EE42419ADB2A40062DAE7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		405F492F186B724100E9B072 /* BackgroundTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTaskHandler.h; sourceTree = "<group>"; };
 		405F4930186B724100E9B072 /* BackgroundTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTaskHandler.m; sourceTree = "<group>"; };
 		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
 				4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */,
 				40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */,
+				405EE42519ADB2A40062DAE7 /* libz.dylib in Frameworks */,
 				40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
 				400C955E185328FA0095B9DC /* MediaPlayer.framework in Frameworks */,
@@ -830,13 +833,14 @@
 			isa = PBXGroup;
 			children = (
 				40E48BA2198B28620015C54E /* Lumberjack.framework */,
+				40ECA82417F899230081D51E /* XCTest.framework */,
 				400C955D185328FA0095B9DC /* MediaPlayer.framework */,
 				404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */,
 				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
 				4012F2D41805A7BD0036C418 /* UIKit.framework */,
 				408E885B1768DEF6001B61E6 /* Foundation.framework */,
 				40A327C817F89AC900C14EC1 /* libresolv.dylib */,
-				40ECA82417F899230081D51E /* XCTest.framework */,
+				405EE42419ADB2A40062DAE7 /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
