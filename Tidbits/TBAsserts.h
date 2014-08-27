@@ -10,6 +10,8 @@
 #define TBClientLib_TBAsserts_h
 
 
+#import "Breadcrumbs.h"
+
 
 #ifdef DEBUG
 #define TBAssert(condition, desc, ...) do { NSAssert(condition, desc, ## __VA_ARGS__); } while(false)
