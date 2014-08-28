@@ -66,6 +66,7 @@
 		405EE41F19ADAD660062DAE7 /* NSThread+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405EE41E19ADAD660062DAE7 /* NSThread+Misc.m */; };
 		405EE42319ADB1080062DAE7 /* NSThread+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */; };
 		405EE42519ADB2A40062DAE7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 405EE42419ADB2A40062DAE7 /* libz.dylib */; };
+		405EE44819AEA7EB0062DAE7 /* TBAsserts.m in Sources */ = {isa = PBXBuildFile; fileRef = 405EE44719AEA7EB0062DAE7 /* TBAsserts.m */; };
 		405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 405F4930186B724100E9B072 /* BackgroundTaskHandler.m */; };
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
@@ -555,6 +556,7 @@
 		405EE41E19ADAD660062DAE7 /* NSThread+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+Misc.m"; sourceTree = "<group>"; };
 		405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+MiscTests.m"; sourceTree = "<group>"; };
 		405EE42419ADB2A40062DAE7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		405EE44719AEA7EB0062DAE7 /* TBAsserts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAsserts.m; sourceTree = "<group>"; };
 		405F492F186B724100E9B072 /* BackgroundTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTaskHandler.h; sourceTree = "<group>"; };
 		405F4930186B724100E9B072 /* BackgroundTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTaskHandler.m; sourceTree = "<group>"; };
 		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 				40612672177625420085CEED /* StreamPair.m */,
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
+				405EE44719AEA7EB0062DAE7 /* TBAsserts.m */,
 				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
 				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
 				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
@@ -1479,6 +1482,7 @@
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
+				405EE44819AEA7EB0062DAE7 /* TBAsserts.m in Sources */,
 				40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */,
 				181BC4D81902069300D53080 /* RMDateSelectionViewController.m in Sources */,
 				40FB91D017ACA50700F6EC64 /* UIDevice-Hardware.m in Sources */,
