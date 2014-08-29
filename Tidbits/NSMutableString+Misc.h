@@ -25,4 +25,10 @@
  */
 -(void)replaceAll:(NSDictionary *)replacements;
 
+/**
+ * Equivalent to [self replaceOccurrencesOfString:target withString:replacement options:0 range:NSMakeRange(0, self.length)].
+ */
+-(void)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
+
+
 @end

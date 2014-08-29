@@ -24,4 +24,9 @@
 }
 
 
+-(void)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
+    [self replaceOccurrencesOfString:target withString:replacement options:0 range:NSMakeRange(0, self.length)];
+}
+
+
 @end
