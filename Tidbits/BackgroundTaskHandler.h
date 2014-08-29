@@ -30,6 +30,14 @@ typedef void(^TaskBlock)(GetBoolBlock gameOver);
  */
 @interface BackgroundTaskHandler : NSObject
 
+/**
+ * Set this to true if the app is going into the background but we know that it's coming back quickly.
+ * This disables all the normal didEnterBackground actions (synching the DB, etc).
+ * This is appropriate when the user is sharing to Facebook and switching to the Facebook app, or things like that.
+ */
++(bool)quickBackgroundSwitch;
++(void)setQuickBackgroundSwitch:(bool)val;
+
 -(instancetype)init:(NSString*)taskName taskBlock:(TaskBlock)taskBlock __attribute__((nonnull));
 
 @end

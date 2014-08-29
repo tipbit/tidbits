@@ -37,7 +37,19 @@
 @end
 
 
+static bool _quickBackgroundSwitch;
+
+
 @implementation BackgroundTaskHandler
+
+
++(bool)quickBackgroundSwitch {
+    return _quickBackgroundSwitch;
+}
+
++(void)setQuickBackgroundSwitch:(bool)val {
+    _quickBackgroundSwitch = val;
+}
 
 
 -(id)init:(NSString*)taskName taskBlock:(TaskBlock)taskBlock {
@@ -73,10 +85,16 @@
 
 -(void)onForeground {
     self.foregroundCounter++;
+    _quickBackgroundSwitch = false;
 }
 
 
 -(void) onBackground {
+    if (_quickBackgroundSwitch) {
+        DLog(@"Not doing any background work -- quickBackgroundSwitch is set");
+        return;
+    }
+
     int thisForegroundCounter = self.foregroundCounter;
     BackgroundTaskHandler* __weak weakSelf = self;
 
