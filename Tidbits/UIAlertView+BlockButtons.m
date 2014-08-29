@@ -111,7 +111,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 +(instancetype) showWithMessage:(NSString *)message
 {
     UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:nil
+                          initWithTitle:@""
                           message:message
                           delegate:[UIAlertViewHelper sharedHelper]
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
