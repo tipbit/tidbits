@@ -120,12 +120,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     }
     NSString * accessibilityLabel = [title isNotWhitespace] ? title : message;
 
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:title
-                          message:message
-                          delegate:[UIAlertViewHelper sharedHelper]
-                          cancelButtonTitle:cancelButtonTitle
-                          otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:[UIAlertViewHelper sharedHelper]
+                                          cancelButtonTitle:cancelButtonTitle
+                                          otherButtonTitles:nil];
     alert.accessibilityLabel = accessibilityLabel;
 
     [alert show];
@@ -138,7 +137,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                  cancelButton:(BlockButton *)cancelButton
 {
     if (cancelButton) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message cancelButton:cancelButton buttons:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                   cancelButton:cancelButton
+                                                        buttons:nil];
         [alert show];
         return alert;
     }
@@ -156,7 +158,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                cancelButton:cancelButton
-                                          buttons:[NSArray arrayWithObject:okButton]];
+                                                    buttons:@[okButton]];
     [alert show];
     return alert;
 }
@@ -289,7 +291,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                cancelButton:cancelButton
-                                          buttons:buttonsArray];
+                                                    buttons:buttonsArray];
     [alert show];
     return alert;
 }
@@ -316,7 +318,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     return [[UIAlertView alloc] initWithTitle:title
                                       message:message
                                  cancelButton:cancelButton
-                            buttons:buttonsArray];
+                                      buttons:buttonsArray];
 }
 
 -(instancetype) initWithTitle:(NSString *)title
