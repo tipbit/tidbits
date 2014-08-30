@@ -95,7 +95,9 @@ static Breadcrumbs* instance = nil;
     if (self.crumbStack.count) {
         NSString *oldTag = [self.crumbStack lastObject];
         if (tag != nil && ![oldTag isEqualToString:tag]) {
-            [self track:[NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag] method:Pop];
+            NSString * popMismatchTag = [NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag];
+            TBAssertDebugBuilds([oldTag isEqualToString:tag], @"%@", @"%@", popMismatchTag);
+            [self track:popMismatchTag method:Pop];
         }
         else {
             NSString *popTag = [NSString stringWithFormat:@"<%@", [self.crumbStack lastObject]];
@@ -104,7 +106,9 @@ static Breadcrumbs* instance = nil;
         }
     }
     else {
-        [self track:[NSString stringWithFormat:@"overpopped-%@", tag] method:Pop];
+        NSString * overpoppedTag = [NSString stringWithFormat:@"overpopped-%@", tag];
+        TBAssertDebugBuilds(false, @"%@", @"%@", overpoppedTag);
+        [self track:overpoppedTag method:Pop];
     }
 }
 
