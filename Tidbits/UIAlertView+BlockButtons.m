@@ -37,6 +37,10 @@
 
 - (void) setButtons:(NSArray *)buttons forAlert:(UIAlertView *)alert
 {
+    for (BlockButton * button in buttons) {
+        button.parentView = alert;
+    }
+
     if (!self.alertButtons)
         self.alertButtons = [NSMutableDictionary dictionary];
     [self.alertButtons setObject:buttons forKey:[NSValue valueWithNonretainedObject:alert]];
@@ -185,12 +189,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     if (defaultText)
         [[alert textFieldAtIndex:0] setText:defaultText];
 
-    //----
-    NSMutableArray *buttonsArray = [NSMutableArray arrayWithObjects:cancelButton, okButton, nil];
-    for(BlockButton *button in buttonsArray)
-        button.parentView = alert;
-
-    [[UIAlertViewHelper sharedHelper] setButtons:buttonsArray forAlert:alert];
+    [[UIAlertViewHelper sharedHelper] setButtons:@[cancelButton, okButton] forAlert:alert];
 
     [alert show];
 
@@ -216,12 +215,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     
     alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
     
-    //----
-    NSMutableArray *buttonsArray = [NSMutableArray arrayWithObjects:cancelButton, okButton, nil];
-    for(BlockButton *button in buttonsArray)
-        button.parentView = alert;
-    
-    [[UIAlertViewHelper sharedHelper] setButtons:buttonsArray forAlert:alert];
+    [[UIAlertViewHelper sharedHelper] setButtons:@[cancelButton, okButton] forAlert:alert];
     
     [alert show];
     
@@ -253,12 +247,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     if (password)
         [[alert textFieldAtIndex:1] setText:password];
 
-    //----
-    NSMutableArray *buttonsArray = [NSMutableArray arrayWithObjects:cancelButton, okButton, nil];
-    for(BlockButton *button in buttonsArray)
-        button.parentView = alert;
-
-    [[UIAlertViewHelper sharedHelper] setButtons:buttonsArray forAlert:alert];
+    [[UIAlertViewHelper sharedHelper] setButtons:@[cancelButton, okButton] forAlert:alert];
 
     return alert;
 }
@@ -331,36 +320,20 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         title = @"";
     }
 
-    UIAlertView *alert;
-    if (cancelButton)
-        alert = [[UIAlertView alloc] initWithTitle:title
-                                           message:message
-                                          delegate:[UIAlertViewHelper sharedHelper]
-                                 cancelButtonTitle:cancelButton.label
-                                 otherButtonTitles:nil];
-    else
-        alert = [[UIAlertView alloc] initWithTitle:title
-                                           message:message
-                                          delegate:[UIAlertViewHelper sharedHelper]
-                                 cancelButtonTitle:nil
-                                 otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:title
+                                                     message:message
+                                                    delegate:[UIAlertViewHelper sharedHelper]
+                                           cancelButtonTitle:(cancelButton ? cancelButton.label : nil)
+                                           otherButtonTitles:nil];
     alert.accessibilityLabel = title;
 
-    NSMutableArray *buttonsArray;
-    if (buttons)
-        buttonsArray = [NSMutableArray arrayWithArray:buttons];
-    else
-        buttonsArray = [NSMutableArray array];
+    NSMutableArray * buttonsArray = buttons == nil ? [NSMutableArray array] : [buttons mutableCopy];
 
-    for(BlockButton *button in buttonsArray)
-    {
-        button.parentView = alert;
+    for (BlockButton * button in buttonsArray) {
         [alert addButtonWithTitle:button.label];
     }
 
-    if(cancelButton)
-    {
-        cancelButton.parentView = alert;
+    if (cancelButton) {
         [buttonsArray insertObject:cancelButton atIndex:0];
     }
 
