@@ -21,6 +21,7 @@
 
 @end
 
+
 @implementation UIAlertViewHelper
 
 +(instancetype) sharedHelper
@@ -160,13 +161,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                       message:(NSString *)message
                  cancelButton:(BlockButton *)cancelButton
 {
-    if (cancelButton){
+    if (cancelButton) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message cancelButton:cancelButton buttons:nil];
         [alert show];
         return alert;
     }
-
-    return [UIAlertView showWithTitle:title message:message];
+    else {
+        return [UIAlertView showWithTitle:title message:message];
+    }
 }
 
 
