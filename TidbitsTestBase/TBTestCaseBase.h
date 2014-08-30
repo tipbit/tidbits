@@ -51,31 +51,6 @@
 //    description: A format string as in the printf() function. Can be nil or
 //                 an empty string but must be present.
 //    ...: A variable number of arguments to the format string. Can be absent.
-
-#if __clang_major__ >= 6
-
-#define XCTAssertEqualStrings(a1, a2, format...) \
-    do { \
-        @try { \
-            id a1value = (a1); \
-            id a2value = (a2); \
-            if (a1value == a2value) continue; \
-            if ([a1value isKindOfClass:[NSString class]] && \
-                [a2value isKindOfClass:[NSString class]] && \
-                [a1value compare:a2value options:0] == NSOrderedSame) continue; \
-            _XCTRegisterFailure(self, _XCTFailureDescription(_XCTAssertion_EqualObjects, 0, @#a1, @#a2, a1value, a2value), format); \
-        } \
-        @catch (_XCTestCaseInterruptionException *interruption) { [interruption raise]; } \
-        @catch (NSException *exception) { \
-            _XCTRegisterFailure(self, _XCTFailureDescription(_XCTAssertion_EqualObjects, 1, @#a1, @#a2, [exception reason]), format); \
-        } \
-        @catch (...) { \
-            _XCTRegisterFailure(self, _XCTFailureDescription(_XCTAssertion_EqualObjects, 2, @#a1, @#a2), format); \
-        } \
-    } while(0)
-
-#else
-
 #define XCTAssertEqualStrings(a1, a2, format...) \
     do { \
         @try { \
@@ -91,8 +66,6 @@
             _XCTRegisterFailure(_XCTFailureDescription(_XCTAssertion_EqualObjects, 1, @#a1, @#a2, [exception reason]),format); \
         } \
     } while(0)
-
-#endif
 
 
 @interface TBTestCaseBase : XCTestCase
