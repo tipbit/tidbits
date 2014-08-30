@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import "UIAlertView+BlockButtons.h"
 #import <objc/runtime.h>
 
-@interface UIAlertViewHelper: NSObject <UIAlertViewDelegate>
-@end
+#import "UIAlertView+BlockButtons.h"
 
-@interface UIAlertViewHelper()
+
+
+@interface UIAlertViewHelper : NSObject <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *alertButtons;
 @property (nonatomic, strong) NSMutableDictionary *alertViews;
@@ -86,9 +86,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
         }
     }
 }
-@end
-
-@interface UIAlertView ()
 
 @end
 
