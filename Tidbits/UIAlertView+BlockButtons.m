@@ -8,8 +8,9 @@
 
 #import <objc/runtime.h>
 
-#import "UIAlertView+BlockButtons.h"
+#import "NSString+Misc.h"
 
+#import "UIAlertView+BlockButtons.h"
 
 
 @interface UIAlertViewHelper : NSObject <UIAlertViewDelegate>
@@ -89,65 +90,43 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 
 @end
 
+
 @implementation UIAlertView (BlockButtons)
 
-+(instancetype) showWithTitle:(NSString *)title
-{
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:title
-                          message:nil
-                          delegate:[UIAlertViewHelper sharedHelper]
-                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                          otherButtonTitles: nil];
-    alert.accessibilityLabel = title;
 
-    [alert show];
-
-    return alert;
++(instancetype) showWithTitle:(NSString *)title {
+    return [UIAlertView showWithTitle:title message:nil];
 }
 
-+(instancetype) showWithMessage:(NSString *)message
-{
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@""
-                          message:message
-                          delegate:[UIAlertViewHelper sharedHelper]
-                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                          otherButtonTitles: nil];
-    alert.accessibilityLabel = message;
-    
-    [alert show];
-    
-    return alert;
+
++(instancetype) showWithMessage:(NSString *)message {
+    return [UIAlertView showWithTitle:@"" message:message];
 }
+
+
++(instancetype) showWithTitle:(NSString *)title message:(NSString *)message {
+    return [UIAlertView showWithTitle:title message:message cancelButtonTitle:NSLocalizedString(@"OK", nil)];
+}
+
 
 +(instancetype) showWithTitle:(NSString *)title
                       message:(NSString *)message
             cancelButtonTitle:(NSString *)cancelButtonTitle
 {
+    if (title == nil) {
+        // title == nil looked fine on iOS 7.  It looks *rubbish* on iOS 8 beta 5.
+        // Set it to the empty string instead.
+        title = @"";
+    }
+    NSString * accessibilityLabel = [title isNotWhitespace] ? title : message;
+
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:title
                           message:message
                           delegate:[UIAlertViewHelper sharedHelper]
-                          cancelButtonTitle:NSLocalizedString(cancelButtonTitle, nil)
-                          otherButtonTitles: nil];
-    alert.accessibilityLabel = title;
-
-    [alert show];
-
-    return alert;
-}
-
-+(instancetype) showWithTitle:(NSString *)title
-                      message:(NSString *)message
-{
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:title
-                          message:message
-                          delegate:[UIAlertViewHelper sharedHelper]
-                          cancelButtonTitle: NSLocalizedString(@"OK", nil)
-                          otherButtonTitles: nil];
-    alert.accessibilityLabel = title;
+                          cancelButtonTitle:cancelButtonTitle
+                          otherButtonTitles:nil];
+    alert.accessibilityLabel = accessibilityLabel;
 
     [alert show];
 
@@ -188,6 +167,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                  cancelButton:(BlockButton *)cancelButton
                   otherButton:(BlockButton *)okButton
 {
+    if (title == nil) {
+        // As above.
+        title = @"";
+    }
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:[UIAlertViewHelper sharedHelper]
@@ -216,6 +200,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                            cancelButton:(BlockButton *)cancelButton
                             otherButton:(BlockButton *)okButton
 {
+    if (title == nil) {
+        // As above.
+        title = @"";
+    }
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:[UIAlertViewHelper sharedHelper]
@@ -244,6 +233,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                  cancelButton:(BlockButton *)cancelButton
                   otherButton:(BlockButton *)okButton
 {
+    if (title == nil) {
+        // As above.
+        title = @"";
+    }
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:[UIAlertViewHelper sharedHelper]
@@ -330,6 +324,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
                  cancelButton:(BlockButton *)cancelButton
                       buttons:(NSArray *)buttons
 {
+    if (title == nil) {
+        // As above.
+        title = @"";
+    }
+
     UIAlertView *alert;
     if (cancelButton)
         alert = [[UIAlertView alloc] initWithTitle:title
