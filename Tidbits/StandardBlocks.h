@@ -42,6 +42,7 @@ typedef void (^NSDictionaryBlock)(NSDictionary* dict);
 typedef void (^NSErrorBlock)(NSError* error);
 typedef void (^NSIntegerBlock)(NSInteger i);
 typedef void (^NSMutableArrayBlock)(NSMutableArray* array);
+typedef void (^NSMutableDictionaryBlock)(NSMutableDictionary * dict);
 typedef void (^NSObjectBlock)(NSObject * obj);
 typedef void (^NSOperationQueueBlock)(NSOperationQueue* queue);
 typedef void (^NSStringBlock)(NSString* str);
