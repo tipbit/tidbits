@@ -98,11 +98,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
 @implementation UIAlertView (BlockButtons)
 
 
-+(instancetype) showWithTitle:(NSString *)title {
-    return [UIAlertView showWithTitle:title message:nil];
-}
-
-
 +(instancetype) showWithMessage:(NSString *)message {
     return [UIAlertView showWithTitle:@"" message:message];
 }
