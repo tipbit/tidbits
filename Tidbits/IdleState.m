@@ -130,7 +130,7 @@ static IdleState * _instance;
 
 
 static void dispatchChangeNotification() {
-    dispatchAsyncOnMainThread(^{
+    dispatchAsyncMainThread(^{
         [[NSNotificationCenter defaultCenter] postNotificationName:IdleStateChangedNotification object:nil];
     });
 }

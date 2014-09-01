@@ -199,24 +199,3 @@ void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_bloc
         }
     });
 }
-
-void dispatchOnMainThreadWithDelay(int delay_msec, dispatch_block_t block)
-{
-    if (block)
-    {
-        if (delay_msec)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)delay_msec), dispatch_get_main_queue(), block);
-        else
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block();
-            });
-    }
-}
-void dispatchAsyncOnMainThread(dispatch_block_t block)
-{
-    if (block)
-        dispatch_async(dispatch_get_main_queue(), ^{
-            block();
-        });
-}
-
