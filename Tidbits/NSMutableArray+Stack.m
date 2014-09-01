@@ -15,12 +15,14 @@
 }
 
 -(id) pop {
-    id result = nil;
-    if ([self count] != 0) {
-        result = [self lastObject];
-        [self removeLastObject];
+    if (self.count == 0) {
+        return nil;
     }
-    return result;
+    else {
+        id result = [self lastObject];
+        [self removeLastObject];
+        return result;
+    }
 }
 
 -(id) peek {
@@ -33,7 +35,7 @@
 @implementation NSMutableArray (Deque)
 
 -(void) pushFront:(id)item {
-    [self addObject:item];
+    [self push:item];
 }
 
 -(void) pushBack:(id)item {
@@ -41,16 +43,11 @@
 }
 
 -(id) popFront {
-    id result = nil;
-    if ([self count] != 0) {
-        result = [self lastObject];
-        [self removeLastObject];
-    }
-    return result;
+    return [self pop];
 }
 
 -(id) peekFront {
-    return [self count] != 0 ? [self lastObject] : nil;
+    return [self peek];
 }
 
 @end
