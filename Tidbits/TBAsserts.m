@@ -38,6 +38,8 @@ static void TrackAndLog(NSString * track, NSString * msg) {
     va_list args;                                                                    \
     va_start(args, desc);                                                            \
     NSString * track = [[NSString alloc] initWithFormat:breadcrumb arguments:args];  \
+    va_end(args);                                                                    \
+    va_start(args, desc);                                                            \
     NSString * msg = [[NSString alloc] initWithFormat:desc arguments:args];          \
     va_end(args)
 
