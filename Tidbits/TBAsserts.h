@@ -83,6 +83,10 @@
     TBCAssert(__cond, @"Param", @"Invalid parameter not satisfying " @#__cond)
 
 
+#define TBAssertRaise(__desc, ...)                                                                         \
+    TBAssertsRaise(_cmd, self, @(__FILE__), __LINE__, (__desc), ## __VA_ARGS__)
+
+
 #define AssertOnBackgroundThread() NSAssert(!NSThread.isMainThread, @"Must be on background thread.  GCOV_EXCL_LINE")
 #define AssertOnBackgroundThreadC() assert(!NSThread.isMainThread)
 
@@ -96,6 +100,7 @@
 #endif
 
 
+extern void TBAssertsRaise(SEL cmd, id obj, NSString * file, NSInteger line, NSString * desc, ...) NS_FORMAT_FUNCTION(5, 6) __attribute__((noreturn));
 extern void TBAssertsTrack(SEL cmd, id obj, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(6, 7);
 extern void TBAssertsTrackC(NSString * func, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(5, 6);
 extern void TBAssertsTrackAndRaise(SEL cmd, id obj, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(6, 7) __attribute__((noreturn));
