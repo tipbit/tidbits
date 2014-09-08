@@ -18,6 +18,11 @@
 }
 
 
+-(bool)isFileWriteNoPermission {
+    return self.domain == NSCocoaErrorDomain && self.code == NSFileWriteNoPermissionError;
+}
+
+
 -(bool)isNetworkError {
     if ([self.domain isEqualToString:NSURLErrorDomain]) {
         switch (self.code) {

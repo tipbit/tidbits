@@ -8,6 +8,7 @@
 
 #import "Dispatch.h"
 #import "LoggingMacros.h"
+#import "NSError+Ext.h"
 
 #import "FileUtils.h"
 
@@ -43,7 +44,9 @@
         NSError* err = nil;
         BOOL ok = [fm createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&err];
         if (!ok) {
-            NSLogError(@"Failed to create directory %@ for write of %@: %@", dir, path, err);
+            if (errIsUnusual(err)) {
+                NSLogError(@"Failed to create directory %@ for write of %@: %@", dir, path, err);
+            }
             onFailure(err);
             return;
         }
@@ -54,10 +57,21 @@
             onSuccess();
         }
         else {
-            NSLogError(@"Failed to write data to file %@: %@", path, err);
+            if (errIsUnusual(err)) {
+                NSLogError(@"Failed to write data to file %@: %@", path, err);
+            }
             onFailure(err);
         }
     });
+}
+
+
+static bool errIsUnusual(NSError * err) {
+    if (err.isFileWriteNoPermission) {
+        // Screen is locked.  Happens all the time.
+        return false;
+    }
+    return true;
 }
 
 
