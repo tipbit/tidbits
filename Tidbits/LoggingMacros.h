@@ -123,7 +123,12 @@
 
 #define ELog(__err) {if (__err) NSLogError(@"%@", __err)}
 
+#if DEBUG
 #define CALLSTACK [NSThread callStackSymbols]
 #define CALLEDBY [NSThread callingFunction]
+#else
+#define CALLSTACK @""
+#define CALLEDBY @""
+#endif
 
 #endif
