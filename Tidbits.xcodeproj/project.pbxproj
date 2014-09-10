@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1807D1E419C0FFB300CAF1E4 /* NSString+Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807D1E319C0FFB300CAF1E4 /* NSString+Score.m */; };
 		181BC4D81902069300D53080 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181BC4D51902069300D53080 /* RMDateSelectionViewController.m */; };
 		181BC4D91902069300D53080 /* UIView+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 181BC4D71902069300D53080 /* UIView+Misc.m */; };
 		181E010B1912ADF100DEE28C /* TTTAddressFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E00FC1912ADF100DEE28C /* TTTAddressFormatter.m */; };
@@ -462,6 +463,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1807D1E219C0FFB300CAF1E4 /* NSString+Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Score.h"; sourceTree = "<group>"; };
+		1807D1E319C0FFB300CAF1E4 /* NSString+Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Score.m"; sourceTree = "<group>"; };
 		181BC4D41902069300D53080 /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
 		181BC4D51902069300D53080 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		181BC4D61902069300D53080 /* UIView+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Misc.h"; sourceTree = "<group>"; };
@@ -855,6 +858,8 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
+				1807D1E219C0FFB300CAF1E4 /* NSString+Score.h */,
+				1807D1E319C0FFB300CAF1E4 /* NSString+Score.m */,
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
 				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
 				18A4784618F0D63F00E8A968 /* BlockButton.h */,
@@ -1466,6 +1471,7 @@
 				408E8998176A47D4001B61E6 /* NSMutableDictionary+Misc.m in Sources */,
 				4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */,
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
+				1807D1E419C0FFB300CAF1E4 /* NSString+Score.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
 				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
