@@ -93,9 +93,12 @@ static Breadcrumbs* instance = nil;
 -(void)pop:(NSString*)tag {
     AssertOnMainThread();
     if (self.crumbStack.count) {
-        NSString *oldTag = [self.crumbStack lastObject];
-        if (tag != nil && ![oldTag isEqualToString:tag]) {
-            NSString * popMismatchTag = [NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, oldTag];
+        NSUInteger index = [self.crumbStack indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            return [tag isEqualToString:(NSString *) obj];
+        }];
+        
+        if (tag != nil && index == NSNotFound) {
+            NSString * popMismatchTag = [NSString stringWithFormat:@"pop-mismatch-%@-%@", tag, [self.crumbStack lastObject]];
 #if DEBUG
             TBAssertRaise(@"%@", popMismatchTag);
 #else
@@ -103,8 +106,8 @@ static Breadcrumbs* instance = nil;
 #endif
         }
         else {
-            NSString *popTag = [NSString stringWithFormat:@"<%@", [self.crumbStack lastObject]];
-            [self.crumbStack removeLastObject];
+            NSString *popTag = [NSString stringWithFormat:@"<%@", [self.crumbStack objectAtIndex:index]];
+            [self.crumbStack removeObjectAtIndex:index];
             [self track:popTag method:Pop];
         }
     }
