@@ -18,7 +18,7 @@
 #define IS_IOS7 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_6_1)
 #endif
 
-
+#define IS_IOS8 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
 
 
 #endif
