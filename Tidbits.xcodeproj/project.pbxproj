@@ -82,6 +82,8 @@
 		407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100E0180076A1006F4115 /* NSUUID+Misc.m */; };
 		407100E218007881006F4115 /* DNSQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40C4E21E17F87E7C000EA60C /* DNSQuery.h */; };
 		407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100DF180076A1006F4115 /* NSUUID+Misc.h */; };
+		4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */; };
+		4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E88581768DEF6001B61E6 /* libTidbits.a */; };
@@ -576,6 +578,9 @@
 		407100D117FFA4FD006F4115 /* NSString+StripHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StripHTML.m"; sourceTree = "<group>"; };
 		407100DF180076A1006F4115 /* NSUUID+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUUID+Misc.h"; sourceTree = "<group>"; };
 		407100E0180076A1006F4115 /* NSUUID+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUUID+Misc.m"; sourceTree = "<group>"; };
+		4079640E19C63614003315A9 /* NSMutableIndexSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+Misc.h"; sourceTree = "<group>"; };
+		4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+Misc.m"; sourceTree = "<group>"; };
+		4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+MiscTests.m"; sourceTree = "<group>"; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
@@ -940,6 +945,8 @@
 				408E88921768E2BA001B61E6 /* NSMutableData+UTF8.m */,
 				408E8989176A47D4001B61E6 /* NSMutableDictionary+Misc.h */,
 				408E898A176A47D4001B61E6 /* NSMutableDictionary+Misc.m */,
+				4079640E19C63614003315A9 /* NSMutableIndexSet+Misc.h */,
+				4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */,
 				4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */,
 				4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */,
 				18E71B9C198C1F770060DEC9 /* NSObject+Extras.h */,
@@ -1024,6 +1031,7 @@
 				402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */,
 				405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */,
 				402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */,
+				4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */,
 				402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */,
 				4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */,
 				402E776918A61E94007176E2 /* NSSet+MiscTests.m */,
@@ -1416,6 +1424,7 @@
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
 				4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */,
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,
+				4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */,
 				40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
@@ -1510,6 +1519,7 @@
 			files = (
 				402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
+				4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
 				402E776E18A6289B007176E2 /* NSDictionary+MapTests.m in Sources */,
 				402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */,
