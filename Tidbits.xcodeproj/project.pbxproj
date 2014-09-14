@@ -858,8 +858,6 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
-				1807D1E219C0FFB300CAF1E4 /* NSString+Score.h */,
-				1807D1E319C0FFB300CAF1E4 /* NSString+Score.m */,
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
 				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
 				18A4784618F0D63F00E8A968 /* BlockButton.h */,
@@ -877,6 +875,8 @@
 				402E783E18AEB199007176E2 /* Enumerate.h */,
 				402E783F18AEB199007176E2 /* Enumerate.m */,
 				40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */,
+				406212E6199E98EF0083BB3C /* FileCompressor.h */,
+				406212E7199E98EF0083BB3C /* FileCompressor.m */,
 				40D9DD1117893D8800C49154 /* FileUtils.h */,
 				40D9DD1217893D8800C49154 /* FileUtils.m */,
 				40FD7880191D6CB0004B82D7 /* IdleState.h */,
@@ -942,6 +942,8 @@
 				408E898A176A47D4001B61E6 /* NSMutableDictionary+Misc.m */,
 				4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */,
 				4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */,
+				18E71B9C198C1F770060DEC9 /* NSObject+Extras.h */,
+				18E71B9D198C1F770060DEC9 /* NSObject+Extras.m */,
 				4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */,
 				4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */,
 				40D1F09318875848003BAF58 /* NSSet+Misc.h */,
@@ -950,6 +952,8 @@
 				407100C317FF9AF1006F4115 /* NSString+MD5.m */,
 				408E89051768FD68001B61E6 /* NSString+Misc.h */,
 				408E89061768FD68001B61E6 /* NSString+Misc.m */,
+				1807D1E219C0FFB300CAF1E4 /* NSString+Score.h */,
+				1807D1E319C0FFB300CAF1E4 /* NSString+Score.m */,
 				407100D017FFA4FD006F4115 /* NSString+StripHTML.h */,
 				407100D117FFA4FD006F4115 /* NSString+StripHTML.m */,
 				405EE41D19ADAD660062DAE7 /* NSThread+Misc.h */,
@@ -976,9 +980,9 @@
 				405EE44719AEA7EB0062DAE7 /* TBAsserts.m */,
 				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
 				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
-				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
 				40FD7883191DF013004B82D7 /* TBUserDefaults+Tidbits.h */,
 				40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */,
+				4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */,
 				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
@@ -992,10 +996,6 @@
 				405AE475190D884C006F2BF1 /* WaitFor.h */,
 				405AE476190D884C006F2BF1 /* WaitFor.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
-				18E71B9C198C1F770060DEC9 /* NSObject+Extras.h */,
-				18E71B9D198C1F770060DEC9 /* NSObject+Extras.m */,
-				406212E6199E98EF0083BB3C /* FileCompressor.h */,
-				406212E7199E98EF0083BB3C /* FileCompressor.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -1022,16 +1022,16 @@
 				402E776B18A62595007176E2 /* NSData+FooTests.m */,
 				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */,
+				405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */,
 				402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */,
+				402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */,
 				4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */,
 				402E776918A61E94007176E2 /* NSSet+MiscTests.m */,
 				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
+				405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */,
 				402E776618A614A6007176E2 /* NSUUID+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
-				402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */,
-				405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */,
-				405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */,
 			);
 			path = TidbitsTests;
 			sourceTree = "<group>";
