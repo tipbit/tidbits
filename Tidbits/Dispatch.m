@@ -54,37 +54,16 @@ void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) 
 
     if ([NSThread isMainThread]) {
         DURATION_WARNING_START;
-
-        @try {
-            block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchSyncMainThread: %@ %@", exn.description, exn.callStackSymbols);
-        }
-
+        block();
         DURATION_WARNING_END;
     }
     else {
         dispatch_sync(dispatch_get_main_queue(), ^{
             DURATION_WARNING_START;
-
-            @try {
-                block();
-            }
-            @catch (NSException* exn) {
-                if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                    @throw;
-                }
-                NSLog(@"Ignoring exception in dispatchSyncMainThread: %@ %@", exn.description, exn.callStackSymbols);
-            }
-
+            block();
             DURATION_WARNING_END;
         });
     }
-
 }
 
 
@@ -93,34 +72,14 @@ id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_w
 
     if ([NSThread isMainThread]) {
         DURATION_WARNING_START;
-
-        @try {
-            return block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchSyncMainThread: %@ %@", exn.description, exn.callStackSymbols);
-        }
-
+        return block();
         DURATION_WARNING_END;
     }
     else {
         __block id result = nil;
         dispatch_sync(dispatch_get_main_queue(), ^{
             DURATION_WARNING_START;
-
-            @try {
-                result = block();
-            }
-            @catch (NSException* exn) {
-                if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                    @throw;
-                }
-                NSLog(@"Ignoring exception in dispatchSyncMainThread: %@ %@", exn.description, exn.callStackSymbols);
-            }
-
+            result = block();
             DURATION_WARNING_END;
         });
         return result;
@@ -133,17 +92,7 @@ void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block)
 
     dispatch_async(dispatch_get_main_queue(), ^{
         DURATION_WARNING_START;
-
-        @try {
-            block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchAsyncMainThread: %@ %@", exn.description, exn.callStackSymbols);
-        }
-
+        block();
         DURATION_WARNING_END;
     });
 }
@@ -155,17 +104,7 @@ void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec
 
     dispatch_after(DISPATCH_MSEC_FROM_NOW(delay_msec), dispatch_get_main_queue(), ^{
         DURATION_WARNING_START;
-
-        @try {
-            block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchAsyncMainThreadWithDelay: %@ %@", exn.description, exn.callStackSymbols);
-        }
-
+        block();
         DURATION_WARNING_END;
     });
 }
@@ -173,29 +112,12 @@ void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec
 void dispatchAsyncBackgroundThreadWithDelay(int delay_msec, dispatch_queue_priority_t prio, dispatch_block_t block) {
 
     dispatch_after(DISPATCH_MSEC_FROM_NOW(delay_msec), dispatch_get_global_queue(prio, 0), ^{
-
-        @try {
-            block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchAsyncMainThreadWithDelay: %@ %@", exn.description, exn.callStackSymbols);
-        }
+        block();
     });
 }
 
 void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_block_t block) {
     dispatch_async(dispatch_get_global_queue(prio, 0), ^{
-        @try {
-            block();
-        }
-        @catch (NSException* exn) {
-            if ([exn.name isEqualToString:NSInternalInconsistencyException]) {
-                @throw;
-            }
-            NSLog(@"Ignoring exception in dispatchAsyncBackgroundThread: %@ %@", exn.description, exn.callStackSymbols);
-        }
+        block();
     });
 }
