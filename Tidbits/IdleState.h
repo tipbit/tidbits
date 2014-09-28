@@ -11,6 +11,7 @@
 
 extern volatile bool idleStateUserIdle;
 extern volatile bool idleStateNetworkIdle;
+extern volatile int idleStateUserIdleCounter;
 
 extern NSString * const IdleStateChangedNotification;
 

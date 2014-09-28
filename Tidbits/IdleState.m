@@ -22,6 +22,7 @@
 
 volatile bool idleStateUserIdle = true;
 volatile bool idleStateNetworkIdle = true;
+volatile int idleStateUserIdleCounter = 0;
 
 NSString * const IdleStateChangedNotification = @"IdleStateChangedNotification";
 
@@ -95,6 +96,7 @@ static IdleState * _instance;
 
     if (idleStateUserIdle) {
         idleStateUserIdle = false;
+        idleStateUserIdleCounter++;
         dispatchChangeNotification();
     }
 }
@@ -104,6 +106,7 @@ static IdleState * _instance;
     DLog(@"User idle");
     if (!idleStateUserIdle) {
         idleStateUserIdle = true;
+        idleStateUserIdleCounter++;
         dispatchChangeNotification();
     }
     self.idleTimer = nil;
