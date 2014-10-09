@@ -815,7 +815,6 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
-				18F1E607195E6850008E3161 /* TPKeyboardAvoiding */,
 				402C044118754151009D105B /* CBL */,
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
@@ -825,6 +824,7 @@
 				4047B49E1805B3F10032BBA5 /* TidbitsTestBase */,
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				40E48B14198B25F30015C54E /* Tidbits.framework */,
+				18F1E607195E6850008E3161 /* TPKeyboardAvoiding */,
 				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
