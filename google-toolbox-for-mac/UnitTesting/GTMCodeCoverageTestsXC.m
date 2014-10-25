@@ -30,8 +30,11 @@
 
 #import "GTMCodeCoverageApp.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 @interface GTMCodeCoverageTests : XCTestObserver
 @end
+#pragma clang diagnostic pop
 
 @implementation GTMCodeCoverageTests
 
@@ -58,7 +61,10 @@
 
   // Reset defaults back to what they should be.
   NSUserDefaults *defaults = [NSUserDefaults tb_standardUserDefaults];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   [defaults removeObjectForKey:XCTestObserverClassKey];
+#pragma clang diagnostic pop
 }
 
 + (void)load {
@@ -73,10 +79,13 @@
           selfClass);
     mustExit = YES;
   }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   if (![GTMXCTestObserverClassKey isEqual:XCTestObserverClassKey]) {
     NSLog(@"Apple has changed %@ to %@", GTMXCTestObserverClassKey, XCTestObserverClassKey);
     mustExit = YES;
   }
+#pragma clang diagnostic pop
   if (!NSClassFromString(GTMXCTestLogClass)) {
     NSLog(@"Apple has gotten rid of the log class %@", GTMXCTestLogClass);
     mustExit = YES;
