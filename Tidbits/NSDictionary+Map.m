@@ -16,8 +16,9 @@
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {
         id new_obj = mapper(key, val);
-        if (new_obj != nil)
+        if (new_obj != nil) {
             [result addObject: new_obj];
+        }
     }];
     return result;
 }
@@ -27,8 +28,9 @@
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {
         id new_obj = mapper(key, val);
-        if (new_obj != nil)
+        if (new_obj != nil) {
             result[key] = new_obj;
+        }
     }];
     return result;
 }
