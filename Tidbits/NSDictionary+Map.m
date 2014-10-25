@@ -34,4 +34,17 @@
 }
 
 
+-(NSMutableDictionary *)dictionaryWithMappedKeysAndMappedValues:(key_val_to_id_t)keyMapper valueMapper:(key_val_to_id_t)valueMapper {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {
+        id new_key = keyMapper(key, val);
+        id new_val = valueMapper(key, val);
+        if (new_key != nil && new_val != nil) {
+            result[new_key] = new_val;
+        }
+    }];
+    return result;
+}
+
+
 @end

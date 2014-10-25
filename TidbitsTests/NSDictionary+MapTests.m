@@ -90,4 +90,56 @@
 }
 
 
+-(void)testDictionaryWithMappedKeysAndMappedValues {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4, @4: @5};
+    NSDictionary* expected = @{@3: @2, @9: @20};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id key, id val) {
+        int k = [key intValue];
+        int v = [val intValue];
+        return k == 3 ? nil : @(k + v);
+    } valueMapper:^id(id key, id val) {
+        int k = [key intValue];
+        int v = [val intValue];
+        return k == 2 ? nil : @(k * v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesEmpty {
+    NSDictionary* input = @{};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id key, id val) {
+        return key;
+    } valueMapper:^id(id key, id val) {
+        return val;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilKey {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id key, id val) {
+        return nil;
+    } valueMapper:^id(id key, id val) {
+        return val;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilValue {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id key, id val) {
+        return key;
+    } valueMapper:^id(id key, id val) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 @end

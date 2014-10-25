@@ -28,4 +28,14 @@ typedef id (^key_val_to_id_t)(id key, id val);
  */
 -(NSMutableDictionary *)dictionaryWithKeysAndMappedValues:(key_val_to_id_t)mapper;
 
+/**
+ * Create a new NSMutableDictionary with the contents set to keyMapper(k, v) -> valueMapper(k, v) for each k,v pair in self.
+ *
+ * @param keyMapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be shorter than self).
+ * @param valueMapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be shorter than self).
+ */
+-(NSMutableDictionary *)dictionaryWithMappedKeysAndMappedValues:(key_val_to_id_t)keyMapper valueMapper:(key_val_to_id_t)valueMapper;
+
 @end
