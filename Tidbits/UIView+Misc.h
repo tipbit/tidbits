@@ -65,4 +65,25 @@
  */
 -(void)addFixedSubview:(UIView *)subview x:(CGFloat)x y:(CGFloat)y w:(CGFloat)w h:(CGFloat)h;
 
+/**
+ * Equivalent to [self viewFromNibForOwner:nil].
+ */
++(instancetype)viewFromNib;
+
+/**
+ * Use [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:owner options:nil]
+ * to load a nib, and then check that the view has the correct type before returning it.
+ *
+ * @return The loaded UIView, or nil if nothing could not be loaded or a view of the wrong type was loaded.
+ */
++(instancetype)viewFromNibForOwner:(id)owner;
+
+/**
+ * Use [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil]
+ * to load a nib.  Note that unlike viewFromNibForOwner above, there is no typecheck.
+ *
+ * @return The loaded UIView, or nil if nothing could not be loaded.
+ */
++(UIView *)viewFromNib:(NSString *)nibName forOwner:(id)owner;
+
 @end

@@ -124,4 +124,27 @@
 }
 
 
++(instancetype)viewFromNib {
+    return [self viewFromNibForOwner:nil];
+}
+
+
++(instancetype)viewFromNibForOwner:(id)owner {
+    NSString * nibName = NSStringFromClass(self.class);
+    NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil];
+    for (id view in views) {
+        if ([view isKindOfClass:self.class]) {
+            return view;
+        }
+    }
+    return nil;
+}
+
+
++(UIView *)viewFromNib:(NSString *)nibName forOwner:(id)owner {
+    NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil];
+    return [views firstObject];
+}
+
+
 @end
