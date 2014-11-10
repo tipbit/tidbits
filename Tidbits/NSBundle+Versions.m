@@ -14,6 +14,10 @@
 -(NSString*)userAgent {
     NSDictionary* d = self.infoDictionary;
     NSString* n = d[@"CFBundleName"];
+    if (n == nil) {
+        // XCTest in Xcode 6.1 needs this (I'm sure that CFBundleName was present in XCTest in Xcode 5).
+        n = d[@"CFBundleExecutable"];
+    }
     NSString* v = [self versionString];
     return [NSString stringWithFormat:@"%@/%@", n, v];
 }
