@@ -28,6 +28,12 @@
 }
 
 
+-(void)tearDown {
+    [DDLog flushLog];
+    [super tearDown];
+}
+
+
 -(NSDictionary*)loadJSONDictFromBundle:(NSString*)resourceName {
     id result = [self loadJSONFromBundle:resourceName];
     XCTAssert([result isKindOfClass:[NSDictionary class]]);
