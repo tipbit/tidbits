@@ -16,6 +16,12 @@
 NSString* utiFilenameToMIME(NSString* fname) {
     if ([fname isNotWhitespace]) {
         NSString * ext = fname.pathExtension;
+
+        // rfc822 is not in the iOS UTI DB, so we treat it specially.
+        if ([ext isEqualToString:@"eml"]) {
+            return @"message/rfc822";
+        }
+
         CFStringRef pathExtension = (__bridge CFStringRef)ext;
         CFStringRef type = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension, NULL);
 
