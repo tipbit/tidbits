@@ -22,7 +22,9 @@ NSString* utiFilenameToMIME(NSString* fname) {
         if (type != NULL) {
             NSString* result = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass(type, kUTTagClassMIMEType);
             CFRelease(type);
-            if (result != nil) return result;
+            if (result != nil) {
+                return result;
+            }
         }
     }
 
