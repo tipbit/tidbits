@@ -84,6 +84,8 @@
 		407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100DF180076A1006F4115 /* NSUUID+Misc.h */; };
 		4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */; };
 		4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */; };
+		408D9C701A1857E0003C5ABC /* UTITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 408D9C6F1A1857E0003C5ABC /* UTITests.m */; };
+		408D9C741A185970003C5ABC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D9C731A185970003C5ABC /* MobileCoreServices.framework */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
 		408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E88581768DEF6001B61E6 /* libTidbits.a */; };
@@ -581,6 +583,8 @@
 		4079640E19C63614003315A9 /* NSMutableIndexSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+Misc.h"; sourceTree = "<group>"; };
 		4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+Misc.m"; sourceTree = "<group>"; };
 		4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+MiscTests.m"; sourceTree = "<group>"; };
+		408D9C6F1A1857E0003C5ABC /* UTITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTITests.m; sourceTree = "<group>"; };
+		408D9C731A185970003C5ABC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		408E885B1768DEF6001B61E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		408E885F1768DEF6001B61E6 /* Tidbits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tidbits-Prefix.pch"; sourceTree = "<group>"; };
@@ -727,6 +731,7 @@
 				40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
 				400C955E185328FA0095B9DC /* MediaPlayer.framework in Frameworks */,
+				408D9C741A185970003C5ABC /* MobileCoreServices.framework in Frameworks */,
 				404F47DB1805AAA800EE7258 /* SystemConfiguration.framework in Frameworks */,
 				4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */,
 				40ECA82517F899230081D51E /* XCTest.framework in Frameworks */,
@@ -847,15 +852,16 @@
 		408E885A1768DEF6001B61E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40E48BA2198B28620015C54E /* Lumberjack.framework */,
-				40ECA82417F899230081D51E /* XCTest.framework */,
-				400C955D185328FA0095B9DC /* MediaPlayer.framework */,
-				404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */,
-				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
-				4012F2D41805A7BD0036C418 /* UIKit.framework */,
-				408E885B1768DEF6001B61E6 /* Foundation.framework */,
 				40A327C817F89AC900C14EC1 /* libresolv.dylib */,
 				405EE42419ADB2A40062DAE7 /* libz.dylib */,
+				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
+				408E885B1768DEF6001B61E6 /* Foundation.framework */,
+				40E48BA2198B28620015C54E /* Lumberjack.framework */,
+				400C955D185328FA0095B9DC /* MediaPlayer.framework */,
+				408D9C731A185970003C5ABC /* MobileCoreServices.framework */,
+				404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */,
+				4012F2D41805A7BD0036C418 /* UIKit.framework */,
+				40ECA82417F899230081D51E /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1039,6 +1045,7 @@
 				405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */,
 				402E776618A614A6007176E2 /* NSUUID+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
+				408D9C6F1A1857E0003C5ABC /* UTITests.m */,
 				408E88731768DEF7001B61E6 /* Supporting Files */,
 			);
 			path = TidbitsTests;
@@ -1533,6 +1540,7 @@
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
+				408D9C701A1857E0003C5ABC /* UTITests.m in Sources */,
 				405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */,
 				402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */,
 				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
