@@ -12,7 +12,7 @@
 
 +(NSString *)callingFunction;
 
-#if DEBUG
+#if DEBUG || RELEASE_TESTING
 // Exposed for unit testing.
 +(NSString *)functionFromCallstackLine:(NSString *)line;
 #endif

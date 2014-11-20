@@ -23,7 +23,7 @@
 // This file should be conditionally compiled into your application bundle
 // or test rig when you want to do code coverage.
 
-#if DEBUG
+#if RELEASE_TESTING
 
 #import "NSUserDefaults+Misc.h"
 

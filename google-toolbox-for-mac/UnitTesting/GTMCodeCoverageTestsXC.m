@@ -38,6 +38,8 @@
 
 @implementation GTMCodeCoverageTests
 
+#if GTM_USING_XCTEST
+
 - (void)stopObserving {
   [super stopObserving];
 
@@ -99,5 +101,7 @@ static bool is_enabled() {
   char* val = getenv("GTM_CODE_COVERAGE_ENABLED");
   return val && val[0] == '1';
 }
+
+#endif
 
 @end
