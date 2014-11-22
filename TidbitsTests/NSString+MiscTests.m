@@ -111,6 +111,13 @@
 }
 
 
+-(void)testStringByFoldingWhitespace {
+    NSString * input = @"\n{\n    'foo' = 'bar';\nbaz=blish}\n.\n  \n";
+    NSString * result = [input stringByFoldingWhitespace];
+    XCTAssertEqualObjects(result, @"{ 'foo' = 'bar'; baz=blish} .");
+}
+
+
 -(void)testStringByReplacingAllNormal {
     NSString * input = @"This [[A]] has [[B]]";
     NSString * result = [input stringByReplacingAll:@{@"[[A]]": @"test",

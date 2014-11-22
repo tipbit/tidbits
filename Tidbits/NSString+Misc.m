@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+Map.h"
+#import "NSArray+Misc.h"
 #import "NSMutableString+Misc.h"
 
 #import "NSString+Misc.h"
@@ -137,6 +138,14 @@
         return [((NSString*)obj) trim];
     }];
     return [trimmed_bits componentsJoinedByString:@"."];
+}
+
+
+-(NSString *)stringByFoldingWhitespace {
+    NSCharacterSet * cset = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    return [[[[self componentsSeparatedByCharactersInSet:cset] filteredArrayUsingBlock:^bool(NSString * str) {
+        return [str isNotWhitespace];
+    }] componentsJoinedByString:@" "] trim];
 }
 
 

@@ -60,6 +60,11 @@
 -(NSString*)stringBySanitizingFilename;
 
 /**
+ * @return A copy of this string, with any runs of whitespace replaced with a single space.  Whitespace is also trimmed from front and back.
+ */
+-(NSString*)stringByFoldingWhitespace;
+
+/**
  * @return A copy of this string, with [NSMutableString replaceAll:replacements] called on it.
  */
 -(NSString *)stringByReplacingAll:(NSDictionary *)replacements;
