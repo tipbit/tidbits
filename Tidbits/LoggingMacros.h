@@ -58,8 +58,6 @@
 #define LOG_FLAG_INFO    (1 << 4)  // 0...010000
 #define LOG_FLAG_DEBUG   (1 << 5)  // 0...100000
 #define LOG_FLAG_VERBOSE (1 << 6)  // 0..1000000
-#define LOG_FLAG_HTTP    (1 << 7)  // 0.10000000
-
 
 #define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                       // 0...000001
 #define LOG_LEVEL_ERROR   (LOG_FLAG_ERROR  | LOG_LEVEL_FATAL )   // 0...000011
@@ -68,7 +66,6 @@
 #define LOG_LEVEL_INFO    (LOG_FLAG_INFO   | LOG_LEVEL_USER  )   // 0...011111
 #define LOG_LEVEL_DEBUG   (LOG_FLAG_DEBUG  | LOG_LEVEL_INFO  )   // 0...111111
 #define LOG_LEVEL_VERBOSE (LOG_FLAG_VERBOSE| LOG_LEVEL_DEBUG )   // 0..1111111
-#define LOG_LEVEL_HTTP    (LOG_FLAG_HTTP   | LOG_LEVEL_INFO  )   // 0.10011111
 
 #endif
 

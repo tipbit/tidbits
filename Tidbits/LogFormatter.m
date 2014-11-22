@@ -46,7 +46,6 @@
     [ttyLogger setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
     [ttyLogger setForegroundColor:[UIColor purpleColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [ttyLogger setForegroundColor:[UIColor darkGrayColor] backgroundColor:nil forFlag:LOG_FLAG_DEBUG];
-    [ttyLogger setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:LOG_FLAG_HTTP];
     [ttyLogger setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
 #endif
 }
@@ -131,9 +130,6 @@ static char* logLevelToStr(int level) {
     }
     else if(logMessage->logFlag & LOG_FLAG_VERBOSE) {
         flag = @"V";
-    }
-    else if(logMessage->logFlag & LOG_FLAG_HTTP) {
-        flag = @"H";
     }
 
 	NSString *msg = [NSString stringWithFormat:@"%@ %@ %-4x %-4d %s %@",
