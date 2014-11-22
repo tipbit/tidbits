@@ -77,7 +77,7 @@ static char* logLevelToStr(int level) {
         case LOG_LEVEL_INFO:
             return "info ";
 
-        case LOG_LEVEL_VERBOSE:
+        case LOG_LEVEL_DEBUG:
             return "debug";
 
         default:
@@ -127,9 +127,6 @@ static char* logLevelToStr(int level) {
     }
     else if(logMessage->logFlag & LOG_FLAG_DEBUG) {
         flag = @"D";
-    }
-    else if(logMessage->logFlag & LOG_FLAG_VERBOSE) {
-        flag = @"V";
     }
 
 	NSString *msg = [NSString stringWithFormat:@"%@ %@ %-4x %-4d %s %@",

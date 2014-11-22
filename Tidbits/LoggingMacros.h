@@ -57,7 +57,6 @@
 #define LOG_FLAG_USER    (1 << 3)  // 0...001000
 #define LOG_FLAG_INFO    (1 << 4)  // 0...010000
 #define LOG_FLAG_DEBUG   (1 << 5)  // 0...100000
-#define LOG_FLAG_VERBOSE (1 << 6)  // 0..1000000
 
 #define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                       // 0...000001
 #define LOG_LEVEL_ERROR   (LOG_FLAG_ERROR  | LOG_LEVEL_FATAL )   // 0...000011
@@ -65,7 +64,6 @@
 #define LOG_LEVEL_USER    (LOG_FLAG_USER   | LOG_LEVEL_WARN  )   // 0...001111
 #define LOG_LEVEL_INFO    (LOG_FLAG_INFO   | LOG_LEVEL_USER  )   // 0...011111
 #define LOG_LEVEL_DEBUG   (LOG_FLAG_DEBUG  | LOG_LEVEL_INFO  )   // 0...111111
-#define LOG_LEVEL_VERBOSE (LOG_FLAG_VERBOSE| LOG_LEVEL_DEBUG )   // 0..1111111
 
 #endif
 
@@ -82,7 +80,7 @@
 #define NSLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_INFO,    LOG_LEVEL_INFO, LOG_FLAG_INFO,    0, __fmt, ##__VA_ARGS__)
 
 #if DEBUG
-#define DLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_VERBOSE, LOG_LEVEL_VERBOSE, LOG_FLAG_VERBOSE, 0, __fmt, ##__VA_ARGS__)
+#define DLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_DEBUG, LOG_LEVEL_DEBUG, LOG_FLAG_DEBUG, 0, __fmt, ##__VA_ARGS__)
 #else
 #define DLog(...)
 #endif
