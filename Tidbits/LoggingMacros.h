@@ -70,37 +70,7 @@
 #define LOG_LEVEL_VERBOSE (LOG_FLAG_VERBOSE| LOG_LEVEL_DEBUG )   // 0..1111111
 #define LOG_LEVEL_HTTP    (LOG_FLAG_HTTP   | LOG_LEVEL_INFO  )   // 0.10011111
 
-#define LOG_FATAL   (ddLogLevel & LOG_FLAG_FATAL )
-#define LOG_ERROR   (ddLogLevel & LOG_FLAG_ERROR )
-#define LOG_WARN    (ddLogLevel & LOG_FLAG_WARN  )
-#define LOG_USER    (ddLogLevel & LOG_FLAG_USER  )
-#define LOG_INFO    (ddLogLevel & LOG_FLAG_INFO  )
-#define LOG_DEBUG   (ddLogLevel & LOG_FLAG_DEBUG )
-#define LOG_VERBOSE (ddLogLevel & LOG_FLAG_VERBOSE )
-#define LOG_HTTP    (ddLogLevel & LOG_FLAG_HTTP )
-
-#define DDLogFatal(frmt, ...)     SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
-#define DDLogError(frmt, ...)     SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_ERROR,  0, frmt, ##__VA_ARGS__)
-#define DDLogWarn(frmt, ...)      SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_WARN,   0, frmt, ##__VA_ARGS__)
-#define DDLogUser(frmt, ...)      SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_USER, 0, frmt, ##__VA_ARGS__)
-#define DDLogInfo(frmt, ...)      SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_INFO,   0, frmt, ##__VA_ARGS__)
-#define DDLogDebug(frmt, ...)     ASYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_DEBUG,  0, frmt, ##__VA_ARGS__)
-#define DDLogVerbose(frmt, ...)   ASYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_VERBOSE,  0, frmt, ##__VA_ARGS__)
-#define DDLogHTTP(frmt, ...)      SYNC_LOG_OBJC_MAYBE(ddLogLevel, LOG_FLAG_HTTP,  0, frmt, ##__VA_ARGS__)
-
-#define DDLogCFatal(frmt, ...)     SYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_FATAL,  0, frmt, ##__VA_ARGS__)
-#define DDLogCError(frmt, ...)     SYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_ERROR,  0, frmt, ##__VA_ARGS__)
-#define DDLogCWarn(frmt, ...)     ASYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_WARN,   0, frmt, ##__VA_ARGS__)
-#define DDLogCUser(frmt, ...)      SYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_USER, 0, frmt, ##__VA_ARGS__)
-#define DDLogCInfo(frmt, ...)     ASYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_INFO,   0, frmt, ##__VA_ARGS__)
-#define DDLogCDebug(frmt, ...)    ASYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_DEBUG,  0, frmt, ##__VA_ARGS__)
-#define DDLogCVerbose(frmt, ...)  ASYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_VERBOSE,  0, frmt, ##__VA_ARGS__)
-#define DDLogCHTTP(frmt, ...)      SYNC_LOG_C_MAYBE(ddLogLevel, LOG_FLAG_HTTP,  0, frmt, ##__VA_ARGS__)
 #endif
-
-
-
-
 
 #define NSLogError(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_ERROR, LOG_FLAG_ERROR, 0, __fmt, ##__VA_ARGS__)
 #define NSLogWarn(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_WARN, LOG_LEVEL_WARN, LOG_FLAG_WARN, 0, __fmt, ##__VA_ARGS__)
