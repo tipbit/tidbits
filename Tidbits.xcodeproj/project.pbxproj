@@ -151,6 +151,8 @@
 		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
 		40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */; };
 		40A9B4CD177F83C60068F3F5 /* NSFileHandle+MD5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */; };
+		40B11F411A1F3B6E00EA3DA8 /* TBAsserts.m in Sources */ = {isa = PBXBuildFile; fileRef = 405EE44719AEA7EB0062DAE7 /* TBAsserts.m */; };
+		40B11F441A1F3B9600EA3DA8 /* NSThread+Misc.h in Headers */ = {isa = PBXBuildFile; fileRef = 405EE41D19ADAD660062DAE7 /* NSThread+Misc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B4B829182467610076F2F1 /* NSIndexSet+Misc.m */; };
 		40B4B82C18246B920076F2F1 /* NSIndexSet+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */; };
 		40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */; };
@@ -1187,6 +1189,7 @@
 				40E48BDE198B331F0015C54E /* NSMutableArray+Stack.h in Headers */,
 				40E48BDF198B331F0015C54E /* NSMutableData+AppendByte.h in Headers */,
 				40E48BE0198B331F0015C54E /* NSMutableData+UTF8.h in Headers */,
+				40B11F441A1F3B9600EA3DA8 /* NSThread+Misc.h in Headers */,
 				40E48BE1198B331F0015C54E /* NSMutableDictionary+Misc.h in Headers */,
 				40E48BE2198B331F0015C54E /* NSMutableString+Misc.h in Headers */,
 				40E48BE3198B331F0015C54E /* NSRegularExpression+Misc.h in Headers */,
@@ -1564,6 +1567,7 @@
 				40E48B4A198B266E0015C54E /* Breadcrumbs.m in Sources */,
 				40E48B4B198B266E0015C54E /* CPUTime.m in Sources */,
 				40E48B4C198B266E0015C54E /* Dispatch.m in Sources */,
+				40B11F411A1F3B6E00EA3DA8 /* TBAsserts.m in Sources */,
 				40E48B4E198B266E0015C54E /* Enumerate.m in Sources */,
 				40E48B4F198B266E0015C54E /* FileUtils.m in Sources */,
 				40E48B50198B266E0015C54E /* IdleState.m in Sources */,
