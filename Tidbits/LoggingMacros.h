@@ -15,7 +15,6 @@
 
 
 //undefine the lumberjack defaults
-#if 1
 #undef LOG_FLAG_ERROR
 #undef LOG_FLAG_WARN
 #undef LOG_FLAG_USER
@@ -129,6 +128,4 @@
 #else
 #define CALLSTACK @""
 #define CALLEDBY @""
-#endif
-
 #endif
