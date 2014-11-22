@@ -44,8 +44,9 @@ static Breadcrumbs* instance = nil;
 
 
 +(void)initialize {
-    if (self != [Breadcrumbs class])
+    if (self != [Breadcrumbs class]) {
         return;
+    }
     instance = [[Breadcrumbs alloc] init];
 }
 
@@ -69,7 +70,7 @@ static Breadcrumbs* instance = nil;
     [instance track:tag method:Track];
 }
 
-+(void)track:(NSString*)tag with:(NSDictionary*)props{
++(void)track:(NSString*)tag with:(NSDictionary*)props {
     [instance track:tag with:props];
 }
 
@@ -141,26 +142,31 @@ static Breadcrumbs* instance = nil;
                 [self.breadCrumbs removeObjectAtIndex:0];
         }
 
-        if ([mydelegate respondsToSelector:@selector(breadcrumbsSaveTrail:)])
+        if ([mydelegate respondsToSelector:@selector(breadcrumbsSaveTrail:)]) {
             [mydelegate breadcrumbsSaveTrail:self.breadCrumbs];
+        }
     }
 
-    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:method:)])
+    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:method:)]) {
         [mydelegate breadcrumbsTrack:tag method:meth];
+    }
 }
 
 
--(void)track:(NSString*)tag with:(NSDictionary*)props{
+-(void)track:(NSString*)tag with:(NSDictionary*)props {
     NSObject<BreadcrumbsDelegate>* mydelegate = self.delegate;
     
-    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:with:)])
+    if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:with:)]) {
         [mydelegate breadcrumbsTrack:tag with:props];
+    }
 }
+
 
 // Assumes that it is already locked under @synchronized (crumbs).
 static NSArray* lastCrumbBits(NSArray* crumbs) {
-    if (crumbs.count == 0)
+    if (crumbs.count == 0) {
         return nil;
+    }
     NSString* lastCrumb = crumbs[crumbs.count - 1];
     return [lastCrumb componentsSeparatedByString:@"*"];
 }
