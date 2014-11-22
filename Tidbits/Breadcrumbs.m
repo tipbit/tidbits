@@ -7,6 +7,7 @@
 //
 
 #import "LoggingMacros.h"
+#import "NSString+Misc.h"
 #import "TBAsserts.h"
 
 #import "Breadcrumbs.h"
@@ -154,6 +155,8 @@ static Breadcrumbs* instance = nil;
 
 
 -(void)track:(NSString*)tag with:(NSDictionary*)props {
+    NSLog(@"%@ %@", tag, [[props description] stringByFoldingWhitespace]);
+
     NSObject<BreadcrumbsDelegate>* mydelegate = self.delegate;
     
     if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:with:)]) {
