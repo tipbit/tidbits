@@ -103,8 +103,8 @@
 
 
 
-#define NSLogError(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_INFO, LOG_FLAG_ERROR, 0, __fmt, ##__VA_ARGS__)
-#define NSLogWarn(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_WARN, LOG_LEVEL_INFO, LOG_FLAG_WARN, 0, __fmt, ##__VA_ARGS__)
+#define NSLogError(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_ERROR, LOG_LEVEL_ERROR, LOG_FLAG_ERROR, 0, __fmt, ##__VA_ARGS__)
+#define NSLogWarn(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_WARN, LOG_LEVEL_WARN, LOG_FLAG_WARN, 0, __fmt, ##__VA_ARGS__)
 #define NSLogInfo(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_INFO, LOG_LEVEL_INFO, LOG_FLAG_INFO, 0, __fmt, ##__VA_ARGS__)
 
 //our logging already prints out the function and line.
