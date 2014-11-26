@@ -22,6 +22,8 @@
 -(bool)isHTTP409;
 -(bool)isHTTP422;
 
+-(bool)isURLErrorCancelled;
+
 -(NSString *)message;
 
 @end

@@ -82,6 +82,11 @@
 }
 
 
+-(bool)isURLErrorCancelled {
+    return [self.domain isEqualToString:NSURLErrorDomain] && self.code == NSURLErrorCancelled;
+}
+
+
 -(NSString *)message {
     return self.userInfo[NSLocalizedDescriptionKey];
 }
