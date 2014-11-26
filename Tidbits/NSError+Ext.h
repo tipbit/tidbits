@@ -16,6 +16,12 @@
 -(bool)isNetworkError;
 -(bool)isNoSuchFile;
 
+-(bool)isHTTP401;
+-(bool)isHTTP403;
+-(bool)isHTTP404;
+-(bool)isHTTP409;
+-(bool)isHTTP422;
+
 -(NSString *)message;
 
 @end

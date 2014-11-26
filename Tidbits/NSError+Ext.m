@@ -52,6 +52,36 @@
 }
 
 
+-(bool)isHTTP401 {
+    return [self isHTTP:401];
+}
+
+
+-(bool)isHTTP403 {
+    return [self isHTTP:403];
+}
+
+
+-(bool)isHTTP404 {
+    return [self isHTTP:404];
+}
+
+
+-(bool)isHTTP409 {
+    return [self isHTTP:409];
+}
+
+
+-(bool)isHTTP422 {
+    return [self isHTTP:422];
+}
+
+
+-(bool)isHTTP:(NSInteger)code {
+    return [self.domain isEqualToString:NSURLErrorDomain] && self.code == code;
+}
+
+
 -(NSString *)message {
     return self.userInfo[NSLocalizedDescriptionKey];
 }
