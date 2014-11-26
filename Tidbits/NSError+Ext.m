@@ -19,7 +19,7 @@
 
 
 -(bool)isFileWriteNoPermission {
-    return self.domain == NSCocoaErrorDomain && self.code == NSFileWriteNoPermissionError;
+    return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileWriteNoPermissionError;
 }
 
 
@@ -47,8 +47,8 @@
 
 
 -(bool)isNoSuchFile {
-    return ((self.domain == NSCocoaErrorDomain && self.code == NSFileNoSuchFileError) ||
-            (self.domain == NSPOSIXErrorDomain && self.code == ENOENT));
+    return (([self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileNoSuchFileError) ||
+            ([self.domain isEqualToString:NSPOSIXErrorDomain] && self.code == ENOENT));
 }
 
 
