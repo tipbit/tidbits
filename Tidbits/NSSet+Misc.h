@@ -20,4 +20,12 @@
  */
 -(NSArray*)mapToArray:(id_to_id_t)mapper;
 
+/**
+ * Exactly the same as [NSArray map_async:], but with an NSSet as input.
+ * See that call for all the details.  In this case there is, of course,
+ * no guaranteed order for the output, since this NSSet is inherently
+ * unordered.
+ */
+-(void)mapToArrayAsync:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess;
+
 @end

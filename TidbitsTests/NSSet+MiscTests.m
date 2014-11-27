@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Dispatch.h"
+
 #import "TBTestCaseBase.h"
 
 #import "NSSet+Misc.h"
@@ -53,6 +55,60 @@
         return nil;
     }];
     XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapAsyncDispatch {
+    NSSet * input = [NSSet setWithObjects:@1, @2, @3, @4, nil];
+    NSArray * expected = @[@1, @4, @16];
+    __block NSArray * result = nil;
+    WaitForTimeoutAsync(30.0, ^(bool *done) {
+        [input mapToArrayAsync:^(id obj, IdBlock onSuccess) {
+            dispatchAsyncMainThread(^{
+                int v = [obj intValue];
+                onSuccess(v == 3 ? nil : @(v * v));
+            });
+        } onSuccess:^(NSMutableArray *array) {
+            dispatchAsyncMainThread(^{
+                result = array;
+                *done = true;
+            });
+        }];
+    });
+    XCTAssertEqualObjects([result sortedArrayUsingSelector:@selector(compare:)], expected);
+}
+
+
+-(void)testMapAsyncNoThreads {
+    NSSet * input = [NSSet setWithObjects:@1, @2, @3, @4, nil];
+    NSArray * expected = @[@1, @4, @16];
+    __block NSArray* result = nil;
+    [input mapToArrayAsync:^(id obj, IdBlock onSuccess) {
+        int v = [obj intValue];
+        onSuccess(v == 3 ? nil : @(v * v));
+    } onSuccess:^(NSMutableArray *array) {
+        result = array;
+    }];
+    XCTAssertEqualObjects([result sortedArrayUsingSelector:@selector(compare:)], expected);
+}
+
+
+-(void)testMapAsyncDispatchEmpty {
+    NSSet * input = [NSSet setWithObjects:@1, @2, @3, @4, nil];
+    __block NSArray* result = nil;
+    WaitForTimeoutAsync(30.0, ^(bool *done) {
+        [input mapToArrayAsync:^(id obj, IdBlock onSuccess) {
+            dispatchAsyncMainThread(^{
+                onSuccess(nil);
+            });
+        } onSuccess:^(NSMutableArray *array) {
+            dispatchAsyncMainThread(^{
+                result = array;
+                *done = true;
+            });
+        }];
+    });
+    XCTAssertEqualObjects(result, @[]);
 }
 
 
