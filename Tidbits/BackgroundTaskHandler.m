@@ -11,6 +11,7 @@
 #import "Dispatch.h"
 #import "FeatureMacros.h"
 #import "LoggingMacros.h"
+#import "TBAsserts.h"
 
 #import "BackgroundTaskHandler.h"
 
@@ -79,6 +80,14 @@ static bool _quickBackgroundSwitch;
 
 
 -(void)dealloc {
+    dispatchSyncMainThread(^{
+        [self dealloc_];
+    });
+}
+
+-(void)dealloc_ {
+    AssertOnMainThread();
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
