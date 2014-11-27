@@ -81,6 +81,10 @@
     TBAssert(__cond, @"Param", @"Invalid parameter not satisfying " @#__cond)
 #define TBCParameterAssert(__cond) \
     TBCAssert(__cond, @"Param", @"Invalid parameter not satisfying " @#__cond)
+#define TBParameterAssertDebugBuilds(__cond) \
+    TBAssertDebugBuilds(__cond, @"Param", @"Invalid parameter not satisfying " @#__cond)
+#define TBCParameterAssertDebugBuilds(__cond) \
+    TBCAssertDebugBuilds(__cond, @"Param", @"Invalid parameter not satisfying " @#__cond)
 
 
 #define TBAssertRaise(__desc, ...)                                                                         \
