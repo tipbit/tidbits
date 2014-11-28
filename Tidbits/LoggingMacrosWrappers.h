@@ -7,7 +7,7 @@
 //
 
 /*
- You may include this file at any point, in order to redefine all the NSLog*, DLog, and ELog macros.
+ You may include this file at any point, in order to redefine all the NSLog* and DLog macros.
  In particular, you can do this to set a prefix for each log message, like this:
 
  #define LoggingMacrosPrefix @"SomePrefix"
@@ -28,7 +28,6 @@
 #undef NSLogInfo
 #undef NSLogUser
 #undef DLog
-#undef ELog
 
 #undef _LoggingMacrosPrefix
 #ifdef LoggingMacrosPrefix
@@ -48,5 +47,3 @@
 #else
 #define DLog(...)
 #endif
-
-#define ELog(__err) {if (__err) NSLogError(_LoggingMacrosPrefix @"%@", __err)}
