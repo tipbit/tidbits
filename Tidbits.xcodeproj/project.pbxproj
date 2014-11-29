@@ -53,6 +53,7 @@
 		402E784018AEB199007176E2 /* Enumerate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E783F18AEB199007176E2 /* Enumerate.m */; };
 		402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E784218AEB46E007176E2 /* EnumerateTests.m */; };
 		402E786118B0A2F8007176E2 /* NSMutableArray+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */; };
+		404557E31A29BB3E009FEF2F /* Batcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 404557E21A29BB3E009FEF2F /* Batcher.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
 		404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404565F518985E62009C2A11 /* NSUserDefaults+Misc.m */; };
@@ -546,6 +547,8 @@
 		402E784218AEB46E007176E2 /* EnumerateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumerateTests.m; sourceTree = "<group>"; };
 		402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ExtTests.m"; sourceTree = "<group>"; };
 		404557831A255A97009FEF2F /* LoggingMacrosWrappers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingMacrosWrappers.h; sourceTree = "<group>"; };
+		404557E11A29BB3E009FEF2F /* Batcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batcher.h; sourceTree = "<group>"; };
+		404557E21A29BB3E009FEF2F /* Batcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batcher.m; sourceTree = "<group>"; };
 		4045659A1895B73C009C2A11 /* NSRegularExpression+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Misc.h"; sourceTree = "<group>"; };
 		4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Misc.m"; sourceTree = "<group>"; };
 		4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+MiscTests.m"; sourceTree = "<group>"; };
@@ -874,6 +877,8 @@
 			children = (
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
 				405F4930186B724100E9B072 /* BackgroundTaskHandler.m */,
+				404557E11A29BB3E009FEF2F /* Batcher.h */,
+				404557E21A29BB3E009FEF2F /* Batcher.m */,
 				18A4784618F0D63F00E8A968 /* BlockButton.h */,
 				18A4784718F0D63F00E8A968 /* BlockButton.m */,
 				408E897A176A47D4001B61E6 /* BlockWithResultOperation.h */,
@@ -1494,6 +1499,7 @@
 				408E89071768FD68001B61E6 /* NSString+Misc.m in Sources */,
 				1807D1E419C0FFB300CAF1E4 /* NSString+Score.m in Sources */,
 				408E899A176A47D4001B61E6 /* NSUserDefaults+Default.m in Sources */,
+				404557E31A29BB3E009FEF2F /* Batcher.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
 				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
