@@ -175,7 +175,7 @@ static NSHashTable * operationManagerCache = nil;
 
 
 -(void)performId:(id<NSCopying>)key onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure op:(IdOperationBlock)op {
-    CallbackPair* cb = [[CallbackPair alloc] initId:(IdBlock)onSuccess onFailure:onFailure];
+    CallbackPair* cb = [[CallbackPair alloc] initId:onSuccess onFailure:onFailure];
 
     bool inProgress = [self recordCallbackPair:key callbackPair:cb];
     if (!inProgress) {
