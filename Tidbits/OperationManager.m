@@ -224,7 +224,9 @@ static NSHashTable * operationManagerCache = nil;
 
     NSArray* callbacks = [self getCallbacks:key];
     for (CallbackPair * callback in callbacks) {
-        callback.onFailure(err);
+        if (callback.onFailure != NULL) {
+            callback.onFailure(err);
+        }
     }
 
 #if OPERATIONMANAGER_TRACK_OPERATIONS
@@ -239,7 +241,9 @@ static NSHashTable * operationManagerCache = nil;
 
     NSArray* callbacks = [self getCallbacks:key];
     for (CallbackPair * callback in callbacks) {
-        callback.onSuccessId(obj);
+        if (callback.onSuccessId != NULL) {
+            callback.onSuccessId(obj);
+        }
     }
 
     SET_STATUS(@"performSuccessId done");
@@ -251,7 +255,9 @@ static NSHashTable * operationManagerCache = nil;
 
     NSArray* callbacks = [self getCallbacks:key];
     for (CallbackPair * callback in callbacks) {
-        callback.onSuccessVoid();
+        if (callback.onSuccessVoid != NULL) {
+            callback.onSuccessVoid();
+        }
     }
     SET_STATUS(@"performSuccessVoid done");
 }
