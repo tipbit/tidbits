@@ -62,6 +62,7 @@
 		4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
 		4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */; };
 		404F47DB1805AAA800EE7258 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */; };
+		404F55851A34DD720081DA18 /* NSBlockOperation+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */; };
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
 		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
 		405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */; };
@@ -560,6 +561,8 @@
 		4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTestCaseBase.m; sourceTree = "<group>"; };
 		4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbitsTestBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		404F55831A34DD720081DA18 /* NSBlockOperation+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBlockOperation+Misc.h"; sourceTree = "<group>"; };
+		404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBlockOperation+Misc.m"; sourceTree = "<group>"; };
 		405AE475190D884C006F2BF1 /* WaitFor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitFor.h; sourceTree = "<group>"; };
 		405AE476190D884C006F2BF1 /* WaitFor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitFor.m; sourceTree = "<group>"; };
 		405AE48E190DC9DE006F2BF1 /* NSJSONSerialization+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Misc.h"; sourceTree = "<group>"; };
@@ -914,6 +917,8 @@
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
 				407100A817FE0544006F4115 /* NSArray+Misc.h */,
 				407100A917FE0544006F4115 /* NSArray+Misc.m */,
+				404F55831A34DD720081DA18 /* NSBlockOperation+Misc.h */,
+				404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */,
 				40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */,
 				40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */,
 				408E89011768FCA6001B61E6 /* NSData+Base64.h */,
@@ -1438,6 +1443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404F55851A34DD720081DA18 /* NSBlockOperation+Misc.m in Sources */,
 				407100E1180076A2006F4115 /* NSUUID+Misc.m in Sources */,
 				4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */,
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,

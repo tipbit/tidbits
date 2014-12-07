@@ -23,6 +23,7 @@ typedef void (^IdIdIdPtrBoolPtrBlock)(id obj1, id obj2, id* result, bool* done);
 typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
 typedef void (^NSArrayNSErrorBlock)(NSArray* array, NSError* error);
+typedef void (^NSBlockOperationBlock)(NSBlockOperation * op);
 typedef void (^NSDictionaryNSErrorBlock)(NSDictionary* dict, NSError* error);
 typedef void (^NSDataBlock)(NSData* data);
 typedef void (^NSDataNSErrorBlock)(NSData* data, NSError* error);
