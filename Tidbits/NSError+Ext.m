@@ -18,6 +18,11 @@
 }
 
 
+-(bool)isFileWriteFileExistsError {
+    return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileWriteFileExistsError;
+}
+
+
 -(bool)isFileWriteNoPermission {
     return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileWriteNoPermissionError;
 }

@@ -12,6 +12,7 @@
 
 +(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
 
+-(bool)isFileWriteFileExistsError;
 -(bool)isFileWriteNoPermission;
 -(bool)isNetworkError;
 -(bool)isNoSuchFile;
