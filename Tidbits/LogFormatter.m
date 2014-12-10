@@ -15,6 +15,12 @@
 #import "LogFormatter.h"
 
 
+// Set this to use LogFormatter rather than LogFormatterTTY for the TTY logger
+// (i.e. the one that shows in the Xcode console).
+// This means that you get full date stamps in particular.
+#define USE_LOGFORMATTER_ON_TTY 0
+
+
 @implementation LogFormatter
 
 
@@ -37,7 +43,11 @@
 
 +(void)registerDefaultTTYLogger {
     DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
-    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];;
+#if USE_LOGFORMATTER_ON_TTY
+    ttyLogger.logFormatter = [[LogFormatter alloc] init];
+#else
+    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];
+#endif
     [DDLog addLogger:ttyLogger withLogLevel:255];
 
     [ttyLogger setColorsEnabled:YES];
