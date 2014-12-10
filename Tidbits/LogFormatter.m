@@ -59,7 +59,7 @@
     int ts_frac = (int)((ts - (double)ts_whole) * 1000.0);
     gmtime_r(&ts_whole, &tm);
     snprintf(time_str, 24, "%4d-%02d-%02d %02d:%02d:%02d.%03d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
-	return [NSString stringWithFormat:@"%s %s %s:%i | %@", time_str, logLevelToStr(logMessage->logLevel), logMessage->function, logMessage->lineNumber, logMessage->logMsg];
+    return [NSString stringWithFormat:@"%s %s %s:%i | %@", time_str, logLevelToStr(logMessage->logLevel), logMessage->function, logMessage->lineNumber, logMessage->logMsg];
 }
 
 
@@ -88,27 +88,29 @@ static char* logLevelToStr(int level) {
 
 @end
 
-@interface LogFormatterTTY ()
-{
-	NSDateFormatter *dateFormatter;
+
+@interface LogFormatterTTY () {
+    NSDateFormatter *dateFormatter;
 }
+
 @end
 
+
 @implementation LogFormatterTTY
-- (id)init
-{
-	if ((self = [super init]))
-	{
-			dateFormatter = [[NSDateFormatter alloc] init];
-			[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
-			[dateFormatter setDateFormat:@"hh:mm:ss.SSS"];
-	}
-	return self;
+
+-(id)init {
+    self = [super init];
+    if (self) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
+        [dateFormatter setDateFormat:@"hh:mm:ss.SSS"];
+    }
+    return self;
 }
 
-- (NSString *)formatLogMessage:(DDLogMessage *)logMessage
-{
-	NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
+
+-(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
+    NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
     NSString *flag;
     if (logMessage->logFlag & LOG_FLAG_FATAL) {
         flag = @"F";
@@ -129,7 +131,7 @@ static char* logLevelToStr(int level) {
         flag = @"D";
     }
 
-	NSString *msg = [NSString stringWithFormat:@"%@ %@ %-4x %-4d %s %@",
+    NSString *msg = [NSString stringWithFormat:@"%@ %@ %-4x %-4d %s %@",
                      flag,
                      dateAndTime,
                      logMessage->machThreadID,
@@ -138,5 +140,6 @@ static char* logLevelToStr(int level) {
                      logMessage->logMsg];
     return msg;
 }
+
 
 @end
