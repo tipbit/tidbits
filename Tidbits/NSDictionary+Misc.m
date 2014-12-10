@@ -12,6 +12,9 @@
 
 -(bool)boolForKey:(id)key withDefault:(bool)def {
     id result = [self objectForKey:key];
+    if (![result respondsToSelector:@selector(boolValue)]) {
+        return def;
+    }
     return result ? [result boolValue] : def;
 }
 
