@@ -15,18 +15,33 @@
 #import "LogFormatter.h"
 
 
-// Set this to use LogFormatter rather than LogFormatterTTY for the TTY logger
-// (i.e. the one that shows in the Xcode console).
+// Set this to force the use of LogFormatter rather than
+// LogFormatterTTY for the TTY logger (i.e. the one that
+// shows in the Xcode console).
 // This means that you get full date stamps in particular.
-#define USE_LOGFORMATTER_ON_TTY 0
+#define FORCE_LOGFORMATTER_ON_TTY 0
+
+
+@interface LogFormatterTTY : NSObject <DDLogFormatter>
+
+@end
 
 
 @implementation LogFormatter
 
 
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY {
+    return [LogFormatter formatterRegisteredAsDefaultASLAndTTYUsingTTYFormatter:YES];
+}
+
+
++(LogFormatter *)formatterRegisteredAsDefaultASLAndTTYUsingTTYFormatter:(BOOL)useTtyFormatter {
     LogFormatter * aslFormatter = [LogFormatter formatterRegisteredAsDefaultASL];
-    [LogFormatter registerDefaultTTYLogger];
+#if FORCE_LOGFORMATTER_ON_TTY
+    useTtyFormatter = NO;
+#endif
+    NSObject<DDLogFormatter> * ttyFormatter = useTtyFormatter ? [[LogFormatterTTY alloc] init] : [[LogFormatter alloc] init];
+    [LogFormatter registerDefaultTTYLogger:ttyFormatter];
     return aslFormatter;
 }
 
@@ -41,13 +56,8 @@
 }
 
 
-+(void)registerDefaultTTYLogger {
++(void)registerDefaultTTYLogger:(NSObject<DDLogFormatter> *)formatter {
     DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
-#if USE_LOGFORMATTER_ON_TTY
-    ttyLogger.logFormatter = [[LogFormatter alloc] init];
-#else
-    ttyLogger.logFormatter = [[LogFormatterTTY alloc] init];
-#endif
     [DDLog addLogger:ttyLogger withLogLevel:255];
 
     [ttyLogger setColorsEnabled:YES];

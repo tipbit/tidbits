@@ -12,11 +12,7 @@
 @interface LogFormatter : NSObject <DDLogFormatter>
 
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTY;
++(LogFormatter*)formatterRegisteredAsDefaultASLAndTTYUsingTTYFormatter:(BOOL)useTtyFormatter;
 +(LogFormatter*)formatterRegisteredAsDefaultASL;
-+(void)registerDefaultTTYLogger;
-
-@end
-
-@interface LogFormatterTTY : NSObject <DDLogFormatter>
 
 @end
