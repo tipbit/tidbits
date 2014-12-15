@@ -58,6 +58,7 @@
 
 +(void)registerDefaultTTYLogger:(NSObject<DDLogFormatter> *)formatter {
     DDTTYLogger* ttyLogger = [DDTTYLogger sharedInstance];
+    ttyLogger.logFormatter = formatter;
     [DDLog addLogger:ttyLogger withLogLevel:255];
 
     [ttyLogger setColorsEnabled:YES];
