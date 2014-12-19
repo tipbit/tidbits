@@ -25,6 +25,11 @@
  */
 -(id)objectPassingTest:(predicate_t)predicate __attribute__((nonnull));
 
+/**
+ * @return YES if at least one object in this array matches the given predicate.  NO otherwise.
+ */
+-(BOOL)containsObjectPassingTest:(predicate_t)predicate __attribute__((nonnull));
+
 -(NSArray*)componentsJoinedByString:(NSString*)separator inBatches:(NSUInteger)batchSize;
 
 -(NSArray*)filteredArrayUsingBlock:(predicate_t)predicate;
