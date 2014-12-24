@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import <errno.h>
+
 #import "StreamPair.h"
 
 
@@ -27,18 +29,20 @@
 
 -(instancetype)init:(StreamPair*)streamPair;
 
+@property (nonatomic) NSError * lastError;
+
 @end
 
 
 @implementation StreamPair {
-    /*!
-     * Protects all access to buffer, closed, eof.
+    /**
+     * Protects all access to buffer, isInputClosed, isOutputClosed.
      */
     NSCondition* condition;
 
     NSMutableArray* buffer;
-    bool closed;
-    bool eof;
+    BOOL isInputClosed;
+    BOOL isOutputClosed;
 }
 
 
@@ -66,17 +70,19 @@
     [condition lock];
 
     while (true) {
-        if (closed) {
+        if (isInputClosed) {
             n = -1;
             break;
         }
-        if (eof && buffer.count == 0) {
-            n = 0;
-            break;
-        }
         if (buffer.count == 0) {
-            [condition wait];
-            continue;
+            if (isOutputClosed) {
+                n = 0;
+                break;
+            }
+            else {
+                [condition wait];
+                continue;
+            }
         }
 
         NSData* data = buffer[0];
@@ -99,11 +105,23 @@
 }
 
 
--(NSInteger)write:(const uint8_t *)srcbuf maxLength:(NSUInteger)srclen {
+-(NSInteger)write:(const uint8_t *)srcbuf maxLength:(NSUInteger)srclen error:(NSError * __autoreleasing *)error {
     [condition lock];
-    [buffer addObject:[NSData dataWithBytes:srcbuf length:srclen]];
+    NSInteger result = [self write_:srcbuf maxLength:srclen error:error];
     [condition broadcast];
     [condition unlock];
+    return result;
+}
+
+-(NSInteger)write_:(const uint8_t *)srcbuf maxLength:(NSUInteger)srclen error:(NSError * __autoreleasing *)error {
+    if (isOutputClosed) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EPIPE userInfo:nil];
+        }
+        return -1;
+    }
+
+    [buffer addObject:[NSData dataWithBytes:srcbuf length:srclen]];
 
 #if DUMP_ALL
     NSLog(@"DATA BLOCK: %@", [[NSData dataWithBytes:srcbuf length:srclen] base64EncodedString]);
@@ -122,23 +140,33 @@
 }
 
 
--(NSStreamStatus)streamStatus {
-    NSStreamStatus result;
+-(NSStreamStatus)streamStatus:(BOOL)isInputStream {
     [condition lock];
-    if (closed)
-        result = NSStreamStatusClosed;
-    else if (eof)
-        result = NSStreamStatusAtEnd;
-    else
-        result = NSStreamStatusOpen;
+    NSStreamStatus result = [self streamStatus_:isInputStream];
     [condition unlock];
     return result;
+}
+
+-(NSStreamStatus)streamStatus_:(BOOL)isInputStream {
+    if (isInputClosed) {
+        return NSStreamStatusClosed;
+    }
+    if (isOutputClosed) {
+        if (isInputStream) {
+            return (buffer.count == 0) ? NSStreamStatusAtEnd : NSStreamStatusOpen;
+        }
+        else {
+            return NSStreamStatusClosed;
+        }
+    }
+
+    return NSStreamStatusOpen;
 }
 
 
 -(void)closeOutput {
     [condition lock];
-    eof = true;
+    isOutputClosed = YES;
     [condition broadcast];
     [condition unlock];
 }
@@ -146,7 +174,8 @@
 
 -(void)closeInput {
     [condition lock];
-    closed = true;
+    isInputClosed = YES;
+    isOutputClosed = YES;
     [condition broadcast];
     [condition unlock];
 }
@@ -194,7 +223,7 @@
 
 
 -(NSStreamStatus)streamStatus {
-    return [streamPair streamStatus];
+    return [streamPair streamStatus:YES];
 }
 
 
@@ -240,7 +269,12 @@
 
 
 -(NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)len {
-    return [streamPair write:buffer maxLength:len];
+    NSError * err = nil;
+    NSInteger result = [streamPair write:buffer maxLength:len error:&err];
+    if (result == -1) {
+        self.lastError = err;
+    }
+    return result;
 }
 
 
@@ -250,12 +284,12 @@
 
 
 -(NSStreamStatus)streamStatus {
-    return [streamPair streamStatus];
+    return [streamPair streamStatus:NO];
 }
 
 
 -(NSError *)streamError {
-    return nil;
+    return self.lastError;
 }
 
 
