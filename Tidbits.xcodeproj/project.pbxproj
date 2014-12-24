@@ -65,6 +65,7 @@
 		404F55851A34DD720081DA18 /* NSBlockOperation+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */; };
 		404F56161A38EAFC0081DA18 /* NSOperation+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F56151A38EAFC0081DA18 /* NSOperation+Misc.m */; };
 		404F58FD1A3DA8290081DA18 /* LoggingMacrosWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 404557831A255A97009FEF2F /* LoggingMacrosWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		405917461A4B629A0033081F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405917451A4B629A0033081F /* XCTest.framework */; };
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
 		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
 		405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */; };
@@ -150,6 +151,14 @@
 		4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095E0D4180228C10056CB72 /* InlineTiming.m */; };
 		4095E0D718022C7B0056CB72 /* InlineTiming.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4095E0D3180228C10056CB72 /* InlineTiming.h */; };
 		40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A327C817F89AC900C14EC1 /* libresolv.dylib */; };
+		40A5D53A1A4B594F004A4EE3 /* TBTestCaseBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A5D53B1A4B5956004A4EE3 /* TBTestCaseBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */; };
+		40A5D53C1A4B595A004A4EE3 /* TBTestHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 4006C52A18559C6200B2F22A /* TBTestHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A5D53D1A4B595F004A4EE3 /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
+		40A5D5411A4B5A93004A4EE3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECA82417F899230081D51E /* XCTest.framework */; };
+		40A5D5421A4B5EB6004A4EE3 /* Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E48B13198B25F30015C54E /* Tidbits.framework */; };
+		40A5D5431A4B5EBF004A4EE3 /* Lumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E48BAA198B288E0015C54E /* Lumberjack.framework */; };
+		40A5D5451A4B5F15004A4EE3 /* Lumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E48BAA198B288E0015C54E /* Lumberjack.framework */; };
 		40A9B45B177F59680068F3F5 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A9B45A177F59680068F3F5 /* LogFormatter.m */; };
 		40A9B45C177F5A5D0068F3F5 /* LogFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40A9B459177F59680068F3F5 /* LogFormatter.h */; };
 		40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A9B4AF177F65B40068F3F5 /* libLumberjack.a */; };
@@ -236,7 +245,6 @@
 		40E48B7C198B266E0015C54E /* TBUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 40937F0F19049D7500A4A8BB /* TBUserDefaults.m */; };
 		40E48B7D198B266E0015C54E /* TBUserDefaults+Tidbits.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */; };
 		40E48B83198B266E0015C54E /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
-		40E48BA3198B28620015C54E /* Lumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E48BA2198B28620015C54E /* Lumberjack.framework */; };
 		40E48BAF198B2DD90015C54E /* CBLParseDate.c in Sources */ = {isa = PBXBuildFile; fileRef = 402C044218754151009D105B /* CBLParseDate.c */; };
 		40E48BB0198B32D40015C54E /* CBLParseDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 402C044318754151009D105B /* CBLParseDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E48BB1198B32EF0015C54E /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 408E88C71768E3A7001B61E6 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -306,7 +314,6 @@
 		40E48BF5198B33200015C54E /* TBUserDefaults+Tidbits.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FD7883191DF013004B82D7 /* TBUserDefaults+Tidbits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E48BFA198B33200015C54E /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 40BD90321777C13400A3ED9C /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E48BFB198B33200015C54E /* WaitFor.h in Headers */ = {isa = PBXBuildFile; fileRef = 405AE475190D884C006F2BF1 /* WaitFor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40ECA82517F899230081D51E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECA82417F899230081D51E /* XCTest.framework */; };
 		40F1C92817F77E7400AD0CB9 /* FeatureMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */; };
 		40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F65070191772BB00142318 /* NSObject+MTJSONUtils.m */; };
 		40FB91C017ACA15D00F6EC64 /* NSBundle+Versions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FB91BF17ACA15D00F6EC64 /* NSBundle+Versions.m */; };
@@ -567,6 +574,7 @@
 		404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBlockOperation+Misc.m"; sourceTree = "<group>"; };
 		404F56141A38EAFC0081DA18 /* NSOperation+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+Misc.h"; sourceTree = "<group>"; };
 		404F56151A38EAFC0081DA18 /* NSOperation+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Misc.m"; sourceTree = "<group>"; };
+		405917451A4B629A0033081F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		405AE475190D884C006F2BF1 /* WaitFor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitFor.h; sourceTree = "<group>"; };
 		405AE476190D884C006F2BF1 /* WaitFor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitFor.m; sourceTree = "<group>"; };
 		405AE48E190DC9DE006F2BF1 /* NSJSONSerialization+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Misc.h"; sourceTree = "<group>"; };
@@ -662,6 +670,8 @@
 		4095E0D3180228C10056CB72 /* InlineTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InlineTiming.h; sourceTree = "<group>"; };
 		4095E0D4180228C10056CB72 /* InlineTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InlineTiming.m; sourceTree = "<group>"; };
 		40A327C817F89AC900C14EC1 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		40A5D51D1A4B5892004A4EE3 /* TidbitsTestBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TidbitsTestBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A5D5201A4B5892004A4EE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A9B459177F59680068F3F5 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
 		40A9B45A177F59680068F3F5 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
 		40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Mobile/Lumberjack.xcodeproj; sourceTree = "<group>"; };
@@ -697,9 +707,8 @@
 		40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
 		40E48B13198B25F30015C54E /* Tidbits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tidbits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E48B16198B25F30015C54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40E48BA2198B28620015C54E /* Lumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lumberjack.framework; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Desktop/build/Debug/Lumberjack.framework; sourceTree = "<group>"; };
 		40E48BA4198B288D0015C54E /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Xcode/LumberjackFramework/Desktop/Lumberjack.xcodeproj; sourceTree = "<group>"; };
-		40ECA82417F899230081D51E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		40ECA82417F899230081D51E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		40F1C92617F77C1600AD0CB9 /* FeatureMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureMacros.h; sourceTree = "<group>"; };
 		40F6506F191772BB00142318 /* NSObject+MTJSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTJSONUtils.h"; sourceTree = "<group>"; usesTabs = 1; };
 		40F65070191772BB00142318 /* NSObject+MTJSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTJSONUtils.m"; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
@@ -747,7 +756,17 @@
 				408D9C741A185970003C5ABC /* MobileCoreServices.framework in Frameworks */,
 				404F47DB1805AAA800EE7258 /* SystemConfiguration.framework in Frameworks */,
 				4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */,
-				40ECA82517F899230081D51E /* XCTest.framework in Frameworks */,
+				405917461A4B629A0033081F /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5D5191A4B5892004A4EE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5D5431A4B5EBF004A4EE3 /* Lumberjack.framework in Frameworks */,
+				40A5D5421A4B5EB6004A4EE3 /* Tidbits.framework in Frameworks */,
+				40A5D5411A4B5A93004A4EE3 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +774,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40E48BA3198B28620015C54E /* Lumberjack.framework in Frameworks */,
+				40A5D5451A4B5F15004A4EE3 /* Lumberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +861,7 @@
 				4047B49E1805B3F10032BBA5 /* TidbitsTestBase */,
 				408E88721768DEF7001B61E6 /* TidbitsTests */,
 				40E48B14198B25F30015C54E /* Tidbits.framework */,
+				40A5D51E1A4B5892004A4EE3 /* TidbitsTestBase.framework */,
 				18F1E607195E6850008E3161 /* TPKeyboardAvoiding */,
 				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
@@ -858,6 +878,7 @@
 				408E88691768DEF6001B61E6 /* TidbitsTests.xctest */,
 				4047B4A31805B42C0032BBA5 /* libTidbitsTestBase.a */,
 				40E48B13198B25F30015C54E /* Tidbits.framework */,
+				40A5D51D1A4B5892004A4EE3 /* TidbitsTestBase.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -869,11 +890,11 @@
 				405EE42419ADB2A40062DAE7 /* libz.dylib */,
 				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
 				408E885B1768DEF6001B61E6 /* Foundation.framework */,
-				40E48BA2198B28620015C54E /* Lumberjack.framework */,
 				400C955D185328FA0095B9DC /* MediaPlayer.framework */,
 				408D9C731A185970003C5ABC /* MobileCoreServices.framework */,
 				404F47DA1805AAA800EE7258 /* SystemConfiguration.framework */,
 				4012F2D41805A7BD0036C418 /* UIKit.framework */,
+				405917451A4B629A0033081F /* XCTest.framework */,
 				40ECA82417F899230081D51E /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -1101,6 +1122,22 @@
 			path = "google-toolbox-for-mac";
 			sourceTree = "<group>";
 		};
+		40A5D51E1A4B5892004A4EE3 /* TidbitsTestBase.framework */ = {
+			isa = PBXGroup;
+			children = (
+				40A5D51F1A4B5892004A4EE3 /* Supporting Files */,
+			);
+			path = TidbitsTestBase.framework;
+			sourceTree = "<group>";
+		};
+		40A5D51F1A4B5892004A4EE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40A5D5201A4B5892004A4EE3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		40A9B4AA177F65B40068F3F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1165,6 +1202,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		40A5D51A1A4B5892004A4EE3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5D53A1A4B594F004A4EE3 /* TBTestCaseBase.h in Headers */,
+				40A5D53C1A4B595A004A4EE3 /* TBTestHelpers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		40E48B10198B25F30015C54E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1319,6 +1365,24 @@
 			productReference = 408E88691768DEF6001B61E6 /* TidbitsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		40A5D51C1A4B5892004A4EE3 /* TidbitsTestBase.framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A5D5381A4B5892004A4EE3 /* Build configuration list for PBXNativeTarget "TidbitsTestBase.framework" */;
+			buildPhases = (
+				40A5D5181A4B5892004A4EE3 /* Sources */,
+				40A5D5191A4B5892004A4EE3 /* Frameworks */,
+				40A5D51A1A4B5892004A4EE3 /* Headers */,
+				40A5D51B1A4B5892004A4EE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TidbitsTestBase.framework;
+			productName = TidbitsTestBase.framework;
+			productReference = 40A5D51D1A4B5892004A4EE3 /* TidbitsTestBase.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		40E48B12198B25F30015C54E /* Tidbits.framework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40E48B2B198B25F30015C54E /* Build configuration list for PBXNativeTarget "Tidbits.framework" */;
@@ -1349,6 +1413,9 @@
 				TargetAttributes = {
 					408E88681768DEF6001B61E6 = {
 						TestTargetID = 408E88571768DEF6001B61E6;
+					};
+					40A5D51C1A4B5892004A4EE3 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
 					40E48B12198B25F30015C54E = {
 						CreatedOnToolsVersion = 6.0;
@@ -1381,6 +1448,7 @@
 				4047B4A21805B42C0032BBA5 /* TidbitsTestBase */,
 				408E88681768DEF6001B61E6 /* TidbitsTests */,
 				40E48B12198B25F30015C54E /* Tidbits.framework */,
+				40A5D51C1A4B5892004A4EE3 /* TidbitsTestBase.framework */,
 				4072B7E118415743003B7703 /* Tidbits Documentation */,
 			);
 		};
@@ -1423,6 +1491,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				408E88771768DEF7001B61E6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5D51B1A4B5892004A4EE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1571,6 +1646,15 @@
 				402E776718A614A6007176E2 /* NSUUID+MiscTests.m in Sources */,
 				402E776C18A62595007176E2 /* NSData+FooTests.m in Sources */,
 				402E777618A707CE007176E2 /* GTMURLBuilderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5D5181A4B5892004A4EE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5D53B1A4B5956004A4EE3 /* TBTestCaseBase.m in Sources */,
+				40A5D53D1A4B595F004A4EE3 /* TBTestHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1948,6 +2032,113 @@
 			};
 			name = Release;
 		};
+		40A5D5301A4B5892004A4EE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = TidbitsTestBase;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		40A5D5311A4B5892004A4EE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TidbitsTestBase;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		40A5D5321A4B5892004A4EE3 /* ReleaseTesting */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TidbitsTestBase;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = ReleaseTesting;
+		};
 		40B3ACD41A1D7C6600DE4CFA /* ReleaseTesting */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2075,7 +2266,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2124,7 +2314,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2161,7 +2350,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2228,6 +2416,16 @@
 				408E88811768DEF7001B61E6 /* Debug */,
 				408E88821768DEF7001B61E6 /* Release */,
 				40B3ACD71A1D7C6600DE4CFA /* ReleaseTesting */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40A5D5381A4B5892004A4EE3 /* Build configuration list for PBXNativeTarget "TidbitsTestBase.framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A5D5301A4B5892004A4EE3 /* Debug */,
+				40A5D5311A4B5892004A4EE3 /* Release */,
+				40A5D5321A4B5892004A4EE3 /* ReleaseTesting */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
