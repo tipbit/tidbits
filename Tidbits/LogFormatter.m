@@ -22,11 +22,6 @@
 #define FORCE_LOGFORMATTER_ON_TTY 0
 
 
-@interface LogFormatterTTY : NSObject <DDLogFormatter>
-
-@end
-
-
 @implementation LogFormatter
 
 
@@ -161,6 +156,15 @@ static char* logLevelToStr(int level) {
                      logMessage->logMsg];
     return msg;
 }
+
+
+#if DEBUG || RELEASE_TESTING
+
+-(NSString *)formatLogMessageB:(DDLogMessage *)logMessage {
+    return [self formatLogMessage:logMessage];
+}
+
+#endif
 
 
 @end

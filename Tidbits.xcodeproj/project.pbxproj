@@ -177,6 +177,7 @@
 		40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2C4451829904000205EBB /* SRVResolverTests.m */; };
 		40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E21F17F87E7C000EA60C /* DNSQuery.m */; };
 		40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E22217F890B1000EA60C /* DNSQueryTests.m */; };
+		40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */; };
 		40D188901809122400B23BAC /* NSData+SHA256.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40182C7A18090F820075AA75 /* NSData+SHA256.h */; };
 		40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F09418875848003BAF58 /* NSSet+Misc.m */; };
 		40D9DD1317893D8800C49154 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD1217893D8800C49154 /* FileUtils.m */; };
@@ -690,6 +691,7 @@
 		40C4E21E17F87E7C000EA60C /* DNSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSQuery.h; sourceTree = "<group>"; };
 		40C4E21F17F87E7C000EA60C /* DNSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQuery.m; sourceTree = "<group>"; };
 		40C4E22217F890B1000EA60C /* DNSQueryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQueryTests.m; sourceTree = "<group>"; };
+		40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatterTests.m; sourceTree = "<group>"; };
 		40D1F09318875848003BAF58 /* NSSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Misc.h"; sourceTree = "<group>"; };
 		40D1F09418875848003BAF58 /* NSSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Misc.m"; sourceTree = "<group>"; };
 		40D9DD1117893D8800C49154 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -1071,6 +1073,7 @@
 				402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */,
 				402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */,
 				402E777518A707CE007176E2 /* GTMURLBuilderTests.m */,
+				40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
 				402E776B18A62595007176E2 /* NSData+FooTests.m */,
@@ -1625,6 +1628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */,
+				40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
@@ -2008,6 +2012,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+				);
 				INFOPLIST_FILE = "TidbitsTests/TidbitsTests-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2025,6 +2034,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+				);
 				INFOPLIST_FILE = "TidbitsTests/TidbitsTests-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2244,6 +2258,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+				);
 				INFOPLIST_FILE = "TidbitsTests/TidbitsTests-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -16,3 +16,14 @@
 +(LogFormatter*)formatterRegisteredAsDefaultASL;
 
 @end
+
+
+@interface LogFormatterTTY : NSObject <DDLogFormatter>
+
+#if DEBUG || RELEASE_TESTING
+
+-(NSString *)formatLogMessageB:(DDLogMessage *)logMessage;
+
+#endif
+
+@end
