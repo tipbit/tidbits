@@ -62,7 +62,7 @@
             if (a1value == a2value) continue; \
             if ([a1value isKindOfClass:[NSString class]] && \
                 [a2value isKindOfClass:[NSString class]] && \
-                [a1value compare:a2value options:0] == NSOrderedSame) continue; \
+                [a1value compare:a2value options:(NSStringCompareOptions)0] == NSOrderedSame) continue; \
             _XCTRegisterFailure(self, _XCTFailureDescription(_XCTAssertion_EqualObjects, 0, @#a1, @#a2, a1value, a2value), format); \
         } \
         @catch (_XCTestCaseInterruptionException *interruption) { [interruption raise]; } \
@@ -82,7 +82,7 @@
         if (a1value == a2value) continue; \
         if ([a1value isKindOfClass:[NSString class]] && \
             [a2value isKindOfClass:[NSString class]] && \
-            [a1value compare:a2value options:0] != NSOrderedSame) continue; \
+            [a1value compare:a2value options:(NSStringCompareOptions)0] != NSOrderedSame) continue; \
         _XCTRegisterFailure(self, _XCTFailureDescription(_XCTAssertion_NotEqualObjects, 0, @#a1, @#a2, a1value, a2value), format); \
     } \
     @catch (_XCTestCaseInterruptionException *interruption) { [interruption raise]; } \
@@ -105,7 +105,7 @@
             if (a1value == a2value) continue; \
             if ([a1value isKindOfClass:[NSString class]] && \
                 [a2value isKindOfClass:[NSString class]] && \
-                [a1value compare:a2value options:0] == NSOrderedSame) continue; \
+                [a1value compare:a2value options:(NSStringCompareOptions)0] == NSOrderedSame) continue; \
             _XCTRegisterFailure(_XCTFailureDescription(_XCTAssertion_EqualObjects, 0, @#a1, @#a2, a1value, a2value),format); \
         } \
         @catch (id exception) { \
@@ -121,7 +121,7 @@
         if (a1value == a2value) continue; \
         if ([a1value isKindOfClass:[NSString class]] && \
             [a2value isKindOfClass:[NSString class]] && \
-            [a1value compare:a2value options:0] != NSOrderedSame) continue; \
+            [a1value compare:a2value options:(NSStringCompareOptions)0] != NSOrderedSame) continue; \
         _XCTRegisterFailure(_XCTFailureDescription(_XCTAssertion_NotEqualObjects, 0, @#a1, @#a2, a1value, a2value),format); \
         } \
         @catch (id exception) { \
