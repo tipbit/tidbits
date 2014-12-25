@@ -143,6 +143,49 @@ static const char * logLevelToStr(int level) {
 
 -(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
     NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
+    char flag = logLevelToChar(logMessage->logLevel);
+
+    NSString *msg = [NSString stringWithFormat:@"%c %@ %-4x %-4d %s %@",
+                     flag,
+                     dateAndTime,
+                     logMessage->machThreadID,
+                     logMessage->lineNumber,
+                     logMessage->function,
+                     logMessage->logMsg];
+    return msg;
+}
+
+
+static char logLevelToChar(int level) {
+    switch (level) {
+        case LOG_LEVEL_FATAL:
+            return 'F';
+
+        case LOG_LEVEL_ERROR:
+            return 'E';
+
+        case LOG_LEVEL_WARN:
+            return 'W';
+
+        case LOG_LEVEL_USER:
+            return 'U';
+
+        case LOG_LEVEL_INFO:
+            return 'I';
+
+        case LOG_LEVEL_DEBUG:
+            return 'D';
+
+        default:
+            return '?';
+    }
+}
+
+
+#if DEBUG || RELEASE_TESTING
+
+-(NSString *)formatLogMessageB:(DDLogMessage *)logMessage {
+    NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
     NSString *flag;
     if (logMessage->logFlag & LOG_FLAG_FATAL) {
         flag = @"F";
@@ -171,13 +214,6 @@ static const char * logLevelToStr(int level) {
                      logMessage->function,
                      logMessage->logMsg];
     return msg;
-}
-
-
-#if DEBUG || RELEASE_TESTING
-
--(NSString *)formatLogMessageB:(DDLogMessage *)logMessage {
-    return [self formatLogMessage:logMessage];
 }
 
 #endif
