@@ -15,6 +15,12 @@
 +(LogFormatter*)formatterRegisteredAsDefaultASLAndTTYUsingTTYFormatter:(BOOL)useTtyFormatter;
 +(LogFormatter*)formatterRegisteredAsDefaultASL;
 
+#if DEBUG || RELEASE_TESTING
+
+-(NSString *)formatLogMessageB:(DDLogMessage *)logMessage;
+
+#endif
+
 @end
 
 

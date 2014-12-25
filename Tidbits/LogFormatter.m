@@ -68,19 +68,23 @@
 
 
 -(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
-    char time_str[24];
+    char time_level_str[30];
     struct tm tm;
     NSTimeInterval ts = [logMessage->timestamp timeIntervalSince1970];
     time_t ts_whole = (time_t)ts;
     int ts_frac = (int)((ts - (double)ts_whole) * 1000.0);
     gmtime_r(&ts_whole, &tm);
-    snprintf(time_str, 24, "%4d-%02d-%02d %02d:%02d:%02d.%03d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
-    return [NSString stringWithFormat:@"%s %s %s:%i | %@", time_str, logLevelToStr(logMessage->logLevel), logMessage->function, logMessage->lineNumber, logMessage->logMsg];
+    // Using snprintf for the fixed-length fields is 26-29% faster than putting it all in the stringWithFormat call.
+    snprintf(time_level_str, 30, "%4d-%02d-%02d %02d:%02d:%02d.%03d %5s", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac, logLevelToStr(logMessage->logLevel));
+    return [NSString stringWithFormat:@"%s %s:%i | %@", time_level_str, logMessage->function, logMessage->lineNumber, logMessage->logMsg];
 }
 
 
-static char* logLevelToStr(int level) {
+static const char * logLevelToStr(int level) {
     switch (level) {
+        case LOG_LEVEL_FATAL:
+            return "fatal";
+
         case LOG_LEVEL_ERROR:
             return "error";
 
@@ -88,7 +92,7 @@ static char* logLevelToStr(int level) {
             return "warn ";
 
         case LOG_LEVEL_USER:
-            return "[user]";
+            return "user ";
 
         case LOG_LEVEL_INFO:
             return "info ";
@@ -99,6 +103,18 @@ static char* logLevelToStr(int level) {
         default:
             return "?????";
     }
+}
+
+
+-(NSString *)formatLogMessageB:(DDLogMessage *)logMessage {
+    char time_level_str[30];
+    struct tm tm;
+    NSTimeInterval ts = [logMessage->timestamp timeIntervalSince1970];
+    time_t ts_whole = (time_t)ts;
+    int ts_frac = (int)((ts - (double)ts_whole) * 1000.0);
+    gmtime_r(&ts_whole, &tm);
+    snprintf(time_level_str, 30, "%4d-%02d-%02d %02d:%02d:%02d.%03d %5s", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac, logLevelToStr(logMessage->logLevel));
+    return [NSString stringWithFormat:@"%s %s:%i | %@", time_level_str, logMessage->function, logMessage->lineNumber, logMessage->logMsg];
 }
 
 
