@@ -53,7 +53,7 @@
     result = [NSString stringWithFormat:@"%@?%@", [result substringToIndex:13], [result substringFromIndex:14]];
 
     NSString * expectedTimeStr = [[dateFormatter stringFromDate:msg->timestamp] substringToIndex:11];
-    NSString * expected = [NSString stringWithFormat:@"D %@? 99   test_func Test message", expectedTimeStr];
+    NSString * expected = [NSString stringWithFormat:@"D %@? test_func:99 | Test message", expectedTimeStr];
     XCTAssertEqualStrings(result, expected);
 }
 

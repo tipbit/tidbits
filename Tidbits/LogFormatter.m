@@ -142,13 +142,13 @@ static const char * logLevelToStr(int level) {
 #if INCLUDE_THREAD_ID_ON_TTY
             " %-4x"
 #endif
-            " %-4d %s %@",
+            " %s:%d | %@",
             time_level_str,
 #if INCLUDE_THREAD_ID_ON_TTY
             logMessage->machThreadID,
 #endif
-            logMessage->lineNumber,
             logMessage->function,
+            logMessage->lineNumber,
             logMessage->logMsg];
 }
 
@@ -190,11 +190,11 @@ static char logLevelToChar(int level) {
     localtime_r(&ts_whole, &tm);
     // Using snprintf for the fixed-length fields is 26-29% faster than putting it all in the stringWithFormat call.
     snprintf(time_level_str, 26, "%c %02d:%02d:%02d.%03d", logLevelToChar(logMessage->logLevel), tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
-    return [NSString stringWithFormat:@"%s %-4x %-4d %s %@",
+    return [NSString stringWithFormat:@"%s %-4x %s:%d | %@",
             time_level_str,
             logMessage->machThreadID,
-            logMessage->lineNumber,
             logMessage->function,
+            logMessage->lineNumber,
             logMessage->logMsg];
 }
 
