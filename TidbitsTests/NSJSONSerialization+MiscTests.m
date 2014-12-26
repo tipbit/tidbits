@@ -19,6 +19,17 @@
 @implementation NSJSONSerializationMiscTests
 
 
+-(void)testJSONObjectFromBundle {
+    NSError * err = nil;
+    id result = [NSJSONSerialization JSONObjectFromBundle:[NSBundle bundleForClass:self.class] resourceName:@"NSJSONSerialization+MiscTests" error:&err];
+    XCTAssert([result isKindOfClass:[NSDictionary class]]);
+    XCTAssertNil(err);
+    NSDictionary * resultDict = (NSDictionary *)result;
+    XCTAssertEqual(resultDict.count, 1U);
+    XCTAssertEqualStrings(resultDict[@"key1"], @"val1");
+}
+
+
 -(void)testStringWithJSONObject {
     NSDictionary* input = @{@"foo": @"bar \u2013 baz"};
     NSString* expectedPlain = @"{\"foo\":\"bar \u2013 baz\"}";

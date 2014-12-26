@@ -12,6 +12,12 @@
 @interface NSJSONSerialization (Misc)
 
 /**
+ * Equivalent to [NSJSONSerialization JSONObjectWithStream:stream options:0 error:error],
+ * where the stream is from opening resourceName.json from the given bundle.
+ */
++(id)JSONObjectFromBundle:(NSBundle *)bundle resourceName:(NSString *)resourceName error:(NSError * __autoreleasing *)error __attribute__((nonnull(1,2)));
+
+/**
  * Equivalent to [NSJSONSerialization stringWithJSONObject:obj options:0 error:error].
  */
 +(NSString *)stringWithJSONObject:(id)obj error:(NSError *__autoreleasing *)error;
