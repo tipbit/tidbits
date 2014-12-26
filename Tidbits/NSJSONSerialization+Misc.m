@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
 //
 
+#import "Dispatch.h"
 #import "NSObject+MTJSONUtils.h"
 #import "NSString+Misc.h"
+#import "TBAsserts.h"
 
 #import "NSJSONSerialization+Misc.h"
 
@@ -32,6 +34,33 @@
     id result = [NSJSONSerialization JSONObjectWithStream:stream options:(NSJSONReadingOptions)0 error:error];
     [stream close];
     return  result;
+}
+
+
++(void)JSONObjectFromBundleAsync:(NSBundle *)bundle resourceName:(NSString *)resourceName onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1,2,3))) {
+    NSParameterAssert(bundle);
+    NSParameterAssert(resourceName);
+    NSParameterAssert(onSuccess);
+
+    dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
+        [NSJSONSerialization JSONObjectFromBundleAsyncBackground:bundle resourceName:resourceName onSuccess:onSuccess onFailure:onFailure];
+    });
+}
+
+
++(void)JSONObjectFromBundleAsyncBackground:(NSBundle *)bundle resourceName:(NSString *)resourceName onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1,2,3))) {
+    AssertOnBackgroundThread();
+
+    NSError * err = nil;
+    id json = [NSJSONSerialization JSONObjectFromBundle:bundle resourceName:resourceName error:&err];
+    if (json == nil) {
+        if (onFailure != NULL) {
+            onFailure(err);
+        }
+    }
+    else {
+        onSuccess(json);
+    }
 }
 
 

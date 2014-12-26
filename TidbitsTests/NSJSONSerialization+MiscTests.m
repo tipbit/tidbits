@@ -30,6 +30,27 @@
 }
 
 
+-(void)testJSONObjectFromBundleAsync {
+    __block id result = nil;
+    __block NSError * error = nil;
+    WaitForTimeoutAsync(2.0, ^(bool *done) {
+        [NSJSONSerialization JSONObjectFromBundleAsync:[NSBundle bundleForClass:self.class] resourceName:@"NSJSONSerialization+MiscTests" onSuccess:^(id obj) {
+            result = obj;
+            *done = YES;
+        } onFailure:^(NSError * err) {
+            error = err;
+            *done = YES;
+        }];
+    });
+
+    XCTAssert([result isKindOfClass:[NSDictionary class]]);
+    XCTAssertNil(error);
+    NSDictionary * resultDict = (NSDictionary *)result;
+    XCTAssertEqual(resultDict.count, 1U);
+    XCTAssertEqualStrings(resultDict[@"key1"], @"val1");
+}
+
+
 -(void)testStringWithJSONObject {
     NSDictionary* input = @{@"foo": @"bar \u2013 baz"};
     NSString* expectedPlain = @"{\"foo\":\"bar \u2013 baz\"}";
