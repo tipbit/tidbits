@@ -14,25 +14,16 @@
 @implementation NSDate (ISO8601)
 
 #define FORMAT_24 "%4d-%02d-%02dT%02d:%02d:%02d.%03dZ"
-#define FORMAT_24_B (@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 #define FORMAT_23 "%4d-%02d-%02dT%02d:%02d:%02d.%03d"
 #define FORMAT_20 "%4d-%02d-%02dT%02d:%02d:%02dZ"
 #define FORMAT_19 "%4d-%02d-%02dT%02d:%02d:%02d"
 #define FORMAT_16 "%4d-%02d-%02dT%02d:%02d"
 
 
-static NSLocale* posix_locale = nil;
-static NSCalendar* gregorian_calendar = nil;
-static NSTimeZone* local_timezone = nil;
-static NSTimeZone* utc_timezone = nil;
 static NSTimeInterval k1970ToReferenceDate;
 
 
 +(void)load {
-    posix_locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    gregorian_calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    local_timezone = [NSTimeZone localTimeZone];
-    utc_timezone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     k1970ToReferenceDate = [[NSDate dateWithTimeIntervalSince1970:0.0] timeIntervalSinceReferenceDate];
 }
 
@@ -130,25 +121,13 @@ static int gmtime_and_msec_of_interval(NSTimeInterval ts, struct tm * tm) {
 }
 
 
+#if DEBUG || RELEASE_TESTING
+
 -(NSString *)iso8601String_24_B {
-    NSDateFormatter* f = makeFormatter(FORMAT_24_B);
-    return [f stringFromDate:self];
+    return [self iso8601String_24];
 }
 
-
-static NSDateFormatter* makeFormatter(NSString* format) {
-    return makeFormatter_(format, utc_timezone);
-}
-
-
-static NSDateFormatter* makeFormatter_(NSString* format, NSTimeZone * tz) {
-    NSDateFormatter* f = [[NSDateFormatter alloc] init];
-    f.calendar = gregorian_calendar;
-    f.dateFormat = format;
-    f.locale = posix_locale;
-    f.timeZone = tz;
-    return f;
-}
+#endif
 
 
 @end
