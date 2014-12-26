@@ -21,6 +21,11 @@
 // This means that you get full date stamps in particular.
 #define FORCE_LOGFORMATTER_ON_TTY 0
 
+// Set this to include the thread ID in the TTY logger.
+// This is 6-7% slower and is only of value if you've got
+// a nasty threading problem so it's off by default.
+#define INCLUDE_THREAD_ID_ON_TTY 0
+
 
 @implementation LogFormatter
 
@@ -133,9 +138,15 @@ static const char * logLevelToStr(int level) {
     localtime_r(&ts_whole, &tm);
     // Using snprintf for the fixed-length fields is 26-29% faster than putting it all in the stringWithFormat call.
     snprintf(time_level_str, 26, "%c %02d:%02d:%02d.%03d", logLevelToChar(logMessage->logLevel), tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
-    return [NSString stringWithFormat:@"%s %-4x %-4d %s %@",
+    return [NSString stringWithFormat:@"%s"
+#if INCLUDE_THREAD_ID_ON_TTY
+            " %-4x"
+#endif
+            " %-4d %s %@",
             time_level_str,
+#if INCLUDE_THREAD_ID_ON_TTY
             logMessage->machThreadID,
+#endif
             logMessage->lineNumber,
             logMessage->function,
             logMessage->logMsg];
