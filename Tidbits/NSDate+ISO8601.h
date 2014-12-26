@@ -44,4 +44,9 @@
  */
 -(NSString*) iso8601String_24;
 
+#if DEBUG || RELEASE_TESTING
+// Used for performance measurements.
+-(NSString*) iso8601String_24_B;
+#endif
+
 @end

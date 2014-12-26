@@ -13,12 +13,12 @@
 
 @implementation NSDate (ISO8601)
 
-#define FORMAT_24 (@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-#define FORMAT_23 (@"yyyy-MM-dd'T'HH:mm:ss.SSS")
-#define FORMAT_20 (@"yyyy-MM-dd'T'HH:mm:ss'Z'")
-#define FORMAT_19 (@"yyyy-MM-dd'T'HH:mm:ss")
-#define FORMAT_16 (@"yyyy-MM-dd'T'HH:mm")
-#define FORMAT_10 (@"yyyy-MM-dd")
+#define FORMAT_24 "%4d-%02d-%02dT%02d:%02d:%02d.%03dZ"
+#define FORMAT_24_B (@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+#define FORMAT_23 "%4d-%02d-%02dT%02d:%02d:%02d.%03d"
+#define FORMAT_20 "%4d-%02d-%02dT%02d:%02d:%02dZ"
+#define FORMAT_19 "%4d-%02d-%02dT%02d:%02d:%02d"
+#define FORMAT_16 "%4d-%02d-%02dT%02d:%02d"
 
 
 static NSLocale* posix_locale = nil;
@@ -60,42 +60,84 @@ static NSTimeInterval k1970ToReferenceDate;
 
 
 -(NSString*) iso8601String {
-    NSDateFormatter* f = makeFormatter(FORMAT_19);
-    return [f stringFromDate:self];
+    // This implementation and the similar ones below are 10x faster than using NSDateFormatter.
+    struct tm tm;
+    gmtime_of_interval([self timeIntervalSince1970], &tm);
+    char buf[20];
+    snprintf(buf, sizeof(buf), FORMAT_19, tm.tm_year + 1900, tm.tm_mon + 1,
+             tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+    return [NSString stringWithCString:buf encoding:NSASCIIStringEncoding];
 }
 
 
 -(NSString*) iso8601String_16 {
-    NSDateFormatter* f = makeFormatter(FORMAT_16);
-    return [f stringFromDate:self];
+    struct tm tm;
+    gmtime_of_interval([self timeIntervalSince1970], &tm);
+    char buf[17];
+    snprintf(buf, sizeof(buf), FORMAT_16, tm.tm_year + 1900, tm.tm_mon + 1,
+             tm.tm_mday, tm.tm_hour, tm.tm_min);
+    return [NSString stringWithCString:buf encoding:NSASCIIStringEncoding];
 }
 
 
 -(NSString*) iso8601String_23 {
-    NSDateFormatter* f = makeFormatter(FORMAT_23);
-    return [f stringFromDate:self];
+    struct tm tm;
+    int ts_frac = gmtime_and_msec_of_interval([self timeIntervalSince1970], &tm);
+    char buf[24];
+    snprintf(buf, sizeof(buf), FORMAT_23, tm.tm_year + 1900, tm.tm_mon + 1,
+             tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
+    return [NSString stringWithCString:buf encoding:NSASCIIStringEncoding];
 }
 
 
 -(NSString*) iso8601String_local_23 {
-    NSDateFormatter* f = makeLocalFormatter(FORMAT_23);
-    return [f stringFromDate:self];
+    struct tm tm;
+    int ts_frac = localtime_and_msec_of_interval([self timeIntervalSince1970], &tm);
+    char buf[24];
+    snprintf(buf, sizeof(buf), FORMAT_23, tm.tm_year + 1900, tm.tm_mon + 1,
+             tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
+    return [NSString stringWithCString:buf encoding:NSASCIIStringEncoding];
 }
 
 
 -(NSString*) iso8601String_24 {
-    NSDateFormatter* f = makeFormatter(FORMAT_24);
+    struct tm tm;
+    int ts_frac = gmtime_and_msec_of_interval([self timeIntervalSince1970], &tm);
+    char buf[25];
+    snprintf(buf, sizeof(buf), FORMAT_24, tm.tm_year + 1900, tm.tm_mon + 1,
+             tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
+    return [NSString stringWithCString:buf encoding:NSASCIIStringEncoding];
+}
+
+
+static void gmtime_of_interval(NSTimeInterval ts, struct tm * tm) {
+    time_t ts_whole = (time_t)ts;
+    gmtime_r(&ts_whole, tm);
+}
+
+
+static int localtime_and_msec_of_interval(NSTimeInterval ts, struct tm * tm) {
+    time_t ts_whole = (time_t)ts;
+    localtime_r(&ts_whole, tm);
+    return (int)((ts - (double)ts_whole) * 1000.0);
+}
+
+
+static int gmtime_and_msec_of_interval(NSTimeInterval ts, struct tm * tm) {
+    time_t ts_whole = (time_t)ts;
+    gmtime_r(&ts_whole, tm);
+    return (int)((ts - (double)ts_whole) * 1000.0);
+}
+
+
+-(NSString *)iso8601String_24_B {
+    NSDateFormatter* f = makeFormatter(FORMAT_24_B);
     return [f stringFromDate:self];
 }
 
 
 static NSDateFormatter* makeFormatter(NSString* format) {
     return makeFormatter_(format, utc_timezone);
-}
-
-
-static NSDateFormatter* makeLocalFormatter(NSString* format) {
-    return makeFormatter_(format, local_timezone);
 }
 
 

@@ -9,6 +9,7 @@
 #import "NSDate+ISO8601.h"
 
 #import "TBTestCaseBase.h"
+#import "TBTestHelpers.h"
 
 
 @interface NSDate_ISO8601Tests : TBTestCaseBase
@@ -105,6 +106,17 @@
     }
     NSString* expected = @"2013-04-01T13:42:33.401"; // 2013-04-01T20:42:33Z, so 2013-04-01T13:42:33 in PDT.
     XCTAssertEqualObjects([input iso8601String_local_23], expected);
+}
+
+
+-(void)testIso8601String_24PerformanceComparison {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.0];
+
+    comparePerformanceAndLogResult(^{
+        [input iso8601String_24];
+    }, ^{
+        [input iso8601String_24_B];
+    });
 }
 
 

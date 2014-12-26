@@ -29,10 +29,7 @@
 
     NSString * result = [formatter formatLogMessage:msg];
 
-    // truncate timestamp to the nearest msec (NSDateFormatter will round up, but formatLogMessage is truncating).
-    NSDate * timestamp = [msg->timestamp dateTruncatedToMsec];
-
-    NSString * expectedDateStr = [[[timestamp iso8601String_24] substringToIndex:23] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    NSString * expectedDateStr = [[msg->timestamp iso8601String_23] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     NSString * expected = [NSString stringWithFormat:@"%@ debug test_func:99 | Test message", expectedDateStr];
     XCTAssertEqualStrings(result, expected);
 }
@@ -44,14 +41,7 @@
 
     NSString * result = [formatter formatLogMessage:msg];
 
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
-    dateFormatter.dateFormat = @"HH:mm:ss.SSS";
-
-    // truncate timestamp to the nearest msec (NSDateFormatter will round up, but formatLogMessage is truncating).
-    NSDate * timestamp = [msg->timestamp dateTruncatedToMsec];
-
-    NSString * expectedTimeStr = [dateFormatter stringFromDate:timestamp];
+    NSString * expectedTimeStr = [[msg->timestamp iso8601String_local_23] substringFromIndex:11];
     NSString * expected = [NSString stringWithFormat:@"D %@ test_func:99 | Test message", expectedTimeStr];
     XCTAssertEqualStrings(result, expected);
 }
