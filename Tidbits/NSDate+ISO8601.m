@@ -71,6 +71,12 @@ static NSTimeInterval k1970ToReferenceDate;
 }
 
 
+-(NSString*) iso8601String_23 {
+    NSDateFormatter* f = makeFormatter(FORMAT_23);
+    return [f stringFromDate:self];
+}
+
+
 -(NSString*) iso8601String_local_23 {
     NSDateFormatter* f = makeLocalFormatter(FORMAT_23);
     return [f stringFromDate:self];

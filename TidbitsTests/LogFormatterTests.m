@@ -8,6 +8,7 @@
 
 #import "LogFormatter.h"
 #import "LoggingMacros.h"
+#import "NSDate+Ext.h"
 #import "NSDate+ISO8601.h"
 
 #import "TBTestHelpers.h"
@@ -28,12 +29,11 @@
 
     NSString * result = [formatter formatLogMessage:msg];
 
-    // We can have rounding differences between iso8601String_24 and formatLogMessage in the msec
-    // part of the date.  Replace this character with ? for comparison purposes.
-    result = [NSString stringWithFormat:@"%@?%@", [result substringToIndex:22], [result substringFromIndex:23]];
+    // truncate timestamp to the nearest msec (NSDateFormatter will round up, but formatLogMessage is truncating).
+    NSDate * timestamp = [msg->timestamp dateTruncatedToMsec];
 
-    NSString * expectedDateStr = [[[msg->timestamp iso8601String_24] substringToIndex:22] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-    NSString * expected = [NSString stringWithFormat:@"%@? debug test_func:99 | Test message", expectedDateStr];
+    NSString * expectedDateStr = [[[timestamp iso8601String_24] substringToIndex:23] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    NSString * expected = [NSString stringWithFormat:@"%@ debug test_func:99 | Test message", expectedDateStr];
     XCTAssertEqualStrings(result, expected);
 }
 
@@ -48,12 +48,11 @@
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
     dateFormatter.dateFormat = @"HH:mm:ss.SSS";
 
-    // We can have rounding differences between stringFromDate and formatLogMessage in the msec
-    // part of the date.  Replace this character with ? for comparison purposes.
-    result = [NSString stringWithFormat:@"%@?%@", [result substringToIndex:13], [result substringFromIndex:14]];
+    // truncate timestamp to the nearest msec (NSDateFormatter will round up, but formatLogMessage is truncating).
+    NSDate * timestamp = [msg->timestamp dateTruncatedToMsec];
 
-    NSString * expectedTimeStr = [[dateFormatter stringFromDate:msg->timestamp] substringToIndex:11];
-    NSString * expected = [NSString stringWithFormat:@"D %@? test_func:99 | Test message", expectedTimeStr];
+    NSString * expectedTimeStr = [dateFormatter stringFromDate:timestamp];
+    NSString * expected = [NSString stringWithFormat:@"D %@ test_func:99 | Test message", expectedTimeStr];
     XCTAssertEqualStrings(result, expected);
 }
 

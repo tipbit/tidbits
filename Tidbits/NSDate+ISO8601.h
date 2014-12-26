@@ -30,6 +30,11 @@
 -(NSString*) iso8601String_16;
 
 /**
+ * @return A full UTC ISO 8601 date string with msec and no timezone suffix: yyyy-MM-dd'T'HH:mm:ss.SSS
+ */
+-(NSString*) iso8601String_23;
+
+/**
  * @return A full local timezone ISO 8601 date string with msec and no timezone suffix: yyyy-MM-dd'T'HH:mm:ss.SSS
  */
 -(NSString*) iso8601String_local_23;

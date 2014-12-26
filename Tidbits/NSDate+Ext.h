@@ -53,6 +53,12 @@
  */
 - (NSDate*) thisDayAtHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second tz:(NSTimeZone*)tz;
 
+/**
+ * @return This time, but truncated to the current msec (i.e. with microseconds zeroed).
+ */
+-(NSDate *)dateTruncatedToMsec;
+
+
 - (BOOL) isBefore:(NSDate*)date;
 - (BOOL) isAfter:(NSDate*)date;
 - (BOOL) isSameDayAs:(NSDate*)date;

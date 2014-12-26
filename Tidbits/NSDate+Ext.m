@@ -208,6 +208,13 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
+-(NSDate*)dateTruncatedToMsec {
+    NSTimeInterval interval = [self timeIntervalSinceReferenceDate];
+    interval = ((long)(interval * 1000.0)) / 1000.0;
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
+}
+
+
 - (BOOL) isBefore:(NSDate*)date {
     return [self compare:date] == NSOrderedAscending;
 }
