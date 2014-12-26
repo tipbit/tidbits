@@ -46,10 +46,14 @@
 
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
-    dateFormatter.dateFormat = @"hh:mm:ss.SSS";
+    dateFormatter.dateFormat = @"HH:mm:ss.SSS";
 
-    NSString * expectedTimeStr = [dateFormatter stringFromDate:msg->timestamp];
-    NSString * expected = [NSString stringWithFormat:@"D %@ %-4x 99   test_func Test message", expectedTimeStr, msg->machThreadID];
+    // We can have rounding differences between stringFromDate and formatLogMessage in the msec
+    // part of the date.  Replace this character with ? for comparison purposes.
+    result = [NSString stringWithFormat:@"%@?%@", [result substringToIndex:13], [result substringFromIndex:14]];
+
+    NSString * expectedTimeStr = [[dateFormatter stringFromDate:msg->timestamp] substringToIndex:11];
+    NSString * expected = [NSString stringWithFormat:@"D %@? %-4x 99   test_func Test message", expectedTimeStr, msg->machThreadID];
     XCTAssertEqualStrings(result, expected);
 }
 
