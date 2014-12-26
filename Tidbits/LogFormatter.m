@@ -121,24 +121,7 @@ static const char * logLevelToStr(int level) {
 @end
 
 
-@interface LogFormatterTTY () {
-    NSDateFormatter *dateFormatter;
-}
-
-@end
-
-
 @implementation LogFormatterTTY
-
--(id)init {
-    self = [super init];
-    if (self) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4]; // 10.4+ style
-        [dateFormatter setDateFormat:@"hh:mm:ss.SSS"];
-    }
-    return self;
-}
 
 
 -(NSString *)formatLogMessage:(DDLogMessage *)logMessage {
@@ -188,17 +171,20 @@ static char logLevelToChar(int level) {
 #if DEBUG || RELEASE_TESTING
 
 -(NSString *)formatLogMessageB:(DDLogMessage *)logMessage {
-    NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
-    char flag = logLevelToChar(logMessage->logLevel);
-
-    NSString *msg = [NSString stringWithFormat:@"%c %@ %-4x %-4d %s %@",
-                     flag,
-                     dateAndTime,
-                     logMessage->machThreadID,
-                     logMessage->lineNumber,
-                     logMessage->function,
-                     logMessage->logMsg];
-    return msg;
+    char time_level_str[26];
+    struct tm tm;
+    NSTimeInterval ts = [logMessage->timestamp timeIntervalSince1970];
+    time_t ts_whole = (time_t)ts;
+    int ts_frac = (int)((ts - (double)ts_whole) * 1000.0);
+    localtime_r(&ts_whole, &tm);
+    // Using snprintf for the fixed-length fields is 26-29% faster than putting it all in the stringWithFormat call.
+    snprintf(time_level_str, 26, "%c %02d:%02d:%02d.%03d", logLevelToChar(logMessage->logLevel), tm.tm_hour, tm.tm_min, tm.tm_sec, ts_frac);
+    return [NSString stringWithFormat:@"%s %-4x %-4d %s %@",
+            time_level_str,
+            logMessage->machThreadID,
+            logMessage->lineNumber,
+            logMessage->function,
+            logMessage->logMsg];
 }
 
 #endif
