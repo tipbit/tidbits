@@ -97,6 +97,17 @@
 }
 
 
+-(void)testIso8601String_local_23 {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.401];
+    NSInteger offset = [[NSTimeZone localTimeZone] secondsFromGMTForDate:input];
+    if (offset != -25200) {
+        NSLog(@"Test is not running in Pacific timezone; skipping");
+    }
+    NSString* expected = @"2013-04-01T13:42:33.401"; // 2013-04-01T20:42:33Z, so 2013-04-01T13:42:33 in PDT.
+    XCTAssertEqualObjects([input iso8601String_local_23], expected);
+}
+
+
 //
 // This test is derived from a test in CBLJSON.m in http://github.com/couchbase/couchbase-lite-ios
 // Copyright (c) 2012-2013 Couchbase, Inc and licensed under the Apache License 2.0.
