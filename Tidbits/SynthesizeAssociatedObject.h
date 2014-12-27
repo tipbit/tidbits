@@ -77,4 +77,16 @@ static char* __key = #__key;                                                    
 }
 
 
+#define SYNTHESIZE_ASSOCIATED_CHAR(__getter, __setter)                                        \
+-(char)__getter {                                                                             \
+    NSNumber * n = objc_getAssociatedObject(self, @selector(__getter));                       \
+    return n.charValue;                                                                       \
+}                                                                                             \
+                                                                                              \
+-(void)__setter:(char)value {                                                                 \
+    objc_setAssociatedObject(self, @selector(__getter), [NSNumber numberWithChar:value],      \
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);                              \
+}
+
+
 #endif
