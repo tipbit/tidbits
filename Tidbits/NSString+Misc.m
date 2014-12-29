@@ -43,6 +43,9 @@
     return [self caseInsensitiveCompare:comparand] == NSOrderedSame;
 }
 
+-(BOOL)isNotEqualToString:(NSString *)aString{
+    return ![self isEqualToString:aString];
+}
 
 -(bool)hasPrefixCaseInsensitive:(NSString *)comparand {
     if (comparand.length > self.length)
