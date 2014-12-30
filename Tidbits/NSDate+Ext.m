@@ -229,6 +229,17 @@ static NSDateFormatter* makeISO8601Formatter() {
 }
 
 
+-(BOOL)isSameUTCDayAs:(NSDate *)date {
+    time_t self_time_t = (time_t)[self timeIntervalSince1970];
+    time_t date_time_t = (time_t)[date timeIntervalSince1970];
+    struct tm self_tm;
+    struct tm date_tm;
+    gmtime_r(&self_time_t, &self_tm);
+    gmtime_r(&date_time_t, &date_tm);
+    return (self_tm.tm_yday == date_tm.tm_yday && self_tm.tm_year == date_tm.tm_year);
+}
+
+
 static NSDate* cachedStartOfToday = nil;
 +(NSDate*) startOfToday {
     if (cachedStartOfToday == nil)

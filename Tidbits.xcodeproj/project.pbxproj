@@ -25,6 +25,7 @@
 		18F1E612195E6969008E3161 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60C195E6969008E3161 /* TPKeyboardAvoidingScrollView.m */; };
 		18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */; };
 		18F1E614195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */; };
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
@@ -520,6 +521,7 @@
 		18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		18F1E60F195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExtTests.m"; sourceTree = "<group>"; };
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
@@ -1079,6 +1081,7 @@
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
 				402E776B18A62595007176E2 /* NSData+FooTests.m */,
+				40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */,
 				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */,
 				40DDA4731A4DDAF70079D4FC /* NSJSONSerialization+MiscTests.json */,
@@ -1633,6 +1636,7 @@
 			files = (
 				402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */,
 				40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */,
+				40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
