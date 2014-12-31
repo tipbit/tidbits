@@ -313,13 +313,15 @@ static NSDate* cachedStartOfThisMonth = nil;
 
 static NSInteger cachedThisYear = 0;
 -(BOOL) isThisYear {
+    NSCalendar * cal = [NSCalendar currentCalendar];
+
     if (cachedThisYear == 0) {
         NSDate *today = [NSDate date];
-        NSDateComponents *today_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:today];
+        NSDateComponents *today_bits = [cal components:NSYearCalendarUnit fromDate:today];
         cachedThisYear = today_bits.year;
     }
 
-    NSDateComponents *date_bits = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:self];
+    NSDateComponents *date_bits = [cal components:NSYearCalendarUnit fromDate:self];
     return cachedThisYear == date_bits.year;
 }
 
