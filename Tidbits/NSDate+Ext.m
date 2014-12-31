@@ -11,6 +11,7 @@
 #endif
 
 #import "NSDate+Ext.h"
+#import "NSDate+ISO8601.h"
 
 
 #define DAY_IN_SECONDS (60.0 * 60.0 * 24)
@@ -44,31 +45,6 @@ static NSDate* _year2038 = nil;
     return _year2038;
 }
 
-
-+ (NSDate*) dateFromServerString:(NSString*)dateStr {
-    if ([dateStr rangeOfString:@"Z"].location != NSNotFound)
-        dateStr = [dateStr substringToIndex:19];
-
-    return [makeISO8601Formatter() dateFromString:dateStr];
-}
-
-
--(NSString*)serverString {
-    NSString *s = [makeISO8601Formatter() stringFromDate:self];
-    return [s stringByReplacingOccurrencesOfString:@"Z" withString:@""];
-}
-
-
-static NSDateFormatter* makeISO8601Formatter() {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-
-    formatter.locale = enUSPOSIXLocale;
-    formatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-
-    return formatter;
-}
 
 - (NSString *) dateAtTimeString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -396,17 +372,6 @@ static NSInteger cachedThisYear = 0;
     [dateFormatter setDateFormat:@"HH:mm"];
     NSString *value = [dateFormatter stringFromDate:hhmm];
     return value;
-}
-
-+(NSTimeInterval)timeIntervalFromNowWithServerString:(NSString *)dateStr
-{
-    NSDate *date = [self dateFromServerString:dateStr];
-    return [self timeIntervalFromNow:date];
-}
-
-+(NSTimeInterval)timeIntervalFromNow:(NSDate *)date
-{
-    return [date timeIntervalSinceNow];
 }
 
 +(NSTimeInterval)timeIntervalRoundedTo5Minutes:(NSTimeInterval)ti
