@@ -26,6 +26,8 @@
 		18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60E195E6969008E3161 /* TPKeyboardAvoidingTableView.m */; };
 		18F1E614195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */; };
+		40063B6A1A576F1B00B2FCCB /* NSAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */; };
+		40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */; };
 		4006C50C1855794200B2F22A /* NSError+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C50B1855794200B2F22A /* NSError+Ext.m */; };
 		4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C52B18559C6200B2F22A /* TBTestHelpers.m */; };
 		4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4006C68518121345007DBC6D /* NSString+MiscTests.m */; };
@@ -522,6 +524,10 @@
 		18F1E60F195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		18F1E610195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExtTests.m"; sourceTree = "<group>"; };
+		40063B681A576F1B00B2FCCB /* NSAttributedString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Misc.h"; sourceTree = "<group>"; };
+		40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Misc.m"; sourceTree = "<group>"; };
+		40063B6D1A576F6400B2FCCB /* NSMutableAttributedString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Misc.h"; sourceTree = "<group>"; };
+		40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Misc.m"; sourceTree = "<group>"; };
 		4006C50A1855794200B2F22A /* NSError+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Ext.h"; sourceTree = "<group>"; };
 		4006C50B1855794200B2F22A /* NSError+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Ext.m"; sourceTree = "<group>"; };
 		4006C52A18559C6200B2F22A /* TBTestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTestHelpers.h; sourceTree = "<group>"; };
@@ -948,6 +954,8 @@
 				408E8980176A47D4001B61E6 /* NSArray+Map.m */,
 				407100A817FE0544006F4115 /* NSArray+Misc.h */,
 				407100A917FE0544006F4115 /* NSArray+Misc.m */,
+				40063B681A576F1B00B2FCCB /* NSAttributedString+Misc.h */,
+				40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */,
 				404F55831A34DD720081DA18 /* NSBlockOperation+Misc.h */,
 				404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */,
 				40FB91BE17ACA15D00F6EC64 /* NSBundle+Versions.h */,
@@ -990,6 +998,8 @@
 				408E8988176A47D4001B61E6 /* NSMutableArray+Sorted.m */,
 				408E888F1768E2BA001B61E6 /* NSMutableArray+Stack.h */,
 				408E88901768E2BA001B61E6 /* NSMutableArray+Stack.m */,
+				40063B6D1A576F6400B2FCCB /* NSMutableAttributedString+Misc.h */,
+				40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */,
 				408E88931768E2BA001B61E6 /* NSMutableData+AppendByte.h */,
 				408E88941768E2BA001B61E6 /* NSMutableData+AppendByte.m */,
 				408E88911768E2BA001B61E6 /* NSMutableData+UTF8.h */,
@@ -1541,6 +1551,7 @@
 				400C95461852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m in Sources */,
 				4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */,
 				40BBE5C618F8987F00601FE7 /* NSLayoutConstraintHelpers.m in Sources */,
+				40063B6A1A576F1B00B2FCCB /* NSAttributedString+Misc.m in Sources */,
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
@@ -1604,6 +1615,7 @@
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */,
+				40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
