@@ -25,6 +25,8 @@
  */
 -(instancetype)initWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper;
 
+-(void)addObjectsFromValuesOfDictionary:(NSDictionary *)dict;
+
 -(void)filterUsingBlock:(predicate_t)predicate;
 
 /**

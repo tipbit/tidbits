@@ -36,6 +36,13 @@
 }
 
 
+-(void)addObjectsFromValuesOfDictionary:(NSDictionary *)dict {
+    for (id k in dict) {
+        [self addObject:dict[k]];
+    }
+}
+
+
 -(void)filterUsingBlock:(predicate_t)predicate {
     [self filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return predicate(evaluatedObject);
