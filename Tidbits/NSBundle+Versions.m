@@ -11,14 +11,22 @@
 @implementation NSBundle (Versions)
 
 
--(NSString*)userAgent {
+-(NSString *)bundleName {
     NSDictionary* d = self.infoDictionary;
     NSString* n = d[@"CFBundleName"];
     if (n == nil) {
         // XCTest in Xcode 6.1 needs this (I'm sure that CFBundleName was present in XCTest in Xcode 5).
-        n = d[@"CFBundleExecutable"];
+        return d[@"CFBundleExecutable"];
     }
-    NSString* v = [self versionString];
+    else {
+        return n;
+    }
+}
+
+
+-(NSString *)userAgent {
+    NSString * n = [self bundleName];
+    NSString * v = [self versionString];
     return [NSString stringWithFormat:@"%@/%@", n, v];
 }
 
