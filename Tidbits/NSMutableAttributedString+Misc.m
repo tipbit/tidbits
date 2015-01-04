@@ -13,7 +13,7 @@
 
 
 -(instancetype)initWithAttributedString:(NSAttributedString *)attrStr extraAttrs:(NSDictionary *)extraAttrs {
-    self = [super initWithAttributedString:attrStr];
+    self = [self initWithAttributedString:attrStr];
     if (self) {
         NSRange range = NSMakeRange(0, self.length);
         for (NSString * k in extraAttrs) {
