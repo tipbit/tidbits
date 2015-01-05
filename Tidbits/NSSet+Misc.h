@@ -12,6 +12,8 @@
 
 @interface NSSet (Misc)
 
+-(BOOL)containsObjectPassingTest:(predicate_t)predicate __attribute__((nonnull));
+
 /**
  * @abstract Create a new NSArray with the contents set to mapper(v) for each v in self.
  *

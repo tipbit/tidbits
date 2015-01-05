@@ -24,6 +24,22 @@
 @implementation NSSet (Misc)
 
 
+-(BOOL)containsObjectPassingTest:(predicate_t)predicate __attribute__((nonnull)) {
+    NSParameterAssert(predicate);
+
+    NSSet * result = [self objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        if (predicate(obj)) {
+            *stop = YES;
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }];
+    return (result.count > 0);
+}
+
+
 -(NSArray*)mapToArray:(id_to_id_t)mapper {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
