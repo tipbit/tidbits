@@ -19,7 +19,7 @@
 #define IS_IPHONE5 ((UIScreen.mainScreen.bounds.size.height == 568) || (UIScreen.mainScreen.bounds.size.width == 568))
 #define IS_IPHONE6 ((UIScreen.mainScreen.bounds.size.height == 667) || (UIScreen.mainScreen.bounds.size.width == 667))
 #define IS_IPHONE6PLUS ((UIScreen.mainScreen.bounds.size.height == 414) || (UIScreen.mainScreen.bounds.size.width == 414))
-#define IS_IOS8 (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
+#define IS_IOS8_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
 
 
 #endif
