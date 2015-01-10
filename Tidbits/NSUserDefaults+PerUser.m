@@ -12,14 +12,12 @@
 
 #define kTipbitUser @"USER"
 #define kTipbitUserType @"USERTYPE"
-#define kTipbitUserAccountId @"USERACCOUNTID"
 
 @implementation NSUserDefaults (PerUser)
 
 // Cache for Tipbit user.  Cleared on logout.
 static NSString *cacheUser = nil;
 static NSString *cacheUserType = nil;
-static NSString *cacheUserAccountId = nil;
 
 -(NSString*)getTipbitUser {
     if (cacheUser == nil) {
@@ -35,32 +33,13 @@ static NSString *cacheUserAccountId = nil;
     
     return cacheUserType;
 }
--(NSString*)getTipbitUserAccountId {
-    if (cacheUserAccountId == nil) {
-        cacheUserAccountId = [self stringForKey:kTipbitUserAccountId];
-    }
-    
-    return cacheUserAccountId;
-}
-
--(void)setTipbitUserAndSynchronize:(NSString *)user userType:(NSString *)type userAccountId:(NSString *)accountId{
-    [self setObject:user forKey:kTipbitUser];
-    [self setObject:type forKey:kTipbitUserType];
-    [self setObject:accountId forKey:kTipbitUserAccountId];
-    [self tb_synchronize];
-    cacheUser = user;
-    cacheUserType = type;
-    cacheUserAccountId = accountId;
-}
 
 -(void)clearTipbitUserAndSynchronize {
     [self removeObjectForKey:kTipbitUser];
 //    [self removeObjectForKey:kTipbitUserType];//we do not do this as we use this value for the signIn prompt with getLastTipbitSignoutUser
-    [self removeObjectForKey:kTipbitUserAccountId];
     [self tb_synchronize];
     cacheUser = nil;
 //    cacheUserType = nil; //we do not do this as we use this value for the signIn prompt with getLastTipbitSignoutUser
-    cacheUserAccountId = nil;
 }
 
 -(NSString*)PUKey:(NSString*) key {

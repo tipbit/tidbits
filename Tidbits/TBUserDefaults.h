@@ -44,7 +44,6 @@
  */
 +(NSString *)user;
 +(NSString *)userType;
-+(NSString *)userAccountId;
 /**
  * Set the user that standardUserDefaults should use from now on.
  * This also saves the user in [TBUserDefaults userDefaultsForUnauthenticatedUser], with key = @"USER",
@@ -54,7 +53,6 @@
  */
 +(void)setUser:(NSString *)user;
 +(void)setUserType:(NSString *)userType;
-+(void)setUserAccountId:(NSString *)userAccountId;
 
 /**
  * Equivalent to [TBUserDefaults setUser:user]; [[TBUserDefaults userDefaultsForUnauthenticatedUser] synchronize].
