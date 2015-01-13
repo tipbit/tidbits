@@ -8,6 +8,7 @@
 
 #include <dns_util.h>
 #include <errno.h>
+#include <inttypes.h>
 #include <netdb.h>
 #include <resolv.h>
 
@@ -156,5 +157,23 @@ NSString* const kDNSQueryServiceFailureCode = @"DNSQueryServiceFailureCode";
 
 
 @implementation DNSQueryResult
+
+
+-(NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@ %@ %@ %" PRIu32 " %" PRIu16,
+            self.fullname, self.name, ns_type_to_string(self.rrtype), self.ttl, self.preference];
+}
+
+
+static NSString * ns_type_to_string(ns_type t) {
+    switch (t) {
+        case ns_t_mx:
+            return @"MX";
+
+        default:
+            return [NSString stringWithFormat:@"%d", t];
+    }
+}
+
 
 @end
