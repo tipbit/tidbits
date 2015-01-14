@@ -17,6 +17,7 @@
 -(bool)isNetworkError;
 -(bool)isNoSuchFile;
 
+-(bool)isHTTP400;
 -(bool)isHTTP401;
 -(bool)isHTTP403;
 -(bool)isHTTP404;

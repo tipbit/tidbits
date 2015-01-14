@@ -56,6 +56,10 @@
             ([self.domain isEqualToString:NSPOSIXErrorDomain] && self.code == ENOENT));
 }
 
+-(bool)isHTTP400 {
+    return [self isHTTP:400];
+}
+
 
 -(bool)isHTTP401 {
     return [self isHTTP:401];
