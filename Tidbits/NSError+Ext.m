@@ -86,6 +86,11 @@
 }
 
 
+-(bool)isHTTP50x {
+    return [self.domain isEqualToString:NSURLErrorDomain] && self.code >= 500 && self.code < 600;
+}
+
+
 -(bool)isHTTP:(NSInteger)code {
     return [self.domain isEqualToString:NSURLErrorDomain] && self.code == code;
 }
