@@ -196,34 +196,16 @@ static NSString* preferencesDir;
     return currentUserType;
 }
 
-+(void)setUser:(NSString *)user{
-    [self setUser_:user];
++(void)setUser:(NSString *)user {
+    [self setUser_:user synchronize:NO];
 }
 
-+(void)setUserType:(NSString *)type{
-    [self setUserType_:type synchronize:YES];
-}
-
-+(void)setUserAndSynchronize:(NSString *)user{
++(void)setUserAndSynchronize:(NSString *)user {
     [self setUser_:user synchronize:YES];
 }
 
-+(void)setUser_:(NSString *)user{
-    assert(![user isEqualToString:kUnauthenticatedUser]);
-    
-    currentUser = user;
-     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
-    [unauthDefaults setString:user forKey:kUser protection:NSFileProtectionNone];
-}
-
-+(void)setUserType_:(NSString *)type  synchronize:(BOOL)sync{
-    currentUserType = type;
-    TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
-    [unauthDefaults setString:type forKey:kUserType protection:NSFileProtectionNone];
-    
-    if (sync) {
-        [unauthDefaults synchronize];
-    }
++(void)setUserType:(NSString *)type {
+    [self setUserType_:type synchronize:YES];
 }
 
 +(void)setUser_:(NSString *)user synchronize:(BOOL)sync {
@@ -232,7 +214,19 @@ static NSString* preferencesDir;
     TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
 
     currentUser = user;
-    [unauthDefaults setString:user      forKey:kUser protection:NSFileProtectionNone];
+    [unauthDefaults setString:user forKey:kUser protection:NSFileProtectionNone];
+
+    if (sync) {
+        [unauthDefaults synchronize];
+    }
+}
+
+
++(void)setUserType_:(NSString *)type synchronize:(BOOL)sync {
+    TBUserDefaults* unauthDefaults = [TBUserDefaults userDefaultsForUnauthenticatedUser];
+
+    currentUserType = type;
+    [unauthDefaults setString:type forKey:kUserType protection:NSFileProtectionNone];
 
     if (sync) {
         [unauthDefaults synchronize];
