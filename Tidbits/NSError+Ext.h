@@ -23,6 +23,7 @@
 -(bool)isHTTP404;
 -(bool)isHTTP409;
 -(bool)isHTTP422;
+-(bool)isHTTP50x;
 
 -(bool)isURLErrorCancelled;
 
