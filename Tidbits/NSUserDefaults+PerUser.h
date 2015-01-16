@@ -17,7 +17,6 @@
 // are in lock screen mode doing a background
 // fetch.  We clear the cache on signout.
 -(NSString*)getTipbitUser;
--(NSString*)getTipbitUserType;
 
 -(void)clearTipbitUserAndSynchronize;
 
