@@ -204,6 +204,11 @@ static NSString* preferencesDir;
     [self setUser_:user synchronize:YES];
 }
 
++(void)setUserAndSynchronize:(NSString *)user type:(NSString *)type {
+    [self setUserType_:type synchronize:NO];
+    [self setUser_:user synchronize:YES];
+}
+
 +(void)setUserType:(NSString *)type {
     [self setUserType_:type synchronize:YES];
 }
