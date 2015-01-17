@@ -115,6 +115,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[subview]-0-|" options:0 metrics:nil views:@{@"subview": subview}]];
 }
 
+-(void)addFixedSubview:(UIView *)subview withPaddingTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right
+{
+    [self addSubview:subview];
+
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[subview]-%f-|", left,right] options:0 metrics:nil views:@{@"subview": subview}]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[subview]-%f-|", top,bottom] options:0 metrics:nil views:@{@"subview": subview}]];
+}
 
 -(void)addFixedSubview:(UIView *)subview x:(CGFloat)x y:(CGFloat)y w:(CGFloat)w h:(CGFloat)h {
     [self addSubview:subview];
