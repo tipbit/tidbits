@@ -11,6 +11,15 @@
 @interface NSInputStream (Misc)
 
 /**
+ * Equivalent to [NSInputStream inputStreamSafeWithFileAtPath:], but it
+ * first checks whether the file is a regular file.
+ *
+ * If you use [NSInputStream inputStreamSafeWithFileAtPath:] with a directory
+ * you get a stream that just reads \0 forever.  Which is bizarre.
+ */
++(instancetype)inputStreamSafeWithFileAtPath:(NSString *)path error:(NSError * __autoreleasing *)error;
+
+/**
  * @return 4 (the number of bytes read), 0 on EOF, or a negative number on failure.
  */
 -(NSInteger)readUint32:(uint32_t*)result;

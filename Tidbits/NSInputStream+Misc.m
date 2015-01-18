@@ -20,6 +20,29 @@
 @implementation NSInputStream (Misc)
 
 
++(instancetype)inputStreamSafeWithFileAtPath:(NSString *)path error:(NSError * __autoreleasing *)error {
+    NSFileManager * nsfm = [NSFileManager defaultManager];
+
+    BOOL dir;
+    BOOL ok = [nsfm fileExistsAtPath:path isDirectory:&dir];
+    if (!ok) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOENT userInfo:nil];
+        }
+        return nil;
+    }
+
+    if (dir) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EISDIR userInfo:nil];
+        }
+        return nil;
+    }
+
+    return [NSInputStream inputStreamWithFileAtPath:path];
+}
+
+
 -(NSInteger)readUint32:(uint32_t*)result {
     return readLen(self, (u_int8_t*)result, 4);
 }
