@@ -39,6 +39,7 @@
 
 
 static Breadcrumbs* instance = nil;
+static NSDictionary* customProps = nil;
 
 
 @implementation Breadcrumbs
@@ -49,6 +50,20 @@ static Breadcrumbs* instance = nil;
         return;
     }
     instance = [[Breadcrumbs alloc] init];
+    
+    // Populate dictionary of known custom properties
+    // Used in DEBUG to check event properties
+    // See Confluence for definition of custom properties
+    // https://light.tipbit.com/confluence/display/dev/iOS+in-app+tracking
+#if DEBUG
+    customProps = @{@"key"        : @true,
+                    @"value"      : @true,
+                    @"count"      : @true,
+                    @"uxType"     : @true,
+                    @"listType"   : @true,
+                    @"listFilter" : @true
+                    };
+#endif
 }
 
 
@@ -158,6 +173,14 @@ static Breadcrumbs* instance = nil;
     NSLog(@"%@ %@", tag, [[props description] stringByFoldingWhitespace]);
 
     NSObject<BreadcrumbsDelegate>* mydelegate = self.delegate;
+
+#if DEBUG
+    // Check that passed properties are in known custom property list
+    for(id prop in props) {
+        if (![customProps objectForKey:prop])
+            TBAssertRaise(@"Bad event property: %@", prop);
+    }
+#endif
     
     if ([mydelegate respondsToSelector:@selector(breadcrumbsTrack:with:)]) {
         [mydelegate breadcrumbsTrack:tag with:props];
