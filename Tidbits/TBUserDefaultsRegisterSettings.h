@@ -146,6 +146,10 @@ TBUSERDEFAULTS_REGISTER_FROM_NSNUMBER(__getter, __setter, BOOL, bool, Bool, __ke
 TBUSERDEFAULTS_REGISTER_FROM_NSNUMBER(__getter, __setter, BOOL, bool, Bool, @#__getter, __prot, __def)
 
 
+#define TBUSERDEFAULTS_REGISTER_NSDICTIONARY(__getter, __setter, __key, __prot)                                  \
+TBUSERDEFAULTS_REGISTER_OBJECT(__getter, __setter, NSDictionary, dictionary, Dictionary, __key, __prot)
+
+
 @interface TBUserDefaults (RegisterSettings)
 
 +(void)registerSetting:(NSString *)key type:(NSString *)type protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull(1,2)));
