@@ -153,5 +153,43 @@
     return [views firstObject];
 }
 
+-(void) addParallaxWithDefaultIntensity
+{
+    [self addParallaxWithIntensity:10.f];
+}
+
+-(void) addParallaxWithIntensity:(CGFloat)intensity
+{
+    [self removeAllMotionEffects];
+    // Set vertical effect
+    UIInterpolatingMotionEffect *verticalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.y"
+     type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    verticalMotionEffect.minimumRelativeValue = @(-intensity);
+    verticalMotionEffect.maximumRelativeValue = @(intensity);
+    
+    // Set horizontal effect
+    UIInterpolatingMotionEffect *horizontalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.x"
+     type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotionEffect.minimumRelativeValue = @(-intensity);
+    horizontalMotionEffect.maximumRelativeValue = @(intensity);
+    
+    // Create group to combine both
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+    
+    // Add both effects to your view
+    [self addMotionEffect:group];
+}
+
+-(void) removeAllMotionEffects
+{
+    for (UIMotionEffect* effect in self.motionEffects) {
+        [self removeMotionEffect:effect];
+    }
+}
 
 @end

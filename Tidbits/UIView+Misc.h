@@ -91,4 +91,24 @@
  */
 +(UIView *)viewFromNib:(NSString *)nibName forOwner:(id)owner;
 
+/**
+ * Use [view addParallaxWithDefaultIntensity]
+ * adds parallax motion to current view
+ * default intensity is 10
+ */
+-(void) addParallaxWithDefaultIntensity;
+
+/**
+ * Use [view addParallaxWithIntensity:value]
+ * adds parallax motion to current view
+ * specifying custom intensity
+ */
+-(void) addParallaxWithIntensity:(CGFloat)intensity;
+
+/** 
+ * Use [view removeAllMotionEffects]
+ * removes all motion parallax effects
+ */
+-(void) removeAllMotionEffects;
+
 @end
