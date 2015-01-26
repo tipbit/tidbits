@@ -135,7 +135,6 @@ static NSString *_localizedSelectTitle = @"Select";
     [rootViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:aViewController.backgroundView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
     [rootViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:aViewController.backgroundView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:rootViewController.view attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
     
-    [aViewController willMoveToParentViewController:rootViewController];
     [aViewController viewWillAppear:YES];
     
     [rootViewController addChildViewController:aViewController];
