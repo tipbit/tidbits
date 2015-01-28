@@ -7,7 +7,7 @@
 //
 
 #import "UIView+Misc.h"
-
+#import "FeatureMacros.h"
 
 @implementation UIView (Misc)
 
@@ -199,6 +199,15 @@
     for (UIMotionEffect* effect in self.motionEffects) {
         [self removeMotionEffect:effect];
     }
+}
+
++ (CGSize)screenSize
+{
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    if (!IS_IOS8_OR_GREATER && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        return CGSizeMake(screenSize.height, screenSize.width);
+    }
+    return screenSize;
 }
 
 @end

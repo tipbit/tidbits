@@ -120,4 +120,9 @@
  */
 -(void) removeAllMotionEffects;
 
+/**
+ *  Screen size accounting for ios7/8 differences for portrait/landscape.
+ */
++ (CGSize)screenSize;
+
 @end
