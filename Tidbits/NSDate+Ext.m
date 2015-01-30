@@ -47,14 +47,18 @@ static NSDate* _year2038 = nil;
 
 
 - (NSString *) dateAtTimeString {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"MMM d, yyyy 'at' h:mm a";
-    return [formatter stringFromDate:self];;
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    NSLocale * locale = [NSLocale autoupdatingCurrentLocale];
+    NSString * lang = [locale objectForKey:NSLocaleLanguageCode];
+    formatter.dateFormat = ([lang isEqualToString:@"en"] ? @"MMM d, yyyy 'at' h:mm a" :
+                                                          [NSDateFormatter dateFormatFromTemplate:@"yyyyMMMd jjm" options:0 locale:locale]);
+    return [formatter stringFromDate:self];
 }
 
 
 -(NSString*)userShortDateString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     formatter.dateStyle = NSDateFormatterShortStyle;
     return [formatter stringFromDate:self];
 }
@@ -62,6 +66,7 @@ static NSDate* _year2038 = nil;
 
 -(NSString*)userYearlessDateString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"M d" options:0 locale:NSLocale.currentLocale];
     return [formatter stringFromDate:self];
 }
@@ -74,6 +79,7 @@ static NSDate* _year2038 = nil;
 
 -(NSString*)userShortTimeString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     formatter.timeStyle = NSDateFormatterShortStyle;
     NSString* result = [formatter stringFromDate:self];
     return [result lowercaseString];
@@ -87,6 +93,7 @@ static NSDate* _year2038 = nil;
 
 -(NSString*)userYearlessOrShortDateAndTimeString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     if (self.isThisYear)
         formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"M d" options:0 locale:NSLocale.currentLocale];
     else
@@ -101,6 +108,7 @@ static NSDate* _year2038 = nil;
 
 -(NSString*)userShortDateAndTimeString {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     formatter.dateStyle = NSDateFormatterShortStyle;
     NSString* date = [formatter stringFromDate:self];
     formatter.dateStyle = NSDateFormatterNoStyle;
@@ -118,12 +126,21 @@ static NSDate* _year2038 = nil;
 
 
 -(NSString *)userShortTimeDayOrDateString {
-    if ([self isToday])
+    if (self.isToday) {
         return [self userShortTimeString];
-    if ([self isYesterday])
-        return @"Yesterday";
-    if ([self isDayBefore])
-        return [self dayOfWeek];
+    }
+
+    if (self.isYesterday) {
+        NSLocale * locale = [NSLocale autoupdatingCurrentLocale];
+        NSString * lang = [locale objectForKey:NSLocaleLanguageCode];
+        if ([lang isEqualToString:@"en"]) {
+            return NSLocalizedString(@"Yesterday", nil);
+        }
+    }
+
+    if (self.isDayBefore) {
+        return self.dayOfWeek;
+    }
     return [self userYearlessOrShortDateString];
 }
 
@@ -304,6 +321,7 @@ static NSInteger cachedThisYear = 0;
 
 -(NSString*) dayOfWeek {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale autoupdatingCurrentLocale];
     formatter.dateFormat = @"EEEE";
     return [formatter stringFromDate:self];
 }
