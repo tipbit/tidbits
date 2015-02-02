@@ -50,6 +50,7 @@ typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
 typedef void (^UIImageBlock)(UIImage * image);
 #endif
 typedef void (^VoidBlock)(void);
+typedef void (^UIButtonBlock)(UIButton *button);
 
 typedef bool (^GetBoolBlock)();
 typedef id (^GetIdBlock)();
