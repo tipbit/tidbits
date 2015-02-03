@@ -16,6 +16,43 @@
 @implementation NSString (Misc)
 
 
+-(NSArray *)componentsSeparatedByString:(NSString *)separator limit:(NSUInteger)limit {
+    if (limit == 0) {
+        return [self componentsSeparatedByString:separator];
+    }
+
+    NSUInteger len = self.length;
+
+    if (len == 0) {
+        return @[];
+    }
+
+    NSUInteger sepLen = separator.length;
+    NSUInteger pos = 0;
+    NSUInteger count = 0;
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:limit];
+    while (pos <= len) {
+        count++;
+        if (count == limit) {
+            [result addObject:[self substringFromIndex:pos]];
+            return result;
+        }
+        NSRange range = [self rangeOfString:separator options:(NSStringCompareOptions)0 range:NSMakeRange(pos, len - pos)];
+        NSUInteger sepPos = range.location;
+        if (sepPos == NSNotFound) {
+            [result addObject:[self substringFromIndex:pos]];
+            return result;
+        }
+        else {
+            [result addObject:[self substringWithRange:NSMakeRange(pos, sepPos - pos)]];
+            pos = sepPos + sepLen;
+        }
+    }
+
+    return result;
+}
+
+
 -(bool)contains:(NSString *)substring {
     return [self rangeOfString:substring].location != NSNotFound;
 }

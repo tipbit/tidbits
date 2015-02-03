@@ -10,6 +10,8 @@
 
 @interface NSString (Misc)
 
+-(NSArray *)componentsSeparatedByString:(NSString *)separator limit:(NSUInteger)limit;
+
 -(bool) contains:(NSString*)substring;
 
 -(bool) containsCaseInsensitive:(NSString*)substring;

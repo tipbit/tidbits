@@ -20,6 +20,66 @@
 @implementation NSString_MiscTests
 
 
+-(void)testcomponentsSeparatedByStringLimitEmpty {
+    XCTAssertEqualObjects(@[], [@"" componentsSeparatedByString:@"," limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitOnlyCommas5 {
+    XCTAssertEqualObjects((@[@"", @"", @"", @"", @""]), [@",,,," componentsSeparatedByString:@"," limit:5]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitOnlyCommas2of5 {
+    XCTAssertEqualObjects((@[@"", @",,,"]), [@",,,," componentsSeparatedByString:@"," limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitWordsCommas1of2 {
+    XCTAssertEqualObjects((@[@"Peter,Piper"]), [@"Peter,Piper" componentsSeparatedByString:@"," limit:1]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitWordsCommas2of2 {
+    XCTAssertEqualObjects((@[@"Peter", @"Piper"]), [@"Peter,Piper" componentsSeparatedByString:@"," limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitWordsCommas2of3 {
+    XCTAssertEqualObjects((@[@"Peter", @"Piper,Parker"]), [@"Peter,Piper,Parker" componentsSeparatedByString:@"," limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitWordsCommas4of3 {
+    XCTAssertEqualObjects((@[@"Peter", @"Piper", @"Parker"]), [@"Peter,Piper,Parker" componentsSeparatedByString:@"," limit:4]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitCat1of2 {
+    XCTAssertEqualObjects((@[@"DogCatHog"]), [@"DogCatHog" componentsSeparatedByString:@"," limit:1]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitCat2of2 {
+    XCTAssertEqualObjects((@[@"Dog", @"Hog"]), [@"DogCatHog" componentsSeparatedByString:@"Cat" limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitCat2of3 {
+    XCTAssertEqualObjects((@[@"Dog", @"HogCatLog"]), [@"DogCatHogCatLog" componentsSeparatedByString:@"Cat" limit:2]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitCat4of3 {
+    XCTAssertEqualObjects((@[@"Dog", @"Hog", @"Log"]), [@"DogCatHogCatLog" componentsSeparatedByString:@"Cat" limit:4]);
+}
+
+
+-(void)testcomponentsSeparatedByStringLimitCatTrailing4of4 {
+    XCTAssertEqualObjects((@[@"Dog", @"Hog", @"Log", @""]), [@"DogCatHogCatLogCat" componentsSeparatedByString:@"Cat" limit:4]);
+}
+
+
 - (void)testIsEarlierVersionThan {
     XCTAssert([@"1.0" isEarlierVersionThan:@"1.1"]);
     XCTAssert([@"1.0" isEarlierVersionThan:@"2.0"]);
