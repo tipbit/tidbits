@@ -125,4 +125,9 @@
  */
 + (CGSize)screenSize;
 
+//Allows us to use interface builder to set these properties.
+//We are not adding property variables here, instead we are modifying existing layer properties.
+@property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
+@property (nonatomic, assign) IBInspectable CGFloat borderWidth;
+@property (nonatomic, strong) IBInspectable UIColor *borderColor;
 @end
