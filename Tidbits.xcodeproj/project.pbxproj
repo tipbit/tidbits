@@ -78,6 +78,8 @@
 		405F4931186B724100E9B072 /* BackgroundTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 405F4930186B724100E9B072 /* BackgroundTaskHandler.m */; };
 		40612673177625420085CEED /* StreamPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 40612672177625420085CEED /* StreamPair.m */; };
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
+		406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */ = {isa = PBXBuildFile; fileRef = 406133201A80B20B0076F37F /* NSURL+Mailto.m */; };
+		406133251A80B2D70076F37F /* NSURL+MailtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406133241A80B2D70076F37F /* NSURL+MailtoTests.m */; };
 		406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 406212E7199E98EF0083BB3C /* FileCompressor.m */; };
 		406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FA38D1805A5B700C408CE /* NSArray+MapTests.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
@@ -593,6 +595,9 @@
 		4060654D1906C2A10060F594 /* TBUserDefaultsRegisterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBUserDefaultsRegisterSettings.h; sourceTree = "<group>"; };
 		40612671177625420085CEED /* StreamPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPair.h; sourceTree = "<group>"; };
 		40612672177625420085CEED /* StreamPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPair.m; sourceTree = "<group>"; };
+		4061331F1A80B20B0076F37F /* NSURL+Mailto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Mailto.h"; sourceTree = "<group>"; };
+		406133201A80B20B0076F37F /* NSURL+Mailto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Mailto.m"; sourceTree = "<group>"; };
+		406133241A80B2D70076F37F /* NSURL+MailtoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+MailtoTests.m"; sourceTree = "<group>"; };
 		406212E6199E98EF0083BB3C /* FileCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCompressor.h; sourceTree = "<group>"; };
 		406212E7199E98EF0083BB3C /* FileCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCompressor.m; sourceTree = "<group>"; };
 		406FA38D1805A5B700C408CE /* NSArray+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MapTests.m"; sourceTree = "<group>"; };
@@ -1019,6 +1024,8 @@
 				407100D117FFA4FD006F4115 /* NSString+StripHTML.m */,
 				405EE41D19ADAD660062DAE7 /* NSThread+Misc.h */,
 				405EE41E19ADAD660062DAE7 /* NSThread+Misc.m */,
+				4061331F1A80B20B0076F37F /* NSURL+Mailto.h */,
+				406133201A80B20B0076F37F /* NSURL+Mailto.m */,
 				408E898D176A47D4001B61E6 /* NSUserDefaults+Default.h */,
 				408E898E176A47D4001B61E6 /* NSUserDefaults+Default.m */,
 				404565F418985E62009C2A11 /* NSUserDefaults+Misc.h */,
@@ -1093,6 +1100,7 @@
 				402E776918A61E94007176E2 /* NSSet+MiscTests.m */,
 				4006C68518121345007DBC6D /* NSString+MiscTests.m */,
 				405EE42219ADB1080062DAE7 /* NSThread+MiscTests.m */,
+				406133241A80B2D70076F37F /* NSURL+MailtoTests.m */,
 				402E776618A614A6007176E2 /* NSUUID+MiscTests.m */,
 				40C2C4451829904000205EBB /* SRVResolverTests.m */,
 				408D9C6F1A1857E0003C5ABC /* UTITests.m */,
@@ -1570,6 +1578,7 @@
 				40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
+				406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
 				181BC4D91902069300D53080 /* UIView+Misc.m in Sources */,
@@ -1634,6 +1643,7 @@
 			files = (
 				402E777818A740A3007176E2 /* GTMNSString+XMLTests.m in Sources */,
 				40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */,
+				406133251A80B2D70076F37F /* NSURL+MailtoTests.m in Sources */,
 				40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */,
