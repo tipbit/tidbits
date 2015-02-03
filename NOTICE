@@ -60,5 +60,12 @@ Code in the MTJSONUtils subdirectory is from MTJSONUtils,
 https://github.com/mysterioustrousers/MTJSONUtils, Copyright (c) 2012,
 Mysterious Trousers and MIT licensed. See MTJSONUtils/LICENSE for details.
 
+
 FileCompressor.m is loosely based upon CompressingLogFileManager.m from
 CocoaLumberjack, Copyright (c) 2010, Deusty, LLC and BSD licensed.
+
+
+Code in the Punycode-Cocoa subdirectory is from Punycode Cocoa,
+https://github.com/Wevah/Punycode-Cocoa, Copyright (c) 2005-2013,
+Nate Weaver (Wevah)/Derailer, and MIT licensed. See Punycode-Cocoa/LICENSE
+for details.

@@ -80,6 +80,10 @@
 		40612674177634200085CEED /* StreamPair.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40612671177625420085CEED /* StreamPair.h */; };
 		406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */ = {isa = PBXBuildFile; fileRef = 406133201A80B20B0076F37F /* NSURL+Mailto.m */; };
 		406133251A80B2D70076F37F /* NSURL+MailtoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406133241A80B2D70076F37F /* NSURL+MailtoTests.m */; };
+		4061332B1A814AC70076F37F /* NSStringPunycodeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4061332A1A814AC70076F37F /* NSStringPunycodeAdditions.m */; };
+		4061332F1A814B560076F37F /* PunycodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4061332D1A814B080076F37F /* PunycodeTests.m */; };
+		406133301A814B5B0076F37F /* NSStringPunycodeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4061332A1A814AC70076F37F /* NSStringPunycodeAdditions.m */; };
+		406133311A814B600076F37F /* NSStringPunycodeAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 406133291A814AC70076F37F /* NSStringPunycodeAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 406212E7199E98EF0083BB3C /* FileCompressor.m */; };
 		406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FA38D1805A5B700C408CE /* NSArray+MapTests.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
@@ -598,6 +602,9 @@
 		4061331F1A80B20B0076F37F /* NSURL+Mailto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Mailto.h"; sourceTree = "<group>"; };
 		406133201A80B20B0076F37F /* NSURL+Mailto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Mailto.m"; sourceTree = "<group>"; };
 		406133241A80B2D70076F37F /* NSURL+MailtoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+MailtoTests.m"; sourceTree = "<group>"; };
+		406133291A814AC70076F37F /* NSStringPunycodeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringPunycodeAdditions.h; sourceTree = "<group>"; };
+		4061332A1A814AC70076F37F /* NSStringPunycodeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringPunycodeAdditions.m; sourceTree = "<group>"; };
+		4061332D1A814B080076F37F /* PunycodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PunycodeTests.m; sourceTree = "<group>"; };
 		406212E6199E98EF0083BB3C /* FileCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCompressor.h; sourceTree = "<group>"; };
 		406212E7199E98EF0083BB3C /* FileCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCompressor.m; sourceTree = "<group>"; };
 		406FA38D1805A5B700C408CE /* NSArray+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MapTests.m"; sourceTree = "<group>"; };
@@ -857,6 +864,24 @@
 			path = TidbitsTestBase;
 			sourceTree = "<group>";
 		};
+		406133281A814A880076F37F /* Punycode-Cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				4061332C1A814AED0076F37F /* PunycodeTests */,
+				406133291A814AC70076F37F /* NSStringPunycodeAdditions.h */,
+				4061332A1A814AC70076F37F /* NSStringPunycodeAdditions.m */,
+			);
+			path = "Punycode-Cocoa";
+			sourceTree = "<group>";
+		};
+		4061332C1A814AED0076F37F /* PunycodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4061332D1A814B080076F37F /* PunycodeTests.m */,
+			);
+			path = PunycodeTests;
+			sourceTree = "<group>";
+		};
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +889,7 @@
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
 				40F6506D191772BB00142318 /* MTJSONUtils */,
+				406133281A814A880076F37F /* Punycode-Cocoa */,
 				40C2A2F0177A56E0003276AB /* SRVResolver */,
 				408E885D1768DEF6001B61E6 /* Tidbits */,
 				4047B49E1805B3F10032BBA5 /* TidbitsTestBase */,
@@ -1241,6 +1267,7 @@
 				40E48BC0198B331E0015C54E /* Enumerate.h in Headers */,
 				40E48BC1198B331E0015C54E /* FeatureMacros.h in Headers */,
 				40E48BC2198B331E0015C54E /* FileUtils.h in Headers */,
+				406133311A814B600076F37F /* NSStringPunycodeAdditions.h in Headers */,
 				40E48BC3198B331E0015C54E /* IdleState.h in Headers */,
 				40E48BC4198B331E0015C54E /* InlineTiming.h in Headers */,
 				40E48BC5198B331E0015C54E /* LimitedInputStream.h in Headers */,
@@ -1581,6 +1608,7 @@
 				406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
+				4061332B1A814AC70076F37F /* NSStringPunycodeAdditions.m in Sources */,
 				181BC4D91902069300D53080 /* UIView+Misc.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
@@ -1654,6 +1682,7 @@
 				405EE42319ADB1080062DAE7 /* NSThread+MiscTests.m in Sources */,
 				40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */,
 				402E786118B0A2F8007176E2 /* NSMutableArray+ExtTests.m in Sources */,
+				4061332F1A814B560076F37F /* PunycodeTests.m in Sources */,
 				406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */,
 				402C04471875CDE5009D105B /* NSDate+ISO8601Tests.m in Sources */,
 				402E777418A70560007176E2 /* GTMNSString+HTMLTests.m in Sources */,
@@ -1702,6 +1731,7 @@
 				40E48B56198B266E0015C54E /* NSArray+Misc.m in Sources */,
 				40E48B57198B266E0015C54E /* NSBundle+Versions.m in Sources */,
 				40E48B58198B266E0015C54E /* NSData+Base64.m in Sources */,
+				406133301A814B5B0076F37F /* NSStringPunycodeAdditions.m in Sources */,
 				40E48B59198B266E0015C54E /* NSData+Ext.m in Sources */,
 				40E48B5A198B266E0015C54E /* NSData+MD5.m in Sources */,
 				40E48B5B198B266E0015C54E /* NSData+NSInputStream.m in Sources */,
