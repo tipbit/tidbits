@@ -14,7 +14,7 @@
 @interface NSURL (Mailto)
 
 /**
- * @param resultTo Will be filled with an NSString array, the specified To: addresses.  These have been decoded appropriately.  May be NULL.
+ * @param resultTo Will be filled with an NSString array, the specified To: addresses.  These have been decoded appropriately (percent and UTF-8) and encoded appropriately (Punycode).  May be NULL.
  * May be filled with nil.
  * @param subject Will be filled with the specified subject, if any.  This has been decoded using percent and UTF-8 decoding, but has
  * not been decoded using RFC 2047 (MIME encoded words).  The caller is responsible for RFC 2047 decoding / transcoding.  May be NULL.  May be filled with nil.

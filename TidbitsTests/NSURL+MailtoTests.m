@@ -296,17 +296,13 @@
 }
 
 
-/**
- * The RFC example shows the result in Punycode once it's been encoded for mail transmission.
- * We're not concerned with that here, so we see the Unicode.
- */
 -(void)testParseMailtoRFC6068Japanese {
     NSURL * input = [NSURL URLWithString:@"mailto:user@%E7%B4%8D%E8%B1%86.example.org?subject=Test&body=NATTO"];
     NSArray * to;
     NSString * subject;
     NSString * body;
     [input parseMailtoReturningTo:&to subject:&subject body:&body];
-    XCTAssertEqualObjects(@[@"user@納豆.example.org"], to);
+    XCTAssertEqualObjects(@[@"user@xn--99zt52a.example.org"], to);
     XCTAssertEqualStrings(@"Test", subject);
     XCTAssertEqualStrings(@"NATTO", body);
 }

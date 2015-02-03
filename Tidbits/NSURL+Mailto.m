@@ -8,6 +8,7 @@
 
 #import "GTMNSDictionary+URLArguments.h"
 #import "NSArray+Map.h"
+#import "NSStringPunycodeAdditions.h"
 
 #import "NSURL+Mailto.h"
 
@@ -25,7 +26,7 @@
     NSArray * to = to_bit.length > 0 ? [to_bit componentsSeparatedByString:@","] : nil;
     to = [to map:^id(id obj) {
         NSString * addr = obj;
-        return [addr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        return [[addr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] punycodeEncodedString];
     }];
 
     NSDictionary * hfields = rs_bits.count > 1 ? [NSDictionary gtm_dictionaryWithHttpArgumentsString:rs_bits[1]] : nil;
