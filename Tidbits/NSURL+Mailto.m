@@ -25,8 +25,7 @@
     NSString * to_bit = rs_bits[0];
     NSArray * to = to_bit.length > 0 ? [to_bit componentsSeparatedByString:@","] : nil;
     to = [to map:^id(id obj) {
-        NSString * addr = obj;
-        return [[addr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] punycodeEncodedString];
+        return decodeEncodeAddress(obj);
     }];
 
     NSDictionary * hfields = rs_bits.count > 1 ? [NSDictionary gtm_dictionaryWithHttpArgumentsString:rs_bits[1]] : nil;
@@ -40,6 +39,19 @@
     if (resultBody != NULL) {
         *resultBody = hfields[@"body"];
     }
+}
+
+
+static NSString * decodeEncodeAddress(NSString * addr) {
+    NSArray * addrBits = [addr componentsSeparatedByString:@"@"];
+    if (addrBits.count != 2) {
+        return addr;
+    }
+    NSString * utf8Name = [addrBits[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * utf8Domain = [addrBits[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * punyName = [utf8Name IDNAEncodedString];
+    NSString * punyDomain = [utf8Domain IDNAEncodedString];
+    return [NSString stringWithFormat:@"%@@%@", punyName, punyDomain];
 }
 
 
