@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Dispatch.h"
+#import "StandardBlocks.h"
+
 
 @interface BlockWithResultOperation : NSInvocationOperation
 
--(instancetype)initWithBlock:(dispatch_block_with_result_t)blk __attribute__((nonnull));
+-(instancetype)initWithBlock:(GetIdBlock)blk __attribute__((nonnull));
 
 @end

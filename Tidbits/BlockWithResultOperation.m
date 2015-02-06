@@ -11,7 +11,7 @@
 
 @interface BlockWithResultOperationHelper : NSObject
 
-@property (nonatomic, copy) dispatch_block_with_result_t block;
+@property (nonatomic, copy) GetIdBlock block;
 
 -(id)invokeBlock;
 
@@ -35,7 +35,7 @@
 @implementation BlockWithResultOperation
 
 
--(instancetype)initWithBlock:(dispatch_block_with_result_t)blk {
+-(instancetype)initWithBlock:(GetIdBlock)blk {
     NSParameterAssert(blk);
 
     // initWithTarget creates an NSInvocation instance that retains its arguments, and puts that in self.invocation.

@@ -49,7 +49,7 @@ static void durationWarning(const char* func, int line, NSTimeInterval duration,
 #endif
 
 
-void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) {
+void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS VoidBlock block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     if ([NSThread isMainThread]) {
@@ -67,7 +67,7 @@ void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) 
 }
 
 
-id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_with_result_t block) {
+id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS GetIdBlock block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     if ([NSThread isMainThread]) {
@@ -87,7 +87,7 @@ id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS dispatch_block_w
 }
 
 
-void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block) {
+void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS VoidBlock block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -99,7 +99,7 @@ void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS dispatch_block_t block)
 
 #define DISPATCH_MSEC_FROM_NOW(__ms) (dispatch_time(DISPATCH_TIME_NOW, ((int64_t)__ms) * NSEC_PER_MSEC))
 
-void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec, dispatch_block_t block) {
+void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec, VoidBlock block) {
     DURATION_WARNING_GET_SYMBOLS;
 
     dispatch_after(DISPATCH_MSEC_FROM_NOW(delay_msec), dispatch_get_main_queue(), ^{
@@ -109,14 +109,14 @@ void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec
     });
 }
 
-void dispatchAsyncBackgroundThreadWithDelay(int delay_msec, dispatch_queue_priority_t prio, dispatch_block_t block) {
+void dispatchAsyncBackgroundThreadWithDelay(int delay_msec, dispatch_queue_priority_t prio, VoidBlock block) {
 
     dispatch_after(DISPATCH_MSEC_FROM_NOW(delay_msec), dispatch_get_global_queue(prio, 0), ^{
         block();
     });
 }
 
-void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, dispatch_block_t block) {
+void dispatchAsyncBackgroundThread(dispatch_queue_priority_t prio, VoidBlock block) {
     dispatch_async(dispatch_get_global_queue(prio, 0), ^{
         block();
     });
