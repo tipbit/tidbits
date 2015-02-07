@@ -20,6 +20,17 @@
 
 void dispatchSyncMainThread(DURATION_WARNING_EXTRA_ARGS VoidBlock block);
 void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS VoidBlock block);
+
+/**
+ * If block is NULL, do nothing.  Otherwise, call dispatchAsyncMainThread(block).
+ */
+void dispatchAsyncMainThreadIfSet(DURATION_WARNING_EXTRA_ARGS VoidBlock block);
+
+/**
+ * If block is NULL, do nothing.  Otherwise, call dispatchAsyncMainThread(^{ block(error); }).
+ */
+void dispatchAsyncMainThreadOnFailure(DURATION_WARNING_EXTRA_ARGS NSErrorBlock block, NSError * error);
+
 void dispatchAsyncMainThreadWithDelay(DURATION_WARNING_EXTRA_ARGS int delay_msec, VoidBlock block);
 
 id dispatchSyncMainThreadWithResult(DURATION_WARNING_EXTRA_ARGS GetIdBlock block);
@@ -30,6 +41,8 @@ void dispatchAsyncBackgroundThreadWithDelay(int delay_msec, dispatch_queue_prior
 #if DURATION_WARNING_ENABLED
 #define dispatchSyncMainThread(...) dispatchSyncMainThread(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
 #define dispatchAsyncMainThread(...) dispatchAsyncMainThread(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
+#define dispatchAsyncMainThreadIfSet(...) dispatchAsyncMainThreadIfSet(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
+#define dispatchAsyncMainThreadOnFailure(...) dispatchAsyncMainThreadOnFailure(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
 #define dispatchAsyncMainThreadWithDelay(__delay, ...) dispatchAsyncMainThreadWithDelay(__PRETTY_FUNCTION__, __LINE__, (int)__delay, ## __VA_ARGS__)
 #define dispatchSyncMainThreadWithResult(...) dispatchSyncMainThreadWithResult(__PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__)
 #endif

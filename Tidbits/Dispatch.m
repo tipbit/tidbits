@@ -19,6 +19,8 @@
 
 #undef dispatchSyncMainThread
 #undef dispatchAsyncMainThread
+#undef dispatchAsyncMainThreadIfSet
+#undef dispatchAsyncMainThreadOnFailure
 #undef dispatchAsyncMainThreadWithDelay
 #undef dispatchSyncMainThreadWithResult
 
@@ -35,6 +37,8 @@
             durationWarning(func, line, duration, symbols); \
     } while (false)
 
+#define DURATION_WARNING_PASS_ARGS func, line,
+
 // This is a separate function from the macro above so that you can stick a breakpoint here.
 static void durationWarning(const char* func, int line, NSTimeInterval duration, NSArray* symbols) {
     DLog(@"Operation on main thread took %0.6lf secs.  Call-site: %s:%d.  Call-stack: %@", duration, func, line, symbols);
@@ -45,6 +49,7 @@ static void durationWarning(const char* func, int line, NSTimeInterval duration,
 #define DURATION_WARNING_GET_SYMBOLS
 #define DURATION_WARNING_START
 #define DURATION_WARNING_END
+#define DURATION_WARNING_PASS_ARGS
 
 #endif
 
@@ -96,6 +101,23 @@ void dispatchAsyncMainThread(DURATION_WARNING_EXTRA_ARGS VoidBlock block) {
         DURATION_WARNING_END;
     });
 }
+
+
+void dispatchAsyncMainThreadIfSet(DURATION_WARNING_EXTRA_ARGS VoidBlock block) {
+    if (block != NULL) {
+        dispatchAsyncMainThread(DURATION_WARNING_PASS_ARGS block);
+    }
+}
+
+
+void dispatchAsyncMainThreadOnFailure(DURATION_WARNING_EXTRA_ARGS NSErrorBlock block, NSError * error) {
+    if (block != NULL) {
+        dispatchAsyncMainThread(DURATION_WARNING_PASS_ARGS ^{
+            block(error);
+        });
+    }
+}
+
 
 #define DISPATCH_MSEC_FROM_NOW(__ms) (dispatch_time(DISPATCH_TIME_NOW, ((int64_t)__ms) * NSEC_PER_MSEC))
 
