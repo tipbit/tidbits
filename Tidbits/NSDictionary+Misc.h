@@ -11,6 +11,7 @@
 @interface NSDictionary (Misc)
 
 -(bool) boolForKey:(id)key withDefault:(bool)def;
+-(double)doubleForKey:(id)key withDefault:(double)def;
 -(id) objectForKey:(id)key withDefault:(id)def;
 -(NSInteger)intForKey:(id)key withDefault:(NSInteger)def;
 -(NSUInteger)uintForKey:(id)key withDefault:(NSUInteger)def;

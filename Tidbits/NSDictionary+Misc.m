@@ -19,6 +19,12 @@
 }
 
 
+-(double)doubleForKey:(id)key withDefault:(double)def {
+    id result = [self objectForKey:key];
+    return [result respondsToSelector:@selector(doubleValue)] ? [result doubleValue] : def;
+}
+
+
 -(id) objectForKey:(id)key withDefault:(id)def {
     id result = [self objectForKey:key];
     return result ? result : def;
