@@ -16,6 +16,8 @@
 +(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects;
 +(instancetype)arrayWithEnumeration:(id<NSFastEnumeration>)objects mapper:(id_to_id_t)mapper;
 
+-(NSArray *)arrayByRemovingObjectsInArray:(NSArray *)otherArray;
+
 -(NSDictionary*)dictAtIndex:(NSUInteger)index;
 
 -(id)objectAtIndex:(NSUInteger)index withDefault:(id)def;

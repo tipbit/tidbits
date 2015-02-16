@@ -24,6 +24,13 @@
 }
 
 
+-(NSArray *)arrayByRemovingObjectsInArray:(NSArray *)otherArray {
+    NSMutableArray * result = [self mutableCopy];
+    [result removeObjectsInArray:otherArray];
+    return result;
+}
+
+
 -(NSDictionary*)dictAtIndex:(NSUInteger)index {
     id result = [self objectAtIndex:index withDefault:nil];
     return [result isKindOfClass:[NSDictionary class]] ? result : nil;
