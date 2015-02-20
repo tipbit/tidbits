@@ -58,6 +58,16 @@
 -(NSMutableDictionary*)dictionaryWithKeysAndMappedValues:(id_to_id_t)mapper;
 
 /**
+ * Create a new NSMutableDictionary with the contents set to keyMapper(k) -> valueMapper(k) for each k in self.
+ *
+ * @param keyMapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be smaller than self).
+ * @param valueMapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be smaller than self).
+ */
+-(NSMutableDictionary *)dictionaryWithMappedKeysAndMappedValues:(id_to_id_t)keyMapper valueMapper:(id_to_id_t)valueMapper;
+
+/**
  * Create a new NSMutableDictionary with the contents set to k -> @[v1, ..., vn], where k = mapper(v) for each v in self.
  * @[v1, ..., vn] here denotes an NSMutableArray with all values in self that are mapped to that particular key.
  *

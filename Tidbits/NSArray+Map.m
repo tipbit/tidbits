@@ -83,6 +83,23 @@
 }
 
 
+-(NSMutableDictionary *)dictionaryWithMappedKeysAndMappedValues:(id_to_id_t)keyMapper valueMapper:(id_to_id_t)valueMapper {
+    NSMutableDictionary * result = [NSMutableDictionary dictionaryWithCapacity:self.count];
+    for (id key in self) {
+        id mapped_key = keyMapper(key);
+        if (mapped_key == nil) {
+            continue;
+        }
+        id mapped_val = valueMapper(key);
+        if (mapped_val == nil) {
+            continue;
+        }
+        result[mapped_key] = mapped_val;
+    }
+    return result;
+}
+
+
 -(NSMutableDictionary *)dictionaryWithValuesAndMappedKeys:(id_to_id_t)mapper {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     for (id val in self) {

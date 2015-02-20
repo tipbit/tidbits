@@ -143,6 +143,56 @@
 }
 
 
+-(void)testDictionaryWithMappedKeysAndMappedValues {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{@10: @100, @40: @400};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+        int k = [obj intValue];
+        return k == 3 ? nil : @(10 * k);
+    } valueMapper:^id(id obj) {
+        int v = [obj intValue];
+        return v == 2 ? nil : @(100 * v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesEmpty {
+    NSArray * input = @[];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+        return obj;
+    } valueMapper:^id(id obj) {
+        return obj;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilKey {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+        return nil;
+    } valueMapper:^id(id obj) {
+        return obj;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilValue {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+        return obj;
+    } valueMapper:^id(id obj) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 -(void)testMapAsyncDispatch {
     NSArray* input = @[@1, @2, @3, @4];
     NSArray* expected = @[@1, @4, @16];
