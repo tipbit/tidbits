@@ -7,6 +7,7 @@
 //
 
 #import "LogFormatter.h"
+#import "LoggingMacros.h"
 
 #import "TBTestCaseBase.h"
 
@@ -23,12 +24,15 @@
 
 
 -(void)setUp {
+    NSLog(@"%@", self);
+
     [super setUp];
     self.continueAfterFailure = NO;
 }
 
 
 -(void)tearDown {
+    NSLog(@"%@", self);
     [DDLog flushLog];
     [super tearDown];
 }
