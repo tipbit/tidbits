@@ -139,7 +139,7 @@
 #define _XCTRegisterFailure(test, condition, ...) \
 ({ \
     NSString * s = [NSString stringWithFormat:@"" __VA_ARGS__]; \
-    NSLogError(@"%@ - %@", condition, s); \
+    NSLogError(@"%@ %@ - %@", self, condition, s); \
     _XCTFailureHandler(test, YES, __FILE__, __LINE__, condition, @"" __VA_ARGS__); \
 })
 
