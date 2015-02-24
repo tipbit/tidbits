@@ -132,6 +132,18 @@
 #endif
 
 
+/**
+ * Redefine _XCTRegisterFailure so that we can log to Lumberjack.
+ */
+#undef _XCTRegisterFailure
+#define _XCTRegisterFailure(test, condition, ...) \
+({ \
+    NSString * s = [NSString stringWithFormat:@"" __VA_ARGS__]; \
+    NSLogError(@"%@ - %@", condition, s); \
+    _XCTFailureHandler(test, YES, __FILE__, __LINE__, condition, @"" __VA_ARGS__); \
+})
+
+
 @interface TBTestCaseBase : XCTestCase
 
 
