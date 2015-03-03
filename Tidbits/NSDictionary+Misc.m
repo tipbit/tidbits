@@ -67,4 +67,20 @@
 }
 
 
+-(id<NSCopying>)anyKey {
+    for (id<NSCopying> key in self) {
+        return key;
+    }
+    return nil;
+}
+
+
+-(id)anyValue {
+    for (id<NSCopying> key in self) {
+        return self[key];
+    }
+    return nil;
+}
+
+
 @end

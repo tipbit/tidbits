@@ -10,6 +10,18 @@
 
 @interface NSDictionary (Misc)
 
+/**
+ * @return One of the keys in this dictionary, or nil if it contains no entries.
+ * The key returned is chosen at the dictionary's convenience —- the selection is not guaranteed to be random.
+ */
+@property (nonatomic, readonly) id<NSCopying> anyKey;
+
+/**
+ * @return One of the values in this dictionary, or nil if it contains no entries.
+ * The value returned is chosen at the dictionary's convenience —- the selection is not guaranteed to be random.
+ */
+@property (nonatomic, readonly) id anyValue;
+
 -(bool) boolForKey:(id)key withDefault:(bool)def;
 -(double)doubleForKey:(id)key withDefault:(double)def;
 -(id) objectForKey:(id)key withDefault:(id)def;
