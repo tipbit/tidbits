@@ -97,6 +97,7 @@
 		407100E318007881006F4115 /* NSUUID+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100DF180076A1006F4115 /* NSUUID+Misc.h */; };
 		4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */; };
 		4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */; };
+		407ADD461AAA297000BBE477 /* TBTestHelpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4006C52A18559C6200B2F22A /* TBTestHelpers.h */; };
 		408D9C701A1857E0003C5ABC /* UTITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 408D9C6F1A1857E0003C5ABC /* UTITests.m */; };
 		408D9C741A185970003C5ABC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D9C731A185970003C5ABC /* MobileCoreServices.framework */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
@@ -333,6 +334,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		407ADD491AAA298200BBE477 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408E88571768DEF6001B61E6;
+			remoteInfo = Tidbits;
+		};
 		408E886F1768DEF7001B61E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
@@ -419,6 +427,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				407ADD461AAA297000BBE477 /* TBTestHelpers.h in CopyFiles */,
 				401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1360,6 +1369,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				407ADD4A1AAA298200BBE477 /* PBXTargetDependency */,
 			);
 			name = TidbitsTestBase;
 			productName = TidbitsTestBase;
@@ -1771,6 +1781,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		407ADD4A1AAA298200BBE477 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 408E88571768DEF6001B61E6 /* Tidbits */;
+			targetProxy = 407ADD491AAA298200BBE477 /* PBXContainerItemProxy */;
+		};
 		408E88701768DEF7001B61E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 408E88571768DEF6001B61E6 /* Tidbits */;
