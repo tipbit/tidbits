@@ -58,7 +58,42 @@ NSString* utiMIMEToExtension(NSString* mime) {
 }
 
 
+NSString * utiToMIME(NSString * uti) {
+    CFStringRef uti_ref = (__bridge CFStringRef)uti;
+    return (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass(uti_ref, kUTTagClassMIMEType);
+}
+
+
 NSString * utiHumanReadableDescription(NSString * uti) {
     CFStringRef uti_ref = (__bridge CFStringRef)uti;
     return (__bridge_transfer NSString *)UTTypeCopyDescription(uti_ref);
+}
+
+
+#pragma mark utiDetectFileTypeAndExtension
+
+static BOOL utiDetectIsPDF(NSData * data) {
+    if (data.length < 4) {
+        return NO;
+    }
+    const char * bytes = (const char *)data.bytes;
+    return (bytes[0] == '%' &&
+            bytes[1] == 'P' &&
+            bytes[2] == 'D' &&
+            bytes[3] == 'F');
+}
+
+
+extern BOOL utiDetectFileTypeAndExtension(NSData * data, NSString * __autoreleasing * resultExt, NSString * __autoreleasing * resultUti) {
+    if (utiDetectIsPDF(data)) {
+        if (resultExt != NULL) {
+            *resultExt = @"pdf";
+        }
+        if (resultUti != NULL) {
+            *resultUti = (__bridge NSString *)kUTTypePDF;
+        }
+        return YES;
+    }
+
+    return NO;
 }

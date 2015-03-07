@@ -10,4 +10,11 @@
 
 extern NSString* utiFilenameToMIME(NSString* fname);
 extern NSString* utiMIMEToExtension(NSString* mime);
+extern NSString * utiToMIME(NSString * uti);
 extern NSString * utiHumanReadableDescription(NSString * uti);
+
+/**
+ * Detect the type of the given data, using magic numbers or whatever else the file format supports.
+ * This only supports PDF at the moment.
+ */
+extern BOOL utiDetectFileTypeAndExtension(NSData * data, NSString * __autoreleasing * resultExt, NSString * __autoreleasing * resultUti);
