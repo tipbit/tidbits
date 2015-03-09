@@ -23,5 +23,11 @@
     return [[NSMutableAttributedString alloc] initWithAttributedString:attrStr foregroundColor:fgColor];
 }
 
+-(CGFloat)heightForWidth:(CGFloat)width
+{
+    return CGRectGetHeight([self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                                    options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                                    context:nil]);
+}
 
 @end

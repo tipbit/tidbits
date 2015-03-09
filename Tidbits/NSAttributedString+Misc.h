@@ -14,4 +14,6 @@
 +(instancetype)attributedStringWithAttributedString:(NSAttributedString *)attrStr extraAttrs:(NSDictionary *)extraAttrs;
 +(instancetype)attributedStringWithAttributedString:(NSAttributedString *)attrStr foregroundColor:(UIColor *)fgColor;
 
+-(CGFloat)heightForWidth:(CGFloat)width;
+
 @end
