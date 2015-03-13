@@ -144,6 +144,13 @@
 })
 
 
+/**
+ * Redefine DLog so that we include the test name as a prefix to each message.
+ */
+#undef DLog
+#define DLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_DEBUG, LOG_LEVEL_DEBUG, LOG_FLAG_DEBUG, 0, _LoggingMacrosPrefix @"%@ " __fmt, self, ##__VA_ARGS__)
+
+
 @interface TBTestCaseBase : XCTestCase
 
 
