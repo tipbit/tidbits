@@ -24,6 +24,8 @@ typedef void (^NSArrayBlock)(NSArray* array);
 typedef void (^NSArrayBoolBlock)(NSArray* array, bool done);
 typedef void (^NSArrayNSArrayBlock)(NSArray* array1, NSArray* array2);
 typedef void (^NSArrayNSDictionaryBlock)(NSArray * array, NSDictionary * dict);
+typedef void (^NSArrayNSDictionary2Block)(NSArray * array, NSDictionary * dict1, NSDictionary * dict2);
+typedef void (^NSArrayNSDictionary3Block)(NSArray * array, NSDictionary * dict1, NSDictionary * dict2, NSDictionary * dict3);
 typedef void (^NSArrayNSErrorBlock)(NSArray* array, NSError* error);
 typedef void (^NSArrayNSStringBlock)(NSArray * array, NSString * str);
 typedef void (^NSBlockOperationBlock)(NSBlockOperation * op);
