@@ -36,6 +36,23 @@
 }
 
 
+-(NSMutableDictionary *)dictionaryWithValuesAndMappedKeys:(key_val_to_id_t)mapper {
+    NSMutableDictionary * result = [NSMutableDictionary dictionary];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {
+        id new_key = mapper(key, val);
+        if (new_key != nil) {
+            NSMutableArray* arr = result[new_key];
+            if (arr == nil) {
+                arr = [NSMutableArray array];
+                result[new_key] = arr;
+            }
+            [arr addObject:val];
+        }
+    }];
+    return result;
+}
+
+
 -(NSMutableDictionary *)dictionaryWithMappedKeysAndMappedValues:(key_val_to_id_t)keyMapper valueMapper:(key_val_to_id_t)valueMapper {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {

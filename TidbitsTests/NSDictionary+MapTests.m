@@ -90,6 +90,50 @@
 }
 
 
+-(void)testDictionaryWithValuesAndMappedKeysNoOverlap {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{@1: @[@2], @2: @[@3]};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id key, id val) {
+        int k = [key intValue];
+        return k == 3 ? nil : @(k);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndMappedKeysOverlap {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{@2: @[@2, @3]};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id key, id val) {
+        int k = [key intValue];
+        return k == 3 ? nil : @2;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithMappedValuesAndKeysEmpty {
+    NSDictionary* input = @{};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id key, id val) {
+        int k = [key intValue];
+        int v = [val intValue];
+        return k == 3 ? nil : @(k + v);
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testDictionaryWithValuesAndMappedKeysResultEmpty {
+    NSDictionary* input = @{@1: @2, @2: @3, @3: @4};
+    NSDictionary* expected = @{};
+    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id key, id val) {
+        return nil;
+    }];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 -(void)testDictionaryWithMappedKeysAndMappedValues {
     NSDictionary* input = @{@1: @2, @2: @3, @3: @4, @4: @5};
     NSDictionary* expected = @{@3: @2, @9: @20};
