@@ -173,6 +173,7 @@ static NSString* preferencesDir;
 
         TBUserDefaults* instance = instancesByUser[key];
         if (instance == nil) {
+            NSLog(@"Couldn't find defaults for user: %@ loading defaults",user);
             instance = [[TBUserDefaults alloc] init:user];
             instancesByUser[key] = instance;
         }
@@ -184,6 +185,7 @@ static NSString* preferencesDir;
 
 +(NSString *)user {
     if (currentUser == nil) {
+        NSLog(@"Current user isn't defined, using userDefaultsForUnauthenticatedUser to define it");
         currentUser = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUser protection:NSFileProtectionNone defaultValue:nil];
     }
     return currentUser;
@@ -191,6 +193,7 @@ static NSString* preferencesDir;
 
 +(NSString *)userType {
     if (currentUserType == nil) {
+        NSLog(@"Current userType isn't defined, using userDefaultsForUnauthenticatedUser to define it");
         currentUserType = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUserType protection:NSFileProtectionNone defaultValue:nil];
     }
     return currentUserType;
