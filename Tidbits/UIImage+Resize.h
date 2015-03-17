@@ -10,6 +10,9 @@
 
 @interface UIImage (Resize)
 
+-(UIImage*)resizedImageToSize:(CGSize)dstSize;
+-(UIImage*)resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
+
 -(UIImage*)imageResizedTo:(CGSize)newSize;
 
 -(UIImage*)imageResizedToFit:(CGSize)frameSize;
