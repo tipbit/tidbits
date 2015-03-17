@@ -399,6 +399,10 @@ static NSString *_localizedSelectTitle = @"Select";
     [super viewDidDisappear:animated];
 }
 
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Orientation
 - (void)didRotate {
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
