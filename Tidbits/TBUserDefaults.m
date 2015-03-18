@@ -158,7 +158,7 @@ static NSString* preferencesDir;
 
 
 +(TBUserDefaults *)standardUserDefaults {
-    return [TBUserDefaults userDefaultsForUser:currentUser];
+    return [TBUserDefaults userDefaultsForUser:[TBUserDefaults user]];
 }
 
 
@@ -547,6 +547,7 @@ static id valueFromString(NSString * value, NSString * type) {
     NSParameterAssert(settings);
 
     if (self.user == nil) {
+        DLog(@"Failed to serialize PList, user is nil");
         return NO;
     }
 
@@ -575,6 +576,7 @@ static id valueFromString(NSString * value, NSString * type) {
                            [[NSBundle mainBundle] bundleIdentifier],
                            [self.user gtm_stringByEscapingForURLArgument],
                            protection];
+    DLog(@"loading plist: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
     return [preferencesDir stringByAppendingPathComponent:plistName];
 }
 
