@@ -121,7 +121,7 @@ static NSString * getReportDest() {
 
 -(void)testCaseDidFail:(XCTestRun *)testRun withDescription:(NSString *)description inFile:(NSString *)filePath atLine:(NSUInteger)lineNumber {
     self.suiteFailures[testRun.test.name] = description;
-    self.suiteFailureLocations[testRun.test.name] = [NSString stringWithFormat:@"%@:%lu", description, (unsigned long)lineNumber];
+    self.suiteFailureLocations[testRun.test.name] = [NSString stringWithFormat:@"%@:%lu", filePath, (unsigned long)lineNumber];
 }
 
 
