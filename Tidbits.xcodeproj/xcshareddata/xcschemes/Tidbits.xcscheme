@@ -56,7 +56,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "TBJUnitTestObserverReportDestination"
-            value = "${SRCROOT}/test-report.xml"
+            value = "${SYMROOT}/test-report.xml"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
