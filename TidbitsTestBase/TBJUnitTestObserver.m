@@ -37,7 +37,8 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        _reportDestination = @"test-report.xml";
+        char * dest = getenv("TBJUnitTestObserverReportDestination");
+        _reportDestination = (dest == NULL ? @"test-report.xml" : [NSString stringWithUTF8String:dest]);
     }
     return self;
 }
