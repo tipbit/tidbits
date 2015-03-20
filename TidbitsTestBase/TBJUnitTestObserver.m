@@ -11,6 +11,7 @@
 
 #import "Enumerate.h"
 #import "LogFormatter.h"
+#import "NSDate+ISO8601.h"
 
 #import "LogCollector.h"
 
@@ -27,6 +28,7 @@
 @property (nonatomic) NSMutableArray * suiteRunInfo;
 @property (nonatomic) NSMutableDictionary * suiteFailures;
 @property (nonatomic) NSMutableDictionary * suiteLogs;
+@property (nonatomic) XCTestRun * topRun;
 
 @end
 
@@ -90,6 +92,7 @@ static NSString * getReportDest() {
     if (self.suiteFailures == nil) {
         // XCTest has nested suites -- the "All tests" suite is outermost, then your project, then the class.
         // We flatten all this, ignoring all the outer ones, because they aren't representable in the JUnit format.
+        self.topRun = testRun;
         return;
     }
 
@@ -121,6 +124,11 @@ static NSString * getReportDest() {
     DDXMLDocument * doc = [[DDXMLDocument alloc] initWithXMLString:@"<testsuites></testsuites>" options:0 error:NULL];
     DDXMLElement * suitesEl = doc.rootElement;
 
+    NSArray * attrs = testSuiteRunAttrs(self.topRun);
+    for (DDXMLNode * attr in attrs) {
+        [suitesEl addAttribute:attr];
+    }
+
     [Enumerate pairwiseOver:self.suites and:self.suiteRunInfo usingBlock:^(XCTestSuiteRun * suite, NSDictionary * runInfo) {
         [suitesEl addChild:[TBJUnitTestObserver testSuiteRunToXML:suite failures:runInfo[@"failures"] logs:runInfo[@"logs"]]];
     }];
@@ -134,18 +142,7 @@ static NSString * getReportDest() {
 +(DDXMLElement *)testSuiteRunToXML:(XCTestSuiteRun *)suiteRun failures:(NSDictionary *)failures logs:(NSDictionary *)logs {
     DDXMLElement * result = [DDXMLElement elementWithName:@"testsuite"];
 
-    NSArray * attrs = @[[DDXMLNode attributeWithName:@"name"
-                                         stringValue:suiteRun.test.name],
-                        [DDXMLNode attributeWithName:@"tests"
-                                         stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)suiteRun.testCaseCount]],
-                        [DDXMLNode attributeWithName:@"errors"
-                                         stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)suiteRun.unexpectedExceptionCount]],
-                        [DDXMLNode attributeWithName:@"failures"
-                                         stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)suiteRun.failureCount]],
-                        [DDXMLNode attributeWithName:@"skipped"
-                                         stringValue:@"0"],
-                        [DDXMLNode attributeWithName:@"time"
-                                         stringValue:[NSString stringWithFormat:@"%f", suiteRun.testDuration]]];
+    NSArray * attrs = testSuiteRunAttrs(suiteRun);
     for (DDXMLNode * attr in attrs) {
         [result addAttribute:attr];
     }
@@ -161,6 +158,22 @@ static NSString * getReportDest() {
 }
 
 
+static NSArray * testSuiteRunAttrs(XCTestRun * run) {
+    return @[[DDXMLNode attributeWithName:@"name"
+                              stringValue:run.test.name],
+             [DDXMLNode attributeWithName:@"tests"
+                              stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)run.testCaseCount]],
+             [DDXMLNode attributeWithName:@"errors"
+                              stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)run.unexpectedExceptionCount]],
+             [DDXMLNode attributeWithName:@"failures"
+                              stringValue:[NSString stringWithFormat:@"%lu", (unsigned long)run.failureCount]],
+             [DDXMLNode attributeWithName:@"time"
+                              stringValue:[NSString stringWithFormat:@"%f", run.testDuration]],
+             [DDXMLNode attributeWithName:@"timestamp"
+                              stringValue:run.startDate.iso8601String]];
+}
+
+
 +(DDXMLElement *)testRunToXML:(XCTestRun *)testRun failure:(NSString *)failure logs:(NSArray *)logs {
     DDXMLElement * result = [DDXMLElement elementWithName:@"testcase"];
 
@@ -169,7 +182,9 @@ static NSString * getReportDest() {
                         [DDXMLNode attributeWithName:@"classname"
                                          stringValue:NSStringFromClass(testRun.test.class)],
                         [DDXMLNode attributeWithName:@"time"
-                                         stringValue:[NSString stringWithFormat:@"%f", testRun.testDuration]]];
+                                         stringValue:[NSString stringWithFormat:@"%f", testRun.testDuration]],
+                        [DDXMLNode attributeWithName:@"timestamp"
+                                         stringValue:testRun.startDate.iso8601String]];
     for (DDXMLNode * attr in attrs) {
         [result addAttribute:attr];
     }
