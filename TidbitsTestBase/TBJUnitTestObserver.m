@@ -207,6 +207,9 @@ static NSArray * testSuiteRunAttrs(XCTestRun * run) {
 
 
 +(DDXMLElement *)failureToXML:(NSString *)msg location:(NSString *)location {
+    if (msg == nil && location == nil) {
+        return nil;
+    }
     DDXMLElement * result = [DDXMLElement elementWithName:@"failure"];
     [result addAttribute:[DDXMLNode attributeWithName:@"type" stringValue:@"Failure"]];
     if (msg != nil) {
