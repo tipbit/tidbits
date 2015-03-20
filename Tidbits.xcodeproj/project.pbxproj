@@ -39,6 +39,10 @@
 		4012F2D51805A7BD0036C418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012F2D41805A7BD0036C418 /* UIKit.framework */; };
 		40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 40182C7B18090F820075AA75 /* NSData+SHA256.m */; };
 		401AB8961805B6E9003EF1A1 /* TBTestCaseBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */; };
+		401B448F1ABAC21000C3EC92 /* TBJUnitTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B448E1ABAC21000C3EC92 /* TBJUnitTestObserver.m */; };
+		401B44A11ABAC4FD00C3EC92 /* libKissXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401B449D1ABAC4A900C3EC92 /* libKissXML.a */; };
+		401B44A21ABAC50300C3EC92 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 401B449F1ABAC4CE00C3EC92 /* libxml2.dylib */; };
+		401B44A51ABAD75700C3EC92 /* LogCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B44A41ABAD75700C3EC92 /* LogCollector.m */; };
 		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
 		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
 		402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */; };
@@ -334,6 +338,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		401B44C91ABAE06C00C3EC92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 40E53ED31729F68F001664EC;
+			remoteInfo = KissXML;
+		};
+		401B45491ABBC12E00C3EC92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 40E53ED21729F68F001664EC;
+			remoteInfo = KissXML;
+		};
 		407ADD491AAA298200BBE477 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
@@ -554,6 +572,13 @@
 		4012F2D41805A7BD0036C418 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		40182C7A18090F820075AA75 /* NSData+SHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA256.h"; sourceTree = "<group>"; };
 		40182C7B18090F820075AA75 /* NSData+SHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SHA256.m"; sourceTree = "<group>"; };
+		401B448D1ABAC21000C3EC92 /* TBJUnitTestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBJUnitTestObserver.h; sourceTree = "<group>"; };
+		401B448E1ABAC21000C3EC92 /* TBJUnitTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBJUnitTestObserver.m; sourceTree = "<group>"; };
+		401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KissXML.xcodeproj; path = ../KissXML/KissXML.xcodeproj; sourceTree = "<group>"; };
+		401B449D1ABAC4A900C3EC92 /* libKissXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libKissXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		401B449F1ABAC4CE00C3EC92 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		401B44A31ABAD75700C3EC92 /* LogCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCollector.h; sourceTree = "<group>"; };
+		401B44A41ABAD75700C3EC92 /* LogCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogCollector.m; sourceTree = "<group>"; };
 		4020ED41183E095B0040B096 /* GTMCodeCoverageApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMCodeCoverageApp.h; sourceTree = "<group>"; };
 		4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageApp.m; sourceTree = "<group>"; };
 		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
@@ -772,7 +797,9 @@
 				40A9B4B4177F65D30068F3F5 /* libLumberjack.a in Frameworks */,
 				408E88711768DEF7001B61E6 /* libTidbits.a in Frameworks */,
 				4047B4C71805B51F0032BBA5 /* libTidbitsTestBase.a in Frameworks */,
+				401B44A11ABAC4FD00C3EC92 /* libKissXML.a in Frameworks */,
 				40A327C917F89AC900C14EC1 /* libresolv.dylib in Frameworks */,
+				401B44A21ABAC50300C3EC92 /* libxml2.dylib in Frameworks */,
 				405EE42519ADB2A40062DAE7 /* libz.dylib in Frameworks */,
 				40B82DBC1805A7EE005F6B9B /* CoreGraphics.framework in Frameworks */,
 				408E886E1768DEF7001B61E6 /* Foundation.framework in Frameworks */,
@@ -843,6 +870,14 @@
 			name = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
+		401B44C61ABAE06C00C3EC92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				401B44CA1ABAE06C00C3EC92 /* libKissXML.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4020ED40183E095B0040B096 /* UnitTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +900,10 @@
 		4047B49E1805B3F10032BBA5 /* TidbitsTestBase */ = {
 			isa = PBXGroup;
 			children = (
+				401B44A31ABAD75700C3EC92 /* LogCollector.h */,
+				401B44A41ABAD75700C3EC92 /* LogCollector.m */,
+				401B448D1ABAC21000C3EC92 /* TBJUnitTestObserver.h */,
+				401B448E1ABAC21000C3EC92 /* TBJUnitTestObserver.m */,
 				4047B49B1805B3510032BBA5 /* TBTestCaseBase.h */,
 				4047B49C1805B3510032BBA5 /* TBTestCaseBase.m */,
 				4006C52A18559C6200B2F22A /* TBTestHelpers.h */,
@@ -909,6 +948,7 @@
 				40FB91CB17ACA50700F6EC64 /* uidevice-extension */,
 				408E885A1768DEF6001B61E6 /* Frameworks */,
 				408E88591768DEF6001B61E6 /* Products */,
+				401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */,
 				40E48BA4198B288D0015C54E /* Lumberjack.xcodeproj */,
 				40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */,
 			);
@@ -929,7 +969,9 @@
 		408E885A1768DEF6001B61E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				401B449D1ABAC4A900C3EC92 /* libKissXML.a */,
 				40A327C817F89AC900C14EC1 /* libresolv.dylib */,
+				401B449F1ABAC4CE00C3EC92 /* libxml2.dylib */,
 				405EE42419ADB2A40062DAE7 /* libz.dylib */,
 				40B82DBB1805A7EE005F6B9B /* CoreGraphics.framework */,
 				408E885B1768DEF6001B61E6 /* Foundation.framework */,
@@ -1369,6 +1411,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				401B454A1ABBC12E00C3EC92 /* PBXTargetDependency */,
 				407ADD4A1AAA298200BBE477 /* PBXTargetDependency */,
 			);
 			name = TidbitsTestBase;
@@ -1485,6 +1528,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 401B44C61ABAE06C00C3EC92 /* Products */;
+					ProjectRef = 401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */;
+				},
+				{
 					ProductGroup = 40A9B4AA177F65B40068F3F5 /* Products */;
 					ProjectRef = 40A9B4A9177F65B40068F3F5 /* Lumberjack.xcodeproj */;
 				},
@@ -1506,6 +1553,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		401B44CA1ABAE06C00C3EC92 /* libKissXML.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKissXML.a;
+			remoteRef = 401B44C91ABAE06C00C3EC92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		40A9B4AF177F65B40068F3F5 /* libLumberjack.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1567,9 +1621,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401B448F1ABAC21000C3EC92 /* TBJUnitTestObserver.m in Sources */,
 				4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */,
 				4047B4C51805B4D60032BBA5 /* TBTestCaseBase.m in Sources */,
 				4006C52C18559C6200B2F22A /* TBTestHelpers.m in Sources */,
+				401B44A51ABAD75700C3EC92 /* LogCollector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1781,6 +1837,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		401B454A1ABBC12E00C3EC92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KissXML;
+			targetProxy = 401B45491ABBC12E00C3EC92 /* PBXContainerItemProxy */;
+		};
 		407ADD4A1AAA298200BBE477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 408E88571768DEF6001B61E6 /* Tidbits */;
@@ -1852,6 +1913,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Tipbit-fyzywpqxcjpvetabawcyqjmghqje/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1875,6 +1946,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Tipbit-fyzywpqxcjpvetabawcyqjmghqje/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2280,6 +2361,17 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/usr/local/include",
+					"$(BUILT_PRODUCTS_DIR)/../Release$(EFFECTIVE_PLATFORM_NAME)/usr/local/include",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Tipbit-fyzywpqxcjpvetabawcyqjmghqje/Build/Products/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

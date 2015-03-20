@@ -8,11 +8,29 @@
 
 #import "LogFormatter.h"
 #import "LoggingMacros.h"
+#import "NSString+Misc.h"
+#import "NSUserDefaults+Misc.h"
+
+#import "TBJUnitTestObserver.h"
 
 #import "TBTestCaseBase.h"
 
 
 @implementation TBTestCaseBase
+
+
++(void)load {
+    NSUserDefaults * defaults = [NSUserDefaults tb_standardUserDefaults];
+    NSString * observers = [defaults stringForKey:@"XCTestObserverClass"];
+    NSString * className = NSStringFromClass([TBJUnitTestObserver class]);
+    if (observers == nil) {
+        observers = @"XCTestLog";
+    }
+    else if (![observers contains:className]) {
+        observers = [NSString stringWithFormat:@"%@,%@", observers, className];
+    }
+    [defaults setValue:observers forKey:@"XCTestObserverClass"];
+}
 
 
 +(void)initialize {
