@@ -27,6 +27,7 @@
 @property (nonatomic) NSMutableArray * suites;
 @property (nonatomic) NSMutableArray * suiteRunInfo;
 @property (nonatomic) NSMutableDictionary * suiteFailures;
+@property (nonatomic) NSMutableDictionary * suiteFailureLocations;
 @property (nonatomic) NSMutableDictionary * suiteLogs;
 @property (nonatomic) XCTestRun * topRun;
 
@@ -84,6 +85,7 @@ static NSString * getReportDest() {
 
 -(void)testSuiteDidStart:(XCTestRun *)testRun {
     self.suiteFailures = [NSMutableDictionary dictionary];
+    self.suiteFailureLocations = [NSMutableDictionary dictionary];
     self.suiteLogs = [NSMutableDictionary dictionary];
 }
 
@@ -98,8 +100,10 @@ static NSString * getReportDest() {
 
     [self.suites addObject:testRun];
     [self.suiteRunInfo addObject:@{@"logs": self.suiteLogs,
-                                   @"failures": self.suiteFailures}];
+                                   @"failures": self.suiteFailures,
+                                   @"failureLocations": self.suiteFailureLocations}];
     self.suiteFailures = nil;
+    self.suiteFailureLocations = nil;
     self.suiteLogs = nil;
 }
 
@@ -117,6 +121,7 @@ static NSString * getReportDest() {
 
 -(void)testCaseDidFail:(XCTestRun *)testRun withDescription:(NSString *)description inFile:(NSString *)filePath atLine:(NSUInteger)lineNumber {
     self.suiteFailures[testRun.test.name] = description;
+    self.suiteFailureLocations[testRun.test.name] = [NSString stringWithFormat:@"%@:%lu", description, (unsigned long)lineNumber];
 }
 
 
@@ -130,7 +135,7 @@ static NSString * getReportDest() {
     }
 
     [Enumerate pairwiseOver:self.suites and:self.suiteRunInfo usingBlock:^(XCTestSuiteRun * suite, NSDictionary * runInfo) {
-        [suitesEl addChild:[TBJUnitTestObserver testSuiteRunToXML:suite failures:runInfo[@"failures"] logs:runInfo[@"logs"]]];
+        [suitesEl addChild:[TBJUnitTestObserver testSuiteRunToXML:suite failures:runInfo[@"failures"] failureLocations:runInfo[@"failureLocations"] logs:runInfo[@"logs"]]];
     }];
 
     [doc.XMLData writeToFile:self.reportDestination atomically:NO];
@@ -139,7 +144,7 @@ static NSString * getReportDest() {
 }
 
 
-+(DDXMLElement *)testSuiteRunToXML:(XCTestSuiteRun *)suiteRun failures:(NSDictionary *)failures logs:(NSDictionary *)logs {
++(DDXMLElement *)testSuiteRunToXML:(XCTestSuiteRun *)suiteRun failures:(NSDictionary *)failures failureLocations:(NSDictionary *)failureLocations logs:(NSDictionary *)logs {
     DDXMLElement * result = [DDXMLElement elementWithName:@"testsuite"];
 
     NSArray * attrs = testSuiteRunAttrs(suiteRun);
@@ -150,6 +155,7 @@ static NSString * getReportDest() {
     for (XCTestRun * testRun in suiteRun.testRuns) {
         DDXMLElement * testRunEl = [TBJUnitTestObserver testRunToXML:testRun
                                                              failure:failures[testRun.test.name]
+                                                     failureLocation:failureLocations[testRun.test.name]
                                                                 logs:logs[testRun.test.name]];
         [result addChild:testRunEl];
     }
@@ -174,7 +180,7 @@ static NSArray * testSuiteRunAttrs(XCTestRun * run) {
 }
 
 
-+(DDXMLElement *)testRunToXML:(XCTestRun *)testRun failure:(NSString *)failure logs:(NSArray *)logs {
++(DDXMLElement *)testRunToXML:(XCTestRun *)testRun failure:(NSString *)failure failureLocation:(NSString *)failureLocation logs:(NSArray *)logs {
     DDXMLElement * result = [DDXMLElement elementWithName:@"testcase"];
 
     NSArray * attrs = @[[DDXMLNode attributeWithName:@"name"
@@ -189,12 +195,26 @@ static NSArray * testSuiteRunAttrs(XCTestRun * run) {
         [result addAttribute:attr];
     }
 
-    if (failure != nil) {
-        [result addChild:[DDXMLElement elementWithName:@"failure" stringValue:failure]];
+    DDXMLElement * failureEl = [TBJUnitTestObserver failureToXML:failure location:failureLocation];
+    if (failureEl != nil) {
+        [result addChild:failureEl];
     }
 
     [result addChild:[DDXMLElement elementWithName:@"system-out" cdata:[logs componentsJoinedByString:@"\n"]]];
 
+    return result;
+}
+
+
++(DDXMLElement *)failureToXML:(NSString *)msg location:(NSString *)location {
+    DDXMLElement * result = [DDXMLElement elementWithName:@"failure"];
+    [result addAttribute:[DDXMLNode attributeWithName:@"type" stringValue:@"Failure"]];
+    if (msg != nil) {
+        [result addAttribute:[DDXMLNode attributeWithName:@"message" stringValue:msg]];
+    }
+    if (location != nil) {
+        [result setStringValue:location];
+    }
     return result;
 }
 
