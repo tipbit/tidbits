@@ -37,10 +37,21 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        char * dest = getenv("TBJUnitTestObserverReportDestination");
-        _reportDestination = (dest == NULL ? @"test-report.xml" : [NSString stringWithUTF8String:dest]);
+        _reportDestination = getReportDest();
     }
     return self;
+}
+
+
+static NSString * getReportDest() {
+    char * dest = getenv("TBJUnitTestObserverReportDestination");
+    if (dest == NULL || dest[0] == '\0') {
+        NSString * cwd = [[NSFileManager defaultManager] currentDirectoryPath];
+        return [NSString stringWithFormat:@"%@/test-report.xml", cwd];
+    }
+    else {
+        return [NSString stringWithUTF8String:dest];
+    }
 }
 
 
@@ -116,7 +127,7 @@
 
     [doc.XMLData writeToFile:self.reportDestination atomically:NO];
 
-    NSLog(@"Test results written to %@/%@", [[NSFileManager defaultManager] currentDirectoryPath], self.reportDestination);
+    NSLog(@"Test results written to %@", self.reportDestination);
 }
 
 

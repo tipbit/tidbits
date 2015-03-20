@@ -39,10 +39,24 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "408E88571768DEF6001B61E6"
+            BuildableName = "libTidbits.a"
+            BlueprintName = "Tidbits"
+            ReferencedContainer = "container:Tidbits.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "GTM_CODE_COVERAGE_ENABLED"
             value = "1"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "TBJUnitTestObserverReportDestination"
+            value = "${SRCROOT}/test-report.xml"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
