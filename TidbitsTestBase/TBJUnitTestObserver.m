@@ -115,7 +115,7 @@
 
     [doc.XMLData writeToFile:self.reportDestination atomically:NO];
 
-    NSLog(@"Test results written to %@", self.reportDestination);
+    NSLog(@"Test results written to %@/%@", [[NSFileManager defaultManager] currentDirectoryPath], self.reportDestination);
 }
 
 
