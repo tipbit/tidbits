@@ -29,3 +29,6 @@
 -(NSURL *)writeToTemporaryFileWithName:(NSString*)filename attributes:(NSDictionary *)attributes error:(NSError **)error __attribute__((nonnull(1)));
 
 @end
+
+
+extern NSDataWritingOptions NSDataWritingOptionForNSFileProtection(NSString * protection);

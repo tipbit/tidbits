@@ -12,6 +12,7 @@
 #import "Dispatch.h"
 #import "GTMNSString+URLArguments.h"
 #import "LoggingMacros.h"
+#import "NSData+Ext.h"
 #import "NSDictionary+Map.h"
 
 #import "TBUserDefaults.h"
@@ -582,29 +583,7 @@ static id valueFromString(NSString * value, NSString * type) {
 
 
 static NSDataWritingOptions writingOptions(NSString* protection) {
-    return writingOptionForProtection(protection) | NSDataWritingWithoutOverwriting;
-}
-
-static NSDataWritingOptions writingOptionForProtection(NSString* protection) {
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-    if ([protection isEqualToString:NSFileProtectionNone]) {
-        return NSDataWritingFileProtectionNone;
-    }
-    else if ([protection isEqualToString:NSFileProtectionCompleteUntilFirstUserAuthentication]) {
-        return NSDataWritingFileProtectionCompleteUntilFirstUserAuthentication;
-    }
-    else if ([protection isEqualToString:NSFileProtectionCompleteUnlessOpen]) {
-        return NSDataWritingFileProtectionCompleteUnlessOpen;
-    }
-    else if ([protection isEqualToString:NSFileProtectionComplete]) {
-        return NSDataWritingFileProtectionComplete;
-    }
-    else {
-        assert(false);
-    }
-#else
-    return 0;
-#endif
+    return NSDataWritingWithoutOverwriting | NSDataWritingOptionForNSFileProtection(protection);
 }
 
 

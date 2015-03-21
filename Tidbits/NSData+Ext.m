@@ -67,3 +67,33 @@
 
 
 @end
+
+
+NSDataWritingOptions NSDataWritingOptionForNSFileProtection(NSString * protection) {
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+    if (protection == NSFileProtectionComplete) {
+        return NSDataWritingFileProtectionComplete;
+    }
+    else if (protection == NSFileProtectionCompleteUnlessOpen) {
+        return NSDataWritingFileProtectionCompleteUnlessOpen;
+    }
+    else if (protection == NSFileProtectionCompleteUntilFirstUserAuthentication) {
+        return NSDataWritingFileProtectionCompleteUntilFirstUserAuthentication;
+    }
+    else if (protection == NSFileProtectionNone) {
+        return NSDataWritingFileProtectionNone;
+    }
+    else if (protection == nil) {
+        // Note that NSDataWritingFileProtectionNone is not equal to 0.
+        // This means that there's a distinction between NSDataWritingFileProtectionNone
+        // and "no file protection specified".
+        // I don't know if this distinction is meaningful; it doesn't make any sense to me.
+        return (NSDataWritingOptions)0;
+    }
+    else {
+        assert(false);
+    }
+#else
+    return (NSDataWritingOptions)0;
+#endif
+}
