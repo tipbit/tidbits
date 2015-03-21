@@ -9,6 +9,7 @@
 #import "LoggingMacros.h"
 #import "NSData+NSInputStream.h"
 #import "NSError+Ext.h"
+#import "NSFileHandle+Misc.m"
 #import "TBUserDefaults+Tidbits.h"
 
 #import "NSInputStream+Misc.h"
@@ -63,9 +64,8 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
 }
 
 
--(NSData *)writeToFileAndNSData:(NSString *)filepath attributes:(NSDictionary *)attributes length:(NSUInteger)length error:(NSError **)error __attribute__((nonnull(1,2))) {
+-(NSData *)writeToFileAndNSData:(NSString *)filepath options:(NSDataWritingOptions)options length:(NSUInteger)length error:(NSError *__autoreleasing *)error __attribute__((nonnull(1))) {
     NSParameterAssert(filepath);
-    NSParameterAssert(attributes);
 
     NSError * err = nil;
     NSFileManager * nsfm = [NSFileManager defaultManager];
@@ -75,9 +75,9 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
     }
 
     NSString * temppath = [filepath stringByAppendingPathExtension:@"tmp"];
-    NSFileHandle * file = openFile(temppath, attributes);
+    NSFileHandle * file = openFile(temppath, options, &err);
     if (file == nil) {
-        DLog(@"Cannot open file %@; falling back to just returning the NSData", filepath);
+        DLog(@"Cannot open file %@; falling back to just returning the NSData: %@", filepath, err);
         return [NSData dataWithContentsOfStream:self initialCapacity:length error:error];
     }
 
@@ -159,42 +159,36 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
 
 
 /**
- * @return YES on success, NO otherwise with errno set.
+ * @return YES on success, NO otherwise with error set.
  */
-static BOOL createEmptyFile(NSString * path, NSDictionary * attributes) {
+static BOOL createEmptyFile(NSString * path, NSDataWritingOptions options, NSError * __autoreleasing * error) {
     BOOL sim_failure = false;
 #if DEBUG
     TBUserDefaults * ud = [TBUserDefaults userDefaultsForUnauthenticatedUser];
     sim_failure = ud.debugSimulateNSFileProtectionFailures;
 #endif
     if (sim_failure) {
-        errno = EPERM;
+        NSError * err = [NSError errorWithDomain:NSPOSIXErrorDomain code:EPERM userInfo:nil];
+        if (error != NULL) {
+            *error = err;
+        }
         return NO;
     }
-    else {
-        NSFileManager* nsfm = [NSFileManager defaultManager];
-        return [nsfm createFileAtPath:path contents:nil attributes:attributes];
-    }
+
+    return [[NSData data] writeToFile:path options:options error:error];
 }
 
 
 /**
  * @return An open NSFileHandle on success, nil otherwise with errno set.
  */
-static NSFileHandle * openFile(NSString * path, NSDictionary * attributes) {
-    BOOL ok = createEmptyFile(path, attributes);
+static NSFileHandle * openFile(NSString * path, NSDataWritingOptions options, NSError * __autoreleasing * error) {
+    BOOL ok = createEmptyFile(path, options, error);
     if (!ok) {
-        DLog(@"Got error trying to create %@: %s", path, strerror(errno));
         return nil;
     }
 
-    NSFileHandle* file = [NSFileHandle fileHandleForWritingAtPath:path];
-    if (file == nil) {
-        DLog(@"Got error trying to open %@: %s", path, strerror(errno));
-        return nil;
-    }
-
-    return file;
+    return [NSFileHandle fileHandleForWritingAtPath:path error:error];
 }
 
 

@@ -30,6 +30,6 @@
  * @return The data that was written to the file, using NSDataReadingMappedIfSafe to hopefully avoid reading it back from disk unless the caller needs it.
  * nil on failure, in which case *error will be set.
  */
--(NSData *)writeToFileAndNSData:(NSString *)filepath attributes:(NSDictionary*)attributes length:(NSUInteger)length error:(NSError **)error __attribute__((nonnull(1,2)));
+-(NSData *)writeToFileAndNSData:(NSString *)filepath options:(NSDataWritingOptions)options length:(NSUInteger)length error:(NSError **)error __attribute__((nonnull(1)));
 
 @end
