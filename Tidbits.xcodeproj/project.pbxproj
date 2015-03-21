@@ -1058,6 +1058,8 @@
 				4006C50B1855794200B2F22A /* NSError+Ext.m */,
 				40A9B4CA177F81030068F3F5 /* NSFileHandle+MD5.h */,
 				40A9B4CB177F81030068F3F5 /* NSFileHandle+MD5.m */,
+				401B45B61ABE248800C3EC92 /* NSFileHandle+Misc.h */,
+				401B45B71ABE248800C3EC92 /* NSFileHandle+Misc.m */,
 				400C955A185321980095B9DC /* NSFileManager+Ext.h */,
 				400C955B185321980095B9DC /* NSFileManager+Ext.m */,
 				40B4B828182467610076F2F1 /* NSIndexSet+Misc.h */,
@@ -1144,8 +1146,6 @@
 				405AE475190D884C006F2BF1 /* WaitFor.h */,
 				405AE476190D884C006F2BF1 /* WaitFor.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
-				401B45B61ABE248800C3EC92 /* NSFileHandle+Misc.h */,
-				401B45B71ABE248800C3EC92 /* NSFileHandle+Misc.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
