@@ -43,6 +43,7 @@
 		401B44A11ABAC4FD00C3EC92 /* libKissXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401B449D1ABAC4A900C3EC92 /* libKissXML.a */; };
 		401B44A21ABAC50300C3EC92 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 401B449F1ABAC4CE00C3EC92 /* libxml2.dylib */; };
 		401B44A51ABAD75700C3EC92 /* LogCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B44A41ABAD75700C3EC92 /* LogCollector.m */; };
+		401B45B81ABE248800C3EC92 /* NSFileHandle+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B45B71ABE248800C3EC92 /* NSFileHandle+Misc.m */; };
 		4020ED44183E095B0040B096 /* GTMCodeCoverageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */; };
 		4020ED46183E09820040B096 /* GTMCodeCoverageTestsXC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */; };
 		402ACAF618C114F800BDCEF3 /* NSMutableString+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402ACAF518C114F800BDCEF3 /* NSMutableString+MiscTests.m */; };
@@ -579,6 +580,8 @@
 		401B449F1ABAC4CE00C3EC92 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		401B44A31ABAD75700C3EC92 /* LogCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCollector.h; sourceTree = "<group>"; };
 		401B44A41ABAD75700C3EC92 /* LogCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogCollector.m; sourceTree = "<group>"; };
+		401B45B61ABE248800C3EC92 /* NSFileHandle+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle+Misc.h"; sourceTree = "<group>"; };
+		401B45B71ABE248800C3EC92 /* NSFileHandle+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileHandle+Misc.m"; sourceTree = "<group>"; };
 		4020ED41183E095B0040B096 /* GTMCodeCoverageApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMCodeCoverageApp.h; sourceTree = "<group>"; };
 		4020ED42183E095B0040B096 /* GTMCodeCoverageApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageApp.m; sourceTree = "<group>"; };
 		4020ED43183E095B0040B096 /* GTMCodeCoverageTestsXC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMCodeCoverageTestsXC.m; sourceTree = "<group>"; };
@@ -1141,6 +1144,8 @@
 				405AE475190D884C006F2BF1 /* WaitFor.h */,
 				405AE476190D884C006F2BF1 /* WaitFor.m */,
 				408E885E1768DEF6001B61E6 /* Supporting Files */,
+				401B45B61ABE248800C3EC92 /* NSFileHandle+Misc.h */,
+				401B45B71ABE248800C3EC92 /* NSFileHandle+Misc.m */,
 			);
 			path = Tidbits;
 			sourceTree = "<group>";
@@ -1651,6 +1656,7 @@
 				4095E0D5180228C10056CB72 /* InlineTiming.m in Sources */,
 				400C9559185313BB0095B9DC /* NSData+Ext.m in Sources */,
 				402E784018AEB199007176E2 /* Enumerate.m in Sources */,
+				401B45B81ABE248800C3EC92 /* NSFileHandle+Misc.m in Sources */,
 				408E8991176A47D4001B61E6 /* BlockWithResultOperation.m in Sources */,
 				408E8992176A47D4001B61E6 /* Dispatch.m in Sources */,
 				406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */,
