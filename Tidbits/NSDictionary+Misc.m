@@ -83,4 +83,14 @@
 }
 
 
+-(BOOL)writeToFile:(NSString *)path options:(NSDataWritingOptions)options error:(NSError *__autoreleasing *)error {
+    NSData * data = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:(NSPropertyListWriteOptions)0 error:error];
+    if (data == nil) {
+        return NO;
+    }
+
+    return [data writeToFile:path options:options error:error];
+}
+
+
 @end

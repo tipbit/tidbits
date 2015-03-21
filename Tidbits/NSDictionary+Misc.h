@@ -32,4 +32,11 @@
 -(NSNumber *)numberForKey:(id)key;
 -(NSString*) stringForKey:(id)key;
 
+/**
+ * Write this NSDictionary as an XML plist.
+ *
+ * This is effectively the same as [self writeToFile:atomically:] only with an API that makes sense.
+ */
+-(BOOL)writeToFile:(NSString *)path options:(NSDataWritingOptions)options error:(NSError *__autoreleasing *)error;
+
 @end

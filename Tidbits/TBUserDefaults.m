@@ -14,6 +14,7 @@
 #import "LoggingMacros.h"
 #import "NSData+Ext.h"
 #import "NSDictionary+Map.h"
+#import "NSDictionary+Misc.h"
 
 #import "TBUserDefaults.h"
 
@@ -553,20 +554,12 @@ static id valueFromString(NSString * value, NSString * type) {
     }
 
     NSString* defPath = [self defaultsPath:protection];
-    BOOL ok = [settings writeToFile:defPath atomically:YES];
+    NSError * err = nil;
+    BOOL ok = [settings writeToFile:defPath options:writingOptions(protection) error:&err];
     if (!ok) {
-        NSLog(@"Failed to serialize PList");
+        NSLogWarn(@"Failed to serialize PList at %@: %@", defPath, err);
         return NO;
     }
-
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-    NSFileManager* nsfm = [[NSFileManager alloc] init];
-    NSError* err = nil;
-    ok = [nsfm setAttributes:@{NSFileProtectionKey: protection} ofItemAtPath:defPath error:&err];
-    if (!ok) {
-        NSLogError(@"Failed to set attributes on PList: %@", err);
-    }
-#endif
 
     return ok;
 }
