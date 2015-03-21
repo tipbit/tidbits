@@ -528,7 +528,8 @@ static id valueFromString(NSString * value, NSString * type) {
     else {
         NSData* blank = [NSData data];
         NSError* err = nil;
-        BOOL ok = [blank writeToFile:defPath options:writingOptions(protection) error:&err];
+        NSDataWritingOptions options = NSDataWritingWithoutOverwriting | NSDataWritingOptionForNSFileProtection(protection);
+        BOOL ok = [blank writeToFile:defPath options:options error:&err];
         if (ok) {
             NSMutableDictionary* settings = [NSMutableDictionary dictionary];
             @synchronized (self.settingsByProtection) {
@@ -555,7 +556,8 @@ static id valueFromString(NSString * value, NSString * type) {
 
     NSString* defPath = [self defaultsPath:protection];
     NSError * err = nil;
-    BOOL ok = [settings writeToFile:defPath options:writingOptions(protection) error:&err];
+    NSDataWritingOptions options = NSDataWritingAtomic | NSDataWritingOptionForNSFileProtection(protection);
+    BOOL ok = [settings writeToFile:defPath options:options error:&err];
     if (!ok) {
         NSLogWarn(@"Failed to serialize PList at %@: %@", defPath, err);
         return NO;
@@ -572,11 +574,6 @@ static id valueFromString(NSString * value, NSString * type) {
                            protection];
     DLog(@"loading plist: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
     return [preferencesDir stringByAppendingPathComponent:plistName];
-}
-
-
-static NSDataWritingOptions writingOptions(NSString* protection) {
-    return NSDataWritingWithoutOverwriting | NSDataWritingOptionForNSFileProtection(protection);
 }
 
 
