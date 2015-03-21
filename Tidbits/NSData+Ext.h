@@ -20,13 +20,12 @@
  * This call doesn't do any threading, other than asserting that it is running on a background thread.  You need to dispatch this call
  * to a background thread as appropriate.
  *
- * @param attributes May be nil, as per [NSFileManager createFileAtPath].
  * @param error May be NULL.
  * @return The URL of the tempfile.  When you are done, you need to clean up the subdirectory that tempfile is in
  * (i.e. [tempfile URLByDeletingLastPathComponent]).  You can use NSFileManager.removeItemAtURLAsync for this.  Returns nil if something fails,
  * and sets *error.
  */
--(NSURL *)writeToTemporaryFileWithName:(NSString*)filename attributes:(NSDictionary *)attributes error:(NSError **)error __attribute__((nonnull(1)));
+-(NSURL *)writeToTemporaryFileWithName:(NSString *)filename options:(NSDataWritingOptions)options error:(NSError * __autoreleasing *)error __attribute__((nonnull(1)));
 
 @end
 

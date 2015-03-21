@@ -17,7 +17,7 @@
 @implementation NSData (Ext)
 
 
--(NSURL *)writeToTemporaryFileWithName:(NSString *)filename attributes:(NSDictionary *)attributes error:(NSError **)error __attribute__((nonnull(1))) {
+-(NSURL *)writeToTemporaryFileWithName:(NSString *)filename options:(NSDataWritingOptions)options error:(NSError *__autoreleasing *)error __attribute__((nonnull(1))) {
     AssertOnBackgroundThread();
     NSParameterAssert(filename);
 
@@ -52,13 +52,11 @@
         return nil;
     }
 
-    BOOL ok = [nsfm createFileAtPath:tempFile.path contents:self attributes:attributes];
+    BOOL ok = [self writeToFile:tempFile.path options:options error:error];
     if (!ok) {
-        NSLogWarn(@"Error creating %@", tempFile);
+        NSError * err = (error == NULL ? nil : *error);
+        NSLogWarn(@"Error creating %@: %@", tempFile, err);
         [nsfm removeItemAtURLAsync:tempDir];
-        if (error) {
-            *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
-        }
         return nil;
     }
 
