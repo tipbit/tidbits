@@ -66,36 +66,33 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
 
 -(NSData *)writeToFileAndNSData:(NSString *)filepath options:(NSDataWritingOptions)options length:(NSUInteger)length error:(NSError *__autoreleasing *)error __attribute__((nonnull(1))) {
     NSParameterAssert(filepath);
-    
+
+    NSError * err = nil;
     NSFileManager * nsfm = [NSFileManager defaultManager];
-    BOOL ok = [nsfm removeItemAtPath:filepath error:error];
-    if ((!ok || (*error) != nil) && !(*error).isNoSuchFile) {
-        DLog(@"Warning: failed to remove %@: %@.  Ignoring, but this probably will cause the move to fail.", filepath, (*error));
+    BOOL ok = [nsfm removeItemAtPath:filepath error:&err];
+    if ((!ok || err != nil) && !err.isNoSuchFile) {
+        DLog(@"Warning: failed to remove %@: %@.  Ignoring, but this probably will cause the move to fail.", filepath, err);
     }
 
     NSString * temppath = [filepath stringByAppendingPathExtension:@"tmp"];
-    
-    *error = nil;
-    NSFileHandle * file = openFile(temppath, options, error);
-    if (file == nil || *error != nil) {
-        DLog(@"Cannot open file %@; falling back to just returning the NSData: %@", filepath, *error);
-
+    NSFileHandle * file = openFile(temppath, options, &err);
+    if (file == nil) {
+        DLog(@"Cannot open file %@; falling back to just returning the NSData: %@", filepath, err);
         return [NSData dataWithContentsOfStream:self initialCapacity:length error:error];
     }
-    
+
     NSData * result;
-    *error = nil;
     ok = [self writeToFileHandle:file error:error];
-    if (ok && *error == nil) {
-        *error = nil;
-        ok = [nsfm moveItemAtPath:temppath toPath:filepath error:error];
-        if (!ok || *(error) != nil) {
-            NSLog(@"Got error when trying to move %@ to %@: %@.  Just returning the data.", temppath, filepath, *error);
+    if (ok) {
+        err = nil;
+        ok = [nsfm moveItemAtPath:temppath toPath:filepath error:&err];
+        if (!ok || err != nil) {
+            NSLog(@"Got error when trying to move %@ to %@: %@.  Just returning the data.", temppath, filepath, err);
+            filepath = temppath;
         }
 
-        *error = nil;
         result = [NSData dataWithContentsOfFile:filepath options:NSDataReadingMappedIfSafe error:error];
-        if (result == nil || (*error != nil)) {
+        if (result == nil) {
             NSLogError(@"Failed to load data %@ having just successfully put it there: %@", filepath, *error);
         }
         if (length != NSUIntegerMax && result.length != length) {
