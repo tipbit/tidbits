@@ -27,7 +27,7 @@ static NSFileHandle * checkForError(NSFileHandle * result, NSError * __autorelea
 
 #define fileHandleForXAtPath(__cmd)                                                                         \
 +(instancetype)fileHandleFor ## __cmd ## AtPath:(NSString *)path error:(NSError *__autoreleasing *)error {  \
-    return checkForError([NSFileHandle fileHandleForReadingAtPath:path], error);                            \
+    return checkForError([NSFileHandle fileHandleFor ## __cmd ## AtPath:path], error);                      \
 }
 
 fileHandleForXAtPath(Reading)
