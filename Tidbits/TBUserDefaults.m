@@ -15,6 +15,7 @@
 #import "NSData+Ext.h"
 #import "NSDictionary+Map.h"
 #import "NSDictionary+Misc.h"
+#import "NSString+Misc.h"
 
 #import "TBUserDefaults.h"
 
@@ -102,11 +103,15 @@ static NSString* preferencesDir;
 
     NSArray *libraryDirs = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     if (libraryDirs.count == 0) {
-        NSLog(@"Failed to find Library directory!  This is a very ill phone!");
+        NSLogError(@"Failed to find Library directory!  This is a very ill phone!");
         return;
+    }
+    else if (libraryDirs.count > 1) {
+        NSLogWarn(@"We've got multiple Library directories!  Choosing the first from %@.", libraryDirs.description.stringByFoldingWhitespace);
     }
     NSString *libraryDir = libraryDirs[0];
     preferencesDir = [libraryDir stringByAppendingPathComponent:@"Preferences"];
+    NSLog(@"Preferences found at %@", preferencesDir);
 
     [self registerSettings];
 }
