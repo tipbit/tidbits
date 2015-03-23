@@ -526,6 +526,7 @@ static id valueFromString(NSString * value, NSString * type) {
         return settings;
     }
     else {
+        NSLog(@"Couldn't find defPath: %@",defPath);
         NSData* blank = [NSData data];
         NSError* err = nil;
         NSDataWritingOptions options = NSDataWritingWithoutOverwriting | NSDataWritingOptionForNSFileProtection(protection);
