@@ -80,7 +80,11 @@ static NSInteger readLen(NSInputStream* is, u_int8_t* dest, NSUInteger len) {
         DLog(@"Cannot open file %@; falling back to just returning the NSData: %@", filepath, err);
         return [NSData dataWithContentsOfStream:self initialCapacity:length error:error];
     }
-
+    if(err){
+        NSLogError(@"Cannot open file %@; falling back to just returning the NSData: %@", filepath, err);
+        return [NSData dataWithContentsOfStream:self initialCapacity:length error:error];
+    }
+    
     NSData * result;
     ok = [self writeToFileHandle:file error:error];
     if (ok) {
