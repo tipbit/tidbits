@@ -273,7 +273,7 @@ static NSString* preferencesDir;
 
 
 -(BOOL)synchronize {
-    DLog(@"Synchronizing");
+    NSLog(@"Synchronizing");
     NSArray* to_sync;
     @synchronized (self.dirtyProtectionLevels) {
         to_sync = [self.dirtyProtectionLevels allObjects];
@@ -293,8 +293,8 @@ static NSString* preferencesDir;
         }
     }
     if (failed != nil) {
-        DLog(@"Failed to synchronize %@; marking them as dirty again so that we can try again later.",
-             [failed componentsJoinedByString:@", "]);
+        NSLogWarn(@"Failed to synchronize %@; marking them as dirty again so that we can try again later.",
+                  [failed componentsJoinedByString:@", "]);
         @synchronized (self.dirtyProtectionLevels) {
             [self.dirtyProtectionLevels addObjectsFromArray:failed];
         }
@@ -376,7 +376,7 @@ static NSString* preferencesDir;
     }
     id val = valueFromString(value, type);
     if (val == nil) {
-        DLog(@"Refusing to set %@ = %@ because it can't be parsed as a %@", key, value, type);
+        NSLogWarn(@"Refusing to set %@ = %@ because it can't be parsed as a %@", key, value, type);
         return NO;
     }
     return [self setObject:val forKey:key];
@@ -439,6 +439,7 @@ static id valueFromString(NSString * value, NSString * type) {
         if (wasUnlocked) {
             *wasUnlocked = NO;
         }
+        NSLog(@"Returning default for %@, user is nil", self.user);
         return def;
     }
 
@@ -528,6 +529,7 @@ static id valueFromString(NSString * value, NSString * type) {
         @synchronized (self.settingsByProtection) {
             self.settingsByProtection[protection] = settings;
         }
+        NSLog(@"Loaded from %@", defPath);
         return settings;
     }
     else {
@@ -556,7 +558,7 @@ static id valueFromString(NSString * value, NSString * type) {
     NSParameterAssert(settings);
 
     if (self.user == nil) {
-        DLog(@"Failed to serialize PList, user is nil");
+        NSLogWarn(@"Failed to serialize PList, user is nil");
         return NO;
     }
 
@@ -569,6 +571,8 @@ static id valueFromString(NSString * value, NSString * type) {
         return NO;
     }
 
+    NSLog(@"Saved to %@", defPath);
+
     return ok;
 }
 
@@ -578,7 +582,7 @@ static id valueFromString(NSString * value, NSString * type) {
                            [[NSBundle mainBundle] bundleIdentifier],
                            [self.user gtm_stringByEscapingForURLArgument],
                            protection];
-    DLog(@"loading plist: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
+    NSLog(@"plist path is: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
     return [preferencesDir stringByAppendingPathComponent:plistName];
 }
 
@@ -679,7 +683,7 @@ FROM_NSNUMBER(BOOL, bool, Bool, boolValue)
                 }
                 else {
                     if (![dict[@"protection"] isEqualToString:prot]) {
-                        DLog(@"Found setting %@ at the wrong protection level %@ != %@", key, dict[@"protection"], prot);
+                        NSLogWarn(@"Found setting %@ at the wrong protection level %@ != %@", key, dict[@"protection"], prot);
                         dict[@"protection"] = prot;
                         dict[@"error"] = @"Wrong protection level";
                     }
