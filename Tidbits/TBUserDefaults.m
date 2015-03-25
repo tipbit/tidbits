@@ -15,6 +15,8 @@
 #import "NSData+Ext.h"
 #import "NSDictionary+Map.h"
 #import "NSDictionary+Misc.h"
+#import "NSError+Ext.h"
+#import "NSMutableDictionary+Misc.h"
 #import "NSString+Misc.h"
 
 #import "TBUserDefaults.h"
@@ -536,9 +538,26 @@ static id valueFromString(NSString * value, NSString * type) {
 
     NSFileManager* nsfm = [[NSFileManager alloc] init];
     if ([nsfm fileExistsAtPath:defPath]) {
-        NSMutableDictionary* settings = [NSMutableDictionary dictionaryWithContentsOfFile:defPath];
+        NSError * err = nil;
+        NSMutableDictionary* settings = [NSMutableDictionary dictionaryWithContentsOfFile:defPath error:&err];
         if (settings == nil) {
-            settings = [NSMutableDictionary dictionary];
+            if (err.isFileReadNoPermissionError) {
+                // The screen is presumably locked, because the file exists but we can't read it.
+                // We need to return failure here -- we can't set a default dictionary because that
+                // would mean that we'd overwrite the settings on disk as soon as the screen
+                // unlocks again.
+                NSLog(@"Failed to load PList %@; probably just the screen is locked.", defPath);
+                return nil;
+            }
+            else if (err.isPropertyListReadCorruptError) {
+                // Zero-length file (which is common because that's how an empty dict gets written)
+                // or a corrupt file (which we can do nothing about).
+                settings = [NSMutableDictionary dictionary];
+            }
+            else {
+                NSLogWarn(@"Failed to deserialize settings from %@: %@. Forced to clear them!", defPath, err);
+                settings = [NSMutableDictionary dictionary];
+            }
         }
         @synchronized (self.settingsByProtection) {
             self.settingsByProtection[protection] = settings;
