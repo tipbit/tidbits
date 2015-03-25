@@ -12,10 +12,12 @@
 
 +(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
 
+-(bool)isFileReadNoPermissionError;
 -(bool)isFileWriteFileExistsError;
 -(bool)isFileWriteNoPermission;
 -(bool)isNetworkError;
 -(bool)isNoSuchFile;
+-(bool)isPropertyListReadCorruptError;
 
 -(bool)isHTTP400;
 -(bool)isHTTP401;

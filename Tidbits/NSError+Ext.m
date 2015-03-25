@@ -18,6 +18,11 @@
 }
 
 
+-(bool)isFileReadNoPermissionError {
+    return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileReadNoPermissionError;
+}
+
+
 -(bool)isFileWriteFileExistsError {
     return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileWriteFileExistsError;
 }
@@ -55,6 +60,12 @@
     return (([self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSFileNoSuchFileError) ||
             ([self.domain isEqualToString:NSPOSIXErrorDomain] && self.code == ENOENT));
 }
+
+
+-(bool)isPropertyListReadCorruptError {
+    return [self.domain isEqualToString:NSCocoaErrorDomain] && self.code == NSPropertyListReadCorruptError;
+}
+
 
 -(bool)isHTTP400 {
     return [self isHTTP:400];
