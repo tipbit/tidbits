@@ -61,7 +61,9 @@ static NSDictionary* customProps = nil;
                     @"count"      : @true,
                     @"uxType"     : @true,
                     @"listType"   : @true,
-                    @"listFilter" : @true
+                    @"listFilter" : @true,
+                    @"oldVersion" : @true,
+                    @"newVersion" : @true,
                     };
 #endif
 }
