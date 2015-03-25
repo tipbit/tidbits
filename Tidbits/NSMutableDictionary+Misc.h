@@ -23,4 +23,12 @@
  */
 -(BOOL)removeEntriesPassingTest:(BOOL (^)(id key, id val, BOOL * stop))predicate;
 
+/**
+ * Read an NSMutableDictionary from the given file, assuming that it is a plist.
+ *
+ * This is effectively the same as [NSMutableDictionary dictionaryWithContentsOfFile:]
+ * only it reports any errors too.
+ */
++(NSMutableDictionary *)dictionaryWithContentsOfFile:(NSString *)path error:(NSError *__autoreleasing *)error;
+
 @end

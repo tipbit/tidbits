@@ -43,4 +43,24 @@
 }
 
 
++(NSMutableDictionary *)dictionaryWithContentsOfFile:(NSString *)path error:(NSError *__autoreleasing *)error {
+    NSData * data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:error];
+    if (data == nil) {
+        return nil;
+    }
+
+    id result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainers format:NULL error:error];
+    if (result == nil) {
+        return nil;
+    }
+    if (![result isKindOfClass:[NSMutableDictionary class]]) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
+        }
+        return nil;
+    }
+    return result;
+}
+
+
 @end
