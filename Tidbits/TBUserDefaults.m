@@ -529,7 +529,7 @@ static id valueFromString(NSString * value, NSString * type) {
         @synchronized (self.settingsByProtection) {
             self.settingsByProtection[protection] = settings;
         }
-        NSLog(@"Loaded from %@", defPath);
+        NSLog(@"Loaded %lu settings from %@", (unsigned long)settings.count, defPath);
         return settings;
     }
     else {
@@ -571,7 +571,7 @@ static id valueFromString(NSString * value, NSString * type) {
         return NO;
     }
 
-    NSLog(@"Saved to %@", defPath);
+    NSLog(@"Saved %lu settings to %@", (unsigned long)settings.count, defPath);
 
     return ok;
 }
