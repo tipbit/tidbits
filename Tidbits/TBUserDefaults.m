@@ -579,7 +579,7 @@ static id valueFromString(NSString * value, NSString * type) {
             return settings;
         }
         else {
-            NSLogError(@"Failed to create PList: %@", err);
+            NSLogError(@"Failed to create PList %@: %@", defPath, err);
             return nil;
         }
     }
