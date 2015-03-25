@@ -249,6 +249,20 @@ static NSString* preferencesDir;
 }
 
 
++(BOOL)flushAll {
+    BOOL result = YES;
+    @synchronized (instancesByUser) {
+        for (TBUserDefaults * instance in [instancesByUser allValues]) {
+            result &= [instance synchronize];
+        }
+        if (result) {
+            [instancesByUser removeAllObjects];
+        }
+    }
+    return result;
+}
+
+
 +(BOOL)synchronizeAll {
     BOOL result = YES;
     @synchronized (instancesByUser) {

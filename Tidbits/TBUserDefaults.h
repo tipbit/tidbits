@@ -85,6 +85,14 @@
 +(BOOL)synchronizeAll;
 
 /**
+ * Write all changes to the plists for all instances immediately, and then discard them from the in-memory cache
+ * if that succeeds.
+ *
+ * @return YES on success.
+ */
++(BOOL)flushAll;
+
+/**
  * Write all changes to the plists immediately.
  */
 -(BOOL)synchronize;
