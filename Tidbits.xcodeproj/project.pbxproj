@@ -72,6 +72,9 @@
 		404F55851A34DD720081DA18 /* NSBlockOperation+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */; };
 		404F56161A38EAFC0081DA18 /* NSOperation+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F56151A38EAFC0081DA18 /* NSOperation+Misc.m */; };
 		404F58FD1A3DA8290081DA18 /* LoggingMacrosWrappers.h in Headers */ = {isa = PBXBuildFile; fileRef = 404557831A255A97009FEF2F /* LoggingMacrosWrappers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40505F621AC7088600308CAF /* LogCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B44A41ABAD75700C3EC92 /* LogCollector.m */; };
+		40505F651AC7088E00308CAF /* TBJUnitTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B448E1ABAC21000C3EC92 /* TBJUnitTestObserver.m */; };
+		40505FB41AC70DDF00308CAF /* KissXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40505FB11AC70DD300308CAF /* KissXML.framework */; };
 		405917461A4B629A0033081F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405917451A4B629A0033081F /* XCTest.framework */; };
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
 		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
@@ -352,6 +355,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 40E53ED21729F68F001664EC;
 			remoteInfo = KissXML;
+		};
+		40505F661AC7093C00308CAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40E48B12198B25F30015C54E;
+			remoteInfo = Tidbits.framework;
+		};
+		40505FAD1AC70DD300308CAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 40505F801AC70AB300308CAF;
+			remoteInfo = KissXML.framework;
+		};
+		40505FB01AC70DD300308CAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 401B44901ABAC3B200C3EC92 /* KissXML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 40505F811AC70AB300308CAF;
+			remoteInfo = KissXML.framework;
 		};
 		407ADD491AAA298200BBE477 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -818,6 +842,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40505FB41AC70DDF00308CAF /* KissXML.framework in Frameworks */,
 				40A5D5431A4B5EBF004A4EE3 /* Lumberjack.framework in Frameworks */,
 				40A5D5421A4B5EB6004A4EE3 /* Tidbits.framework in Frameworks */,
 				40A5D5411A4B5A93004A4EE3 /* XCTest.framework in Frameworks */,
@@ -877,6 +902,7 @@
 			isa = PBXGroup;
 			children = (
 				401B44CA1ABAE06C00C3EC92 /* libKissXML.a */,
+				40505FB11AC70DD300308CAF /* KissXML.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1476,6 +1502,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				40505FAE1AC70DD300308CAF /* PBXTargetDependency */,
+				40505F671AC7093C00308CAF /* PBXTargetDependency */,
 			);
 			name = TidbitsTestBase.framework;
 			productName = TidbitsTestBase.framework;
@@ -1563,6 +1591,13 @@
 			fileType = archive.ar;
 			path = libKissXML.a;
 			remoteRef = 401B44C91ABAE06C00C3EC92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40505FB11AC70DD300308CAF /* KissXML.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KissXML.framework;
+			remoteRef = 40505FB01AC70DD300308CAF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		40A9B4AF177F65B40068F3F5 /* libLumberjack.a */ = {
@@ -1773,6 +1808,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40505F621AC7088600308CAF /* LogCollector.m in Sources */,
+				40505F651AC7088E00308CAF /* TBJUnitTestObserver.m in Sources */,
 				40A5D53B1A4B5956004A4EE3 /* TBTestCaseBase.m in Sources */,
 				40A5D53D1A4B595F004A4EE3 /* TBTestHelpers.m in Sources */,
 			);
@@ -1847,6 +1884,16 @@
 			isa = PBXTargetDependency;
 			name = KissXML;
 			targetProxy = 401B45491ABBC12E00C3EC92 /* PBXContainerItemProxy */;
+		};
+		40505F671AC7093C00308CAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40E48B12198B25F30015C54E /* Tidbits.framework */;
+			targetProxy = 40505F661AC7093C00308CAF /* PBXContainerItemProxy */;
+		};
+		40505FAE1AC70DD300308CAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KissXML.framework;
+			targetProxy = 40505FAD1AC70DD300308CAF /* PBXContainerItemProxy */;
 		};
 		407ADD4A1AAA298200BBE477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2198,6 +2245,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -2233,6 +2284,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -2268,6 +2323,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = TidbitsTestBase.framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";

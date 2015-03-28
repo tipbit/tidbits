@@ -20,7 +20,11 @@
 
 
 +(void)load {
+#if TARGET_OS_IPHONE
     NSUserDefaults * defaults = [NSUserDefaults tb_standardUserDefaults];
+#else
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+#endif
     NSString * observers = [defaults stringForKey:@"XCTestObserverClass"];
     NSString * className = NSStringFromClass([TBJUnitTestObserver class]);
     if (observers == nil) {
