@@ -200,7 +200,9 @@ static NSArray * testSuiteRunAttrs(XCTestRun * run) {
         [result addChild:failureEl];
     }
 
-    [result addChild:[DDXMLElement elementWithName:@"system-out" cdata:[logs componentsJoinedByString:@"\n"]]];
+    if (logs.count > 0) {
+        [result addChild:[DDXMLElement elementWithName:@"system-out" cdata:[logs componentsJoinedByString:@"\n"]]];
+    }
 
     return result;
 }
