@@ -20,6 +20,21 @@
 }
 
 
++(NSDateFormatter *)tb_dateYearNumeric {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"dMyyyy"];
+}
+
+
++(NSDateFormatter *)tb_dateYearNumericHourMinutes {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"dMyyyyjmm"];
+}
+
+
++(NSDateFormatter *)tb_dateYearNumericHourMinutesPeriod {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"dMyyyyjmma"];
+}
+
+
 +(NSDateFormatter *)tb_dateShort {
     NSDateFormatter * result = [NSDateFormatter tb_dateFormatterWithCurrentLocale];
     result.dateStyle = NSDateFormatterShortStyle;
@@ -44,6 +59,11 @@
 
 +(NSDateFormatter *)tb_dayOfMonth {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"d"];
+}
+
+
++(NSDateFormatter *)tb_hourMinutes {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"jmm"];
 }
 
 

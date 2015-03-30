@@ -11,11 +11,15 @@
 @interface NSDateFormatter (Misc)
 
 +(NSDateFormatter *)tb_dateNumeric;
++(NSDateFormatter *)tb_dateYearNumeric;
++(NSDateFormatter *)tb_dateYearNumericHourMinutes;
++(NSDateFormatter *)tb_dateYearNumericHourMinutesPeriod;
 +(NSDateFormatter *)tb_dateShort;
 +(NSDateFormatter *)tb_dayDateFull;
 +(NSDateFormatter *)tb_dayDateYearFull;
 +(NSDateFormatter *)tb_dayOfWeekFull;
 +(NSDateFormatter *)tb_dayOfMonth;
++(NSDateFormatter *)tb_hourMinutes;
 +(NSDateFormatter *)tb_hourMinutesPeriod;
 +(NSDateFormatter *)tb_hourPeriod;
 +(NSDateFormatter *)tb_monthFull;
