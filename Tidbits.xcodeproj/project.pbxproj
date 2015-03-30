@@ -75,6 +75,9 @@
 		40505F621AC7088600308CAF /* LogCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B44A41ABAD75700C3EC92 /* LogCollector.m */; };
 		40505F651AC7088E00308CAF /* TBJUnitTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 401B448E1ABAC21000C3EC92 /* TBJUnitTestObserver.m */; };
 		40505FB41AC70DDF00308CAF /* KissXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40505FB11AC70DD300308CAF /* KissXML.framework */; };
+		405060671AC9058B00308CAF /* NSDateFormatter+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405060661AC9058B00308CAF /* NSDateFormatter+Misc.m */; };
+		4050606A1AC905F800308CAF /* NSDateFormatter+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405060661AC9058B00308CAF /* NSDateFormatter+Misc.m */; };
+		4050606B1AC905FC00308CAF /* NSDateFormatter+Misc.h in Headers */ = {isa = PBXBuildFile; fileRef = 405060651AC9058B00308CAF /* NSDateFormatter+Misc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		405917461A4B629A0033081F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405917451A4B629A0033081F /* XCTest.framework */; };
 		405AE477190D884C006F2BF1 /* WaitFor.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE476190D884C006F2BF1 /* WaitFor.m */; };
 		405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 405AE48F190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m */; };
@@ -644,6 +647,8 @@
 		404F55841A34DD720081DA18 /* NSBlockOperation+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBlockOperation+Misc.m"; sourceTree = "<group>"; };
 		404F56141A38EAFC0081DA18 /* NSOperation+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+Misc.h"; sourceTree = "<group>"; };
 		404F56151A38EAFC0081DA18 /* NSOperation+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Misc.m"; sourceTree = "<group>"; };
+		405060651AC9058B00308CAF /* NSDateFormatter+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Misc.h"; sourceTree = "<group>"; };
+		405060661AC9058B00308CAF /* NSDateFormatter+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Misc.m"; sourceTree = "<group>"; };
 		405917451A4B629A0033081F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		405AE475190D884C006F2BF1 /* WaitFor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitFor.h; sourceTree = "<group>"; };
 		405AE476190D884C006F2BF1 /* WaitFor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitFor.m; sourceTree = "<group>"; };
@@ -1076,6 +1081,8 @@
 				40E3ED23176EAD5700FFF503 /* NSDate+Ext.m */,
 				408E8981176A47D4001B61E6 /* NSDate+ISO8601.h */,
 				408E8982176A47D4001B61E6 /* NSDate+ISO8601.m */,
+				405060651AC9058B00308CAF /* NSDateFormatter+Misc.h */,
+				405060661AC9058B00308CAF /* NSDateFormatter+Misc.m */,
 				408E8983176A47D4001B61E6 /* NSDictionary+Map.h */,
 				408E8984176A47D4001B61E6 /* NSDictionary+Map.m */,
 				408E8985176A47D4001B61E6 /* NSDictionary+Misc.h */,
@@ -1399,6 +1406,7 @@
 				40E48BF3198B331F0015C54E /* TBUserDefaults.h in Headers */,
 				40E48BF4198B33200015C54E /* TBUserDefaultsRegisterSettings.h in Headers */,
 				40E48BF5198B33200015C54E /* TBUserDefaults+Tidbits.h in Headers */,
+				4050606B1AC905FC00308CAF /* NSDateFormatter+Misc.h in Headers */,
 				40E48BFA198B33200015C54E /* UTI.h in Headers */,
 				40E48BFB198B33200015C54E /* WaitFor.h in Headers */,
 				40E48BB8198B330B0015C54E /* NSObject+MTJSONUtils.h in Headers */,
@@ -1683,6 +1691,7 @@
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
+				405060671AC9058B00308CAF /* NSDateFormatter+Misc.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
 				40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */,
 				408E88E21768E6BE001B61E6 /* GTMNSString+XML.m in Sources */,
@@ -1840,6 +1849,7 @@
 				40E48B56198B266E0015C54E /* NSArray+Misc.m in Sources */,
 				40E48B57198B266E0015C54E /* NSBundle+Versions.m in Sources */,
 				40E48B58198B266E0015C54E /* NSData+Base64.m in Sources */,
+				4050606A1AC905F800308CAF /* NSDateFormatter+Misc.m in Sources */,
 				406133301A814B5B0076F37F /* NSStringPunycodeAdditions.m in Sources */,
 				40E48B59198B266E0015C54E /* NSData+Ext.m in Sources */,
 				40E48B5A198B266E0015C54E /* NSData+MD5.m in Sources */,

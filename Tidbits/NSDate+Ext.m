@@ -10,8 +10,10 @@
 #import <UIKit/UIApplication.h>
 #endif
 
-#import "NSDate+Ext.h"
 #import "NSDate+ISO8601.h"
+#import "NSDateFormatter+Misc.h"
+
+#import "NSDate+Ext.h"
 
 
 #define DAY_IN_SECONDS (60.0 * 60.0 * 24)
@@ -57,17 +59,13 @@ static NSDate* _year2038 = nil;
 
 
 -(NSString*)userShortDateString {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale autoupdatingCurrentLocale];
-    formatter.dateStyle = NSDateFormatterShortStyle;
+    NSDateFormatter * formatter = [NSDateFormatter tb_dateShort];
     return [formatter stringFromDate:self];
 }
 
 
 -(NSString*)userYearlessDateString {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale autoupdatingCurrentLocale];
-    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"M d" options:0 locale:NSLocale.currentLocale];
+    NSDateFormatter * formatter = [NSDateFormatter tb_dateNumeric];
     return [formatter stringFromDate:self];
 }
 
