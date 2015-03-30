@@ -76,9 +76,7 @@ static NSDate* _year2038 = nil;
 
 
 -(NSString*)userShortTimeString {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale autoupdatingCurrentLocale];
-    formatter.timeStyle = NSDateFormatterShortStyle;
+    NSDateFormatter* formatter = [NSDateFormatter tb_timeShort];
     NSString* result = [formatter stringFromDate:self];
     return [result lowercaseString];
 }
@@ -327,9 +325,7 @@ static NSInteger cachedThisYear = 0;
 
 
 -(NSString*) dayOfWeek {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale autoupdatingCurrentLocale];
-    formatter.dateFormat = @"EEEE";
+    NSDateFormatter *formatter = [NSDateFormatter tb_dayOfWeekFull];
     return [formatter stringFromDate:self];
 }
 
