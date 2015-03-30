@@ -47,6 +47,16 @@
 }
 
 
++(NSDateFormatter *)tb_hourMinutesPeriod {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"jmma"];
+}
+
+
++(NSDateFormatter *)tb_hourPeriod {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"ja"];
+}
+
+
 +(NSDateFormatter *)tb_monthFull {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"MMMM"];
 }

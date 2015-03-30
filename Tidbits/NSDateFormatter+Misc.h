@@ -16,6 +16,8 @@
 +(NSDateFormatter *)tb_dayDateYearFull;
 +(NSDateFormatter *)tb_dayOfWeekFull;
 +(NSDateFormatter *)tb_dayOfMonth;
++(NSDateFormatter *)tb_hourMinutesPeriod;
++(NSDateFormatter *)tb_hourPeriod;
 +(NSDateFormatter *)tb_monthFull;
 +(NSDateFormatter *)tb_monthYearFull;
 +(NSDateFormatter *)tb_timeShort;
