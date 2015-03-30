@@ -207,6 +207,15 @@ static NSDate* _year2038 = nil;
     return [self compare:date] == NSOrderedDescending;
 }
 
+
+-(BOOL)isStartOfHour {
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    cal.timeZone = [NSTimeZone systemTimeZone];
+    NSDateComponents * comp = [cal components:(NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:self];
+    return comp.minute == 0 && comp.second == 0;
+}
+
+
 - (BOOL) isSameDayAs:(NSDate*)date {
 
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];

@@ -56,6 +56,7 @@
 - (BOOL) isAfter:(NSDate*)date;
 - (BOOL) isSameDayAs:(NSDate*)date;
 - (BOOL) isSameUTCDayAs:(NSDate*)date;
+- (BOOL) isStartOfHour;
 - (BOOL) isToday;
 - (BOOL) isYesterday;
 - (BOOL) isDayBefore;
