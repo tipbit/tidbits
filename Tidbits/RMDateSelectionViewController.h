@@ -40,7 +40,7 @@
  @param aDate The selected date.
  */
 
-typedef void (^RMDateSelectionBlock)(RMDateSelectionViewController *vc, NSDate *aDate);
+typedef void (^RMDateSelectionBlock)(RMDateSelectionViewController *vc, NSDate *aDate, NSTimeInterval countdownDuration);
 
 /**
  This block is called when the user cancels if blocks are used.
