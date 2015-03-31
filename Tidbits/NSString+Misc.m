@@ -101,6 +101,52 @@
     return [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0;
 }
 
+-(BOOL)isValidEmailAddress {
+    if (![self length])
+    {
+        return NO;
+    }
+    
+    NSRange entireRange = NSMakeRange(0, [self length]);
+    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink
+                                                               error:nil];
+    NSArray *matches = [detector matchesInString:self options:0 range:entireRange];
+    
+    // should only a single match
+    if ([matches count]!=1)
+    {
+        return NO;
+    }
+    
+    NSTextCheckingResult *result = [matches firstObject];
+    
+    // result should be a link
+    if (result.resultType != NSTextCheckingTypeLink)
+    {
+        return NO;
+    }
+    
+    // result should be a recognized mail address
+    if (![result.URL.scheme isEqualToString:@"mailto"])
+    {
+        return NO;
+    }
+    
+    // match must be entire string
+    if (!NSEqualRanges(result.range, entireRange))
+    {
+        return NO;
+    }
+    
+    // but schould not have the mail URL scheme
+    if ([self hasPrefix:@"mailto:"])
+    {
+        return NO;
+    }
+    
+    // no complaints, string is valid email address
+    return YES;
+}
 
 -(bool)isAllNumeric {
     NSCharacterSet *numericSet = [NSCharacterSet decimalDigitCharacterSet];
