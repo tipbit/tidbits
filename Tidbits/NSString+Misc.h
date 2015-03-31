@@ -30,8 +30,6 @@
 
 -(bool) isNotWhitespace;
 
--(BOOL) isValidEmailAddress;
-
 -(BOOL)isNotEqualToString:(NSString *)aString;
 
 /**
