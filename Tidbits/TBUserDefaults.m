@@ -22,6 +22,15 @@
 #import "TBUserDefaults.h"
 
 
+#define EXTRA_VERBOSE_LOGGING 0
+
+#if EXTRA_VERBOSE_LOGGING
+#define VLog(__fmt, ...) DLog(__fmt, ##__VA_ARGS__)
+#else
+#define VLog(...)
+#endif
+
+
 #if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
 #define NSFileProtectionNone @""
 #endif
@@ -113,7 +122,7 @@ static NSString* preferencesDir;
     }
     NSString *libraryDir = libraryDirs[0];
     preferencesDir = [libraryDir stringByAppendingPathComponent:@"Preferences"];
-    NSLog(@"Preferences found at %@", preferencesDir);
+    VLog(@"Preferences found at %@", preferencesDir);
 
     [self registerSettings];
 }
@@ -182,7 +191,7 @@ static NSString* preferencesDir;
 
         TBUserDefaults* instance = instancesByUser[key];
         if (instance == nil) {
-            NSLog(@"Couldn't find defaults for user: %@ loading defaults",user);
+            VLog(@"Couldn't find defaults for user: %@ loading defaults",user);
             instance = [[TBUserDefaults alloc] init:user];
             instancesByUser[key] = instance;
         }
@@ -194,7 +203,7 @@ static NSString* preferencesDir;
 
 +(NSString *)user {
     if (currentUser == nil) {
-        NSLog(@"Current user isn't defined, using userDefaultsForUnauthenticatedUser to define it");
+        VLog(@"Current user isn't defined, using userDefaultsForUnauthenticatedUser to define it");
         currentUser = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUser protection:NSFileProtectionNone defaultValue:nil];
     }
     return currentUser;
@@ -202,7 +211,7 @@ static NSString* preferencesDir;
 
 +(NSString *)userType {
     if (currentUserType == nil) {
-        NSLog(@"Current userType isn't defined, using userDefaultsForUnauthenticatedUser to define it");
+        VLog(@"Current userType isn't defined, using userDefaultsForUnauthenticatedUser to define it");
         currentUserType = [[TBUserDefaults userDefaultsForUnauthenticatedUser] stringForKey:kUserType protection:NSFileProtectionNone defaultValue:nil];
     }
     return currentUserType;
@@ -289,7 +298,7 @@ static NSString* preferencesDir;
 
 
 -(BOOL)synchronize {
-    NSLog(@"Synchronizing");
+    DLog(@"Synchronizing");
     NSArray* to_sync;
     @synchronized (self.dirtyProtectionLevels) {
         to_sync = [self.dirtyProtectionLevels allObjects];
@@ -309,8 +318,8 @@ static NSString* preferencesDir;
         }
     }
     if (failed != nil) {
-        NSLogWarn(@"Failed to synchronize %@; marking them as dirty again so that we can try again later.",
-                  [failed componentsJoinedByString:@", "]);
+        NSLog(@"Failed to synchronize %@; marking them as dirty again so that we can try again later.",
+              [failed componentsJoinedByString:@", "]);
         @synchronized (self.dirtyProtectionLevels) {
             [self.dirtyProtectionLevels addObjectsFromArray:failed];
         }
@@ -455,7 +464,7 @@ static id valueFromString(NSString * value, NSString * type) {
         if (wasUnlocked) {
             *wasUnlocked = NO;
         }
-        NSLog(@"Returning default for %@, user is nil", self.user);
+        VLog(@"Returning default for %@, user is nil", self.user);
         return def;
     }
 
@@ -546,7 +555,7 @@ static id valueFromString(NSString * value, NSString * type) {
                 // We need to return failure here -- we can't set a default dictionary because that
                 // would mean that we'd overwrite the settings on disk as soon as the screen
                 // unlocks again.
-                NSLog(@"Failed to load PList %@; probably just the screen is locked.", defPath);
+                DLog(@"Failed to load PList %@; probably just the screen is locked.", defPath);
                 return nil;
             }
             else if (err.isPropertyListReadCorruptError) {
@@ -555,18 +564,18 @@ static id valueFromString(NSString * value, NSString * type) {
                 settings = [NSMutableDictionary dictionary];
             }
             else {
-                NSLogWarn(@"Failed to deserialize settings from %@: %@. Forced to clear them!", defPath, err);
+                NSLogError(@"Failed to deserialize settings from %@: %@. Forced to clear them!", defPath, err);
                 settings = [NSMutableDictionary dictionary];
             }
         }
         @synchronized (self.settingsByProtection) {
             self.settingsByProtection[protection] = settings;
         }
-        NSLog(@"Loaded %lu settings from %@", (unsigned long)settings.count, defPath);
+        VLog(@"Loaded %lu settings from %@", (unsigned long)settings.count, defPath);
         return settings;
     }
     else {
-        NSLog(@"Couldn't find defPath: %@",defPath);
+        VLog(@"Couldn't find defPath: %@",defPath);
         NSData* blank = [NSData data];
         NSError* err = nil;
         NSDataWritingOptions options = NSDataWritingWithoutOverwriting | NSDataWritingOptionForNSFileProtection(protection);
@@ -604,7 +613,7 @@ static id valueFromString(NSString * value, NSString * type) {
         return NO;
     }
 
-    NSLog(@"Saved %lu settings to %@", (unsigned long)settings.count, defPath);
+    VLog(@"Saved %lu settings to %@", (unsigned long)settings.count, defPath);
 
     return ok;
 }
@@ -615,7 +624,7 @@ static id valueFromString(NSString * value, NSString * type) {
                            [[NSBundle mainBundle] bundleIdentifier],
                            [self.user gtm_stringByEscapingForURLArgument],
                            protection];
-    NSLog(@"plist path is: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
+    VLog(@"plist path is: %@",[preferencesDir stringByAppendingPathComponent:plistName]);
     return [preferencesDir stringByAppendingPathComponent:plistName];
 }
 
