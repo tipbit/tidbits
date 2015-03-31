@@ -34,7 +34,16 @@
 @end
 
 
+static NSRegularExpression * testNameRE = nil;
+
+
 @implementation TBJUnitTestObserver
+
+
++(void)initialize {
+    testNameRE = [NSRegularExpression regularExpressionWithPattern:@"^-\\[[^ ]+ (.*)\\]$" options:(NSRegularExpressionOptions)0 error:nil];
+    assert(testNameRE);
+}
 
 
 -(instancetype)init {
@@ -183,8 +192,19 @@ static NSArray * testSuiteRunAttrs(XCTestRun * run) {
 +(DDXMLElement *)testRunToXML:(XCTestRun *)testRun failure:(NSString *)failure failureLocation:(NSString *)failureLocation logs:(NSArray *)logs {
     DDXMLElement * result = [DDXMLElement elementWithName:@"testcase"];
 
+    NSString * testName = testRun.test.name;
+    NSArray * matches = [testNameRE matchesInString:testName options:(NSMatchingOptions)0 range:NSMakeRange(0, testName.length)];
+    NSString * bareTestName;
+    if (matches.count > 0) {
+        NSTextCheckingResult * match = matches[0];
+        bareTestName = [testName substringWithRange:[match rangeAtIndex:1]];
+    }
+    else {
+        bareTestName = testName;
+    }
+
     NSArray * attrs = @[[DDXMLNode attributeWithName:@"name"
-                                         stringValue:testRun.test.name],
+                                         stringValue:bareTestName],
                         [DDXMLNode attributeWithName:@"classname"
                                          stringValue:NSStringFromClass(testRun.test.class)],
                         [DDXMLNode attributeWithName:@"time"
