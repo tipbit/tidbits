@@ -31,19 +31,25 @@
  * This gives more control than the calls above, but you need to be careful to consider the
  * use of AM/PM in locales that wouldn't normally use it.
  *
+ * The methods named .*OptionalPeriod will use the period marker if the current locale
+ * uses the 12-hour clock.
+ *
  * http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
  */
 
 +(NSDateFormatter *)tb_dateNumeric;
 +(NSDateFormatter *)tb_dateYearNumeric;
 +(NSDateFormatter *)tb_dateYearNumericHourMinutes;
-+(NSDateFormatter *)tb_dateYearNumericHourMinutesPeriod;
++(NSDateFormatter *)tb_dateYearNumericHourMinutesOptionalPeriod;
 +(NSDateFormatter *)tb_dayDateFull;
 +(NSDateFormatter *)tb_dayDateYearFull;
 +(NSDateFormatter *)tb_dayOfWeekFull;
 +(NSDateFormatter *)tb_dayOfMonth;
++(NSDateFormatter *)tb_hour;
 +(NSDateFormatter *)tb_hourMinutes;
++(NSDateFormatter *)tb_hourMinutesOptionalPeriod;
 +(NSDateFormatter *)tb_hourMinutesPeriod;
++(NSDateFormatter *)tb_hourOptionalPeriod;
 +(NSDateFormatter *)tb_hourPeriod;
 +(NSDateFormatter *)tb_monthFull;
 +(NSDateFormatter *)tb_monthYearFull;

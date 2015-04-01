@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Tipbit. All rights reserved.
 //
 
+#import "CurrentLocaleInfo.h"
+
 #import "NSDateFormatter+Misc.h"
 
 
@@ -45,6 +47,11 @@
 }
 
 
++(NSDateFormatter *)tb_dateYearNumericHourMinutesOptionalPeriod {
+    return (CurrentLocaleInfo.instance.uses24HourClock ? [NSDateFormatter tb_dateYearNumericHourMinutes] : [NSDateFormatter tb_dateYearNumericHourMinutesPeriod]);
+}
+
+
 +(NSDateFormatter *)tb_dateYearNumericHourMinutesPeriod {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"dMyyyyjmma"];
 }
@@ -75,8 +82,23 @@
 }
 
 
++(NSDateFormatter *)tb_hourMinutesOptionalPeriod {
+    return (CurrentLocaleInfo.instance.uses24HourClock ? [NSDateFormatter tb_hourMinutes] : [NSDateFormatter tb_hourMinutesPeriod]);
+}
+
+
 +(NSDateFormatter *)tb_hourMinutesPeriod {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"jmma"];
+}
+
+
++(NSDateFormatter *)tb_hour {
+    return [NSDateFormatter tb_dateFormatterFromTemplate:@"j"];
+}
+
+
++(NSDateFormatter *)tb_hourOptionalPeriod {
+    return (CurrentLocaleInfo.instance.uses24HourClock ? [NSDateFormatter tb_hour] : [NSDateFormatter tb_hourPeriod]);
 }
 
 
