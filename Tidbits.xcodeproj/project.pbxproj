@@ -163,6 +163,9 @@
 		408F4668176CE7EE00C468EB /* LimitedInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F4665176CE4F400C468EB /* LimitedInputStream.h */; };
 		408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F67CC1782CABE00E974AD /* UIImage+Resize.m */; };
 		408F67CF1782CBB100E974AD /* UIImage+Resize.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408F67CB1782CABE00E974AD /* UIImage+Resize.h */; };
+		408FA3101ACC955F005D9481 /* CurrentLocaleInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 408FA30E1ACC955F005D9481 /* CurrentLocaleInfo.h */; };
+		408FA3111ACC955F005D9481 /* CurrentLocaleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 408FA30F1ACC955F005D9481 /* CurrentLocaleInfo.m */; };
+		408FA3121ACC955F005D9481 /* CurrentLocaleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 408FA30F1ACC955F005D9481 /* CurrentLocaleInfo.m */; };
 		409091861804961B00D0C951 /* RunLoopFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 409091851804961B00D0C951 /* RunLoopFuture.m */; };
 		4090918818049D6E00D0C951 /* RunLoopFuture.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 409091841804961B00D0C951 /* RunLoopFuture.h */; };
 		4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4090940A18C10CCF0046DDDB /* NSMutableString+Misc.m */; };
@@ -743,6 +746,8 @@
 		408F4666176CE4F400C468EB /* LimitedInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitedInputStream.m; sourceTree = "<group>"; };
 		408F67CB1782CABE00E974AD /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		408F67CC1782CABE00E974AD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		408FA30E1ACC955F005D9481 /* CurrentLocaleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLocaleInfo.h; sourceTree = "<group>"; };
+		408FA30F1ACC955F005D9481 /* CurrentLocaleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLocaleInfo.m; sourceTree = "<group>"; };
 		409091841804961B00D0C951 /* RunLoopFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopFuture.h; sourceTree = "<group>"; };
 		409091851804961B00D0C951 /* RunLoopFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopFuture.m; sourceTree = "<group>"; };
 		4090940918C10CCF0046DDDB /* NSMutableString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Misc.h"; sourceTree = "<group>"; };
@@ -1037,6 +1042,8 @@
 				402B793F1839464700ED9858 /* Breadcrumbs.m */,
 				404753AE18F3A74300115A82 /* CPUTime.h */,
 				404753AF18F3A74300115A82 /* CPUTime.m */,
+				408FA30E1ACC955F005D9481 /* CurrentLocaleInfo.h */,
+				408FA30F1ACC955F005D9481 /* CurrentLocaleInfo.m */,
 				408E897C176A47D4001B61E6 /* Dispatch.h */,
 				408E897D176A47D4001B61E6 /* Dispatch.m */,
 				40C4E21E17F87E7C000EA60C /* DNSQuery.h */,
@@ -1350,6 +1357,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408FA3101ACC955F005D9481 /* CurrentLocaleInfo.h in Headers */,
 				40E48BB0198B32D40015C54E /* CBLParseDate.h in Headers */,
 				40E48BB9198B331E0015C54E /* BackgroundTaskHandler.h in Headers */,
 				40E48BBB198B331E0015C54E /* BlockWithResultOperation.h in Headers */,
@@ -1746,6 +1754,7 @@
 				400C95B51853C14A0095B9DC /* NSMutableArray+Ext.m in Sources */,
 				408E88951768E2BA001B61E6 /* NSMutableArray+Stack.m in Sources */,
 				408E88971768E2BA001B61E6 /* NSMutableData+AppendByte.m in Sources */,
+				408FA3111ACC955F005D9481 /* CurrentLocaleInfo.m in Sources */,
 				408E88961768E2BA001B61E6 /* NSMutableData+UTF8.m in Sources */,
 				18F1E611195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				400C955C185321980095B9DC /* NSFileManager+Ext.m in Sources */,
@@ -1840,6 +1849,7 @@
 				40E48B3F198B266E0015C54E /* GTMNSString+URLArguments.m in Sources */,
 				40E48B40198B266E0015C54E /* GTMNSString+XML.m in Sources */,
 				40E48B41198B266E0015C54E /* GTMObjC2Runtime.m in Sources */,
+				408FA3121ACC955F005D9481 /* CurrentLocaleInfo.m in Sources */,
 				40E48B49198B266E0015C54E /* BlockWithResultOperation.m in Sources */,
 				40E48B4A198B266E0015C54E /* Breadcrumbs.m in Sources */,
 				40E48B4B198B266E0015C54E /* CPUTime.m in Sources */,

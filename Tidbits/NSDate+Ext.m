@@ -405,13 +405,4 @@ static NSInteger cachedThisYear = 0;
 }
 
 
-+(BOOL)localeUses24HourClock {
-    NSDateFormatter * formatter = [NSDateFormatter tb_timeShort];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    NSDate * date = [NSDate dateWithTimeIntervalSinceReferenceDate:[NSDate timeIntervalFromHours:23]];
-    NSString * str = [formatter stringFromDate:date];
-    return [str containsString:@"23"];
-}
-
-
 @end

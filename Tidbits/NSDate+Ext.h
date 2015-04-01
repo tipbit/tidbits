@@ -84,6 +84,4 @@
 +(NSString *)stringFromHHMMA:(NSDate *)hhmma;
 +(NSString *)stringFromHHMM:(NSDate *)hhmm;
 
-+(BOOL)localeUses24HourClock;
-
 @end
