@@ -15,6 +15,21 @@
 @implementation NSDateFormatter (Misc)
 
 
++(NSDateFormatter *)tb_dateShort {
+    return [NSDateFormatter tb_dateFormatterWithCurrentLocaleDateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+}
+
+
++(NSDateFormatter *)tb_dateTimeLong {
+    return [NSDateFormatter tb_dateFormatterWithCurrentLocaleDateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterLongStyle];
+}
+
+
++(NSDateFormatter *)tb_timeShort {
+    return [NSDateFormatter tb_dateFormatterWithCurrentLocaleDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+}
+
+
 +(NSDateFormatter *)tb_dateNumeric {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"dM"];
 }
@@ -32,13 +47,6 @@
 
 +(NSDateFormatter *)tb_dateYearNumericHourMinutesPeriod {
     return [NSDateFormatter tb_dateFormatterFromTemplate:@"dMyyyyjmma"];
-}
-
-
-+(NSDateFormatter *)tb_dateShort {
-    NSDateFormatter * result = [NSDateFormatter tb_dateFormatterWithCurrentLocale];
-    result.dateStyle = NSDateFormatterShortStyle;
-    return result;
 }
 
 
@@ -87,16 +95,17 @@
 }
 
 
-+(NSDateFormatter *)tb_timeShort {
++(NSDateFormatter *)tb_dateFormatterFromTemplate:(NSString *)template {
     NSDateFormatter * result = [NSDateFormatter tb_dateFormatterWithCurrentLocale];
-    result.timeStyle = NSDateFormatterShortStyle;
+    result.dateFormat = [NSDateFormatter dateFormatFromTemplate:template options:0 locale:result.locale];
     return result;
 }
 
 
-+(NSDateFormatter *)tb_dateFormatterFromTemplate:(NSString *)template {
++(NSDateFormatter *)tb_dateFormatterWithCurrentLocaleDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle {
     NSDateFormatter * result = [NSDateFormatter tb_dateFormatterWithCurrentLocale];
-    result.dateFormat = [NSDateFormatter dateFormatFromTemplate:template options:0 locale:result.locale];
+    result.dateStyle = dateStyle;
+    result.timeStyle = timeStyle;
     return result;
 }
 
