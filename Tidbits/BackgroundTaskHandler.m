@@ -154,7 +154,7 @@ static bool _quickBackgroundSwitch;
         NSLog(@"Background task %@ did not run to completion; we're foregrounded again.", self.taskName);
         return true;
     }
-    if ([[UIApplication sharedApplication] backgroundTimeRemaining] < 0.1) {
+    if ([[UIApplication sharedApplication] backgroundTimeRemaining] < 10.0) {
         NSLog(@"Background task %@ did not run to completion; we ran out of time.", self.taskName);
         return true;
     }
