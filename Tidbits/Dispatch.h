@@ -10,7 +10,7 @@
 
 #import "StandardBlocks.h"
 
-#define DURATION_WARNING_ENABLED DEBUG
+#define DURATION_WARNING_ENABLED 0
 
 #if DURATION_WARNING_ENABLED
 #define DURATION_WARNING_EXTRA_ARGS const char* func, int line,
