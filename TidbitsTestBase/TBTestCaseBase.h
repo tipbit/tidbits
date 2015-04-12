@@ -151,6 +151,21 @@
 #define DLog(__fmt, ...) LOG_C_MAYBE(LOG_ASYNC_DEBUG, LOG_LEVEL_DEBUG, LOG_FLAG_DEBUG, 0, _LoggingMacrosPrefix @"%@ " __fmt, self, ##__VA_ARGS__)
 
 
+/**
+ * Call WaitForTimeoutAsync on the given block __b, and assert that it didn't time out within __t.
+ */
+#define XCTAssertTimeoutAsync(__t, __b)                                                                   \
+    do {                                                                                                  \
+        NSTimeInterval __timeout = (__t);                                                                 \
+        BOOL __ok = WaitForTimeoutAsync(__timeout, __b);                                                  \
+        if (!__ok) {                                                                                      \
+            NSString * __msg = [NSString stringWithFormat:@"Timed out after %0.3f seconds.", __timeout];  \
+            NSLog(@"%@ %@", self, __msg);                                                                 \
+            _XCTFailureHandler(self, YES, __FILE__, __LINE__, __msg, @"");                                \
+        }                                                                                                 \
+    } while (false)
+
+
 @interface TBTestCaseBase : XCTestCase
 
 
