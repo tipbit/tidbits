@@ -133,6 +133,41 @@
 
 
 /**
+ * Assert that [__e isKindOfClass:__c].
+ */
+#define XCTAssertIsKindOfClass(__e, __c, ...)                                                                      \
+    do {                                                                                                           \
+        @try {                                                                                                     \
+            id __i = __e;                                                                                          \
+            Class __cls = __c;                                                                                     \
+            BOOL __ok = [(__i) isKindOfClass:(__cls)];                                                             \
+            if (!__ok) {                                                                                           \
+                NSString * __msg = [NSString stringWithFormat:@"%@ is a %@ not a %@", @#__e, [__i class], __cls];  \
+                _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                 \
+            }                                                                                                      \
+        }                                                                                                          \
+        @catch (_XCTestCaseInterruptionException *interruption) {                                                  \
+           [interruption raise];                                                                                   \
+        }                                                                                                          \
+        @catch (NSException *exception) {                                                                          \
+            NSString * __msg = [NSString stringWithFormat:@"Evaluating %@: %@", @#__e, exception.reason];          \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+        @catch (...) {                                                                                             \
+            NSString * __msg = [NSString stringWithFormat:@"Exception evaluating %@", @#__e];                      \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+    } while (false)
+
+
+/**
+ * Assert that [__e isKindOfClass:[__n class]].
+ */
+#define XCTAssertIsKindOf(__e, __n, ...)                    \
+    XCTAssertIsKindOfClass(__e, [__n class], __VA_ARGS__)
+
+
+/**
  * Redefine _XCTRegisterFailure so that we can log to Lumberjack.
  */
 #undef _XCTRegisterFailure
