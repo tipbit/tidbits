@@ -150,7 +150,7 @@ static NSString* preferencesDir;
 }
 
 
-+(void)registerSetting:(NSString *)key type:(NSString *)type protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull)) {
++(void)registerSetting:(NSString *)key type:(NSString *)type protection:(NSString *)protection defaultValue:(id)def __attribute__((nonnull(1,2,3))) {
     NSParameterAssert(key);
     NSParameterAssert(type);
     NSParameterAssert(protection);
