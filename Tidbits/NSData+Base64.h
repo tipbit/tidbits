@@ -31,6 +31,8 @@
 @interface NSData (Base64)
 
 + (NSData *)dataFromBase64String:(NSString *)aString;
++ (NSData *)dataFromBase64urlString:(NSString *)aString;
+
 - (NSString *)base64EncodedString;
 - (NSData *)base64EncodedData;
 
@@ -49,6 +51,5 @@
 
 
 @interface NSString (Base64)
-- (NSData *)base64urlDecodedString;
 - (NSUUID *)uuidFromBase64urlEncodedString;
 @end

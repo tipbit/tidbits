@@ -84,6 +84,30 @@ static unsigned char strToChar (char a, char b)
 }
 
 
++(NSData *)dataFromBase64urlString:(NSString *)aString {
+    NSString *str = [[aString
+                      stringByReplacingOccurrencesOfString:@"-" withString:@"+"]
+                     stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+
+    switch (str.length % 4) {
+        case 3:
+            str = [str stringByAppendingString:@"="];
+            break;
+        case 2:
+            str = [str stringByAppendingString:@"=="];
+            break;
+        case 1:
+            str = [str stringByAppendingString:@"==="];
+            break;
+
+        default:
+            break;
+    }
+
+    return [NSData dataFromBase64String:str];
+}
+
+
 - (NSString *)base64EncodedString {
     // base64EncodedStringWithOptions is present from iOS 7 onwards.
     return [self base64EncodedStringWithOptions:0];
@@ -114,31 +138,8 @@ static unsigned char strToChar (char a, char b)
 
 @implementation NSString (Base64)
 
-- (NSData *)base64urlDecodedString {
-    NSString *str = [[self
-                      stringByReplacingOccurrencesOfString:@"-" withString:@"+"]
-                     stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
-
-    switch (str.length % 4) {
-        case 3:
-            str = [str stringByAppendingString:@"="];
-            break;
-        case 2:
-            str = [str stringByAppendingString:@"=="];
-            break;
-        case 1:
-            str = [str stringByAppendingString:@"==="];
-            break;
-            
-        default:
-            break;
-    }
-
-    return [NSData dataFromBase64String:str];
-}
-
 - (NSUUID *)uuidFromBase64urlEncodedString {
-    NSData *data = [self base64urlDecodedString];
+    NSData *data = [NSData dataFromBase64urlString:self];
     NSUUID *uuid = [data uuidFromData];
     return uuid;
 }
