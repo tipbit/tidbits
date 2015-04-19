@@ -12,4 +12,6 @@
 
 -(NSString*)UUIDStringBase64url;
 
++(NSUUID *)UUIDFromBase64urlString:(NSString *)str;
+
 @end

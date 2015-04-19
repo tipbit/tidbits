@@ -35,4 +35,20 @@
 }
 
 
+-(void)testUUIDFromBase64urlString {
+    NSString * input = @"X2JWenTCTTK2SdJtdiQzvw";
+    NSUUID * expected = [[NSUUID alloc] initWithUUIDString:@"5F62567A-74C2-4D32-B649-D26D762433BF"];
+    NSUUID * result = [NSUUID UUIDFromBase64urlString:input];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testUUIDFromBase64urlStringDashUnderscore {
+    NSString * input = @"LhM2_UNJSF-Lrd9FuSrjLg";
+    NSUUID * expected = [[NSUUID alloc] initWithUUIDString:@"2e1336fd-4349-485f-8bad-df45b92ae32e"];
+    NSUUID * result = [NSUUID UUIDFromBase64urlString:input];
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 @end

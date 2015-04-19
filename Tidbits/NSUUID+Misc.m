@@ -20,4 +20,12 @@
     return [data base64urlEncodedString];
 }
 
+
++(NSUUID *)UUIDFromBase64urlString:(NSString *)str {
+    NSData * data = [NSData dataFromBase64urlString:str];
+    const void * bytes = data.bytes;
+    return bytes == NULL ? nil : [[NSUUID alloc] initWithUUIDBytes:bytes];
+}
+
+
 @end
