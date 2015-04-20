@@ -22,6 +22,10 @@
 
 
 +(NSUUID *)UUIDFromBase64urlString:(NSString *)str {
+    if (str == nil) {
+        return nil;
+    }
+    
     NSData * data = [NSData dataFromBase64urlString:str];
     const void * bytes = data.bytes;
     return bytes == NULL ? nil : [[NSUUID alloc] initWithUUIDBytes:bytes];
