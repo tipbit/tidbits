@@ -14,5 +14,6 @@
 @implementation NSOperation (Misc)
 
 SYNTHESIZE_ASSOCIATED_OBJECT(tb_name, NSString *, tb_name, setTb_name, OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+SYNTHESIZE_ASSOCIATED_OBJECT(tb_userInfo, NSDictionary *, tb_userInfo, setTb_userInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
 @end

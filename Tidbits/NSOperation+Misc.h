@@ -17,4 +17,9 @@
  */
 @property (nonatomic) NSString * tb_name;
 
+/**
+ * Dictionary user info for operation's use
+ */
+@property (nonatomic) NSDictionary * tb_userInfo;
+
 @end
