@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
+#import <objc/runtime.h>
+
 #import "NSArray+Map.h"
 #import "NSArray+Misc.h"
 #import "NSMutableString+Misc.h"
@@ -14,6 +16,17 @@
 
 
 @implementation NSString (Misc)
+
+
++(void)load {
+    // iOS 8 added containsString.
+    // On iOS 7, add a redirect to our tb_containsString method for compat.
+    SEL containsStringSEL = NSSelectorFromString(@"containsString:");
+    if (![self instancesRespondToSelector:containsStringSEL]) {
+        Method containsMethod = class_getInstanceMethod(self, NSSelectorFromString(@"tb_containsString:"));
+        class_addMethod(self, containsStringSEL, method_getImplementation(containsMethod), method_getTypeEncoding(containsMethod));
+    }
+}
 
 
 -(NSArray *)componentsSeparatedByString:(NSString *)separator limit:(NSUInteger)limit {
@@ -50,6 +63,11 @@
     }
 
     return result;
+}
+
+
+-(BOOL)tb_containsString:(NSString *)aString {
+    return [self rangeOfString:aString].location != NSNotFound;
 }
 
 
