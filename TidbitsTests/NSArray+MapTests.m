@@ -25,10 +25,11 @@
 {
     NSArray* input = @[@1, @2, @3, @4, @5, @6];
     NSArray* expected = @[@1, @2, @3, @4, @5, @6];
-    NSArray* result = [input filter:^bool(id obj) {
+    NSMutableArray* result = [input filter:^bool(id obj) {
         return true;
     }];
 
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -37,10 +38,11 @@
 {
     NSArray* input = @[@1, @2, @3, @4, @5, @6];
     NSArray* expected = @[@1, @2, @3, @4, @6];
-    NSArray* result = [input filter:^bool(id obj) {
+    NSMutableArray* result = [input filter:^bool(id obj) {
         return [obj intValue] != 5;
     }];
 
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -49,10 +51,11 @@
 {
     NSArray* input = @[@1, @2, @3, @4, @5, @6];
     NSArray* expected = @[@3];
-    NSArray* result = [input filter:^bool(id obj) {
+    NSMutableArray* result = [input filter:^bool(id obj) {
         return [obj intValue] == 3;
     }];
 
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -61,10 +64,11 @@
 {
     NSArray* input = @[@1, @2, @3, @4, @5, @6];
     NSArray* expected = @[];
-    NSArray* result = [input filter:^bool(id obj) {
+    NSMutableArray* result = [input filter:^bool(id obj) {
         return false;
     }];
 
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -72,10 +76,11 @@
 -(void)testDictionaryWithKeysAndMappedValues {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{@1: @1, @2: @4, @4: @16};
-    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -83,9 +88,10 @@
 -(void)testDictionaryWithKeysAndMappedValuesEmpty {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
         return nil;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -93,10 +99,11 @@
 -(void)testDictionaryWithValuesAndMappedKeys {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{@1: @[@1], @4: @[@2], @16: @[@4]};
-    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -104,9 +111,10 @@
 -(void)testDictionaryWithValuesAndMappedKeysEmpty {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
         return nil;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -114,10 +122,11 @@
 -(void)testDictionaryWithValuesAndMappedKeysMerge {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{@"Odd": @[@1, @3], @"Even": @[@2, @4]};
-    NSDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
         int v = [obj intValue];
         return v % 2 == 0 ? @"Even" : @"Odd";
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -125,10 +134,11 @@
 -(void)testDictionaryWithValuesAndUniqueMappedKeys {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{@1: @1, @4: @2, @16: @4};
-    NSDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -136,9 +146,10 @@
 -(void)testDictionaryWithValuesAndUniqueMappedKeysEmpty {
     NSArray* input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
         return nil;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -146,13 +157,14 @@
 -(void)testDictionaryWithMappedKeysAndMappedValues {
     NSArray * input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{@10: @100, @40: @400};
-    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
         int k = [obj intValue];
         return k == 3 ? nil : @(10 * k);
     } valueMapper:^id(id obj) {
         int v = [obj intValue];
         return v == 2 ? nil : @(100 * v);
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -160,11 +172,12 @@
 -(void)testDictionaryWithMappedKeysAndMappedValuesEmpty {
     NSArray * input = @[];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
         return obj;
     } valueMapper:^id(id obj) {
         return obj;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -172,11 +185,12 @@
 -(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilKey {
     NSArray * input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
         return nil;
     } valueMapper:^id(id obj) {
         return obj;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -184,11 +198,12 @@
 -(void)testDictionaryWithMappedKeysAndMappedValuesResultEmptyNilValue {
     NSArray * input = @[@1, @2, @3, @4];
     NSDictionary* expected = @{};
-    NSDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
+    NSMutableDictionary* result = [input dictionaryWithMappedKeysAndMappedValues:^id(id obj) {
         return obj;
     } valueMapper:^id(id obj) {
         return nil;
     }];
+    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -196,7 +211,7 @@
 -(void)testMapAsyncDispatch {
     NSArray* input = @[@1, @2, @3, @4];
     NSArray* expected = @[@1, @4, @16];
-    __block NSArray* result = nil;
+    __block NSMutableArray * result = nil;
     WaitForTimeoutAsync(30.0, ^(bool *done) {
         [input map_async:^(id obj, IdBlock onSuccess) {
             dispatchAsyncMainThread(^{
@@ -210,6 +225,7 @@
             });
         }];
     });
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -217,13 +233,14 @@
 -(void)testMapAsyncNoThreads {
     NSArray* input = @[@1, @2, @3, @4];
     NSArray* expected = @[@1, @4, @16];
-    __block NSArray* result = nil;
+    __block NSMutableArray * result = nil;
     [input map_async:^(id obj, IdBlock onSuccess) {
         int v = [obj intValue];
         onSuccess(v == 3 ? nil : @(v * v));
     } onSuccess:^(NSMutableArray *array) {
         result = array;
     }];
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -231,7 +248,7 @@
 -(void)testMapAsyncDispatchEmpty {
     NSArray* input = @[@1, @2, @3, @4];
     NSArray* expected = @[];
-    __block NSArray* result = nil;
+    __block NSMutableArray * result = nil;
     WaitForTimeoutAsync(30.0, ^(bool *done) {
         [input map_async:^(id obj, IdBlock onSuccess) {
             dispatchAsyncMainThread(^{
@@ -244,6 +261,7 @@
             });
         }];
     });
+    XCTAssertIsKindOf(result, [NSMutableArray class]);
     XCTAssertEqualObjects(result, expected);
 }
 

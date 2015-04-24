@@ -32,8 +32,9 @@
     }
 
     // If the result is noticably smaller than the input, then shrink the memory consumption of the result by copying to a new array.
-    if (result.count < 2 * self.count / 3)
-        result = [result copy];
+    if (result.count < 2 * self.count / 3) {
+        result = [result mutableCopy];
+    }
 
     return result;
 }
