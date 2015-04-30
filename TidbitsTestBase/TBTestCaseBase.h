@@ -189,14 +189,14 @@
 /**
  * Call WaitForTimeoutAsync on the given block __b, and assert that it didn't time out within __t.
  */
-#define XCTAssertTimeoutAsync(__t, __b)                                                                   \
+#define XCTAssertTimeoutAsync(__t, __b, ...)                                                                   \
     do {                                                                                                  \
         NSTimeInterval __timeout = (__t);                                                                 \
         BOOL __ok = WaitForTimeoutAsync(__timeout, __b);                                                  \
         if (!__ok) {                                                                                      \
             NSString * __msg = [NSString stringWithFormat:@"Timed out after %0.3f seconds.", __timeout];  \
             NSLog(@"%@ %@", self, __msg);                                                                 \
-            _XCTFailureHandler(self, YES, __FILE__, __LINE__, __msg, @"");                                \
+            _XCTFailureHandler(self, YES, __FILE__, __LINE__, __msg, @"" __VA_ARGS__);                    \
         }                                                                                                 \
     } while (false)
 
