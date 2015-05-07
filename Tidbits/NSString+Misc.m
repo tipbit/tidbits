@@ -147,6 +147,18 @@
 }
 
 
+-(NSString *)emailDomain {
+    NSArray * bits = [self componentsSeparatedByString:@"@"];
+    return (bits.count == 2 && [bits[0] isNotWhitespace] && [bits[1] isNotWhitespace]) ? bits[1] : nil;
+}
+
+
+-(NSString *)emailUser {
+    NSArray * bits = [self componentsSeparatedByString:@"@"];
+    return (bits.count == 2 && [bits[0] isNotWhitespace] && [bits[1] isNotWhitespace]) ? bits[0] : nil;
+}
+
+
 +(NSString *)stringWithUTF8Data:(NSData *)data {
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }

@@ -44,6 +44,20 @@
 
 -(NSData*)UTF8Data;
 
+/**
+ * @return The bit after the @ (i.e. assuming that this string is an email address).
+ * This string must have precisely one @ and it must be in the middle, not at either end.
+ * nil otherwise.
+ */
+-(NSString *)emailDomain;
+
+/**
+ * @return The bit before the @ (i.e. assuming that this string is an email address).
+ * This string must have precisely one @ and it must be in the middle, not at either end.
+ * nil otherwise.
+ */
+-(NSString *)emailUser;
+
 /*!
  * @return A copy of this string, with characters escaped so that it is suitable for inclusion in a Javascript
  * single-quoted string literal.

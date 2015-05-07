@@ -111,6 +111,24 @@
 }
 
 
+-(void)testEmailDomain {
+    XCTAssertEqualStrings([@"test@example.com" emailDomain], @"example.com");
+    XCTAssertNil([@"@example.com" emailDomain]);
+    XCTAssertNil([@"test@" emailDomain]);
+    XCTAssertNil([@"@" emailDomain]);
+    XCTAssertNil([@"test.example.com" emailDomain]);
+}
+
+
+-(void)testEmailUser {
+    XCTAssertEqualStrings([@"test@example.com" emailUser], @"test");
+    XCTAssertNil([@"@example.com" emailUser]);
+    XCTAssertNil([@"test@" emailUser]);
+    XCTAssertNil([@"@" emailUser]);
+    XCTAssertNil([@"test.example.com" emailUser]);
+}
+
+
 -(void)testStringBySanitizingFilenameEmpty {
     XCTAssertEqualObjects([@"" stringBySanitizingFilename], @"");
 }
