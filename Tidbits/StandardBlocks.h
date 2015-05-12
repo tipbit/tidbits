@@ -54,6 +54,7 @@ typedef void (^NSURLBlock)(NSURL* url);
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 typedef void (^UIActionSheetBlock)(UIActionSheet *sheet);
 typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
+typedef void (^FetchResponseBlock)(UIBackgroundFetchResult result, id email);
 typedef void (^UIButtonBlock)(UIButton *button);
 typedef void (^UIImageBlock)(UIImage * image);
 #endif
