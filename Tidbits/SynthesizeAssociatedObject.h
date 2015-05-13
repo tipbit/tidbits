@@ -23,6 +23,16 @@ static char* __key = #__key;                                                    
 }
 
 
+#define SYNTHESIZE_ASSOCIATED_OBJ(__type, __getter, __setter, __retain)                       \
+-(__type)__getter {                                                                           \
+    return objc_getAssociatedObject(self, @selector(__getter));                               \
+}                                                                                             \
+                                                                                              \
+-(void)__setter:(__type)value {                                                               \
+    objc_setAssociatedObject(self, @selector(__getter), value, __retain);                     \
+}
+
+
 #define SYNTHESIZE_ASSOCIATED_BOOL(__key, __getter, __setter)                                 \
 static char* __key = #__key;                                                                  \
 -(BOOL)__getter {                                                                             \
