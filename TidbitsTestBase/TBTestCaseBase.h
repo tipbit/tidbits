@@ -168,6 +168,38 @@
 
 
 /**
+ * Assert that [__e containsString:__s].
+ */
+#define XCTAssertContainsString(__e, __s, ...)                                                                     \
+    do {                                                                                                           \
+        @try {                                                                                                     \
+            NSString * __e2 = __e;                                                                                 \
+            NSString * __s2 = __s;                                                                                 \
+            BOOL __ok = [__e2 containsString:__s2];                                                                \
+            if (!__ok) {                                                                                           \
+                NSString * __e2_sub = (__e2.length > 500 ?                                                         \
+                                       [[__e2 substringToIndex:500] stringByAppendingString:@"..."] :              \
+                                       __e2);                                                                      \
+                NSLog(@"%@ is \"%@\"", @#__e, __e2_sub);                                                           \
+                NSString * __msg = [NSString stringWithFormat:@"%@ does not contain \"%@\"", @#__e, __s2];         \
+                _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                 \
+            }                                                                                                      \
+        }                                                                                                          \
+        @catch (_XCTestCaseInterruptionException *interruption) {                                                  \
+           [interruption raise];                                                                                   \
+        }                                                                                                          \
+        @catch (NSException *exception) {                                                                          \
+            NSString * __msg = [NSString stringWithFormat:@"Evaluating %@: %@", @#__e, exception.reason];          \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+        @catch (...) {                                                                                             \
+            NSString * __msg = [NSString stringWithFormat:@"Exception evaluating %@", @#__e];                      \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+    } while (false)
+
+
+/**
  * Redefine _XCTRegisterFailure so that we can log to Lumberjack.
  */
 #undef _XCTRegisterFailure
