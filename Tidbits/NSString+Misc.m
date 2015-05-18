@@ -218,6 +218,13 @@
 }
 
 
+-(NSString *)stringByDeletingCharactersInRange:(NSRange)range {
+    NSMutableString * result = [self mutableCopy];
+    [result deleteCharactersInRange:range];
+    return result;
+}
+
+
 -(NSString *)stringByReplacingAll:(NSDictionary *)replacements {
     NSMutableString * result = [self mutableCopy];
     [result replaceAll:replacements];

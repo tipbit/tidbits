@@ -196,6 +196,33 @@
 }
 
 
+-(void)testStringByDeletingCharactersInRangeNormal {
+    NSString * input = @"This test has not passed";
+    NSString * result = [input stringByDeletingCharactersInRange:NSMakeRange(13, 4)];
+    XCTAssertEqualStrings(result, @"This test has passed");
+}
+
+
+-(void)testStringByDeletingCharactersInRangeOutOfRange {
+    NSString * input = @"This test has not passed";
+    XCTAssertThrowsSpecificNamed([input stringByDeletingCharactersInRange:NSMakeRange(99, 1)],
+                                 NSException, NSRangeException);
+}
+
+
+-(void)testStringByDeletingCharactersInRangeOverlappingRange {
+    NSString * input = @"This test has not passed";
+    XCTAssertThrowsSpecificNamed([input stringByDeletingCharactersInRange:NSMakeRange(5, 99)],
+                                 NSException, NSRangeException);
+}
+
+
+-(void)testStringByDeletingCharactersInRangeBlank {
+    NSString * result = [@"" stringByDeletingCharactersInRange:NSMakeRange(0, 0)];
+    XCTAssertEqualStrings(result, @"");
+}
+
+
 -(void)testStringByReplacingAllNormal {
     NSString * input = @"This [[A]] has [[B]]";
     NSString * result = [input stringByReplacingAll:@{@"[[A]]": @"test",

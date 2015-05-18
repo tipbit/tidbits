@@ -82,6 +82,8 @@
  */
 -(NSString*)stringByFoldingWhitespace;
 
+-(NSString *)stringByDeletingCharactersInRange:(NSRange)range;
+
 /**
  * @return A copy of this string, with [NSMutableString replaceAll:replacements] called on it.
  */
