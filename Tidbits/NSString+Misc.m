@@ -225,6 +225,11 @@
 }
 
 
+-(NSString *)stringByDeletingCharactersInSet:(NSCharacterSet *)charset {
+    return charset == nil ? [self copy] : [[self componentsSeparatedByCharactersInSet:charset] componentsJoinedByString:@""];
+}
+
+
 -(NSString *)stringByReplacingAll:(NSDictionary *)replacements {
     NSMutableString * result = [self mutableCopy];
     [result replaceAll:replacements];

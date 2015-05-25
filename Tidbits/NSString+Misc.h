@@ -85,6 +85,11 @@
 -(NSString *)stringByDeletingCharactersInRange:(NSRange)range;
 
 /**
+ * @param charset May be nil, in which case [self copy] is returned.
+ */
+-(NSString *)stringByDeletingCharactersInSet:(NSCharacterSet *)charset;
+
+/**
  * @return A copy of this string, with [NSMutableString replaceAll:replacements] called on it.
  */
 -(NSString *)stringByReplacingAll:(NSDictionary *)replacements;

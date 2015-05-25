@@ -223,6 +223,31 @@
 }
 
 
+-(void)testStringByDeletingCharactersInSetNormal {
+    NSString * input = @"'This test has'X' passed";
+    NSString * result = [input stringByDeletingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"X'"]];
+    XCTAssertEqualStrings(result, @"This test has passed");
+}
+
+
+-(void)testStringByDeletingCharactersInSetBlank {
+    NSString * result = [@"" stringByDeletingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"ABC"]];
+    XCTAssertEqualStrings(result, @"");
+}
+
+
+-(void)testStringByDeletingCharactersInSetNil {
+    NSString * result = [@"This test has passed" stringByDeletingCharactersInSet:nil];
+    XCTAssertEqualStrings(result, @"This test has passed");
+}
+
+
+-(void)testStringByDeletingCharactersInSetEmpty {
+    NSString * result = [@"This test has passed" stringByDeletingCharactersInSet:[[NSCharacterSet alloc] init]];
+    XCTAssertEqualStrings(result, @"This test has passed");
+}
+
+
 -(void)testStringByReplacingAllNormal {
     NSString * input = @"This [[A]] has [[B]]";
     NSString * result = [input stringByReplacingAll:@{@"[[A]]": @"test",
