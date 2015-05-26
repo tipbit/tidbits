@@ -22,6 +22,11 @@
 }
 
 
++(NSDateFormatter *)tb_dateMedium {
+    return [NSDateFormatter tb_dateFormatterWithCurrentLocaleDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
+}
+
+
 +(NSDateFormatter *)tb_dateTimeLong {
     return [NSDateFormatter tb_dateFormatterWithCurrentLocaleDateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterLongStyle];
 }

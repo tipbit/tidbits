@@ -17,6 +17,7 @@
  */
 
 +(NSDateFormatter *)tb_dateShort;
++(NSDateFormatter *)tb_dateMedium;
 +(NSDateFormatter *)tb_dateTimeLong;
 +(NSDateFormatter *)tb_timeShort;
 
