@@ -32,6 +32,8 @@
 -(NSNumber *)numberForKey:(id)key;
 -(NSString*) stringForKey:(id)key;
 
+-(NSString *)toJSON;
+
 /**
  * Write this NSDictionary as an XML plist.
  *

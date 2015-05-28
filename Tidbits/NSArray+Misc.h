@@ -36,4 +36,6 @@
 
 -(NSArray*)filteredArrayUsingBlock:(predicate_t)predicate;
 
+-(NSString *)toJSON;
+
 @end

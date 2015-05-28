@@ -92,5 +92,13 @@
     return [data writeToFile:path options:options error:error];
 }
 
+-(NSString *)toJSON
+{
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self  options:NSJSONWritingPrettyPrinted error: &error];
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return json;
+}
+
 
 @end
