@@ -87,14 +87,12 @@
 
 -(NSString *)toJSON
 {
-    @try {
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:self  options:NSJSONWritingPrettyPrinted error: &error];
-        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        return json;
-    } @catch (NSException *exception) {
-    }
-    return nil;
+    if(![NSJSONSerialization isValidJSONObject:self])
+        return nil;
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self  options:NSJSONWritingPrettyPrinted error: &error];
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return json;
 }
 
 

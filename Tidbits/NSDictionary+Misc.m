@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+Misc.h"
+#import "NSDate+ISO8601.h"
 
 @implementation NSDictionary (Misc)
 
@@ -94,14 +95,21 @@
 
 -(NSString *)toJSON
 {
-    @try {
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:self  options:NSJSONWritingPrettyPrinted error: &error];
-        NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        return json;
-    } @catch (NSException *exception) {
-    }
-    return nil;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self];
+    [self enumerateKeysAndObjectsUsingBlock: ^(NSString *key, id value, BOOL *stop1) {
+        if ([value isKindOfClass:NSDate.class]) {
+            NSDate *date = value;
+            NSString *dateStr = [date iso8601String];
+            dict[key] = dateStr;
+        }
+    }];
+    
+    if(![NSJSONSerialization isValidJSONObject:dict])
+        return nil;
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict  options:NSJSONWritingPrettyPrinted error: &error];
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return json;
 }
 
 
