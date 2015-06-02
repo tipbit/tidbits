@@ -2206,6 +2206,7 @@
 		408E887E1768DEF7001B61E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/Tidbits.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
@@ -2218,6 +2219,7 @@
 		408E887F1768DEF7001B61E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/Tidbits.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
@@ -2436,6 +2438,7 @@
 		40B3ACD51A1D7C6600DE4CFA /* ReleaseTesting */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/Tidbits.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tidbits/Tidbits-Prefix.pch";
