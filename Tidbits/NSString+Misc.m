@@ -67,26 +67,17 @@
 
 
 -(BOOL)tb_containsString:(NSString *)aString {
-    if (aString) {
-        return [self rangeOfString:aString].location != NSNotFound;
-    }
-    return true;
+    return [self rangeOfString:aString].location != NSNotFound;
 }
 
 
 -(bool)contains:(NSString *)substring {
-    if (substring) {
-        return [self rangeOfString:substring].location != NSNotFound;
-    }
-    return true;
+    return [self rangeOfString:substring].location != NSNotFound;
 }
 
 
 -(bool)containsCaseInsensitive:(NSString *)substring {
-    if (substring) {
-        return [self rangeOfString:substring options:NSCaseInsensitiveSearch].location != NSNotFound;
-    }
-    return true;
+    return [self rangeOfString:substring options:NSCaseInsensitiveSearch].location != NSNotFound;
 }
 
 
