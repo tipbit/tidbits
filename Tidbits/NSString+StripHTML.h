@@ -13,6 +13,11 @@
 
 @interface NSString (StripHTML)
 
+/**
+ * Equivalent to [self stripHTML:NSUIntegerMax].
+ */
+- (NSString*)stripHTML;
+
 - (NSString*)stripHTML:(NSUInteger)charCount;
 
 @end

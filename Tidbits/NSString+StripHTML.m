@@ -25,6 +25,11 @@ static NSCharacterSet* endTagCharacterSet = nil;
 }
 
 
+- (NSString *)stripHTML {
+    return [self stripHTML:NSUIntegerMax];
+}
+
+
 - (NSString *)stripHTML:(NSUInteger)charCount {
     if (self.length == 0)
         return @"";
