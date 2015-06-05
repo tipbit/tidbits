@@ -37,4 +37,20 @@
 }
 
 
+-(void)testDateByFixingTwoDigitYears {
+    [self doTestDateByFixingTwoDigitYears:@"2014-12-30T00:00:00" expected:@"2014-12-30T00:00:00"];
+    [self doTestDateByFixingTwoDigitYears:@"0014-12-30T00:00:00" expected:@"2014-12-30T00:00:00"];
+    [self doTestDateByFixingTwoDigitYears:@"0071-12-30T00:00:00" expected:@"1971-12-30T00:00:00"];
+    [self doTestDateByFixingTwoDigitYears:@"0004-02-29T12:00:00" expected:@"2004-02-29T12:00:00"];  // 2004 was a leap year (AD 4 was also, in the proleptic Gregorian calendar).
+}
+
+
+-(void)doTestDateByFixingTwoDigitYears:(NSString *)input expected:(NSString *)expected {
+    NSDate * i = [NSDate dateFromIso8601:input];
+    NSDate * e = [NSDate dateFromIso8601:expected];
+
+    XCTAssertEqualObjects([i dateByFixingTwoDigitYears], e);
+}
+
+
 @end

@@ -329,6 +329,37 @@ static NSInteger cachedThisYear = 0;
     return [formatter stringFromDate:self];
 }
 
+
+-(NSDate *)dateByFixingTwoDigitYears {
+    NSTimeInterval ti = self.timeIntervalSinceReferenceDate;
+
+    // Magic constants in the if statements are as below.
+    //   NSTimeInterval year50 = [[NSDate dateFromIso8601:@"0050-01-01T00:00:00Z"] timeIntervalSinceReferenceDate];
+    const NSTimeInterval year50 = -61567603200.0;
+    //   NSTimeInterval year100 = [[NSDate dateFromIso8601:@"0100-01-01T00:00:00Z"] timeIntervalSinceReferenceDate];
+    const NSTimeInterval year100 = -59989766400.0;
+    //   NSDate * year1 = [NSDate dateFromIso8601:@"0001-01-01T00:00:00Z"];
+    //   NSDate * year2001 = [NSDate dateFromIso8601:@"2001-01-01T00:00:00Z"];
+    //   NSTimeInterval delta2000 = year2001.timeIntervalSinceReferenceDate - year1.timeIntervalSinceReferenceDate;
+    const NSTimeInterval delta2000 = 63113904000.0;
+    //   NSDate * year51 = [NSDate dateFromIso8601:@"0051-01-01T00:00:00Z"];
+    //   NSDate * year1951 = [NSDate dateFromIso8601:@"1951-01-01T00:00:00Z"];
+    //   NSTimeInterval y1900delta = year1951.timeIntervalSinceReferenceDate - year51.timeIntervalSinceReferenceDate;
+    const NSTimeInterval delta1900 = 59958144000.0;
+    if (ti < year50) {
+        // Before 50 AD.  Assume that this is actually a two digit date that's meant to be 20xx.
+        return [self dateByAddingTimeInterval:delta2000];
+    }
+    else if (ti < year100) {
+        // Before 100 AD.  Assume that this is actually a two digit date that's meant to be 19xx.
+        return [self dateByAddingTimeInterval:delta1900];
+    }
+    else {
+        return self;
+    }
+}
+
+
 +(NSTimeInterval)timeIntervalFromDays:(NSInteger)days
 {
     return [self timeIntervalFromDays:days hours:0 minutes:0 seconds:0];

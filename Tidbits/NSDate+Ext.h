@@ -63,6 +63,14 @@
 - (BOOL) isThisYear;
 - (NSString*) dayOfWeek;
 
+/**
+ * @return self if the year is later than AD 100.  Otherwise, it is assumed that this was parsed from
+ * a string with a two-digit year and it actually is meant to be some time this millennium.  Anything
+ * before AD 50 will be converted to 20xx, and anything between AD 50 and AD 99 will be converted to
+ * 19xx.
+ */
+-(NSDate *)dateByFixingTwoDigitYears;
+
 +(NSDate*)startOfToday;
 +(NSDate*)startOf7DaysAgo;
 +(NSDate*)startOf30DaysAgo;
