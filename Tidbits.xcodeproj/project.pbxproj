@@ -21,6 +21,10 @@
 		18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784718F0D63F00E8A968 /* BlockButton.m */; };
 		18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */; };
 		18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */; };
+		18E1507A1B265BC1008CD161 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E150771B265BC1008CD161 /* FBKVOController.m */; };
+		18E1507B1B265BC1008CD161 /* NSObject+FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E150791B265BC1008CD161 /* NSObject+FBKVOController.m */; };
+		18E1507C1B265BFA008CD161 /* NSObject+FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E150791B265BC1008CD161 /* NSObject+FBKVOController.m */; };
+		18E1507D1B265BFE008CD161 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E150771B265BC1008CD161 /* FBKVOController.m */; };
 		18E71B9E198C1F770060DEC9 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B9D198C1F770060DEC9 /* NSObject+Extras.m */; };
 		18F1E611195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60A195E6969008E3161 /* TPKeyboardAvoidingCollectionView.m */; };
 		18F1E612195E6969008E3161 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1E60C195E6969008E3161 /* TPKeyboardAvoidingScrollView.m */; };
@@ -574,6 +578,11 @@
 		18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIActionSheet+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockButtons.h"; sourceTree = "<group>"; };
 		18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIAlertView+BlockButtons.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		18E150751B265BC1008CD161 /* FBKVOController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FBKVOController-Prefix.pch"; path = "FBKVOController/FBKVOController-Prefix.pch"; sourceTree = "<group>"; };
+		18E150761B265BC1008CD161 /* FBKVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBKVOController.h; path = FBKVOController/FBKVOController.h; sourceTree = "<group>"; };
+		18E150771B265BC1008CD161 /* FBKVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBKVOController.m; path = FBKVOController/FBKVOController.m; sourceTree = "<group>"; };
+		18E150781B265BC1008CD161 /* NSObject+FBKVOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+FBKVOController.h"; path = "FBKVOController/NSObject+FBKVOController.h"; sourceTree = "<group>"; };
+		18E150791B265BC1008CD161 /* NSObject+FBKVOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+FBKVOController.m"; path = "FBKVOController/NSObject+FBKVOController.m"; sourceTree = "<group>"; };
 		18E71B9C198C1F770060DEC9 /* NSObject+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extras.h"; sourceTree = "<group>"; };
 		18E71B9D198C1F770060DEC9 /* NSObject+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extras.m"; sourceTree = "<group>"; };
 		18F1E609195E6969008E3161 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingCollectionView.h; path = TPKeyboardAvoiding/TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -896,6 +905,18 @@
 			name = FormatterKit;
 			sourceTree = "<group>";
 		};
+		18E150721B265B98008CD161 /* KVOController */ = {
+			isa = PBXGroup;
+			children = (
+				18E150751B265BC1008CD161 /* FBKVOController-Prefix.pch */,
+				18E150761B265BC1008CD161 /* FBKVOController.h */,
+				18E150771B265BC1008CD161 /* FBKVOController.m */,
+				18E150781B265BC1008CD161 /* NSObject+FBKVOController.h */,
+				18E150791B265BC1008CD161 /* NSObject+FBKVOController.m */,
+			);
+			name = KVOController;
+			sourceTree = "<group>";
+		};
 		18F1E607195E6850008E3161 /* TPKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +996,7 @@
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
+				18E150721B265B98008CD161 /* KVOController */,
 				402C044118754151009D105B /* CBL */,
 				181E00F91912ADD800DEE28C /* FormatterKit */,
 				408E88CB1768E3A7001B61E6 /* google-toolbox-for-mac */,
@@ -1754,11 +1776,13 @@
 				406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */,
 				4090940B18C10CCF0046DDDB /* NSMutableString+Misc.m in Sources */,
 				40E3ED09176E4F0300FFF503 /* NSData+NSInputStream.m in Sources */,
+				18E1507A1B265BC1008CD161 /* FBKVOController.m in Sources */,
 				4061332B1A814AC70076F37F /* NSStringPunycodeAdditions.m in Sources */,
 				181BC4D91902069300D53080 /* UIView+Misc.m in Sources */,
 				40E3ED24176EAD5700FFF503 /* NSDate+Ext.m in Sources */,
 				40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */,
 				407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */,
+				18E1507B1B265BC1008CD161 /* NSObject+FBKVOController.m in Sources */,
 				408E8994176A47D4001B61E6 /* NSDate+ISO8601.m in Sources */,
 				40B4B82A182467620076F2F1 /* NSIndexSet+Misc.m in Sources */,
 				408E8995176A47D4001B61E6 /* NSDictionary+Map.m in Sources */,
@@ -1909,8 +1933,10 @@
 				40E48B72198B266E0015C54E /* NSString+Misc.m in Sources */,
 				40E48B73198B266E0015C54E /* NSString+StripHTML.m in Sources */,
 				40E48B74198B266E0015C54E /* NSUserDefaults+Default.m in Sources */,
+				18E1507D1B265BFE008CD161 /* FBKVOController.m in Sources */,
 				40E48B77198B266E0015C54E /* NSUUID+Misc.m in Sources */,
 				40E48B78198B266E0015C54E /* OperationManager.m in Sources */,
+				18E1507C1B265BFA008CD161 /* NSObject+FBKVOController.m in Sources */,
 				40E48B7A198B266E0015C54E /* RunLoopFuture.m in Sources */,
 				40E48B7B198B266E0015C54E /* StreamPair.m in Sources */,
 				40E48B7C198B266E0015C54E /* TBUserDefaults.m in Sources */,
