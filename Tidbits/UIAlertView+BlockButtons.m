@@ -280,6 +280,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     return alert;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
+
 -(instancetype) initWithTitle:(NSString *)title
                       message:(NSString *)message
                  cancelButton:(BlockButton *)cancelButton
@@ -336,6 +339,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex
     
     return alert;
 }
+#pragma clang diagnostic pop
 
 -(void)dismiss:(BOOL)animated
 {
