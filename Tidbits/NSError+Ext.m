@@ -97,6 +97,11 @@
 }
 
 
+-(bool)isHTTP500 {
+    return [self isHTTP:500];
+}
+
+
 -(bool)isHTTP50x {
     return [self.domain isEqualToString:NSURLErrorDomain] && self.code >= 500 && self.code < 600;
 }
