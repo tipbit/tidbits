@@ -55,6 +55,11 @@ static NSDictionary* customProps = nil;
     // Used in DEBUG to check event properties
     // See Confluence for definition of custom properties
     // https://light.tipbit.com/confluence/display/dev/iOS+in-app+tracking
+    // Adding a new custom property to the list below requires
+    // an update to the ElasticSearch schema used on event.dev.tipbit.com
+    // A new property will not break anything - you simply will not be
+    // able to do useful queries on event.dev.tipbit.com until it is added
+    // See link above for details on how to change the schema
 #if DEBUG
     customProps = @{@"key"        : @true,
                     @"value"      : @true,
