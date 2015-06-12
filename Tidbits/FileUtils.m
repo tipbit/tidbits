@@ -35,8 +35,12 @@
     });
 }
 
-
 +(void)asyncWriteFile:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
+    [FileUtils asyncWriteFile:path data:data options:NSDataWritingAtomic onSuccess:onSuccess onFailure:onFailure];
+
+}
+
++(void)asyncWriteFile:(NSString*)path data:(NSData*)data options:(NSDataWritingOptions)writeOptionsMask onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
     dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
         NSString* dir = [path stringByDeletingLastPathComponent];
 
@@ -52,7 +56,7 @@
         }
 
         err = nil;
-        ok = [data writeToFile:path options:NSDataWritingAtomic error:&err];
+        ok = [data writeToFile:path options:writeOptionsMask error:&err];
         if (ok) {
             onSuccess();
         }
@@ -74,12 +78,15 @@ static bool errIsUnusual(NSError * err) {
     return true;
 }
 
-
 +(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
+    [FileUtils asyncWriteFileIfDataSet:path data:data options:NSDataWritingAtomic onSuccess:onSuccess onFailure:onFailure];
+}
+
++(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data options:(NSDataWritingOptions)writeOptionsMask onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure {
     if (data == nil)
         onSuccess();
     else
-        [FileUtils asyncWriteFile:path data:data onSuccess:onSuccess onFailure:onFailure];
+        [FileUtils asyncWriteFile:path data:data options:writeOptionsMask onSuccess:onSuccess onFailure:onFailure];
 }
 
 

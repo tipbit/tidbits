@@ -26,6 +26,7 @@
  * This function will also create any necessary subdirectories.
  */
 +(void)asyncWriteFile:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
++(void)asyncWriteFile:(NSString*)path data:(NSData*)data options:(NSDataWritingOptions) writeOptionsMask onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
 
 /*!
  * Call asyncWriteFile if data is set, or just call onSuccess if data is nil.
@@ -33,5 +34,5 @@
  * This means that the callback can be either on the calling thread, or a background thread.
  */
 +(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
-
++(void)asyncWriteFileIfDataSet:(NSString*)path data:(NSData*)data options:(NSDataWritingOptions)writeOptionsMask onSuccess:(VoidBlock)onSuccess onFailure:(NSErrorBlock)onFailure;
 @end
