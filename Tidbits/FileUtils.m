@@ -61,6 +61,10 @@
             onSuccess();
         }
         else {
+            if (err.isNoSuchFile) {
+                BOOL screenLocked = ![[UIApplication sharedApplication] isProtectedDataAvailable];
+                NSLogError(@"TB-6720 No such file encountered when trying to write. Screen is %@locked.", (screenLocked) ? @"" : @"not ");
+            }
             if (errIsUnusual(err)) {
                 NSLogError(@"Failed to write data to file %@: %@", path, err);
             }
@@ -71,8 +75,9 @@
 
 
 static bool errIsUnusual(NSError * err) {
+
     if (err.isFileWriteNoPermission) {
-        // Screen is locked.  Happens all the time.
+        NSLog(@"Screen was locked during directory create or file write attempt.  Happens all the time.");
         return false;
     }
     return true;
