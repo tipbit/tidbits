@@ -200,6 +200,72 @@
 
 
 /**
+ * Assert that [__a containsObject:__o].
+ */
+#define XCTAssertContainsObject(__a, __o, ...)                                                                     \
+    do {                                                                                                           \
+        @try {                                                                                                     \
+            typeof(__a) __a2 = __a;                                                                                \
+            typeof(__o) __o2 = __o;                                                                                \
+            BOOL __ok = [__a2 containsObject:__o2];                                                                \
+            if (!__ok) {                                                                                           \
+                NSString * __d = __o2.description;                                                                 \
+                NSString * __d_sub = (__d.length > 500 ?                                                           \
+                                      [[__d substringToIndex:500] stringByAppendingString:@"..."] :                \
+                                      __d);                                                                        \
+                NSLog(@"%@ is \"%@\"", @#__a, __d_sub);                                                            \
+                NSString * __msg = [NSString stringWithFormat:@"%@ does not contain \"%@\"", @#__a, __o2];         \
+                _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                 \
+            }                                                                                                      \
+        }                                                                                                          \
+        @catch (_XCTestCaseInterruptionException *interruption) {                                                  \
+           [interruption raise];                                                                                   \
+        }                                                                                                          \
+        @catch (NSException *exception) {                                                                          \
+            NSString * __msg = [NSString stringWithFormat:@"Evaluating %@: %@", @#__a, exception.reason];          \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+        @catch (...) {                                                                                             \
+            NSString * __msg = [NSString stringWithFormat:@"Exception evaluating %@", @#__a];                      \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+    } while (false)
+
+
+/**
+ * Assert that ![__a containsObject:__o].
+ */
+#define XCTAssertDoesNotContainObject(__a, __o, ...)                                                               \
+    do {                                                                                                           \
+        @try {                                                                                                     \
+            typeof(__a) __a2 = __a;                                                                                \
+            typeof(__o) __o2 = __o;                                                                                \
+            BOOL __ok = ![__a2 containsObject:__o2];                                                               \
+            if (!__ok) {                                                                                           \
+                NSString * __d = __o2.description;                                                                 \
+                NSString * __d_sub = (__d.length > 500 ?                                                           \
+                                      [[__d substringToIndex:500] stringByAppendingString:@"..."] :                \
+                                      __d);                                                                        \
+                NSLog(@"%@ is \"%@\"", @#__a, __d_sub);                                                            \
+                NSString * __msg = [NSString stringWithFormat:@"%@ contains \"%@\" and should not", @#__a, __o2];  \
+                _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                 \
+            }                                                                                                      \
+        }                                                                                                          \
+        @catch (_XCTestCaseInterruptionException *interruption) {                                                  \
+           [interruption raise];                                                                                   \
+        }                                                                                                          \
+        @catch (NSException *exception) {                                                                          \
+            NSString * __msg = [NSString stringWithFormat:@"Evaluating %@: %@", @#__a, exception.reason];          \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+        @catch (...) {                                                                                             \
+            NSString * __msg = [NSString stringWithFormat:@"Exception evaluating %@", @#__a];                      \
+            _XCTRegisterFailure(self, __msg, @"" __VA_ARGS__);                                                     \
+        }                                                                                                          \
+    } while (false)
+
+
+/**
  * Redefine _XCTRegisterFailure so that we can log to Lumberjack.
  */
 #undef _XCTRegisterFailure
