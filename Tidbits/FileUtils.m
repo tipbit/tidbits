@@ -62,7 +62,11 @@
         }
         else {
             if (err.isNoSuchFile) {
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
                 BOOL screenLocked = ![[UIApplication sharedApplication] isProtectedDataAvailable];
+#else
+                BOOL screenLocked = NO;
+#endif
                 NSLogError(@"TB-6720 No such file encountered when trying to write. Screen is %@locked.", (screenLocked) ? @"" : @"not ");
             }
             if (errIsUnusual(err)) {
