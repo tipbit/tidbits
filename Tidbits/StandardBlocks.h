@@ -40,6 +40,7 @@ typedef void (^NSDictionary3Block)(NSDictionary * dict1, NSDictionary * dict2, N
 typedef void (^NSDictionary4Block)(NSDictionary * dict1, NSDictionary * dict2, NSDictionary * dict3, NSDictionary * dict4);
 typedef void (^NSErrorBlock)(NSError* error);
 typedef void (^NSIntegerBlock)(NSInteger i);
+typedef void (^NSIntegerBoolBlock)(NSInteger i, BOOL flag);
 typedef void (^NSMutableArrayBlock)(NSMutableArray* array);
 typedef void (^NSMutableDictionaryBlock)(NSMutableDictionary * dict);
 typedef void (^NSObjectBlock)(NSObject * obj);
