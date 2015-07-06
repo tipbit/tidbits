@@ -208,6 +208,53 @@
 }
 
 
+-(void)testMapRemoveDuplicatesNoDupes {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSArray * expected = @[@1, @4, @16];
+    NSArray * result = [input mapRemoveDuplicates:^id(id obj) {
+        int v = [obj intValue];
+        return (v == 3 ? nil : @(v * v));
+    }];
+    XCTAssertIsKindOf(result, NSMutableArray);
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapRemoveDuplicatesDupes {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSArray * expected = @[@1, @0];
+    NSArray * result = [input mapRemoveDuplicates:^id(id obj) {
+        int v = [obj intValue];
+        return (v == 3 ? nil : @(v % 2));
+    }];
+    XCTAssertIsKindOf(result, NSMutableArray);
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapRemoveDuplicatesInputEmpty {
+    NSArray * input = @[];
+    NSArray * expected = @[];
+    NSArray * result = [input mapRemoveDuplicates:^id(id obj) {
+        int v = [obj intValue];
+        return (v == 3 ? nil : @(v % 2));
+    }];
+    XCTAssertIsKindOf(result, NSMutableArray);
+    XCTAssertEqualObjects(result, expected);
+}
+
+
+-(void)testMapRemoveDuplicatesResultEmpty {
+    NSArray * input = @[@1, @2, @3, @4];
+    NSArray * expected = @[];
+    NSArray * result = [input mapRemoveDuplicates:^id(__unused id obj) {
+        return nil;
+    }];
+    XCTAssertIsKindOf(result, NSMutableArray);
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 -(void)testMapAsyncDispatch {
     NSArray* input = @[@1, @2, @3, @4];
     NSArray* expected = @[@1, @4, @16];

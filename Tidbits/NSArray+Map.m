@@ -51,6 +51,20 @@
 }
 
 
+-(NSMutableArray *)mapRemoveDuplicates:(id_to_id_t)mapper {
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:self.count];
+    NSMutableSet * seen = [NSMutableSet setWithCapacity:self.count];
+    for (id obj in self) {
+        id new_obj = mapper(obj);
+        if (new_obj != nil && ![seen containsObject:new_obj]) {
+            [result addObject:new_obj];
+            [seen addObject:new_obj];
+        }
+    }
+    return result;
+}
+
+
 -(void) map_async:(id_to_id_async_t)mapper onSuccess:(NSMutableArrayBlock)onSuccess {
     self.tb_thisSelf = self;
     NSMutableArray* result = [NSMutableArray arrayWithCapacity:self.count];

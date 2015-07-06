@@ -27,6 +27,15 @@
 -(NSMutableArray*) map:(id_to_id_t)mapper;
 
 /**
+ * Create a new NSMutableArray with the contents set to mapper(x) for each x in self.
+ * Any duplicate results from the call to mapper will be discarded.
+ *
+ * mapper may return nil, in which case no entry is added to the result
+ * (i.e. the result will be shorter than self).
+ */
+-(NSMutableArray *)mapRemoveDuplicates:(id_to_id_t)mapper;
+
+/**
  * Create a new NSMutableArray with the contents determined by calls to mapper
  * for each x in self.
  *
