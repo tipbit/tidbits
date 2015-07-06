@@ -9,6 +9,7 @@
 #import "Dispatch.h"
 #import "LoggingMacros.h"
 #import "NSError+Ext.h"
+#import "NSString+Misc.h"
 
 #import "NSFileManager+Ext.h"
 
@@ -36,6 +37,24 @@
         if (!ok && !err.isNoSuchFile)
             NSLog(@"Warning: Failed to remove %@", url);
     });
+}
+
+
++(NSString *)prettyFileSize:(unsigned long long)size {
+    if (size == ULONG_LONG_MAX || size == NSUIntegerMax) {
+        return @"";
+    }
+    if (size == 0) {
+        // NSByteCountFormatter thinks that this should be "ZERO KB".  Ugh.
+        return NSLocalizedString(@"0 bytes", nil);
+    }
+    NSString * fileSizeStr = [NSByteCountFormatter stringFromByteCount:(long long)size countStyle:NSByteCountFormatterCountStyleFile];
+    if ([fileSizeStr hasSuffixCaseInsensitive:@"byte"] || [fileSizeStr hasSuffixCaseInsensitive:@"bytes"]) {
+        return fileSizeStr.lowercaseString;
+    }
+    else {
+        return fileSizeStr.uppercaseString;
+    }
 }
 
 

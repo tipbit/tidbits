@@ -65,6 +65,7 @@
 		402E784018AEB199007176E2 /* Enumerate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E783F18AEB199007176E2 /* Enumerate.m */; };
 		402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E784218AEB46E007176E2 /* EnumerateTests.m */; };
 		402E786118B0A2F8007176E2 /* NSMutableArray+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */; };
+		4036CF1D1B4BA4E8009A4F57 /* NSFileManager+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4036CF1C1B4BA4E8009A4F57 /* NSFileManager+ExtTests.m */; };
 		404557E31A29BB3E009FEF2F /* Batcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 404557E21A29BB3E009FEF2F /* Batcher.m */; };
 		4045659C1895B73C009C2A11 /* NSRegularExpression+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659B1895B73C009C2A11 /* NSRegularExpression+Misc.m */; };
 		4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045659E1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m */; };
@@ -644,6 +645,7 @@
 		402E783F18AEB199007176E2 /* Enumerate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enumerate.m; sourceTree = "<group>"; };
 		402E784218AEB46E007176E2 /* EnumerateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumerateTests.m; sourceTree = "<group>"; };
 		402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ExtTests.m"; sourceTree = "<group>"; };
+		4036CF1C1B4BA4E8009A4F57 /* NSFileManager+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+ExtTests.m"; sourceTree = "<group>"; };
 		404557831A255A97009FEF2F /* LoggingMacrosWrappers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingMacrosWrappers.h; sourceTree = "<group>"; };
 		404557E11A29BB3E009FEF2F /* Batcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batcher.h; sourceTree = "<group>"; };
 		404557E21A29BB3E009FEF2F /* Batcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batcher.m; sourceTree = "<group>"; };
@@ -1138,6 +1140,7 @@
 				40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */,
 				402C04461875CDE5009D105B /* NSDate+ISO8601Tests.m */,
 				402E776D18A6289B007176E2 /* NSDictionary+MapTests.m */,
+				4036CF1C1B4BA4E8009A4F57 /* NSFileManager+ExtTests.m */,
 				40DDA4731A4DDAF70079D4FC /* NSJSONSerialization+MiscTests.json */,
 				405AE491190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m */,
 				402E786018B0A2F8007176E2 /* NSMutableArray+ExtTests.m */,
@@ -1846,6 +1849,7 @@
 				40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */,
 				4045659F1895B7C5009C2A11 /* NSRegularExpression+MiscTests.m in Sources */,
 				4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */,
+				4036CF1D1B4BA4E8009A4F57 /* NSFileManager+ExtTests.m in Sources */,
 				402E777218A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m in Sources */,
 				402E776E18A6289B007176E2 /* NSDictionary+MapTests.m in Sources */,
 				402E784318AEB46E007176E2 /* EnumerateTests.m in Sources */,

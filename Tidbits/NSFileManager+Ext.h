@@ -24,4 +24,6 @@
  */
 -(void)removeItemAtURLAsync:(NSURL*)url;
 
++(NSString *)prettyFileSize:(unsigned long long)size;
+
 @end
