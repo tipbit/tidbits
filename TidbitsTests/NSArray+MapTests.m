@@ -29,7 +29,7 @@
         return true;
     }];
 
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -42,7 +42,7 @@
         return [obj intValue] != 5;
     }];
 
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -55,7 +55,7 @@
         return [obj intValue] == 3;
     }];
 
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -68,7 +68,7 @@
         return false;
     }];
 
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -80,7 +80,7 @@
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -91,7 +91,7 @@
     NSMutableDictionary* result = [input dictionaryWithKeysAndMappedValues:^id(id obj) {
         return nil;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -103,7 +103,7 @@
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -114,7 +114,7 @@
     NSMutableDictionary* result = [input dictionaryWithValuesAndMappedKeys:^id(id obj) {
         return nil;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -126,7 +126,7 @@
         int v = [obj intValue];
         return v % 2 == 0 ? @"Even" : @"Odd";
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -138,7 +138,7 @@
         int v = [obj intValue];
         return v == 3 ? nil : @(v * v);
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -149,7 +149,7 @@
     NSMutableDictionary* result = [input dictionaryWithValuesAndUniqueMappedKeys:^id(id obj) {
         return nil;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -164,7 +164,7 @@
         int v = [obj intValue];
         return v == 2 ? nil : @(100 * v);
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -177,7 +177,7 @@
     } valueMapper:^id(id obj) {
         return obj;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -190,7 +190,7 @@
     } valueMapper:^id(id obj) {
         return obj;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -203,7 +203,7 @@
     } valueMapper:^id(id obj) {
         return nil;
     }];
-    XCTAssertIsKindOf(result, [NSMutableDictionary class]);
+    XCTAssertIsKindOf(result, NSMutableDictionary);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -272,7 +272,7 @@
             });
         }];
     });
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -287,7 +287,7 @@
     } onSuccess:^(NSMutableArray *array) {
         result = array;
     }];
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
@@ -308,7 +308,7 @@
             });
         }];
     });
-    XCTAssertIsKindOf(result, [NSMutableArray class]);
+    XCTAssertIsKindOf(result, NSMutableArray);
     XCTAssertEqualObjects(result, expected);
 }
 
