@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import "UIActionSheet+BlockButtons.h"
 #import <objc/runtime.h>
+
+#import "NSString+Misc.h"
+
+#import "UIActionSheet+BlockButtons.h"
+
 
 static char UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER;
 static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
@@ -110,80 +114,62 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 
 +(instancetype)createWithButtons:(NSArray *)buttonsArray
 {
-    BlockButton *header;
-    BlockButton *destructiveButton;
-    for (BlockButton *button in buttonsArray) {
-        if (button.isHeader)
-            header = button;
-        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
-            destructiveButton = button;
-            continue;
-        }
-    }
-    if (header || destructiveButton) {
-        NSMutableArray *array = [buttonsArray mutableCopy];
-        if (header)
-            [array removeObject:header];
-        if (destructiveButton)
-            [array removeObject:destructiveButton];
-        buttonsArray = array;
-    }
-    
-    return [UIActionSheet createWithTitle:header.label
-                             cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
-                        destructiveButton:destructiveButton
-                                onDismiss:nil
-                                  buttons:buttonsArray];
+    return [UIActionSheet createWithTitle:nil cancelButton:nil buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
                        buttons:(NSArray *)buttonsArray
 {
-    BlockButton *destructiveButton;
-    for (BlockButton *button in buttonsArray) {
-        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
-            destructiveButton = button;
-            continue;
-        }
-    }
-    if (destructiveButton) {
-        NSMutableArray *array = [buttonsArray mutableCopy];
-        if (destructiveButton)
-            [array removeObject:destructiveButton];
-        buttonsArray = array;
-    }
-    
-    return [UIActionSheet createWithTitle:title
-                             cancelButton:[BlockButton label:NSLocalizedString(@"Cancel", nil)]
-                        destructiveButton:destructiveButton
-                                onDismiss:nil
-                                  buttons:buttonsArray];
+    return [UIActionSheet createWithTitle:nil cancelButton:nil buttons:buttonsArray];
 }
 
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton
                        buttons:(NSArray *)buttonsArray
 {
-    BlockButton *destructiveButton;
+    BlockButton *header = nil;
+    BlockButton *destructiveButton = nil;
     for (BlockButton *button in buttonsArray) {
-        if([button.label caseInsensitiveCompare:@"delete"] == NSOrderedSame){
+        if (button.isHeader) {
+            header = button;
+        }
+        else if (button.isCancel) {
+            cancelButton = button;
+        }
+        else if (button.isDestructive || [button.label isEqualToStringCaseInsensitive:@"delete"]) {
             destructiveButton = button;
-            continue;
         }
     }
-    if (destructiveButton) {
+
+    if (header != nil || destructiveButton != nil || cancelButton != nil) {
         NSMutableArray *array = [buttonsArray mutableCopy];
-        if (destructiveButton)
+        if (header) {
+            [array removeObject:header];
+        }
+        if (cancelButton != nil) {
+            [array removeObject:cancelButton];
+        }
+        if (destructiveButton != nil) {
             [array removeObject:destructiveButton];
+        }
         buttonsArray = array;
     }
-    
+
+    if (cancelButton == nil) {
+        cancelButton = [BlockButton label:NSLocalizedString(@"Cancel", nil)];
+    }
+
+    if (title == nil) {
+        title = header.label;
+    }
+
     return [UIActionSheet createWithTitle:title
                              cancelButton:cancelButton
                         destructiveButton:destructiveButton
                                 onDismiss:nil
                                   buttons:buttonsArray];
 }
+
 
 +(instancetype)createWithTitle:(NSString *)title
                   cancelButton:(BlockButton *)cancelButton

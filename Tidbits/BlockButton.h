@@ -57,6 +57,8 @@
  */
 +(instancetype)header:(NSString *)headerTitle;
 
+@property (nonatomic) BOOL isCancel;
+@property (nonatomic) BOOL isDestructive;
 @property (nonatomic) BOOL isHeader;
 
 - (void) executeAction;
