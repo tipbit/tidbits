@@ -5,7 +5,7 @@
 //  Copyright (c) 2011 Involved Pty Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 enum{
     NSStringScoreOptionNone                         = 1 << 0,
