@@ -8,6 +8,7 @@
 
 #import <objc/runtime.h>
 
+#import "Dispatch.h"
 #import "NSString+Misc.h"
 
 #import "UIActionSheet+BlockButtons.h"
@@ -281,23 +282,17 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
     // pressed.
     if (buttonIndex >= 0)
     {
-        BlockButton *button = [buttonsArray objectAtIndex:buttonIndex];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(button.action)
-                button.action();
-            if (button.actionWithText)
-                button.actionWithText(button.label);
+        BlockButton *button = buttonsArray[buttonIndex];
+        dispatchAsyncMainThread(^{
+            [button executeAction];
         });
     }
-    else if ([buttonsArray count]) {
+    else if (buttonsArray.count > 0) {
         //See if the last item in the array is the dismissActionDummy button.
-        BlockButton *dismissButton = [buttonsArray objectAtIndex:[buttonsArray count]-1];
+        BlockButton *dismissButton = buttonsArray[buttonsArray.count - 1];
         if ([dismissButton.label isEqualToString:UIActionSheetDismissAction]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if(dismissButton.action)
-                    dismissButton.action();
-                if (dismissButton.actionWithText)
-                    dismissButton.actionWithText(dismissButton.label);
+            dispatchAsyncMainThread(^{
+                [dismissButton executeAction];
             });
         }
     }
