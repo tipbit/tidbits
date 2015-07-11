@@ -58,8 +58,14 @@
 +(instancetype)header:(NSString *)headerTitle;
 
 @property (nonatomic) BOOL isCancel;
+@property (nonatomic) BOOL isChecked;
 @property (nonatomic) BOOL isDestructive;
 @property (nonatomic) BOOL isHeader;
+
+/**
+ * Used iff isChecked is set.
+ */
+@property (nonatomic) UIColor * checkColor;
 
 - (void) executeAction;
 

@@ -252,6 +252,23 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 }
 
 #pragma mark UIActionSheetDelegate
+
++(void)willPresentActionSheet:(UIActionSheet *)actionSheet {
+    NSUInteger i = 1;
+    for (BlockButton * button in actionSheet.tb_blockButtons) {
+        if (button.isChecked) {
+            UIButton * btn = (UIButton *)[actionSheet viewWithTag:i];
+            UILabel *check = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 20, btn.frame.size.height)];
+            check.font = [UIFont fontWithName:@"ZapfDingbatsITC" size:20];
+            check.textColor = button.checkColor;
+            check.text = @"✔";
+            [btn addSubview:check];
+        }
+        i++;
+    }
+}
+
+
 + (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSArray * buttonsArray = actionSheet.tb_blockButtons;
