@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import <objc/runtime.h>
-
 #import "NSString+Misc.h"
 
 #import "UIAlertView+BlockButtons.h"
