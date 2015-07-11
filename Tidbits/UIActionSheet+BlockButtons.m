@@ -6,16 +6,22 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import <objc/runtime.h>
-
 #import "Dispatch.h"
 #import "NSString+Misc.h"
+#import "SynthesizeAssociatedObject.h"
 
 #import "UIActionSheet+BlockButtons.h"
 
 
-static char UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER;
 static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
+
+
+@interface UIActionSheet (BlockButtons)
+
+@property (nonatomic) NSArray * tb_blockButtons;
+
+@end
+
 
 @implementation UIActionSheet (BlocksButtons)
 
@@ -234,17 +240,9 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         BlockButton *dismissButton = [BlockButton label:UIActionSheetDismissAction action:dismissAction];
         [buttonsArray addObject:dismissButton];
     }
-    
-    //If there are any existing UIActionSheets around, we don't want to overwrite their data.
-    NSMutableDictionary *mutableDict;
-    NSDictionary *dict =  objc_getAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER);
-    if (dict)
-        mutableDict = [dict mutableCopy];
-    else
-        mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setObject:buttonsArray forKey:[NSValue valueWithNonretainedObject:actionSheet]];
-    
-    objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, mutableDict, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
+    actionSheet.tb_blockButtons = buttonsArray;
+
     return actionSheet;
 }
 
@@ -256,28 +254,8 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
 #pragma mark UIActionSheetDelegate
 + (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSDictionary *dict =  objc_getAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER);
-    
-    //Remove this actionSheet from the dictionary.
-    NSMutableDictionary *mutableDict;
-    if (dict){
-        mutableDict = [dict mutableCopy];
-        [mutableDict removeObjectForKey:[NSValue valueWithNonretainedObject:actionSheet]];
-    }
-    else if(buttonIndex >= 0){ //We never should hit this else.  Possibly put an assert here to verify that.
-        
-        NSLog(@"Error: We should not be here!  Some logic error.");
-        return;
-    }
-    
-    //Update the dictionary associated with UIAlertViews.
-    if ([mutableDict count])
-        objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, mutableDict, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    else //or nuke the empty dictionary from UIAlertViews.
-        objc_setAssociatedObject([self class], &UIACTIONSHEET_BUTTON_BLOCK_IDENTIFIER, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    
-    NSArray *buttonsArray = [dict objectForKey:[NSValue valueWithNonretainedObject:actionSheet]];
-    
+    NSArray * buttonsArray = actionSheet.tb_blockButtons;
+
     // Action sheets pass back -1 when they're cleared for some reason other than a button being
     // pressed.
     if (buttonIndex >= 0)
@@ -297,5 +275,9 @@ static NSString *UIActionSheetDismissAction = @"~~UIActionSheetDismissAction~~";
         }
     }
 }
+
+
+SYNTHESIZE_ASSOCIATED_OBJ(NSArray *, tb_blockButtons, setTb_blockButtons, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
 
 @end
