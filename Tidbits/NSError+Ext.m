@@ -11,6 +11,11 @@
 @implementation NSError (Ext)
 
 
++(id)errorWithDomain:(NSString *)domain code:(NSInteger)code {
+    return [NSError errorWithDomain:domain code:code userInfo:nil];
+}
+
+
 +(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message {
     NSMutableDictionary* details = [NSMutableDictionary dictionary];
     details[NSLocalizedDescriptionKey] = message;

@@ -10,6 +10,11 @@
 
 @interface NSError (Ext)
 
+/**
+ * Equivalent to [NSError errorWithDomain:domain code:code userInfo:nil].
+ */
++(id)errorWithDomain:(NSString *)domain code:(NSInteger)code;
+
 +(id)errorWithDomain:(NSString *)domain code:(NSInteger)code message:(NSString *)message;
 
 -(bool)isFileReadNoPermissionError;
