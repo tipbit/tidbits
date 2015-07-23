@@ -336,7 +336,10 @@ static NSString *describe_options(NSKeyValueObservingOptions options)
           [observer performSelector:info->_action withObject:change withObject:object];
 #pragma clang diagnostic pop
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
           [observer observeValueForKeyPath:keyPath ofObject:object change:change context:info->_context];
+#pragma clang diagnostic pop
         }
       }
     }
