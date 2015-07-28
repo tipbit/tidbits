@@ -30,5 +30,6 @@
  */
 -(void)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
 
+-(void) appendToCommaDelimitedString:(NSString *)str;
 
 @end

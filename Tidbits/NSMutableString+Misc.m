@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
 //
 
+#import "NSString+Misc.h"
 #import "NSMutableString+Misc.h"
 
 @implementation NSMutableString (Misc)
@@ -26,6 +27,15 @@
 
 -(void)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
     [self replaceOccurrencesOfString:target withString:replacement options:0 range:NSMakeRange(0, self.length)];
+}
+
+-(void) appendToCommaDelimitedString:(NSString *)str {
+
+    if ([self isNotWhitespace]) {
+        [self appendString:@", "];
+        [self replaceOccurrencesOfString:@":," withString:@","];
+    }
+    [self appendString:str];
 }
 
 
