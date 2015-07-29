@@ -347,6 +347,7 @@
 		40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */; };
 		4127173F17F63BB30062588B /* NSUserDefaults+PerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */; };
 		4166EA1717F64E160082973E /* NSUserDefaults+PerUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */; };
+		D8A75A151B681AD800AF796B /* TBBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A75A141B681AD800AF796B /* TBBlockOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -813,6 +814,8 @@
 		40FD7884191DF013004B82D7 /* TBUserDefaults+Tidbits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBUserDefaults+Tidbits.m"; sourceTree = "<group>"; };
 		4127173D17F63BB30062588B /* NSUserDefaults+PerUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+PerUser.h"; sourceTree = "<group>"; };
 		4127173E17F63BB30062588B /* NSUserDefaults+PerUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+PerUser.m"; sourceTree = "<group>"; };
+		D8A75A131B681AD800AF796B /* TBBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBlockOperation.h; sourceTree = "<group>"; };
+		D8A75A141B681AD800AF796B /* TBBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBlockOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1081,6 +1084,8 @@
 				408E898F176A47D4001B61E6 /* SynthesizeAssociatedObject.h */,
 				408E8990176A47D4001B61E6 /* TBAsserts.h */,
 				405EE44719AEA7EB0062DAE7 /* TBAsserts.m */,
+				D8A75A131B681AD800AF796B /* TBBlockOperation.h */,
+				D8A75A141B681AD800AF796B /* TBBlockOperation.m */,
 				40937F0E19049D7500A4A8BB /* TBUserDefaults.h */,
 				40937F0F19049D7500A4A8BB /* TBUserDefaults.m */,
 				40FD7883191DF013004B82D7 /* TBUserDefaults+Tidbits.h */,
@@ -1796,6 +1801,7 @@
 				18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
+				D8A75A151B681AD800AF796B /* TBBlockOperation.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
 				40BD90341777C13400A3ED9C /* UTI.m in Sources */,
 				407100D217FFA4FD006F4115 /* NSString+StripHTML.m in Sources */,
