@@ -24,6 +24,9 @@
 
 +(void)load {
     _year2038 = [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
+    _NSDate_dateComparator = ^NSComparisonResult(NSDate * d1, NSDate * d2) {
+        return [d1 compare:d2];
+    };
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
 #endif
@@ -45,6 +48,12 @@
 static NSDate* _year2038 = nil;
 +(NSDate *)year2038 {
     return _year2038;
+}
+
+
+static NSComparator _NSDate_dateComparator = NULL;
++(NSComparator)dateComparator {
+    return _NSDate_dateComparator;
 }
 
 

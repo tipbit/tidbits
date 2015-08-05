@@ -12,6 +12,11 @@
 
 +(NSDate*)year2038;
 
+/**
+ * Comparator that sorts its two arguments assuming that they are NSDate instances and using NSDate.compare:
+ */
++(NSComparator)dateComparator;
+
 -(NSString*) dateAtTimeString;
 -(NSString*)userShortDateString;
 -(NSString*)userShortDateAndTimeString;
