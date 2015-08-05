@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Tipbit, Inc. All rights reserved.
 //
 
-#if DEBUG
 #import "NSArray+Map.h"
-#import "NSString+Misc.h"
-#endif
 #import "StandardBlocks.h"
 
 #import "RangeDictionary.h"
