@@ -187,6 +187,63 @@ static NSComparator Comparator;
 }
 
 
+-(void)testCopy {
+    NSMutableDictionary * v1 = [@{@1: @1} mutableCopy];
+    NSMutableDictionary * v2 = [@{@2: @2} mutableCopy];
+    NSMutableDictionary * v3 = [@{@3: @3} mutableCopy];
+    NSMutableDictionary * v4 = [@{@4: @4} mutableCopy];
+    NSMutableDictionary * v5 = [@{@5: @5} mutableCopy];
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:v1 from:@"B" to:@"C"];
+    [d setObject:v2 from:@"C" to:@"E"];
+    [d setObject:v3 from:@"E" to:@"F"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertEqualObjects(d[@"B"], v1);
+    XCTAssertEqualObjects(d[@"Bz"], v1);
+    XCTAssertEqualObjects(d[@"C"], v2);
+    XCTAssertEqualObjects(d[@"D"], v2);
+    XCTAssertEqualObjects(d[@"Dz"], v2);
+    XCTAssertEqualObjects(d[@"E"], v3);
+    XCTAssertEqualObjects(d[@"F"], v3);
+    XCTAssertNil(d[@"G"]);
+
+    RangeDictionary * d2 = [d copy];
+
+    [d setObject:v4 from:@"D" to:@"E"];
+    [d setObject:v5 from:@"C" to:@"D"];
+
+    // d should have changed.
+    XCTAssertNil(d[@"A"]);
+    XCTAssertEqualObjects(d[@"B"], v1);
+    XCTAssertEqualObjects(d[@"Bz"], v1);
+    XCTAssertEqualObjects(d[@"C"], v5);
+    XCTAssertEqualObjects(d[@"Cz"], v5);
+    XCTAssertEqualObjects(d[@"D"], v4);
+    XCTAssertEqualObjects(d[@"Dz"], v4);
+    XCTAssertEqualObjects(d[@"E"], v3);  // Note @4 acts like [D, E) so this is correct.
+    XCTAssertEqualObjects(d[@"F"], v3);
+    XCTAssertNil(d[@"G"]);
+
+    // d2 should not have changed.
+    XCTAssertNil(d2[@"A"]);
+    XCTAssertEqualObjects(d2[@"B"], v1);
+    XCTAssertEqualObjects(d2[@"Bz"], v1);
+    XCTAssertEqualObjects(d2[@"C"], v2);
+    XCTAssertEqualObjects(d2[@"D"], v2);
+    XCTAssertEqualObjects(d2[@"Dz"], v2);
+    XCTAssertEqualObjects(d2[@"E"], v3);
+    XCTAssertEqualObjects(d2[@"F"], v3);
+    XCTAssertNil(d2[@"G"]);
+
+    // d and d2 are sharing keys and values though.
+    // We're just testing values here.
+    v1[@1] = @99;
+    XCTAssertEqualObjects(d[@"B"][@1], @99);
+    XCTAssertEqualObjects(d2[@"B"][@1], @99);
+}
+
+
 -(void)testRemoveAllObjects {
     RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
     [d setObject:@1 from:@"B" to:@"D"];

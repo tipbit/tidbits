@@ -28,8 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
  * will need to handle that externally.
  *
  * Keys and values are all retained strongly.
+ *
+ * This class implements NSCopying.  The copy is shallow -- all internal datastructures
+ * are cloned but the keys and values are not and so the two instances will share
+ * references to the contained objects.
  */
-@interface RangeDictionary : NSObject
+@interface RangeDictionary : NSObject<NSCopying>
 
 /**
  * @param comparator Used to sort the keys for all operations on this RangeDictionary.

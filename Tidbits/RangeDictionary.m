@@ -17,7 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface RangeDictionaryEntry : NSObject
+@interface RangeDictionaryEntry : NSObject <NSCopying>
 
 @property (nonatomic) id lo;
 @property (nonatomic) id hi;
@@ -47,6 +47,23 @@ NS_ASSUME_NONNULL_BEGIN
         _entries = [NSMutableArray array];
     }
     return self;
+}
+
+
+-(instancetype)initWithShallowCopy:(RangeDictionary *)other withZone:(nullable NSZone *)zone {
+    self = [super init];
+    if (self) {
+        _comparator = other.comparator;
+        _entries = [other.entries map:^RangeDictionaryEntry *(RangeDictionaryEntry * entry) {
+            return [entry copyWithZone:zone];
+        }];
+    }
+    return self;
+}
+
+
+-(id)copyWithZone:(nullable NSZone *)zone {
+    return [[RangeDictionary allocWithZone:zone] initWithShallowCopy:self withZone:zone];
 }
 
 
@@ -463,6 +480,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @implementation RangeDictionaryEntry
+
+
+-(instancetype)initWithShallowCopy:(RangeDictionaryEntry *)other {
+    self = [super init];
+    if (self) {
+        _hi = other.hi;
+        _lo = other.lo;
+        _val = other.val;
+    }
+    return self;
+}
+
+
+-(id)copyWithZone:(NSZone *)zone {
+    return [[RangeDictionaryEntry allocWithZone:zone] initWithShallowCopy:self];
+}
 
 
 #if DEBUG
