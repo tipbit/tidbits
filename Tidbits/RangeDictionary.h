@@ -38,9 +38,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RangeDictionary : NSObject<NSCopying>
 
 /**
- * @param comparator Used to sort the keys for all operations on this RangeDictionary.
+ * Equivalent to [self initWithComparator:comparator dictionary:nil converter:NULL].
  */
 -(instancetype)initWithComparator:(NSComparator)comparator;
+
+/**
+ * @param comparator Used to sort the keys for all operations on this RangeDictionary.
+ * @param dict A dictionary obtained from one of the RangeDictionary.toDictionary variants.
+ * May be nil, in which case this instance is created empty.
+ * @param kvConverter The conversion to apply to the keys and values in dict.  This should be
+ * the inverse of the conversion applied by RangeDictionary.toDictionary: when you created
+ * the given dict.  May be NULL in which case no conversion is applied.
+ */
+-(instancetype)initWithComparator:(NSComparator)comparator dictionary:(nullable NSDictionary *)dict converter:(nullable id_to_id_t)kvConverter;
 
 -(nullable id)objectForKey:(id)key;
 -(nullable id)objectForKeyedSubscript:(id)key;

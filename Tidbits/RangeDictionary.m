@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 Tipbit, Inc. All rights reserved.
 //
 
+#import "LoggingMacros.h"
 #import "NSArray+Map.h"
+#import "NSDictionary+Misc.h"
 
 #import "RangeDictionary.h"
 
@@ -18,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) id lo;
 @property (nonatomic) id hi;
 @property (nonatomic) id val;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dict converter:(nullable id_to_id_t)kvConverter;
 
 -(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter;
 
@@ -39,10 +43,40 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation RangeDictionary
 
 -(instancetype)initWithComparator:(NSComparator)comparator {
+    return [self initWithComparator:comparator dictionary:nil converter:NULL];
+}
+
+
+-(instancetype)initWithComparator:(NSComparator)comparator dictionary:(nullable NSDictionary *)dict converter:(nullable id_to_id_t)kvConverter {
     self = [super init];
     if (self) {
         _comparator = comparator;
-        _entries = [NSMutableArray array];
+        if (dict == nil) {
+            _entries = [NSMutableArray new];
+        }
+        else {
+            NSArray * entries = [dict arrayForKey:@"entries"];
+            if (entries == nil) {
+                NSLogError(@"Aborting due to bad dict %@", dict);
+                return nil;
+            }
+            _entries = [entries map:^RangeDictionaryEntry *(id entryDict) {
+                if (![entryDict isKindOfClass:[NSDictionary class]]) {
+                    NSLogError(@"Aborting due to bogus entry %@", entryDict);
+                    return nil;
+                }
+                RangeDictionaryEntry * entry = [[RangeDictionaryEntry alloc] initWithDictionary:(NSDictionary *)entryDict converter:kvConverter];
+                if (entry == nil) {
+                    NSLogError(@"Aborting due to bogus entry %@", entryDict);
+                    return nil;
+                }
+                return entry;
+            }];
+            if (_entries.count != entries.count) {
+                // We aborted above.
+                return nil;
+            }
+        }
     }
     return self;
 }
@@ -491,6 +525,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @implementation RangeDictionaryEntry
+
+
+-(instancetype)initWithDictionary:(NSDictionary *)dict converter:(nullable id_to_id_t)kvConverter {
+    self = [super init];
+    if (self) {
+        id lo = dict[@"lo"];
+        id hi = dict[@"hi"];
+        id val = dict[@"val"];
+        if (lo == nil || hi == nil || val == nil) {
+            return nil;
+        }
+        if (kvConverter != NULL) {
+            lo = kvConverter(lo);
+            hi = kvConverter(hi);
+            val = kvConverter(val);
+            if (lo == nil || hi == nil || val == nil) {
+                return nil;
+            }
+        }
+        _lo = lo;
+        _hi = hi;
+        _val = val;
+    }
+    return self;
+}
 
 
 -(instancetype)initWithShallowCopy:(RangeDictionaryEntry *)other {

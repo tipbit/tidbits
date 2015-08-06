@@ -304,6 +304,60 @@ static NSComparator Comparator;
 }
 
 
+-(void)testInitWithDictionary {
+    NSArray * entries = @[@{@"lo": @"B",
+                            @"hi": @"C",
+                            @"val": @1},
+                          @{@"lo": @"C",
+                            @"hi": @"E",
+                            @"val": @2},
+                          @{@"lo": @"E",
+                            @"hi": @"F",
+                            @"val": @3},
+                          ];
+    NSDictionary * dict = @{@"entries": entries};
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator dictionary:dict converter:NULL];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertEqualObjects(d[@"B"], @1);
+    XCTAssertEqualObjects(d[@"Bz"], @1);
+    XCTAssertEqualObjects(d[@"C"], @2);
+    XCTAssertEqualObjects(d[@"D"], @2);
+    XCTAssertEqualObjects(d[@"Dz"], @2);
+    XCTAssertEqualObjects(d[@"E"], @3);
+    XCTAssertEqualObjects(d[@"F"], @3);
+    XCTAssertNil(d[@"G"]);
+}
+
+
+-(void)testInitWithDictionaryBadDict {
+    NSDictionary * dict = @{@"bad": [NSNull null]};
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator dictionary:dict converter:NULL];
+    XCTAssertNil(d);
+}
+
+
+-(void)testInitWithDictionaryBadEntry {
+    NSArray * entries = @[@{@"lo": @"B",
+                            @"val": @1}];
+    NSDictionary * dict = @{@"entries": entries};
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator dictionary:dict converter:NULL];
+    XCTAssertNil(d);
+}
+
+
+-(void)testInitWithDictionaryBadConversion {
+    NSArray * entries = @[@{@"lo": @"B",
+                            @"hi": @"C",
+                            @"val": @1}];
+    NSDictionary * dict = @{@"entries": entries};
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator dictionary:dict converter:^id(__unused id obj) {
+        return nil;
+    }];
+    XCTAssertNil(d);
+}
+
+
 @end
 
 
