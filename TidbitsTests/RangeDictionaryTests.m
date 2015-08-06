@@ -258,6 +258,52 @@ static NSComparator Comparator;
 }
 
 
+-(void)testToDictionary {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"D"];
+    [d setObject:@2 from:@"C" to:@"E"];
+    [d setObject:@3 from:@"E" to:@"F"];
+
+    NSDictionary * dict = [d toDictionary];
+
+    NSArray * expectedEntries = @[@{@"lo": @"B",
+                                    @"hi": @"C",
+                                    @"val": @1},
+                                  @{@"lo": @"C",
+                                    @"hi": @"E",
+                                    @"val": @2},
+                                  @{@"lo": @"E",
+                                    @"hi": @"F",
+                                    @"val": @3},
+                                  ];
+    XCTAssertEqualObjects(dict, @{@"entries": expectedEntries});
+}
+
+
+-(void)testToDictionaryMapped {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"D"];
+    [d setObject:@2 from:@"C" to:@"E"];
+    [d setObject:@3 from:@"E" to:@"F"];
+
+    NSDictionary * dict = [d toDictionary:^NSString *(id kv) {
+        return [NSString stringWithFormat:@"%@ %@", kv, kv];
+    }];
+
+    NSArray * expectedEntries = @[@{@"lo": @"B B",
+                                    @"hi": @"C C",
+                                    @"val": @"1 1"},
+                                  @{@"lo": @"C C",
+                                    @"hi": @"E E",
+                                    @"val": @"2 2"},
+                                  @{@"lo": @"E E",
+                                    @"hi": @"F F",
+                                    @"val": @"3 3"},
+                                  ];
+    XCTAssertEqualObjects(dict, @{@"entries": expectedEntries});
+}
+
+
 @end
 
 

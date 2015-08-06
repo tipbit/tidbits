@@ -7,7 +7,6 @@
 //
 
 #import "NSArray+Map.h"
-#import "StandardBlocks.h"
 
 #import "RangeDictionary.h"
 
@@ -19,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) id lo;
 @property (nonatomic) id hi;
 @property (nonatomic) id val;
+
+-(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter;
 
 @end
 
@@ -451,6 +452,19 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
+-(NSDictionary *)toDictionary {
+    return [self toDictionary:NULL];
+}
+
+
+-(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter {
+    NSArray * entriesJson = [self.entries map:^NSDictionary *(RangeDictionaryEntry * entry) {
+        return [entry toDictionary:kvConverter];
+    }];
+    return @{@"entries": entriesJson};
+}
+
+
 #if DEBUG
 
 -(void)validate {
@@ -492,6 +506,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(id)copyWithZone:(NSZone *)zone {
     return [[RangeDictionaryEntry allocWithZone:zone] initWithShallowCopy:self];
+}
+
+
+-(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter {
+    if (kvConverter == NULL) {
+        return @{@"lo": self.lo,
+                 @"hi": self.hi,
+                 @"val": self.val,
+                 };
+    }
+    else {
+        return @{@"lo": kvConverter(self.lo),
+                 @"hi": kvConverter(self.hi),
+                 @"val": kvConverter(self.val),
+                 };
+    }
 }
 
 

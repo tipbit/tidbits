@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "StandardBlocks.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -53,6 +55,17 @@ NS_ASSUME_NONNULL_BEGIN
 //-(void)removeObjectsFrom:(id<NSCopying>)from to:(id<NSCopying>)to;
 
 -(void)removeAllObjects;
+
+/**
+ * Equivalent to [self toDictionary:NULL].
+ */
+-(NSDictionary *)toDictionary;
+
+/**
+ * @param kvConverter A conversion that will be applied to each key and value in this dictionary.
+ * May be NULL, in which case no conversion will be applied.
+ */
+-(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter;
 
 @end
 
