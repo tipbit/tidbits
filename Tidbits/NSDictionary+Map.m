@@ -12,7 +12,7 @@
 @implementation NSDictionary (Map)
 
 
--(NSArray*) map:(key_val_to_id_t)mapper {
+-(NSMutableArray *)map:(key_val_to_id_t)mapper {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop) {
         id new_obj = mapper(key, val);
