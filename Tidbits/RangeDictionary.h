@@ -70,7 +70,7 @@ typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
 -(void)removeAllObjects;
 
 /**
- * Call block(lo, hi, val, &result, &stop) for each entry in this dictionary,
+ * Call block(from, to, obj, &result, &stop) for each entry in this dictionary,
  * sorted by self.comparator.
  *
  * Set *result to return a value from this call.

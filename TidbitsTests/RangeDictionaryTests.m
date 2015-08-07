@@ -359,12 +359,7 @@ static NSComparator Comparator;
 
 
 -(void)testEnumerateEntries {
-    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
-    [d setObject:@1 from:@"B" to:@"D"];
-    [d setObject:@2 from:@"C" to:@"E"];
-    [d setObject:@3 from:@"E" to:@"G"];
-    [d setObject:@4 from:@"E" to:@"F"];
-    [d setObject:@5 from:@"H" to:@"I"];
+    RangeDictionary * d = [RangeDictionaryTests rangeDictionaryWithPattern1];
 
     NSMutableArray * losSeen = [NSMutableArray new];
     NSMutableArray * hisSeen = [NSMutableArray new];
