@@ -13,6 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
+typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
+
+
 /**
  * A RangeDictionary holds key-value mappings like a normal NSDictionary, but the
  * keys are ranged values rather than single values.
@@ -76,6 +79,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param opts The same as [NSArray enumerateObjectsWithOptions:usingBlock:].
  */
 -(id)enumerateEntriesWithOptions:(NSEnumerationOptions)opts usingBlock:(IdIdIdIdPtrBoolPtrBlock)block;
+
+/**
+ * Create a new NSMutableArray with the contents set to mapper(from, to, obj) for each entry in this dictionary.
+ *
+ * mapper may return nil, in which case no entry is added to the result (i.e. the result will be
+ * shorter than self).  Otherwise, the result will be sorted as per self.comparator.
+ */
+-(NSMutableArray *)map:(RangeDictionaryEntryToIdBlock)mapper;
 
 /**
  * Equivalent to [self toDictionary:NULL].

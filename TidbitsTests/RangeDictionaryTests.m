@@ -386,6 +386,49 @@ static NSComparator Comparator;
 }
 
 
+-(void)testMap {
+    RangeDictionary * d = [RangeDictionaryTests rangeDictionaryWithPattern1];
+
+    NSMutableArray * losSeen = [NSMutableArray new];
+    NSMutableArray * hisSeen = [NSMutableArray new];
+    NSMutableArray * valsSeen = [NSMutableArray new];
+    NSMutableArray * result = [d map:^id(NSString * lo, NSString * hi, NSNumber * val) {
+        [losSeen addObject:lo];
+        [hisSeen addObject:hi];
+        [valsSeen addObject:val];
+        int val_i = val.intValue;
+        return (val_i == 3 ? nil : @(val_i + 1));
+    }];
+
+    XCTAssertEqualObjects(result, (@[@2, @3, @5, @6]));
+    XCTAssertEqualObjects(losSeen, (@[@"B", @"C", @"E", @"F", @"H"]));
+    XCTAssertEqualObjects(hisSeen, (@[@"C", @"E", @"F", @"G", @"I"]));
+    XCTAssertEqualObjects(valsSeen, (@[@1, @2, @4, @3, @5]));
+}
+
+
+-(void)testMapAllNil {
+    RangeDictionary * d = [RangeDictionaryTests rangeDictionaryWithPattern1];
+
+    NSMutableArray * result = [d map:^id(__unused NSString * lo, __unused NSString * hi, __unused NSNumber * val) {
+        return nil;
+    }];
+
+    XCTAssertEqualObjects(result, (@[]));
+}
+
+
++(RangeDictionary *)rangeDictionaryWithPattern1 {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"D"];
+    [d setObject:@2 from:@"C" to:@"E"];
+    [d setObject:@3 from:@"E" to:@"G"];
+    [d setObject:@4 from:@"E" to:@"F"];
+    [d setObject:@5 from:@"H" to:@"I"];
+    return d;
+}
+
+
 @end
 
 

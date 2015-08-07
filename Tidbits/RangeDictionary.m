@@ -497,6 +497,18 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
+-(NSMutableArray *)map:(RangeDictionaryEntryToIdBlock)mapper {
+    NSMutableArray * result = [NSMutableArray arrayWithCapacity:self.entries.count];
+    for (RangeDictionaryEntry * entry in self.entries) {
+        id new_obj = mapper(entry.lo, entry.hi, entry.val);
+        if (new_obj != nil) {
+            [result addObject:new_obj];
+        }
+    }
+    return result;
+}
+
+
 -(NSDictionary *)toDictionary {
     return [self toDictionary:NULL];
 }
