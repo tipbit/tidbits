@@ -586,7 +586,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
--(id)copyWithZone:(NSZone *)zone {
+-(id)copyWithZone:(nullable NSZone *)zone {
     return [[RangeDictionaryEntry allocWithZone:zone] initWithShallowCopy:self];
 }
 
