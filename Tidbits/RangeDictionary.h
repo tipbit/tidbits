@@ -67,6 +67,17 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)removeAllObjects;
 
 /**
+ * Call block(lo, hi, val, &result, &stop) for each entry in this dictionary,
+ * sorted by self.comparator.
+ *
+ * Set *result to return a value from this call.
+ * Set *stop to YES to stop further processing.
+ *
+ * @param opts The same as [NSArray enumerateObjectsWithOptions:usingBlock:].
+ */
+-(id)enumerateEntriesWithOptions:(NSEnumerationOptions)opts usingBlock:(IdIdIdIdPtrBoolPtrBlock)block;
+
+/**
  * Equivalent to [self toDictionary:NULL].
  */
 -(NSDictionary *)toDictionary;

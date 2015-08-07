@@ -358,6 +358,34 @@ static NSComparator Comparator;
 }
 
 
+-(void)testEnumerateEntries {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"D"];
+    [d setObject:@2 from:@"C" to:@"E"];
+    [d setObject:@3 from:@"E" to:@"G"];
+    [d setObject:@4 from:@"E" to:@"F"];
+    [d setObject:@5 from:@"H" to:@"I"];
+
+    NSMutableArray * losSeen = [NSMutableArray new];
+    NSMutableArray * hisSeen = [NSMutableArray new];
+    NSMutableArray * valsSeen = [NSMutableArray new];
+    NSString * result = [d enumerateEntriesWithOptions:(NSEnumerationOptions)0 usingBlock:^(NSString * lo, NSString * hi, NSNumber * val, id * res, BOOL * stop) {
+        [losSeen addObject:lo];
+        [hisSeen addObject:hi];
+        [valsSeen addObject:val];
+        if ([lo isEqualToString:@"F"]) {
+            *res = @"Done";
+            *stop = YES;
+        }
+    }];
+
+    XCTAssertEqualStrings(result, @"Done");
+    XCTAssertEqualObjects(losSeen, (@[@"B", @"C", @"E", @"F"]));
+    XCTAssertEqualObjects(hisSeen, (@[@"C", @"E", @"F", @"G"]));
+    XCTAssertEqualObjects(valsSeen, (@[@1, @2, @4, @3]));
+}
+
+
 @end
 
 

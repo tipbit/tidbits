@@ -486,6 +486,17 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
+-(id)enumerateEntriesWithOptions:(NSEnumerationOptions)opts usingBlock:(IdIdIdIdPtrBoolPtrBlock)block {
+    __block id result = nil;
+
+    [self.entries enumerateObjectsWithOptions:opts usingBlock:^(RangeDictionaryEntry * entry, __unused NSUInteger idx, BOOL *stop) {
+        block(entry.lo, entry.hi, entry.val, &result, stop);
+    }];
+
+    return result;
+}
+
+
 -(NSDictionary *)toDictionary {
     return [self toDictionary:NULL];
 }
