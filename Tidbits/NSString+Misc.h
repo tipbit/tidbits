@@ -109,4 +109,11 @@
  */
 +(NSString*)stringWithUTF8StringOrEmpty:(const char *)bytes;
 
+/**
+ * @param strs NSString array.
+ * @return NSString -> NSString.  The key is the string in strs.  The value is the shortest prefix
+ * that still uniquely identifies the key in strs.
+ */
++(NSDictionary *)uniquePrefixes:(NSArray *)strs;
+
 @end

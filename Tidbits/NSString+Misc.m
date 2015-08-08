@@ -287,4 +287,38 @@ static NSRegularExpression * stripQuotesRE = nil;
 }
 
 
++(NSDictionary *)uniquePrefixes:(NSArray *)strs {
+    NSMutableDictionary * result = [NSMutableDictionary dictionary];
+    for (NSString * str in strs) {
+        result[str] = uniquePrefixFor(str, strs);
+    }
+    return result;
+}
+
+
+static NSString * uniquePrefixFor(NSString * str, NSArray * strs) {
+    if (str.length < 2) {
+        return str;
+    }
+    for (NSUInteger i = 1; i < str.length; i++) {
+        NSString * candidate = [str substringToIndex:i];
+        if (occurrencesOfPrefix(candidate, strs) == 1) {
+            return candidate;
+        }
+    }
+    return str;
+}
+
+
+static NSUInteger occurrencesOfPrefix(NSString * prefix, NSArray * strs) {
+    NSUInteger i = 0;
+    for (NSString * s in strs) {
+        if ([s hasPrefix:prefix]) {
+            i++;
+        }
+    }
+    return i;
+}
+
+
 @end

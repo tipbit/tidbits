@@ -376,4 +376,36 @@
 }
 
 
+-(void)testUniquePrefixesEmpty {
+    NSArray * input = @[];
+    NSDictionary * expected = @{};
+    NSDictionary * result = [NSString uniquePrefixes:input];
+    XCTAssertEqualObjects(expected, result);
+}
+
+
+-(void)testUniquePrefixesEmptyString {
+    NSArray * input = @[@"", @"Potato"];
+    NSDictionary * expected = @{@"": @"", @"Potato": @"P"};
+    NSDictionary * result = [NSString uniquePrefixes:input];
+    XCTAssertEqualObjects(expected, result);
+}
+
+
+-(void)testUniquePrefixesOverlap {
+    NSArray * input = @[@"A", @"B", @"BB"];
+    NSDictionary * expected = @{@"A": @"A", @"B": @"B", @"BB": @"BB"};
+    NSDictionary * result = [NSString uniquePrefixes:input];
+    XCTAssertEqualObjects(expected, result);
+}
+
+
+-(void)testUniquePrefixesCommonPrefixes {
+    NSArray * input = @[@"Aardvark", @"Aaron", @"Bin", @"Bind", @"Binder", @"Zzz"];
+    NSDictionary * expected = @{@"Aardvark": @"Aard", @"Aaron": @"Aaro", @"Bin": @"Bin", @"Bind": @"Bind", @"Binder": @"Binde", @"Zzz": @"Z"};
+    NSDictionary * result = [NSString uniquePrefixes:input];
+    XCTAssertEqualObjects(expected, result);
+}
+
+
 @end
