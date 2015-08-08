@@ -15,7 +15,7 @@
 
 
 +(NSString *)tb_cellIdentifier {
-    return NSStringFromClass([self class]);
+    return NSStringFromClass(self);
 }
 
 
@@ -25,7 +25,7 @@
 
 
 +(void)tb_registerNibOnTableView:(UITableView *)tableView forCellReuseIdentifier:(NSString *)identifier {
-    NSString * classname = NSStringFromClass([self class]);
+    NSString * classname = NSStringFromClass(self);
     UINib * nib = [UINib nibWithNibName:classname bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
