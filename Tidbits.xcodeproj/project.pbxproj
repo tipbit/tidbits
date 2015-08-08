@@ -31,6 +31,7 @@
 		400133F91B75A9F400045203 /* UITableViewCell+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400133F81B75A9F400045203 /* UITableViewCell+Misc.m */; };
 		400134171B75AD5700045203 /* UITabBarController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134161B75AD5700045203 /* UITabBarController+Misc.m */; };
 		4001341A1B75AE3A00045203 /* UITextField+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134191B75AE3A00045203 /* UITextField+Misc.m */; };
+		4001346E1B75B29500045203 /* UIViewController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4001346D1B75B29500045203 /* UIViewController+Misc.m */; };
 		40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */; };
 		40063B6A1A576F1B00B2FCCB /* NSAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */; };
 		40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */; };
@@ -600,6 +601,8 @@
 		400134161B75AD5700045203 /* UITabBarController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Misc.m"; sourceTree = "<group>"; };
 		400134181B75AE3A00045203 /* UITextField+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Misc.h"; sourceTree = "<group>"; };
 		400134191B75AE3A00045203 /* UITextField+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Misc.m"; sourceTree = "<group>"; };
+		4001346C1B75B29500045203 /* UIViewController+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Misc.h"; sourceTree = "<group>"; };
+		4001346D1B75B29500045203 /* UIViewController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Misc.m"; sourceTree = "<group>"; };
 		40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExtTests.m"; sourceTree = "<group>"; };
 		40063B681A576F1B00B2FCCB /* NSAttributedString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Misc.h"; sourceTree = "<group>"; };
 		40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Misc.m"; sourceTree = "<group>"; };
@@ -1341,6 +1344,8 @@
 				400134191B75AE3A00045203 /* UITextField+Misc.m */,
 				181BC4D61902069300D53080 /* UIView+Misc.h */,
 				181BC4D71902069300D53080 /* UIView+Misc.m */,
+				4001346C1B75B29500045203 /* UIViewController+Misc.h */,
+				4001346D1B75B29500045203 /* UIViewController+Misc.m */,
 			);
 			name = "UI*";
 			sourceTree = "<group>";
@@ -1820,6 +1825,7 @@
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */,
+				4001346E1B75B29500045203 /* UIViewController+Misc.m in Sources */,
 				40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
