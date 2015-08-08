@@ -32,6 +32,7 @@
 		400134171B75AD5700045203 /* UITabBarController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134161B75AD5700045203 /* UITabBarController+Misc.m */; };
 		4001341A1B75AE3A00045203 /* UITextField+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134191B75AE3A00045203 /* UITextField+Misc.m */; };
 		4001346E1B75B29500045203 /* UIViewController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4001346D1B75B29500045203 /* UIViewController+Misc.m */; };
+		400134711B75B55700045203 /* UIImagePickerController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134701B75B55700045203 /* UIImagePickerController+Blocks.m */; };
 		40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */; };
 		40063B6A1A576F1B00B2FCCB /* NSAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */; };
 		40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */; };
@@ -603,6 +604,8 @@
 		400134191B75AE3A00045203 /* UITextField+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Misc.m"; sourceTree = "<group>"; };
 		4001346C1B75B29500045203 /* UIViewController+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Misc.h"; sourceTree = "<group>"; };
 		4001346D1B75B29500045203 /* UIViewController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Misc.m"; sourceTree = "<group>"; };
+		4001346F1B75B55700045203 /* UIImagePickerController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Blocks.h"; sourceTree = "<group>"; };
+		400134701B75B55700045203 /* UIImagePickerController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Blocks.m"; sourceTree = "<group>"; };
 		40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExtTests.m"; sourceTree = "<group>"; };
 		40063B681A576F1B00B2FCCB /* NSAttributedString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Misc.h"; sourceTree = "<group>"; };
 		40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Misc.m"; sourceTree = "<group>"; };
@@ -1336,6 +1339,8 @@
 				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
 				408F67CB1782CABE00E974AD /* UIImage+Resize.h */,
 				408F67CC1782CABE00E974AD /* UIImage+Resize.m */,
+				4001346F1B75B55700045203 /* UIImagePickerController+Blocks.h */,
+				400134701B75B55700045203 /* UIImagePickerController+Blocks.m */,
 				400134151B75AD5700045203 /* UITabBarController+Misc.h */,
 				400134161B75AD5700045203 /* UITabBarController+Misc.m */,
 				400133F71B75A9F400045203 /* UITableViewCell+Misc.h */,
@@ -1828,6 +1833,7 @@
 				4001346E1B75B29500045203 /* UIViewController+Misc.m in Sources */,
 				40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
+				400134711B75B55700045203 /* UIImagePickerController+Blocks.m in Sources */,
 				40612673177625420085CEED /* StreamPair.m in Sources */,
 				18A4784E18F0D63F00E8A968 /* UIAlertView+BlockButtons.m in Sources */,
 				18E71B9E198C1F770060DEC9 /* NSObject+Extras.m in Sources */,
