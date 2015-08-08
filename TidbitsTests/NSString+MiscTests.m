@@ -287,4 +287,93 @@
 }
 
 
+- (void)testStringByStrippingQuotesSimple {
+    NSString* input = @"Ewan Mellor";
+    NSString* expected = @"Ewan Mellor";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesSimpleSingleQuoted {
+    NSString* input = @"'Ewan Mellor'";
+    NSString* expected = @"Ewan Mellor";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesSimpleDoubleQuoted {
+    NSString* input = @"\"Ewan Mellor\"";
+    NSString* expected = @"Ewan Mellor";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesApostrophe {
+    NSString* input = @"Barry O'Rourke";
+    NSString* expected = @"Barry O'Rourke";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesApostropheDoubleQuoted {
+    NSString* input = @"\"Barry O'Rourke\"";
+    NSString* expected = @"Barry O'Rourke";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesApostropheSingleQuoted {
+    NSString* input = @"'Barry O'Rourke'";
+    NSString* expected = @"Barry O'Rourke";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesNil {
+    NSString* input = nil;
+    NSString* expected = nil;
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesEmpty {
+    NSString* input = @"";
+    NSString* expected = @"";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesJustQuotes {
+    NSString* input = @"'\"''\"";
+    NSString* expected = @"";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesWhitespace {
+    NSString* input = @"   ";
+    NSString* expected = @"";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+- (void)testStringByStrippingQuotesWhitespaceInQuotes {
+    NSString* input = @"' Ewan Mellor  '";
+    NSString* expected = @"Ewan Mellor";
+    NSString* result = [input stringByStrippingQuotes];
+
+    XCTAssertEqualObjects(expected, result);
+}
+
+
 @end

@@ -18,6 +18,9 @@
 @implementation NSString (Misc)
 
 
+static NSRegularExpression * stripQuotesRE = nil;
+
+
 +(void)load {
     // iOS 8 added containsString.
     // On iOS 7, add a redirect to our tb_containsString method for compat.
@@ -26,6 +29,12 @@
         Method containsMethod = class_getInstanceMethod(self, NSSelectorFromString(@"tb_containsString:"));
         class_addMethod(self, containsStringSEL, method_getImplementation(containsMethod), method_getTypeEncoding(containsMethod));
     }
+
+    NSError * error = nil;
+    stripQuotesRE = [NSRegularExpression regularExpressionWithPattern:@"^['\"]*(.*?)['\"]*$"
+                                                              options:(NSRegularExpressionOptions)0
+                                                                error:&error];
+    assert(stripQuotesRE != nil && error == nil);
 }
 
 
@@ -258,6 +267,18 @@
     else {
         return @"";
     }
+}
+
+
+-(NSString *)stringByStrippingQuotes {
+    if (![self isNotWhitespace]) {
+        return @"";
+    }
+
+    NSTextCheckingResult * match = [stripQuotesRE firstMatchInString:self options:(NSMatchingOptions)0 range:NSMakeRange(0, self.length)];
+    NSRange range = [match rangeAtIndex:1];
+    NSString * result = (range.length == self.length ? self : [self substringWithRange:range]);
+    return [result trim];
 }
 
 
