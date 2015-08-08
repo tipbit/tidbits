@@ -29,6 +29,7 @@
 		400133AA1B71489100045203 /* RangeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 400133A91B71489100045203 /* RangeDictionary.m */; };
 		400133AE1B714BF800045203 /* RangeDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 400133AD1B714BF800045203 /* RangeDictionaryTests.m */; };
 		400133F91B75A9F400045203 /* UITableViewCell+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400133F81B75A9F400045203 /* UITableViewCell+Misc.m */; };
+		400134171B75AD5700045203 /* UITabBarController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 400134161B75AD5700045203 /* UITabBarController+Misc.m */; };
 		40063AEE1A5348E200B2FCCB /* NSDate+ExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */; };
 		40063B6A1A576F1B00B2FCCB /* NSAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */; };
 		40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40063B6E1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m */; };
@@ -594,6 +595,8 @@
 		400133AD1B714BF800045203 /* RangeDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeDictionaryTests.m; sourceTree = "<group>"; };
 		400133F71B75A9F400045203 /* UITableViewCell+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Misc.h"; sourceTree = "<group>"; };
 		400133F81B75A9F400045203 /* UITableViewCell+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Misc.m"; sourceTree = "<group>"; };
+		400134151B75AD5700045203 /* UITabBarController+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Misc.h"; sourceTree = "<group>"; };
+		400134161B75AD5700045203 /* UITabBarController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Misc.m"; sourceTree = "<group>"; };
 		40063AED1A5348E200B2FCCB /* NSDate+ExtTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ExtTests.m"; sourceTree = "<group>"; };
 		40063B681A576F1B00B2FCCB /* NSAttributedString+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Misc.h"; sourceTree = "<group>"; };
 		40063B691A576F1B00B2FCCB /* NSAttributedString+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Misc.m"; sourceTree = "<group>"; };
@@ -1327,6 +1330,8 @@
 				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
 				408F67CB1782CABE00E974AD /* UIImage+Resize.h */,
 				408F67CC1782CABE00E974AD /* UIImage+Resize.m */,
+				400134151B75AD5700045203 /* UITabBarController+Misc.h */,
+				400134161B75AD5700045203 /* UITabBarController+Misc.m */,
 				400133F71B75A9F400045203 /* UITableViewCell+Misc.h */,
 				400133F81B75A9F400045203 /* UITableViewCell+Misc.m */,
 				181BC4D61902069300D53080 /* UIView+Misc.h */,
@@ -1760,6 +1765,7 @@
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
 				40FD7882191D6CB0004B82D7 /* IdleState.m in Sources */,
+				400134171B75AD5700045203 /* UITabBarController+Misc.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
 				18F1E614195E6969008E3161 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				18A4784C18F0D63F00E8A968 /* BlockButton.m in Sources */,
