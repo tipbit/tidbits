@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
                     return nil;
                 }
                 RangeDictionaryEntry * entry = [[RangeDictionaryEntry alloc] initWithDictionary:(NSDictionary *)entryDict converter:kvConverter];
-                if (entry == nil) {
+                if (entry == nil || self.comparator(entry.lo, entry.hi) != NSOrderedAscending) {
                     NSLogError(@"Aborting due to bogus entry %@", entryDict);
                     return nil;
                 }
@@ -76,6 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
                 // We aborted above.
                 return nil;
             }
+
+#if DEBUG
+            [self validate];
+#endif
         }
     }
     return self;
@@ -148,6 +152,10 @@ NS_ASSUME_NONNULL_BEGIN
     NSParameterAssert(from);
     NSParameterAssert(to);
     NSParameterAssert(self.comparator(from, to) == NSOrderedAscending);
+
+#if DEBUG
+    [self validate];
+#endif
 
     [self setObject_:obj from:from to:to];
 
@@ -515,6 +523,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 -(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter {
+#if DEBUG
+    [self validate];
+#endif
+
     NSArray * entriesJson = [self.entries map:^NSDictionary *(RangeDictionaryEntry * entry) {
         return [entry toDictionary:kvConverter];
     }];
