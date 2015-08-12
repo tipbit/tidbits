@@ -23,6 +23,7 @@
 
 
 +(void)load {
+    _year1971 = [NSDate dateWithTimeIntervalSince1970:(365 * 24 * 60 * 60)];
     _year2038 = [NSDate dateWithTimeIntervalSince1970:(68.0 * 365 * 24 * 60 * 60)];
     _NSDate_dateComparator = ^NSComparisonResult(NSDate * d1, NSDate * d2) {
         return [d1 compare:d2];
@@ -44,6 +45,11 @@
     cachedThisYear = 0;
 }
 
+
+static NSDate* _year1971 = nil;
++(NSDate *)year1971 {
+    return _year1971;
+}
 
 static NSDate* _year2038 = nil;
 +(NSDate *)year2038 {

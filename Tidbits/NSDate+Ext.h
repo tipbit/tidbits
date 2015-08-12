@@ -10,6 +10,7 @@
 
 @interface NSDate (Ext)
 
++(NSDate*)year1971;
 +(NSDate*)year2038;
 
 /**
