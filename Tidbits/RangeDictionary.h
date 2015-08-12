@@ -99,6 +99,12 @@ typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
  */
 -(NSDictionary *)toDictionary:(nullable id_to_id_t)kvConverter;
 
+#if DEBUG
+
+-(void)validate;
+
+#endif
+
 @end
 
 
