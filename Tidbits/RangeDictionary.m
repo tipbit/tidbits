@@ -103,6 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
+-(NSUInteger)rangeCount {
+    return self.entries.count;
+}
+
+
 -(nullable id)objectForKey:(id)key {
     return [self objectForKeyedSubscript:key];
 }

@@ -34,6 +34,7 @@ static NSComparator Comparator;
     RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
 
     XCTAssertNil(d[@"A"]);
+    XCTAssertEqual(d.rangeCount, 0U);
 }
 
 
@@ -47,6 +48,7 @@ static NSComparator Comparator;
     XCTAssertThrowsSpecificNamed([d setObject:@1 from:nil to:@"B"], NSException, NSInternalInconsistencyException);
     XCTAssertThrowsSpecificNamed([d setObject:@1 from:@"B" to:nil], NSException, NSInternalInconsistencyException);
 #pragma clang diagnostic pop
+    XCTAssertEqual(d.rangeCount, 0U);
 }
 
 
@@ -61,6 +63,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"D"], @1);
     XCTAssertNil(d[@"E"]);
     XCTAssertNil(d[@"z"]);
+    XCTAssertEqual(d.rangeCount, 1U);
 }
 
 
@@ -77,6 +80,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"F"], @2);
     XCTAssertEqualObjects(d[@"G"], @2);
     XCTAssertNil(d[@"H"]);
+    XCTAssertEqual(d.rangeCount, 2U);
 }
 
 
@@ -97,6 +101,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"G"], @1);
     XCTAssertNil(d[@"Ga"]);
     XCTAssertNil(d[@"H"]);
+    XCTAssertEqual(d.rangeCount, 2U);
 }
 
 
@@ -112,6 +117,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"D"], @2);
     XCTAssertEqualObjects(d[@"E"], @2);
     XCTAssertNil(d[@"Ea"]);
+    XCTAssertEqual(d.rangeCount, 2U);
 }
 
 
@@ -125,6 +131,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"C"], @2);
     XCTAssertEqualObjects(d[@"D"], @2);
     XCTAssertNil(d[@"E"]);
+    XCTAssertEqual(d.rangeCount, 1U);
 }
 
 
@@ -139,6 +146,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"C"], @1);  // Note second insert acts like [B, C) so this is correct.
     XCTAssertEqualObjects(d[@"D"], @1);
     XCTAssertNil(d[@"E"]);
+    XCTAssertEqual(d.rangeCount, 2U);
 }
 
 
@@ -152,6 +160,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"C"], @2);
     XCTAssertEqualObjects(d[@"D"], @2);
     XCTAssertNil(d[@"E"]);
+    XCTAssertEqual(d.rangeCount, 2U);
 }
 
 
@@ -170,6 +179,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"E"], @3);
     XCTAssertEqualObjects(d[@"F"], @3);
     XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 3U);
 
     [d setObject:@4 from:@"D" to:@"E"];
     [d setObject:@5 from:@"C" to:@"D"];
@@ -184,6 +194,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"E"], @3);  // Note @4 acts like [D, E) so this is correct.
     XCTAssertEqualObjects(d[@"F"], @3);
     XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 4U);
 }
 
 
@@ -207,6 +218,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"E"], v3);
     XCTAssertEqualObjects(d[@"F"], v3);
     XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 3U);
 
     RangeDictionary * d2 = [d copy];
 
@@ -224,6 +236,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"E"], v3);  // Note @4 acts like [D, E) so this is correct.
     XCTAssertEqualObjects(d[@"F"], v3);
     XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 4U);
 
     // d2 should not have changed.
     XCTAssertNil(d2[@"A"]);
@@ -235,6 +248,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d2[@"E"], v3);
     XCTAssertEqualObjects(d2[@"F"], v3);
     XCTAssertNil(d2[@"G"]);
+    XCTAssertEqual(d2.rangeCount, 3U);
 
     // d and d2 are sharing keys and values though.
     // We're just testing values here.
@@ -255,6 +269,7 @@ static NSComparator Comparator;
     XCTAssertNil(d[@"C"]);
     XCTAssertNil(d[@"D"]);
     XCTAssertNil(d[@"E"]);
+    XCTAssertEqual(d.rangeCount, 0U);
 }
 
 
@@ -327,6 +342,7 @@ static NSComparator Comparator;
     XCTAssertEqualObjects(d[@"E"], @3);
     XCTAssertEqualObjects(d[@"F"], @3);
     XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 3U);
 }
 
 

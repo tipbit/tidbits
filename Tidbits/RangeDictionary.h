@@ -40,6 +40,8 @@ typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
  */
 @interface RangeDictionary : NSObject<NSCopying>
 
+@property (nonatomic, readonly) NSUInteger rangeCount;
+
 /**
  * Equivalent to [self initWithComparator:comparator dictionary:nil converter:NULL].
  */
