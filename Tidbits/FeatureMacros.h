@@ -21,5 +21,6 @@
 #define IS_IPHONE6PLUS ((UIScreen.mainScreen.bounds.size.height == 414) || (UIScreen.mainScreen.bounds.size.width == 414))
 #define IS_IOS8_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
 
+#define IS_LANDSCAPE (UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))
 
 #endif
