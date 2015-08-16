@@ -207,6 +207,7 @@
 		40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C2C4451829904000205EBB /* SRVResolverTests.m */; };
 		40C4E22017F87E7C000EA60C /* DNSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E21F17F87E7C000EA60C /* DNSQuery.m */; };
 		40C4E22317F890B1000EA60C /* DNSQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C4E22217F890B1000EA60C /* DNSQueryTests.m */; };
+		40CA116A1B811CF500744958 /* UIImage+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CA11691B811CF500744958 /* UIImage+Misc.m */; };
 		40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */; };
 		40D188901809122400B23BAC /* NSData+SHA256.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40182C7A18090F820075AA75 /* NSData+SHA256.h */; };
 		40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F09418875848003BAF58 /* NSSet+Misc.m */; };
@@ -800,6 +801,8 @@
 		40C4E21E17F87E7C000EA60C /* DNSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSQuery.h; sourceTree = "<group>"; };
 		40C4E21F17F87E7C000EA60C /* DNSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQuery.m; sourceTree = "<group>"; };
 		40C4E22217F890B1000EA60C /* DNSQueryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSQueryTests.m; sourceTree = "<group>"; };
+		40CA11681B811CF500744958 /* UIImage+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Misc.h"; sourceTree = "<group>"; };
+		40CA11691B811CF500744958 /* UIImage+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Misc.m"; sourceTree = "<group>"; };
 		40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatterTests.m; sourceTree = "<group>"; };
 		40D1F09318875848003BAF58 /* NSSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Misc.h"; sourceTree = "<group>"; };
 		40D1F09418875848003BAF58 /* NSSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Misc.m"; sourceTree = "<group>"; };
@@ -1337,6 +1340,8 @@
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
 				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
+				40CA11681B811CF500744958 /* UIImage+Misc.h */,
+				40CA11691B811CF500744958 /* UIImage+Misc.m */,
 				408F67CB1782CABE00E974AD /* UIImage+Resize.h */,
 				408F67CC1782CABE00E974AD /* UIImage+Resize.m */,
 				4001346F1B75B55700045203 /* UIImagePickerController+Blocks.h */,
@@ -1810,6 +1815,7 @@
 				408E8996176A47D4001B61E6 /* NSDictionary+Misc.m in Sources */,
 				400133AA1B71489100045203 /* RangeDictionary.m in Sources */,
 				40A9B4CC177F81030068F3F5 /* NSFileHandle+MD5.m in Sources */,
+				40CA116A1B811CF500744958 /* UIImage+Misc.m in Sources */,
 				408F4663176CD7D900C468EB /* NSInputStream+Misc.m in Sources */,
 				408E8997176A47D4001B61E6 /* NSMutableArray+Sorted.m in Sources */,
 				400C95B51853C14A0095B9DC /* NSMutableArray+Ext.m in Sources */,
