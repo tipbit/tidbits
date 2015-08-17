@@ -105,4 +105,25 @@
 }
 
 
+-(void)testDateComparatorMsecPrecision {
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:59.999Z" usec:0 b:@"2015-06-07T01:02:59.999Z" usec:0 expected:NSOrderedSame];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:59.999Z" usec:0 b:@"2015-06-07T01:03:00.000Z" usec:0 expected:NSOrderedAscending];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:59.999Z" usec:0 b:@"2015-06-07T01:02:59.998Z" usec:0 expected:NSOrderedDescending];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:59.999Z" usec:0 b:@"2015-06-07T01:02:59.999Z" usec:400 expected:NSOrderedSame];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:30.000Z" usec:501 b:@"2015-06-07T01:02:30.001Z" usec:000 expected:NSOrderedSame];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:59.999Z" usec:400 b:@"2015-06-07T01:02:59.999Z" usec:0 expected:NSOrderedSame];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:30.001Z" usec:000 b:@"2015-06-07T01:02:30.000Z" usec:501 expected:NSOrderedSame];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:30.000Z" usec:499 b:@"2015-06-07T01:02:30.001Z" usec:000 expected:NSOrderedAscending];
+    [self doTestComparatorMsecPrecision:@"2015-06-07T01:02:30.001Z" usec:000 b:@"2015-06-07T01:02:30.000Z" usec:499 expected:NSOrderedDescending];
+}
+
+
+-(void)doTestComparatorMsecPrecision:(NSString *)a usec:(NSInteger)usecA b:(NSString *)b usec:(NSInteger)usecB expected:(NSComparisonResult)expected {
+    NSDate * da = [[NSDate dateFromIso8601:a] dateByAddingTimeInterval:(0.000001 * usecA)];
+    NSDate * db = [[NSDate dateFromIso8601:b] dateByAddingTimeInterval:(0.000001 * usecB)];
+
+    XCTAssertEqual(NSDate.dateComparatorMsecPrecision(da, db), expected);
+}
+
+
 @end

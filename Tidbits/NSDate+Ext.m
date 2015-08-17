@@ -28,6 +28,20 @@
     _NSDate_dateComparator = ^NSComparisonResult(NSDate * d1, NSDate * d2) {
         return [d1 compare:d2];
     };
+    _NSDate_dateComparatorMsecPrecision = ^NSComparisonResult(NSDate * d1, NSDate * d2) {
+        NSTimeInterval diff = d1.timeIntervalSinceReferenceDate - d2.timeIntervalSinceReferenceDate;
+        if ((diff > 0.0 && diff < 0.001) ||
+            (diff < 0.0 && diff > -0.001)) {
+            // Compare using ISO date representations, because that's an easy way to check that these
+            // dates are in the same msec, and it avoids the cost of NSDateComponents / NSCalendar.
+            NSString * str1 = [d1 iso8601String_23];
+            NSString * str2 = [d2 iso8601String_23];
+            return [str1 compare:str2];
+        }
+        else {
+            return [d1 compare:d2];
+        }
+    };
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:UIApplicationSignificantTimeChangeNotification object:nil];
 #endif
@@ -60,6 +74,12 @@ static NSDate* _year2038 = nil;
 static NSComparator _NSDate_dateComparator = NULL;
 +(NSComparator)dateComparator {
     return _NSDate_dateComparator;
+}
+
+
+static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
++(NSComparator)dateComparatorMsecPrecision {
+    return _NSDate_dateComparatorMsecPrecision;
 }
 
 

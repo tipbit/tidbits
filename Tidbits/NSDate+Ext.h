@@ -18,6 +18,13 @@
  */
 +(NSComparator)dateComparator;
 
+/**
+ * Comparator that sorts its two arguments assuming that they are NSDate instances and using NSDate.compare:,
+ * except that if the dates round to the same millisecond then they will be treated as equal.
+ * In other words, they will be declared equal if their iso8601String_23 representation is equal.
+ */
++(NSComparator)dateComparatorMsecPrecision;
+
 -(NSString*) dateAtTimeString;
 -(NSString*)userShortDateString;
 -(NSString*)userShortDateAndTimeString;
