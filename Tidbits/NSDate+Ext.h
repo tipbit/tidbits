@@ -52,6 +52,13 @@
 
 
 /**
+ * @return A new NSDate representing this time, but at HH:MM:00.000
+ * (i.e. the very beginning of the minute that this time represents).
+ */
+-(NSDate *)startOfMinute;
+
+
+/**
  * @return A new NSDate representing this time, but at HH:MM:59.999
  * (i.e. the very end of the minute that this time represents, to the msec).
  *

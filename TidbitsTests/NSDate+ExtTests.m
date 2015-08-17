@@ -53,6 +53,15 @@
 }
 
 
+-(void)testStartOfMinute {
+    [self doTestStartOfMinute:@"2015-06-07T01:02:03.647Z" expected:@"2015-06-07T01:02:00.000Z"];
+    [self doTestStartOfMinute:@"2015-06-07T01:02:59.999Z" expected:@"2015-06-07T01:02:00.000Z"];
+    [self doTestStartOfMinute:@"2015-06-07T23:59:59.999Z" expected:@"2015-06-07T23:59:00.000Z"];
+    [self doTestStartOfMinute:@"2015-06-07T00:00:00.000Z" expected:@"2015-06-07T00:00:00.000Z"];
+    [self doTestStartOfMinute:@"2004-02-29T23:59:30.000Z" expected:@"2004-02-29T23:59:00.000Z"];  // Leap year.
+}
+
+
 -(void)testEndOfMinute {
     [self doTestEndOfMinute:@"2015-06-07T01:02:03.647Z" expected:@"2015-06-07T01:02:59.999Z"];
     [self doTestEndOfMinute:@"2015-06-07T01:02:59.999Z" expected:@"2015-06-07T01:02:59.999Z"];
@@ -62,6 +71,14 @@
     [self doTestEndOfMinute:@"2015-06-30T23:59:30.000Z" expected:@"2015-06-30T23:59:59.999Z"];  // This day had a leap second,
                                                                                                 // which we don't address in
                                                                                                 // endOfMinute.
+}
+
+
+-(void)doTestStartOfMinute:(NSString *)input expected:(NSString *)expected {
+    NSDate * i = [NSDate dateFromIso8601:input];
+    NSDate * e = [NSDate dateFromIso8601:expected];
+
+    XCTAssertEqualObjects(i.startOfMinute, e);
 }
 
 
