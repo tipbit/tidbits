@@ -8,6 +8,9 @@
 
 #import "LoggingMacros.h"
 #import "NSArray+Map.h"
+#if DEBUG
+#import "NSDate+ISO8601.h"
+#endif
 #import "NSDictionary+Misc.h"
 
 #import "RangeDictionary.h"
@@ -635,7 +638,17 @@ NS_ASSUME_NONNULL_BEGIN
 #if DEBUG
 
 -(NSString *)debugDescription {
-    return [NSString stringWithFormat:@"%@ - %@ = %@", self.lo, self.hi, self.val];
+    return [NSString stringWithFormat:@"%@ - %@ = %@", describe(self.lo), describe(self.hi), describe(self.val)];
+}
+
+static NSString * describe(id obj) {
+    if ([obj isKindOfClass:[NSDate class]]) {
+        NSDate * date = (NSDate *)obj;
+        return date.iso8601String_24;
+    }
+    else {
+        return [obj description];
+    }
 }
 
 #endif
