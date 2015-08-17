@@ -231,6 +231,53 @@ static NSComparator Comparator;
 }
 
 
+/**
+ * We used to have a bug in this situation.
+ * The second insert starts at the same place as the first,
+ * but overlaps past the end of it, and there are no other
+ * entries above.
+ */
+-(void)testInsertOverlapPastEnd {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"C"];
+    [d setObject:@2 from:@"B" to:@"D"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertNil(d[@"Az"]);
+    XCTAssertEqualObjects(d[@"B"], @2);
+    XCTAssertEqualObjects(d[@"C"], @2);
+    XCTAssertEqualObjects(d[@"D"], @2);
+    XCTAssertNil(d[@"Da"]);
+    XCTAssertNil(d[@"E"]);
+    XCTAssertEqual(d.rangeCount, 1U);
+}
+
+
+/**
+ * Same as above, but checking that we handle overlap of multiple ranges.
+ */
+-(void)testInsertOverlapPastEnd4 {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"C"];
+    [d setObject:@2 from:@"C" to:@"D"];
+    [d setObject:@3 from:@"D" to:@"E"];
+    [d setObject:@4 from:@"E" to:@"F"];
+    [d setObject:@5 from:@"B" to:@"G"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertNil(d[@"Az"]);
+    XCTAssertEqualObjects(d[@"B"], @5);
+    XCTAssertEqualObjects(d[@"C"], @5);
+    XCTAssertEqualObjects(d[@"D"], @5);
+    XCTAssertEqualObjects(d[@"E"], @5);
+    XCTAssertEqualObjects(d[@"F"], @5);
+    XCTAssertEqualObjects(d[@"G"], @5);
+    XCTAssertNil(d[@"Ga"]);
+    XCTAssertNil(d[@"H"]);
+    XCTAssertEqual(d.rangeCount, 1U);
+}
+
+
 -(void)testInsertForceDisappear {
     RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
     [d setObject:@1 from:@"B" to:@"C"];

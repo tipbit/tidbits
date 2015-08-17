@@ -320,7 +320,10 @@ NS_ASSUME_NONNULL_BEGIN
     }
 
     // We reached the end of self.entries, so we're inserting at the end.
-    [self insertEntry:obj from:from to:to atIndex:self.entries.count];
+    // We need to adjust to make room for this entry if we deliberately skipped
+    // overlapping ones above.
+    RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:self.entries.count];
+    [self adjustEntriesToMakeRoomFor:newEntry];
 }
 
 
