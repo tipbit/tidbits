@@ -90,4 +90,19 @@
 }
 
 
+-(void)testDateComparator {
+    [self doTestComparator:@"2015-06-07T01:02:59.999Z" b:@"2015-06-07T01:02:59.999Z" expected:NSOrderedSame];
+    [self doTestComparator:@"2015-06-07T01:02:59.999Z" b:@"2015-06-07T01:03:00.000Z" expected:NSOrderedAscending];
+    [self doTestComparator:@"2015-06-07T01:02:59.999Z" b:@"2015-06-07T01:02:59.998Z" expected:NSOrderedDescending];
+}
+
+
+-(void)doTestComparator:(NSString *)a b:(NSString *)b expected:(NSComparisonResult)expected {
+    NSDate * da = [NSDate dateFromIso8601:a];
+    NSDate * db = [NSDate dateFromIso8601:b];
+
+    XCTAssertEqual(NSDate.dateComparator(da, db), expected);
+}
+
+
 @end
