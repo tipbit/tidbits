@@ -110,14 +110,14 @@ static void gmtime_of_interval(NSTimeInterval ts, struct tm * tm) {
 static int localtime_and_msec_of_interval(NSTimeInterval ts, struct tm * tm) {
     time_t ts_whole = (time_t)ts;
     localtime_r(&ts_whole, tm);
-    return (int)((ts - (double)ts_whole) * 1000.0);
+    return (int)round((ts - (double)ts_whole) * 1000.0);
 }
 
 
 static int gmtime_and_msec_of_interval(NSTimeInterval ts, struct tm * tm) {
     time_t ts_whole = (time_t)ts;
     gmtime_r(&ts_whole, tm);
-    return (int)((ts - (double)ts_whole) * 1000.0);
+    return (int)round((ts - (double)ts_whole) * 1000.0);
 }
 
 

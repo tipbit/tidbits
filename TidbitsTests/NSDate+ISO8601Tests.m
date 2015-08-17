@@ -114,6 +114,32 @@
 }
 
 
+/**
+ * We used to have a bug here, where the single msec would be lost because this
+ * NSTimeInterval value is represented as 455331750.00099999 and we would render
+ * that as 000 msec instead of rounding up to 001.
+ */
+-(void)testIso8601String_24SingleMilli {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:455331750.001];
+    NSString* expected = @"2015-06-07T01:02:30.001Z";
+    XCTAssertEqualObjects([input iso8601String_24], expected);
+}
+
+
+-(void)testIso8601String_24Milli500 {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:455331750.500];
+    NSString* expected = @"2015-06-07T01:02:30.500Z";
+    XCTAssertEqualObjects([input iso8601String_24], expected);
+}
+
+
+-(void)testIso8601String_24Milli499 {
+    NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:455331750.501];
+    NSString* expected = @"2015-06-07T01:02:30.501Z";
+    XCTAssertEqualObjects([input iso8601String_24], expected);
+}
+
+
 -(void)testIso8601String_local_23 {
     NSDate* input = [NSDate dateWithTimeIntervalSinceReferenceDate:386541753.401];
     NSInteger offset = [[NSTimeZone localTimeZone] secondsFromGMTForDate:input];
