@@ -198,6 +198,16 @@ static NSComparator _NSDate_dateComparator = NULL;
 }
 
 
+-(NSDate *)endOfMinute {
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    cal.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSDateComponents * comp = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitNanosecond) fromDate:self];
+    comp.second = 59;
+    comp.nanosecond = 999000000;
+    return [cal dateFromComponents:comp];
+}
+
+
 
 - (NSDate*) thisDayAtHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second tz:(NSTimeZone*)tz {
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];

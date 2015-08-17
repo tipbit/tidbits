@@ -51,6 +51,17 @@
 - (NSDate*) todayCurrentHour;
 
 
+/**
+ * @return A new NSDate representing this time, but at HH:MM:59.999
+ * (i.e. the very end of the minute that this time represents, to the msec).
+ *
+ * This does not handle leap seconds -- you'll never get HH:MM:60.999 even if
+ * that second existed on that day -- because NSDate doesn't handle leap
+ * seconds when adding or subtracting times.
+ */
+-(NSDate *)endOfMinute;
+
+
 /*!
  @abstract Returns a new NSDate that is on the same day as this one, but at the specified time.
  @param tz May be nil, in which case UTC is used.
