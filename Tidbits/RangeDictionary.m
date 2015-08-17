@@ -177,22 +177,24 @@ NS_ASSUME_NONNULL_BEGIN
         switch (self.comparator(entry.lo, from)) {
             case NSOrderedSame: {
                 switch (self.comparator(entry.hi, to)) {
-                    case NSOrderedSame:
-                    case NSOrderedAscending: {
+                    case NSOrderedSame: {
                         // from    to
                         // lo      hi
                         // |        |
                         //
-                        // or
-                        //
+                        // Repurpose entry to be used for the new data.
+                        entry.val = obj;
+                        return;
+                    }
+
+                    case NSOrderedAscending: {
                         // from          to
                         // lo     hi      |
                         // |      |       |
                         //
-                        // Repurpose entry to be used for the new data.
-                        entry.hi = to;
-                        entry.val = obj;
-                        return;
+                        // We may have an entry between hi and to; we need to keep searching until we find it.
+                        // adjustEntriesToMakeRoomFor will delete the current entry.
+                        break;
                     }
 
                     case NSOrderedDescending: {
@@ -205,8 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
                     }
                 }
 
-                // Unreachable.
-                assert(false);
+                break;
             }
 
             case NSOrderedDescending: {
@@ -254,7 +255,8 @@ NS_ASSUME_NONNULL_BEGIN
                                 // |      |     |      |
                                 // All subsequent entries will have from < lo.
                                 // We need to look for the one with to <= hi and then we'll know what to do.
-                                // That will be in one of the two case statements immediately above.
+                                // That will be in one of the two case statements immediately above or the
+                                // one immediately below.
                                 // In either case, adjustEntriesToMakeRoomFor will delete this entry.
                                 break;
                             }
@@ -266,12 +268,18 @@ NS_ASSUME_NONNULL_BEGIN
                         // from    to
                         // |       |    lo    hi
                         // |       |     |     |
-                        [self insertEntry:obj from:from to:to atIndex:idx];
+                        //
+                        // We may have an entry between from and to,
+                        // either with old.lo = from, or from < old.lo < to.
+                        // This happens in the case statements above.
+                        // Insert a new entry for [from, to] here, and use
+                        // adjustEntriesToMakeRoomFor to clean up the old one if necessary.
+                        RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:idx];
+                        [self adjustEntriesToMakeRoomFor:newEntry];
                         return;
                     }
                 }
-                // Unreachable.
-                assert(false);
+                break;
             }
 
             case NSOrderedAscending: {

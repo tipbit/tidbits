@@ -121,6 +121,73 @@ static NSComparator Comparator;
 }
 
 
+-(void)testInsertOverlapBottom {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"C" to:@"G"];
+    [d setObject:@2 from:@"F" to:@"G"];
+    [d setObject:@3 from:@"E" to:@"F"];
+    [d setObject:@4 from:@"B" to:@"D"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertNil(d[@"Az"]);
+    XCTAssertEqualObjects(d[@"B"], @4);
+    XCTAssertEqualObjects(d[@"C"], @4);
+    XCTAssertEqualObjects(d[@"D"], @1);
+    XCTAssertEqualObjects(d[@"E"], @3);
+    XCTAssertEqualObjects(d[@"F"], @2);
+    XCTAssertEqualObjects(d[@"G"], @2);
+    XCTAssertNil(d[@"Ga"]);
+    XCTAssertEqual(d.rangeCount, 4U);
+}
+
+
+/**
+ * We used to have a bug in this situation.
+ * The third insert starts at the same place as the first,
+ * but overlaps both the first and second.
+ * This requires both the first two ranges to change.
+ */
+-(void)testOverlapTwoFromStart {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"C"];
+    [d setObject:@2 from:@"C" to:@"E"];
+    [d setObject:@3 from:@"B" to:@"D"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertNil(d[@"Az"]);
+    XCTAssertEqualObjects(d[@"B"], @3);
+    XCTAssertEqualObjects(d[@"C"], @3);
+    XCTAssertEqualObjects(d[@"D"], @2);
+    XCTAssertEqualObjects(d[@"E"], @2);
+    XCTAssertNil(d[@"Ea"]);
+    XCTAssertNil(d[@"F"]);
+    XCTAssertEqual(d.rangeCount, 2U);
+}
+
+
+/**
+ * Same as above, but making sure that it works when three ranges are overlapped.
+ */
+-(void)testOverlapThreeFromStart {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"B" to:@"C"];
+    [d setObject:@2 from:@"C" to:@"D"];
+    [d setObject:@3 from:@"D" to:@"F"];
+    [d setObject:@4 from:@"B" to:@"E"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertNil(d[@"Az"]);
+    XCTAssertEqualObjects(d[@"B"], @4);
+    XCTAssertEqualObjects(d[@"C"], @4);
+    XCTAssertEqualObjects(d[@"D"], @4);
+    XCTAssertEqualObjects(d[@"E"], @3);
+    XCTAssertEqualObjects(d[@"F"], @3);
+    XCTAssertNil(d[@"Fa"]);
+    XCTAssertNil(d[@"G"]);
+    XCTAssertEqual(d.rangeCount, 2U);
+}
+
+
 -(void)testInsertOverwrite {
     RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
     [d setObject:@1 from:@"B" to:@"D"];
