@@ -16,6 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation UILabel (Misc)
 
 
+-(nullable UIFont *)appearanceFont {
+    return self.font;
+}
+
+-(void)setAppearanceFont:(nullable UIFont *)font {
+    [self setFont:font];
+}
+
+
 -(void)tb_setText:(NSString *)text animatedWithDuration:(NSTimeInterval)duration {
     if (duration <= 0.0) {
         self.text = text;
