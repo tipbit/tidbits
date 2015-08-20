@@ -106,6 +106,8 @@
 		406133311A814B600076F37F /* NSStringPunycodeAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 406133291A814AC70076F37F /* NSStringPunycodeAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406212E8199E98EF0083BB3C /* FileCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 406212E7199E98EF0083BB3C /* FileCompressor.m */; };
 		406FA38E1805A5B700C408CE /* NSArray+MapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FA38D1805A5B700C408CE /* NSArray+MapTests.m */; };
+		406FEB0E1B8597C9001F0DFB /* UILabel+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEB0D1B8597C9001F0DFB /* UILabel+Misc.m */; };
+		406FEB141B859E5A001F0DFB /* CATransition+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEB131B859E5A001F0DFB /* CATransition+Misc.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
 		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
 		407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100C317FF9AF1006F4115 /* NSString+MD5.m */; };
@@ -704,6 +706,10 @@
 		406212E6199E98EF0083BB3C /* FileCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCompressor.h; sourceTree = "<group>"; };
 		406212E7199E98EF0083BB3C /* FileCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCompressor.m; sourceTree = "<group>"; };
 		406FA38D1805A5B700C408CE /* NSArray+MapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MapTests.m"; sourceTree = "<group>"; };
+		406FEB0C1B8597C9001F0DFB /* UILabel+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Misc.h"; sourceTree = "<group>"; };
+		406FEB0D1B8597C9001F0DFB /* UILabel+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Misc.m"; sourceTree = "<group>"; };
+		406FEB121B859E5A001F0DFB /* CATransition+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransition+Misc.h"; sourceTree = "<group>"; };
+		406FEB131B859E5A001F0DFB /* CATransition+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransition+Misc.m"; sourceTree = "<group>"; };
 		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
 		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
 		407100C217FF9AF1006F4115 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -1000,6 +1006,15 @@
 			path = PunycodeTests;
 			sourceTree = "<group>";
 		};
+		406FEB111B859E49001F0DFB /* CA* */ = {
+			isa = PBXGroup;
+			children = (
+				406FEB121B859E5A001F0DFB /* CATransition+Misc.h */,
+				406FEB131B859E5A001F0DFB /* CATransition+Misc.m */,
+			);
+			name = "CA*";
+			sourceTree = "<group>";
+		};
 		408E884F1768DEF6001B61E6 = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1073,7 @@
 		408E885D1768DEF6001B61E6 /* Tidbits */ = {
 			isa = PBXGroup;
 			children = (
+				406FEB111B859E49001F0DFB /* CA* */,
 				40E166E01B057B2B0035D6F4 /* NS* */,
 				40E166E31B057B600035D6F4 /* UI* */,
 				405F492F186B724100E9B072 /* BackgroundTaskHandler.h */,
@@ -1346,6 +1362,8 @@
 				408F67CC1782CABE00E974AD /* UIImage+Resize.m */,
 				4001346F1B75B55700045203 /* UIImagePickerController+Blocks.h */,
 				400134701B75B55700045203 /* UIImagePickerController+Blocks.m */,
+				406FEB0C1B8597C9001F0DFB /* UILabel+Misc.h */,
+				406FEB0D1B8597C9001F0DFB /* UILabel+Misc.m */,
 				400134151B75AD5700045203 /* UITabBarController+Misc.h */,
 				400134161B75AD5700045203 /* UITabBarController+Misc.m */,
 				400133F71B75A9F400045203 /* UITableViewCell+Misc.h */,
@@ -1767,6 +1785,7 @@
 				402B79401839464700ED9858 /* Breadcrumbs.m in Sources */,
 				405AE490190DC9DE006F2BF1 /* NSJSONSerialization+Misc.m in Sources */,
 				408E88DE1768E6BE001B61E6 /* GTMNSDictionary+URLArguments.m in Sources */,
+				406FEB141B859E5A001F0DFB /* CATransition+Misc.m in Sources */,
 				4001341A1B75AE3A00045203 /* UITextField+Misc.m in Sources */,
 				405060671AC9058B00308CAF /* NSDateFormatter+Misc.m in Sources */,
 				408E88DF1768E6BE001B61E6 /* GTMNSString+URLArguments.m in Sources */,
@@ -1798,6 +1817,7 @@
 				404753B018F3A74300115A82 /* CPUTime.m in Sources */,
 				408E8993176A47D4001B61E6 /* NSArray+Map.m in Sources */,
 				40FD7885191DF013004B82D7 /* TBUserDefaults+Tidbits.m in Sources */,
+				406FEB0E1B8597C9001F0DFB /* UILabel+Misc.m in Sources */,
 				408E89031768FCA6001B61E6 /* NSData+Base64.m in Sources */,
 				40E3438A1784C99A001A93E9 /* NSData+MD5.m in Sources */,
 				406133211A80B20B0076F37F /* NSURL+Mailto.m in Sources */,

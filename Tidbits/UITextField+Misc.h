@@ -13,4 +13,6 @@
 
 -(void)tb_setPlaceholderColor:(UIColor *)color;
 
+-(void)tb_setText:(NSString *)text animatedWithDuration:(CGFloat)duration;
+
 @end

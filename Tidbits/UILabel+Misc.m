@@ -1,26 +1,22 @@
 //
-//  UITextField+Misc.m
+//  UILabel+Misc.m
 //  Tidbits
 //
-//  Created by Ewan Mellor on 8/7/15.
+//  Created by Ewan Mellor on 8/19/15.
 //  Copyright (c) 2015 Tipbit, Inc. All rights reserved.
 //
 
 #import "CATransition+Misc.h"
 
-#import "UITextField+Misc.h"
+#import "UILabel+Misc.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 
-@implementation UITextField (Misc)
+@implementation UILabel (Misc)
 
 
--(void)tb_setPlaceholderColor:(UIColor *)color {
-    NSDictionary * attrs = @{NSForegroundColorAttributeName: color};
-    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attrs];
-}
-
-
--(void)tb_setText:(NSString *)text animatedWithDuration:(CGFloat)duration {
+-(void)tb_setText:(NSString *)text animatedWithDuration:(NSTimeInterval)duration {
     if (duration <= 0.0) {
         self.text = text;
         return;
@@ -35,3 +31,6 @@
 
 
 @end
+
+
+NS_ASSUME_NONNULL_END
