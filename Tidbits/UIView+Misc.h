@@ -120,6 +120,13 @@
  */
 -(void) removeAllMotionEffects;
 
+
+/**
+ * Animate self.alpha to 0.0 and then call [self removeFromSuperview].
+ */
+-(void)fadeAndRemoveFromSuperviewWithDuration:(NSTimeInterval)duration;
+
+
 /**
  *  Screen size accounting for ios7/8 differences for portrait/landscape.
  */

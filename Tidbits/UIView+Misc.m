@@ -201,6 +201,17 @@
     }
 }
 
+
+-(void)fadeAndRemoveFromSuperviewWithDuration:(NSTimeInterval)duration {
+    typeof(self) __weak weakSelf = self;
+    [UIView animateWithDuration:duration animations:^{
+        weakSelf.alpha = 0.0;
+    } completion:^(__unused BOOL finished) {
+        [weakSelf removeFromSuperview];
+    }];
+}
+
+
 + (CGSize)screenSize
 {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
