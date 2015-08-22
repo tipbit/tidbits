@@ -80,21 +80,30 @@
 
 
 /**
- * Equivalent to [self viewFromNibForOwner:nil].
+ * Equivalent to [self viewFromNibNamed:NSStringFromClass(self) owner:nil].
  */
 +(instancetype)viewFromNib;
 
 /**
- * Use [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:owner options:nil]
- * to load a nib, and then check that the view has the correct type before returning it.
- *
- * @return The loaded UIView, or nil if nothing could not be loaded or a view of the wrong type was loaded.
+ * Equivalent to [self viewFromNibNamed:NSStringFromClass(self) owner:owner].
  */
 +(instancetype)viewFromNibForOwner:(id)owner;
 
 /**
  * Use [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil]
- * to load a nib.  Note that unlike viewFromNibForOwner above, there is no typecheck.
+ * to load a nib, and then check that the view has the correct type before returning it.
+ *
+ * @return The loaded UIView, or nil if nothing could not be loaded or a view of the wrong type was loaded.
+ */
++(instancetype)viewFromNibNamed:(NSString *)nibName forOwner:(id)owner;
+
+/**
+ * Use [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil]
+ * to load a nib.
+ *
+ * Note that unlike viewFromNibForOwner and
+ * viewFromNibNamed:forOwner: above, there is no typecheck.
+ * This is only here for legacy reasons and you should prefer the other functions.
  *
  * @return The loaded UIView, or nil if nothing could not be loaded.
  */

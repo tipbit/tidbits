@@ -141,12 +141,16 @@
 
 
 +(instancetype)viewFromNib {
-    return [self viewFromNibForOwner:nil];
+    return [self viewFromNibNamed:NSStringFromClass(self) forOwner:nil];
 }
 
 
 +(instancetype)viewFromNibForOwner:(id)owner {
-    NSString * nibName = NSStringFromClass(self.class);
+    return [self viewFromNibNamed:NSStringFromClass(self) forOwner:owner];
+}
+
+
++(instancetype)viewFromNibNamed:(NSString *)nibName forOwner:(id)owner {
     NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil];
     for (id view in views) {
         if ([view isKindOfClass:self.class]) {
@@ -161,6 +165,7 @@
     NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil];
     return [views firstObject];
 }
+
 
 -(void) addParallaxWithDefaultIntensity
 {
