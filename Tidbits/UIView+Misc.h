@@ -10,6 +10,23 @@
 
 @interface UIView (Misc)
 
+/**
+ * Equivalent to [self initWithNibNamed:NSStringFromClass(self.class)].
+ */
+-(instancetype)initWithNib;
+
+/**
+ * Use [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil]
+ * to load a nib, and then check that the view has the correct type before returning it.
+ *
+ * This uses reflection to find the outlets on this class and to copy them into the result.
+ *
+ * @return The loaded UIView, or nil if nothing could not be loaded or a view of the wrong type was loaded.
+ * You should use this like any other initializer, using the result to replace self and checking that it
+ * was not nil.
+ */
+-(instancetype)initWithNibNamed:(NSString *)nibName;
+
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width;
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width radius:(CGFloat)radius;
 
@@ -101,7 +118,7 @@
  * Use [[NSBundle mainBundle] loadNibNamed:nibName owner:owner options:nil]
  * to load a nib.
  *
- * Note that unlike viewFromNibForOwner and
+ * Note that unlike initWithNib*, viewFromNibForOwner and
  * viewFromNibNamed:forOwner: above, there is no typecheck.
  * This is only here for legacy reasons and you should prefer the other functions.
  *

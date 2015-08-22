@@ -6,10 +6,81 @@
 //  Copyright (c) 2014 Tipbit. All rights reserved.
 //
 
-#import "UIView+Misc.h"
 #import "FeatureMacros.h"
+#import "Reflection.h"
+
+#import "UIView+Misc.h"
+
 
 @implementation UIView (Misc)
+
+
+-(instancetype)initWithNib {
+    return [self initWithNibNamed:NSStringFromClass(self.class)];
+}
+
+
+-(instancetype)initWithNibNamed:(NSString *)nibName {
+    UIView * result = [self.class viewFromNibNamed:nibName forOwner:self];
+    NSMutableArray * props = getOutlets(self.class);
+    for (NSString * prop in props) {
+        id val = [self valueForKey:prop];
+        if (val != nil) {
+            [result setValue:val forKey:prop];
+        }
+    }
+    replaceActions(self, result, result);
+    return result;
+}
+
+
+/*
+ * There's no way to get the actual IBOutlets of a class (unless you're Interface Builder).
+ * We approximate it by looking for weak readwrite properties with object type.  This works
+ * out OK.
+ */
+static NSMutableArray * getOutlets(Class cls) {
+    return reflectionGetPropertyNames(cls, ^BOOL(const char * attrs) {
+        return reflectionPropertyAttributeStringMatches(attrs, ReflectionMatchRequireYes, ReflectionMatchRequireNo, ReflectionMatchRequireYes);
+    });
+}
+
+
+/**
+ * For the given view and any subviews, rebind any actions that are targeted at oldSelf
+ * so that they target newSelf instead.
+ */
+static void replaceActions(UIView * oldSelf, UIView * newSelf, UIView * view) {
+    if ([view isKindOfClass:[UIControl class]]) {
+        UIControl * control = (UIControl *)view;
+        NSSet * targets = control.allTargets;
+        for (id target in targets) {
+            if (target != oldSelf) {
+                continue;
+            }
+            // UIControlEvents defines a bitwise flag for each event.
+            // Everything between 1 << 0 and 1 << 19 is covered, except for the skiplist
+            // that you see below.
+            // This loop therefore is iterating over all known UIControlEvents entries.
+            for (int i = 0; i < 20; i++) {
+                if (i == 9 || i == 10 || i == 11 || i == 13 || i == 14 || i == 15) {
+                    continue;
+                }
+                UIControlEvents event = (UIControlEvents)(1 << i);
+                NSArray * actions = [control actionsForTarget:oldSelf forControlEvent:event];
+                if (actions.count > 0) {
+                    [control removeTarget:target action:NULL forControlEvents:event];
+                    for (NSString * action in actions) {
+                        [control addTarget:newSelf action:NSSelectorFromString(action) forControlEvents:event];
+                    }
+                }
+            }
+        }
+    }
+    for (UIView * subview in view.subviews) {
+        replaceActions(oldSelf, newSelf, subview);
+    }
+}
 
 
 -(void)setBorderColor:(UIColor *)color width:(CGFloat)width {
