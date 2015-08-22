@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Tipbit, Inc. All rights reserved.
 //
 
+#import "CALayer+Misc.h"
 #import "CATransition+Misc.h"
 
 #import "UITextField+Misc.h"
@@ -28,9 +29,8 @@
 
     NSString * const key = NSStringFromSelector(@selector(tb_setText:animatedWithDuration:));
     CATransition * animation = [CATransition transitionFadeEaseInEaseOutWithDuration:duration];
-    [self.layer addAnimation:animation forKey:key];
+    [self.layer addAnimation:animation forKey:key andRemoveAfter:duration];
     self.text = text;
-    [self.layer performSelector:@selector(removeAnimationForKey:) withObject:key afterDelay:duration];
 }
 
 
