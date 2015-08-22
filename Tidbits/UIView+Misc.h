@@ -85,7 +85,7 @@
 +(instancetype)viewFromNib;
 
 /**
- * Use [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:owner options:nil]
+ * Use [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:owner options:nil]
  * to load a nib, and then check that the view has the correct type before returning it.
  *
  * @return The loaded UIView, or nil if nothing could not be loaded or a view of the wrong type was loaded.
