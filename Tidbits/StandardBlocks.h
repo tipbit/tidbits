@@ -66,6 +66,7 @@ typedef void (^VoidBlock)(void);
 typedef bool (^GetBoolBlock)();
 typedef id (^GetIdBlock)();
 typedef NSArray* (^GetNSArrayBlock)();
+typedef BOOL (^CStringGetBoolBlock)(const char * cstr);
 
 typedef id (^id_to_id_t)(id obj);
 typedef void (^id_to_id_async_t)(id obj, IdBlock onSuccess);
