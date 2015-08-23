@@ -113,6 +113,7 @@
 		406FEBAB1B8807BD001F0DFB /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBAA1B8807BD001F0DFB /* Reflection.m */; };
 		406FEBE91B89946B001F0DFB /* UIAlertController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */; };
 		406FEC151B899649001F0DFB /* UIActionSheet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEC141B899649001F0DFB /* UIActionSheet+Misc.m */; };
+		406FEC7C1B8A4EF9001F0DFB /* UICollectionView+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEC7B1B8A4EF9001F0DFB /* UICollectionView+Misc.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
 		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
 		407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100C317FF9AF1006F4115 /* NSString+MD5.m */; };
@@ -725,6 +726,8 @@
 		406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Misc.m"; sourceTree = "<group>"; };
 		406FEC131B899649001F0DFB /* UIActionSheet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Misc.h"; sourceTree = "<group>"; };
 		406FEC141B899649001F0DFB /* UIActionSheet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Misc.m"; sourceTree = "<group>"; };
+		406FEC7A1B8A4EF9001F0DFB /* UICollectionView+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Misc.h"; sourceTree = "<group>"; };
+		406FEC7B1B8A4EF9001F0DFB /* UICollectionView+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Misc.m"; sourceTree = "<group>"; };
 		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
 		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
 		407100C217FF9AF1006F4115 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -1379,6 +1382,8 @@
 				406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
 				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
+				406FEC7A1B8A4EF9001F0DFB /* UICollectionView+Misc.h */,
+				406FEC7B1B8A4EF9001F0DFB /* UICollectionView+Misc.m */,
 				40CA11681B811CF500744958 /* UIImage+Misc.h */,
 				40CA11691B811CF500744958 /* UIImage+Misc.m */,
 				408F67CB1782CABE00E974AD /* UIImage+Resize.h */,
@@ -1885,6 +1890,7 @@
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				406FEBAB1B8807BD001F0DFB /* Reflection.m in Sources */,
 				40F65073191772BB00142318 /* NSObject+MTJSONUtils.m in Sources */,
+				406FEC7C1B8A4EF9001F0DFB /* UICollectionView+Misc.m in Sources */,
 				4001346E1B75B29500045203 /* UIViewController+Misc.m in Sources */,
 				40063B6F1A576F6500B2FCCB /* NSMutableAttributedString+Misc.m in Sources */,
 				402C044418754151009D105B /* CBLParseDate.c in Sources */,
