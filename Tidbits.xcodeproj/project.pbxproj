@@ -111,6 +111,8 @@
 		406FEBA01B87E758001F0DFB /* UIImageView+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEB9F1B87E758001F0DFB /* UIImageView+Misc.m */; };
 		406FEBA51B87E7C0001F0DFB /* CALayer+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBA41B87E7C0001F0DFB /* CALayer+Misc.m */; };
 		406FEBAB1B8807BD001F0DFB /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBAA1B8807BD001F0DFB /* Reflection.m */; };
+		406FEBE91B89946B001F0DFB /* UIAlertController+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */; };
+		406FEC151B899649001F0DFB /* UIActionSheet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEC141B899649001F0DFB /* UIActionSheet+Misc.m */; };
 		407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100A917FE0544006F4115 /* NSArray+Misc.m */; };
 		407100AC17FE063C006F4115 /* NSArray+Misc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 407100A817FE0544006F4115 /* NSArray+Misc.h */; };
 		407100C417FF9AF1006F4115 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 407100C317FF9AF1006F4115 /* NSString+MD5.m */; };
@@ -719,6 +721,10 @@
 		406FEBA41B87E7C0001F0DFB /* CALayer+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Misc.m"; sourceTree = "<group>"; };
 		406FEBA91B8807BD001F0DFB /* Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reflection.h; sourceTree = "<group>"; };
 		406FEBAA1B8807BD001F0DFB /* Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reflection.m; sourceTree = "<group>"; };
+		406FEBE71B89946B001F0DFB /* UIAlertController+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Misc.h"; sourceTree = "<group>"; };
+		406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Misc.m"; sourceTree = "<group>"; };
+		406FEC131B899649001F0DFB /* UIActionSheet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Misc.h"; sourceTree = "<group>"; };
+		406FEC141B899649001F0DFB /* UIActionSheet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Misc.m"; sourceTree = "<group>"; };
 		407100A817FE0544006F4115 /* NSArray+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Misc.h"; sourceTree = "<group>"; };
 		407100A917FE0544006F4115 /* NSArray+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Misc.m"; sourceTree = "<group>"; };
 		407100C217FF9AF1006F4115 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -1367,6 +1373,10 @@
 				18A4784718F0D63F00E8A968 /* BlockButton.m */,
 				18A4784818F0D63F00E8A968 /* UIActionSheet+BlockButtons.h */,
 				18A4784918F0D63F00E8A968 /* UIActionSheet+BlockButtons.m */,
+				406FEC131B899649001F0DFB /* UIActionSheet+Misc.h */,
+				406FEC141B899649001F0DFB /* UIActionSheet+Misc.m */,
+				406FEBE71B89946B001F0DFB /* UIAlertController+Misc.h */,
+				406FEBE81B89946B001F0DFB /* UIAlertController+Misc.m */,
 				18A4784A18F0D63F00E8A968 /* UIAlertView+BlockButtons.h */,
 				18A4784B18F0D63F00E8A968 /* UIAlertView+BlockButtons.m */,
 				40CA11681B811CF500744958 /* UIImage+Misc.h */,
@@ -1819,6 +1829,7 @@
 				18A4784D18F0D63F00E8A968 /* UIActionSheet+BlockButtons.m in Sources */,
 				40D9DD1317893D8800C49154 /* FileUtils.m in Sources */,
 				408F4667176CE4F500C468EB /* LimitedInputStream.m in Sources */,
+				406FEBE91B89946B001F0DFB /* UIAlertController+Misc.m in Sources */,
 				40FD7882191D6CB0004B82D7 /* IdleState.m in Sources */,
 				400134171B75AD5700045203 /* UITabBarController+Misc.m in Sources */,
 				407100AA17FE0544006F4115 /* NSArray+Misc.m in Sources */,
@@ -1869,6 +1880,7 @@
 				404557E31A29BB3E009FEF2F /* Batcher.m in Sources */,
 				40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */,
 				404565F618985E62009C2A11 /* NSUserDefaults+Misc.m in Sources */,
+				406FEC151B899649001F0DFB /* UIActionSheet+Misc.m in Sources */,
 				40E343B51785FF73001A93E9 /* OperationManager.m in Sources */,
 				40C2A2F7177A5791003276AB /* SRVResolver.m in Sources */,
 				406FEBAB1B8807BD001F0DFB /* Reflection.m in Sources */,
