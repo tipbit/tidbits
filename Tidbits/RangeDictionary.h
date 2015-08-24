@@ -64,7 +64,8 @@ typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
  * from and to must be strictly in ascending order.  An empty range or an inverted
  * range will cause an assert.
  */
--(void)setObject:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to;
+-(NSUInteger)setObject:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to;
+-(NSUInteger)from:(id<NSCopying>)from to:(id<NSCopying>)to setObject:(id)obj;
 
 // Unimplemented.
 //-(void)removeObjectsFrom:(id<NSCopying>)from to:(id<NSCopying>)to;
