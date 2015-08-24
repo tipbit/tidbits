@@ -402,6 +402,13 @@
 			remoteGlobalIDString = 40505F811AC70AB300308CAF;
 			remoteInfo = KissXML.framework;
 		};
+		40772C9F1B8AE58800F85AB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4047B4A21805B42C0032BBA5;
+			remoteInfo = TidbitsTestBase;
+		};
 		407ADD491AAA298200BBE477 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 408E88501768DEF6001B61E6 /* Project object */;
@@ -1611,6 +1618,7 @@
 			);
 			dependencies = (
 				408E88701768DEF7001B61E6 /* PBXTargetDependency */,
+				40772CA01B8AE58800F85AB2 /* PBXTargetDependency */,
 				40E48B9B198B26B60015C54E /* PBXTargetDependency */,
 				40F45DE019997B8E00E78240 /* PBXTargetDependency */,
 				40F45DE219997BD900E78240 /* PBXTargetDependency */,
@@ -2048,6 +2056,11 @@
 			isa = PBXTargetDependency;
 			name = KissXML.framework;
 			targetProxy = 40505FAD1AC70DD300308CAF /* PBXContainerItemProxy */;
+		};
+		40772CA01B8AE58800F85AB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4047B4A21805B42C0032BBA5 /* TidbitsTestBase */;
+			targetProxy = 40772C9F1B8AE58800F85AB2 /* PBXContainerItemProxy */;
 		};
 		407ADD4A1AAA298200BBE477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
