@@ -50,7 +50,7 @@ static void reflectionGetPropertyNamesSingle(Class cls, NSMutableArray * result,
 }
 
 
-static BOOL propertyMatchesPredicate(objc_property_t property, CStringGetBoolBlock predicate) {
+static BOOL propertyMatchesPredicate(objc_property_t property, CStringGetBoolBlock __nullable predicate) {
     const char * attrs = property_getAttributes(property);
     return predicate(attrs);
 }

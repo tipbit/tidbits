@@ -19,8 +19,10 @@
     return [self initWithNibNamed:NSStringFromClass(self.class)];
 }
 
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 -(instancetype)initWithNibNamed:(NSString *)nibName {
+#pragma clang diagnostic pop
     UIView * result = [self.class viewFromNibNamed:nibName forOwner:self];
     NSMutableArray * props = getOutlets(self.class);
     for (NSString * prop in props) {
