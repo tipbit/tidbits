@@ -90,6 +90,12 @@ static NSRegularExpression * stripQuotesRE = nil;
 }
 
 
+-(BOOL)containsStringEverythingInsensitive:(NSString *)substring {
+    NSStringCompareOptions options = (NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch | NSWidthInsensitiveSearch);
+    return [self rangeOfString:substring options:options].location != NSNotFound;
+}
+
+
 -(bool)hasSuffixCaseInsensitive:(NSString *)comparand {
     if (comparand.length > self.length)
         return false;

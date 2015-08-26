@@ -16,6 +16,12 @@
 
 -(bool) containsCaseInsensitive:(NSString*)substring;
 
+/**
+ * @return YES if self contains substring,
+ * using NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch | NSWidthInsensitiveSearch.
+ */
+-(BOOL)containsStringEverythingInsensitive:(NSString *)substring;
+
 -(bool) hasSuffixCaseInsensitive:(NSString *)comparand;
 
 -(bool) hasSuffixChar:(unichar)c;
