@@ -168,6 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if DEBUG
     [self validate];
+    __unused NSMutableDictionary *testEntries = [self.entries mutableCopy];
 #endif
 
     NSUInteger testCase = 0;
