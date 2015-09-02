@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
         CGPoint point = [targetView.superview convertPoint:targetView.center toView:window];
 
         if (CGPointEqualToPoint(point, CGPointZero)) {
-            [self centerInView:window];
+            [self centerInWindow];
         }
         else {
             [self positionAtPointInWindow:point];

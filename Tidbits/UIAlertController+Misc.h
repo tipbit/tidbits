@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(BOOL)containsActionWithTitle:(NSString *)title;
 
--(void)centerInView:(UIView *)aView;
+-(void)centerInWindow;
 -(void)positionFromSender:(nullable id)sender;
 
 @end
