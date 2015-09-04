@@ -46,19 +46,16 @@ static char* __key = #__key;                                                    
 }
 
 
-#define SYNTHESIZE_ASSOCIATED_NSUINTEGER(__key, __getter, __setter)                           \
-static char* __key = #__key;                                                                  \
+#define SYNTHESIZE_ASSOCIATED_NSUINTEGER(__getter, __setter)                                  \
 -(NSUInteger)__getter {                                                                       \
-    NSNumber* n = objc_getAssociatedObject(self, __key);                                      \
+    NSNumber * n = objc_getAssociatedObject(self, @selector(__getter));                       \
     return n.unsignedIntegerValue;                                                            \
 }                                                                                             \
                                                                                               \
 -(void)__setter:(NSUInteger)value {                                                           \
-    objc_setAssociatedObject(self, __key, [NSNumber numberWithUnsignedInteger:value],         \
-    OBJC_ASSOCIATION_RETAIN_NONATOMIC);                                                       \
+    objc_setAssociatedObject(self, @selector(__getter), @(value),                             \
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);                              \
 }
-
-
 
 
 #define SYNTHESIZE_ASSOCIATED_ENUM(__key, __type, __getter, __setter)                         \
