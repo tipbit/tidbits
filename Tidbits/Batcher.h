@@ -28,4 +28,9 @@
 
 -(void)addObject:(id)object __attribute__((nonnull));
 
+/**
+ * Force a batch to be sent immediately, rather than waiting for the timeout to expire.
+ */
+-(void)sendBatch;
+
 @end

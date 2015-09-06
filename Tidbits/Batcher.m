@@ -81,7 +81,9 @@
         batch = self.objectArray;
         self.objectArray = nil;
     }
-    self.onBatch(batch);
+    if (batch.count > 0) {
+        self.onBatch(batch);
+    }
 }
 
 
