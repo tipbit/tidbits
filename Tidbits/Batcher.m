@@ -11,8 +11,6 @@
 
 @interface Batcher ()
 
-@property (nonatomic, readonly) NSTimeInterval minDelay;
-@property (nonatomic, readonly) NSTimeInterval maxDelay;
 @property (nonatomic, readonly) NSMutableArrayBlock onBatch;
 
 /**

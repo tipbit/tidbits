@@ -24,6 +24,9 @@
  */
 @interface Batcher : NSObject
 
+@property (nonatomic, readonly) NSTimeInterval minDelay;
+@property (nonatomic, readonly) NSTimeInterval maxDelay;
+
 -(instancetype)initWithMinDelay:(NSTimeInterval)minDelay maxDelay:(NSTimeInterval)maxDelay onBatch:(NSMutableArrayBlock)onBatch;
 
 -(void)addObject:(id)object __attribute__((nonnull));
