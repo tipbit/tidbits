@@ -15,7 +15,9 @@
 +(instancetype)blockOperationWithNSBlockOperationBlock:(NSBlockOperationBlock)block {
     __block __weak NSBlockOperation *weakOp = nil;
     NSBlockOperation * op = [NSBlockOperation blockOperationWithBlock:^{
-        block(weakOp);
+        if (block) {
+            block(weakOp);
+        }
     }];
     weakOp = op;
     
