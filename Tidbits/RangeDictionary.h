@@ -65,7 +65,10 @@ typedef id __nullable (^RangeDictionaryEntryToIdBlock)(id lo, id hi, id val);
  * range will cause an assert.
  */
 -(NSUInteger)setObject:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to;
+
+#if DEBUG || RELEASE_TESTING
 -(NSUInteger)from:(id<NSCopying>)from to:(id<NSCopying>)to setObject:(id)obj;
+#endif
 
 // Unimplemented.
 //-(void)removeObjectsFrom:(id<NSCopying>)from to:(id<NSCopying>)to;

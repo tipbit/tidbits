@@ -156,9 +156,15 @@ NS_ASSUME_NONNULL_BEGIN
     return candidate.val;
 }
 
+
+#if DEBUG || RELEASE_TESTING
+
 -(NSUInteger)from:(id<NSCopying>)from to:(id<NSCopying>)to setObject:(id)obj{
     return [self setObject:obj from:from to:to];
 }
+
+#endif
+
 
 -(NSUInteger)setObject:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to {
     NSParameterAssert(obj);
