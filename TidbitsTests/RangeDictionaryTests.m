@@ -142,6 +142,23 @@ static NSComparator Comparator;
     XCTAssertEqual(d.rangeCount, 4U);
 }
 
+
+-(void)testInsertOverlapEntirely {
+    RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:Comparator];
+    [d setObject:@1 from:@"C" to:@"D"];
+    [d setObject:@2 from:@"B" to:@"E"];
+
+    XCTAssertNil(d[@"A"]);
+    XCTAssertEqualObjects(d[@"B"], @2);
+    XCTAssertEqualObjects(d[@"C"], @2);
+    XCTAssertEqualObjects(d[@"D"], @2);
+    XCTAssertEqualObjects(d[@"E"], @2);
+    XCTAssertNil(d[@"Ea"]);
+    XCTAssertNil(d[@"F"]);
+    XCTAssertEqual(d.rangeCount, 1U);
+}
+
+
 -(void)testInsertOverlapDates {
     RangeDictionary * d = [[RangeDictionary alloc] initWithComparator:NSDate.dateComparatorMsecPrecision];
     [d setObject:[NSDate dateFromIso8601:@"1971-01-01T00:00:00.000Z"] from:[NSDate dateFromIso8601:@"1971-01-01T00:00:00.000Z"] to:[NSDate dateFromIso8601:@"2015-06-26T21:47:08.895Z"]];

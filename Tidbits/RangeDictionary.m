@@ -177,9 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
     __unused NSMutableDictionary *testEntries = [self.entries mutableCopy];
 #endif
 
-    NSUInteger testCase = 0;
-    testCase = [self insertEntry:[RangeDictionaryEntry createWithRange:from:to value:obj]];
-//    [self setObject_:obj from:from to:to];
+    NSUInteger testCase = [self setObject_:obj from:from to:to];
 
 #if DEBUG
     [self validate];
@@ -189,12 +187,19 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 
--(void)setObject_:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to {
+//returns branch number to ensure we have all scenarios covered in test cases.
+-(NSUInteger)setObject_:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to {
+    if (self.entries.count == 0) {
+        [self insertEntry:obj from:from to:to atIndex:0];
+        return 1;
+    }
+
     for (NSUInteger idx = 0; idx < self.entries.count; idx++) {
         RangeDictionaryEntry * entry = self.entries[idx];
 
         switch (self.comparator(entry.lo, from)) {
             case NSOrderedSame: {
+                // (from, to) and (lo, hi) cannot be equal or inverted so we're down to three options.
                 switch (self.comparator(entry.hi, to)) {
                     case NSOrderedSame: {
                         // from    to
@@ -203,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
                         //
                         // Repurpose entry to be used for the new data.
                         entry.val = obj;
-                        return;
+                        return 2;
                     }
 
                     case NSOrderedAscending: {
@@ -211,9 +216,9 @@ NS_ASSUME_NONNULL_BEGIN
                         // lo     hi      |
                         // |      |       |
                         //
-                        // We may have an entry between hi and to; we need to keep searching until we find it.
-                        // adjustEntriesToMakeRoomFor will delete the current entry.
-                        break;
+                        // We may have an entry between hi and to; we need to clean it up if so.
+                        RangeDictionaryEntry * newEntry = [RangeDictionaryEntry createWithRange:from :to value:obj];
+                        return [self insertAndCleanupAbove:newEntry idx:idx];
                     }
 
                     case NSOrderedDescending: {
@@ -222,186 +227,13 @@ NS_ASSUME_NONNULL_BEGIN
                         // |      |     |
                         entry.lo = to;
                         [self insertEntry:obj from:from to:to atIndex:idx];
-                        return;
-                    }
-                }
-
-                break;
-            }
-
-            case NSOrderedDescending: {
-                switch (self.comparator(entry.lo, to)) {
-                    case NSOrderedSame: {
-                        // from    to
-                        // |       lo    hi
-                        // |       |      |
-                        RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:idx];
-                        [self adjustEntriesToMakeRoomFor:newEntry];
-                        return;
-                    }
-
-                    case NSOrderedAscending: {
-                        switch (self.comparator(entry.hi, to)) {
-                            case NSOrderedSame: {
-                                // from          to
-                                // |      lo     hi
-                                // |      |       |
-                                //
-                                // Repurpose entry to be used for the new data.
-                                // We may have an entry inside [from, lo] (see two case statements down)
-                                // but adjustEntriesToMakeRoomFor will clean that up.
-                                entry.lo = from;
-                                entry.val = obj;
-                                [self adjustEntriesToMakeRoomFor:entry];
-                                return;
-                            }
-
-                            case NSOrderedDescending: {
-                                // from         to
-                                // |      lo    |     hi
-                                // |      |     |      |
-                                // We may have an entry inside [from, lo] (see case statements below)
-                                // but adjustEntriesToMakeRoomFor will clean that up.
-                                RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:idx];
-                                entry.lo = to;
-                                [self adjustEntriesToMakeRoomFor:newEntry];
-                                return;
-                            }
-
-                            case NSOrderedAscending: {
-                                // from               to
-                                // |      lo    hi     |
-                                // |      |     |      |
-                                // All subsequent entries will have from < lo.
-                                // We need to look for the one with to <= hi and then we'll know what to do.
-                                // That will be in one of the two case statements immediately above or the
-                                // one immediately below.
-                                // In either case, adjustEntriesToMakeRoomFor will delete this entry.
-                                break;
-                            }
-                        }
-                        break;
-                    }
-
-                    case NSOrderedDescending: {
-                        // from    to
-                        // |       |    lo    hi
-                        // |       |     |     |
-                        //
-                        // We may have an entry between from and to,
-                        // either with old.lo = from, or from < old.lo < to.
-                        // This happens in the case statements above.
-                        // Insert a new entry for [from, to] here, and use
-                        // adjustEntriesToMakeRoomFor to clean up the old one if necessary.
-                        RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:idx];
-                        [self adjustEntriesToMakeRoomFor:newEntry];
-                        return;
-                    }
-                }
-                break;
-            }
-
-            case NSOrderedAscending: {
-                switch (self.comparator(entry.hi, from)) {
-                    case NSOrderedSame:
-                    case NSOrderedAscending: {
-                        //         from    to
-                        // lo      hi       |
-                        // |       |        |
-                        //
-                        // or
-                        //
-                        //                from    to
-                        // lo      hi      |       |
-                        // |       |       |       |
-                        //
-                        // Move on so that we look at the next entry before deciding what to do.
-                        break;
-                    }
-
-                    case NSOrderedDescending: {
-                        //        from
-                        // lo      |      hi
-                        // |       |       |
-                        // Insert an entry after this one, then have adjustEntriesToMakeRoomFor
-                        // clean up depending on whether to lands inside or outside [lo, hi].
-                        RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:idx + 1];
-                        [self adjustEntriesToMakeRoomFor:newEntry];
-                        return;
-                    }
-                }
-                break;
-            }
-        }
-    }
-
-    // We reached the end of self.entries, so we're inserting at the end.
-    // We need to adjust to make room for this entry if we deliberately skipped
-    // overlapping ones above.
-    RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:self.entries.count];
-    [self adjustEntriesToMakeRoomFor:newEntry];
-}
-
-
--(RangeDictionaryEntry *)insertEntry:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to atIndex:(NSUInteger)idx {
-    RangeDictionaryEntry * entry = [[RangeDictionaryEntry alloc] init];
-    entry.lo = from;
-    entry.hi = to;
-    entry.val = obj;
-    [self.entries insertObject:entry atIndex:idx];
-    return entry;
-}
-
-//returns branch number to ensure we have all scenarios covered in test cases.
--(NSUInteger)insertEntry:(RangeDictionaryEntry *)newEntry{
-    id from = newEntry.lo;
-    id to = newEntry.hi;
-
-    if (self.entries.count == 0) {
-        [self.entries insertObject:newEntry atIndex:0];
-        return 1;
-    }
-
-    NSUInteger idx = 0;
-    for (; idx < self.entries.count; idx++) {
-        RangeDictionaryEntry * entry = self.entries[idx];
-        switch (self.comparator(entry.lo, from)) {
-            case NSOrderedSame: {
-                // (from, to) and (lo, hi) cannot be equal or inverted so we're down to three options.
-                switch (self.comparator(entry.hi, to)) {
-                    case NSOrderedSame: {
-                        // from    to  << new entry
-                        // lo      hi
-                        // |       |
-                        //replace existing value with new value.
-                        entry.val = newEntry.val;
-                        //nothing more to do.
-                        return 2;
-                    }
-
-                    case NSOrderedDescending: {
-                        // from    to  << new entry
-                        // lo      |     hi
-                        // |       |     |
-                        // mutate original  lo-to:val
-                        entry.lo = to;
-                        // insert newEntry
-                        [self.entries insertObject:newEntry atIndex:idx];
-                        //we are done.
                         return 3;
                     }
-
-                    case NSOrderedAscending: {
-                        // from             to  << new entry
-                        // lo      hi
-                        // |       |   ...  |
-                        // We need to continue the loop because there might be
-                        // other ranges between hi and to.
-                        return [self insertAndCleanupAbove:newEntry idx:idx];
-                    }
                 }
+
                 break;
             }
+
             case NSOrderedDescending: {
                 // (from, to) and (lo, hi) cannot be equal or inverted so we're down to three options.
                 switch (self.comparator(entry.hi, to)) {
@@ -411,13 +243,14 @@ NS_ASSUME_NONNULL_BEGIN
                         // |    |     |   ...  |
                         break; //continue looping.
                     }
+
                     case NSOrderedDescending: {
                         // from   to
                         // |      |     lo    |    hi
                         // |      |     |     |    |
                         //
                         if (self.comparator(entry.lo, to) == NSOrderedDescending) {
-                            [self.entries insertObject:newEntry atIndex:idx];
+                            [self insertEntry:obj from:from to:to atIndex:idx];
                             return 7;
                         }
                         //or
@@ -428,18 +261,18 @@ NS_ASSUME_NONNULL_BEGIN
                         //mutate current
                         entry.lo = to;
                         // insert newEntry
-                        [self.entries insertObject:newEntry atIndex:idx];
+                        [self insertEntry:obj from:from to:to atIndex:idx];
                         return 8;
                     }
+
                     case NSOrderedSame: {
                         // from       to
                         // |    lo    hi
                         // |    |     |
                         [self.entries removeObjectAtIndex:idx];
-                        [self.entries insertObject:newEntry atIndex:idx];
+                        [self insertEntry:obj from:from to:to atIndex:idx];
                         return 17;
                     }
-
                 }
                 break;
             }
@@ -453,6 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
                         // continue looping till we hit NSOrderedSame or NSOrderedDescending.
                         break;
                     }
+
                     case NSOrderedSame:{
                         //         from  to
                         // lo      hi    | ...
@@ -467,6 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
                         //
                         //current entry remains untouched.
                         //next entry(s) may need to be removed or mutated.
+                        RangeDictionaryEntry * newEntry = [RangeDictionaryEntry createWithRange:from :to value:obj];
                         return [self insertAndCleanup:newEntry idx:idx];
                     }
 
@@ -480,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
                                 //mutate the existing entry
                                 entry.hi = from;
                                 // insert newEntry after mutated entry
-                                [self.entries insertObject:newEntry atIndex:idx+1];
+                                [self insertEntry:obj from:from to:to atIndex:idx + 1];
                                 //nothing more to do.
                                 return 12;
                             }
@@ -492,6 +327,7 @@ NS_ASSUME_NONNULL_BEGIN
                                 //mutate the existing entry.
                                 entry.hi = from;
 
+                                RangeDictionaryEntry * newEntry = [RangeDictionaryEntry createWithRange:from :to value:obj];
                                 return [self insertAndCleanupBelowHi:newEntry idx:idx];
                             }
 
@@ -509,11 +345,10 @@ NS_ASSUME_NONNULL_BEGIN
                                 entry.hi = from;
 
                                 // insert newEntry
-                                [self.entries insertObject:newEntry atIndex:idx+1];
+                                [self insertEntry:obj from:from to:to atIndex:idx + 1];
 
                                 //insert the original split entry.
                                 [self.entries insertObject:entry1 atIndex:idx+2];
-
 
                                 return 15;
                             }
@@ -523,11 +358,25 @@ NS_ASSUME_NONNULL_BEGIN
                 }
                 break;
             }
-
         }
     }
-    [self.entries addObject:newEntry];
+
+    // We reached the end of self.entries, so we're inserting at the end.
+    // We need to adjust to make room for this entry if we deliberately skipped
+    // overlapping ones above.
+    RangeDictionaryEntry * newEntry = [self insertEntry:obj from:from to:to atIndex:self.entries.count];
+    [self adjustEntriesToMakeRoomFor:newEntry];
     return 16;
+}
+
+
+-(RangeDictionaryEntry *)insertEntry:(id)obj from:(id<NSCopying>)from to:(id<NSCopying>)to atIndex:(NSUInteger)idx {
+    RangeDictionaryEntry * entry = [[RangeDictionaryEntry alloc] init];
+    entry.lo = from;
+    entry.hi = to;
+    entry.val = obj;
+    [self.entries insertObject:entry atIndex:idx];
+    return entry;
 }
 
 
