@@ -538,47 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
                                 //mutate the existing entry.
                                 entry.hi = from;
 
-                                NSUInteger idx1 = idx+1;
-                                for (; idx1 < self.entries.count; idx1++) {
-                                    RangeDictionaryEntry *entry1 = self.entries[idx1];
-                                    switch (self.comparator(entry1.hi, to)) {
-                                        case NSOrderedAscending: {
-                                            // continue looping.
-                                        }
-                                        case NSOrderedSame: {
-                                            // from           to  << new entry
-                                            // lo  ...    lo':hi'
-                                            // |   ...       |
-                                            // remove entries idx+1 to idx1
-                                            for (NSUInteger idx2 = self.entries.count-1; idx2 > idx && idx2 < self.entries.count; idx2--) {
-                                                [self.entries removeObjectAtIndex:idx2];
-                                            }
-                                            // insert newEntry after current.
-                                            [self.entries insertObject:newEntry atIndex:idx+1];
-                                            //nothing more to do.
-                                            return 13;
-                                        }
-
-                                        case NSOrderedDescending: {
-                                            // from          to  << new entry
-                                            // lo   ... lo'  |     hi'
-                                            // |    ...      |     |
-                                            //remove entries idx+1 to idx1 not including idx1
-                                            for (NSUInteger idx2 = idx1-1; idx2 > idx && idx2 < self.entries.count; idx2--) {
-                                                [self.entries removeObjectAtIndex:idx2];
-                                            }
-                                            // mutate original  lo'-to:val
-                                            entry1.lo = to;
-                                            [self.entries insertObject:newEntry atIndex:idx+1];
-                                            //nothing more to do.
-                                            return 18;
-                                        }
-                                    }
-                                }
-                                // insert newEntry
-                                [self.entries insertObject:newEntry atIndex:idx1];
-                                //nothing more to do.
-                                return 14;
+                                return [self insertAndCleanupBelowHi:newEntry idx:idx];
                             }
 
                             case NSOrderedDescending: {
@@ -678,6 +638,57 @@ NS_ASSUME_NONNULL_BEGIN
     [self.entries insertObject:newEntry atIndex:idx];
     //nothing more to do.
     return 6;
+}
+
+
+-(NSUInteger)insertAndCleanupBelowHi:(RangeDictionaryEntry *)newEntry idx:(NSUInteger)idx {
+    //         from             to
+    // lo      |      hi  ...   |
+    // |       |      |   ...   |
+
+    id to = newEntry.hi;
+
+    NSUInteger idx1 = idx+1;
+    for (; idx1 < self.entries.count; idx1++) {
+        RangeDictionaryEntry *entry1 = self.entries[idx1];
+        switch (self.comparator(entry1.hi, to)) {
+            case NSOrderedAscending: {
+                // continue looping.
+            }
+            case NSOrderedSame: {
+                // from           to  << new entry
+                // lo  ...    lo':hi'
+                // |   ...       |
+                // remove entries idx+1 to idx1
+                for (NSUInteger idx2 = self.entries.count-1; idx2 > idx && idx2 < self.entries.count; idx2--) {
+                    [self.entries removeObjectAtIndex:idx2];
+                }
+                // insert newEntry after current.
+                [self.entries insertObject:newEntry atIndex:idx+1];
+                //nothing more to do.
+                return 13;
+            }
+
+            case NSOrderedDescending: {
+                // from          to  << new entry
+                // lo   ... lo'  |     hi'
+                // |    ...      |     |
+                //remove entries idx+1 to idx1 not including idx1
+                for (NSUInteger idx2 = idx1-1; idx2 > idx && idx2 < self.entries.count; idx2--) {
+                    [self.entries removeObjectAtIndex:idx2];
+                }
+                // mutate original  lo'-to:val
+                entry1.lo = to;
+                [self.entries insertObject:newEntry atIndex:idx+1];
+                //nothing more to do.
+                return 18;
+            }
+        }
+    }
+    // insert newEntry
+    [self.entries insertObject:newEntry atIndex:idx1];
+    //nothing more to do.
+    return 14;
 }
 
 
