@@ -9,9 +9,7 @@
 #ifndef Tidbits_FeatureMacros_h
 #define Tidbits_FeatureMacros_h
 
-#ifndef NSFoundationVersionNumber_iOS_7_1
-#define NSFoundationVersionNumber_iOS_7_1 1047.25
-#endif
+#include <Foundation/NSObjCRuntime.h>
 
 
 #define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
@@ -20,6 +18,7 @@
 #define IS_IPHONE6 ((UIScreen.mainScreen.bounds.size.height == 667) || (UIScreen.mainScreen.bounds.size.width == 667))
 #define IS_IPHONE6PLUS ((UIScreen.mainScreen.bounds.size.height == 414) || (UIScreen.mainScreen.bounds.size.width == 414))
 #define IS_IOS8_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
+#define IS_IOS9_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_8_3)
 
 #define IS_LANDSCAPE (UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))
 
