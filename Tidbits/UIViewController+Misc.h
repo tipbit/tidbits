@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "StandardBlocks.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 
 @interface UIViewController (Misc)
 
@@ -21,4 +25,17 @@
  */
 -(void)tb_dismissOrPop;
 
+/**
+ * Equivalent to [self tb_presentInNav:vc completion:NULL].
+ */
+-(void)tb_presentInNav:(UIViewController *)vc;
+
+/**
+ * Present the given vc inside a UINavigationController.
+ */
+-(void)tb_presentInNav:(UIViewController *)vc completion:(nullable VoidBlock)completion;
+
 @end
+
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 
 #import "UIViewController+Misc.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 @implementation UIViewController (Misc)
 
@@ -29,4 +31,19 @@
 }
 
 
+-(void)tb_presentInNav:(UIViewController *)vc {
+    [self tb_presentInNav:vc completion:NULL];
+}
+
+
+-(void)tb_presentInNav:(UIViewController *)vc completion:(nullable VoidBlock)completion {
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:nav animated:YES completion:completion];
+}
+
+
 @end
+
+
+NS_ASSUME_NONNULL_END
