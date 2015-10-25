@@ -182,26 +182,25 @@ static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
 
 
 - (NSDate*) startOfMonth {
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [cal setTimeZone:[NSTimeZone systemTimeZone]];
-    NSDateComponents * comp = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit) fromDate:self];
-    [comp setDay:1];
-    [comp setHour:0];
-    [comp setMinute:0];
-    [comp setSecond:0];
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    cal.timeZone = [NSTimeZone systemTimeZone];
+    NSDateComponents * comp = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth) fromDate:self];
+    comp.day = 1;
+    comp.hour = 0;
+    comp.minute = 0;
+    comp.second = 0;
     return [cal dateFromComponents:comp];
 }
 
 - (NSDate*) startOfNextWeek {
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [cal setTimeZone:[NSTimeZone systemTimeZone]];
-    NSInteger weekdayOfDate = [cal ordinalityOfUnit:NSWeekdayCalendarUnit inUnit:NSWeekCalendarUnit forDate:[self startOfDay]];
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    cal.timeZone = [NSTimeZone systemTimeZone];
+    NSInteger weekdayOfDate = [cal ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfYear forDate:[self startOfDay]];
     NSInteger numberOfDaysToStartOfCurrentWeek = weekdayOfDate - 1;
-    NSDateComponents *oneWeek = [[NSDateComponents alloc] init];
-    [oneWeek setWeekOfYear:1]; // add one week
-    [oneWeek setDay:-numberOfDaysToStartOfCurrentWeek]; // ... and subtract a couple of days to get the first day of the week
-    NSDate *startOfNextWeek = [cal dateByAddingComponents:oneWeek toDate:[self startOfDay] options:0];
-    return startOfNextWeek;
+    NSDateComponents * oneWeek = [[NSDateComponents alloc] init];
+    oneWeek.weekOfYear = 1; // add one week
+    oneWeek.day = -numberOfDaysToStartOfCurrentWeek; // ... and subtract a couple of days to get the first day of the week
+    return [cal dateByAddingComponents:oneWeek toDate:[self startOfDay] options:(NSCalendarOptions)0];
 }
 
 - (NSDate*) todayCurrentHour {
@@ -212,14 +211,14 @@ static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
 {
     NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
+    NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:now];
     
     return [components hour];
 }
 
 
 -(NSDate *)startOfMinute {
-    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     cal.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateComponents * comp = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:self];
     comp.second = 0;
@@ -228,7 +227,7 @@ static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
 
 
 -(NSDate *)endOfMinute {
-    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     cal.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDateComponents * comp = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:self];
     comp.second = 59;
@@ -237,15 +236,13 @@ static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
 }
 
 
-- (NSDate*) thisDayAtHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second tz:(NSTimeZone*)tz {
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    if (tz == nil)
-        tz = [NSTimeZone timeZoneWithName:@"UTC"];
-    [cal setTimeZone:tz];
-    NSDateComponents * comp = [cal components:( NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:self];
-    [comp setHour:hour];
-    [comp setMinute:minute];
-    [comp setSecond:second];
+-(NSDate *)thisDayAtHour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second tz:(NSTimeZone *)tz {
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    cal.timeZone = (tz == nil ? [NSTimeZone timeZoneWithName:@"UTC"] : tz);
+    NSDateComponents * comp = [cal components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:self];
+    comp.hour = hour;
+    comp.minute = minute;
+    comp.second = second;
     return [cal dateFromComponents:comp];
 }
 
@@ -260,23 +257,22 @@ static NSComparator _NSDate_dateComparatorMsecPrecision = NULL;
 
 
 -(BOOL)isStartOfHour {
-    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     cal.timeZone = [NSTimeZone systemTimeZone];
-    NSDateComponents * comp = [cal components:(NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:self];
+    NSDateComponents * comp = [cal components:(NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:self];
     return comp.minute == 0 && comp.second == 0;
 }
 
 
-- (BOOL) isSameDayAs:(NSDate*)date {
+-(BOOL)isSameDayAs:(NSDate *)date {
+    NSCalendar * cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    cal.timeZone = [NSTimeZone systemTimeZone];
 
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [cal setTimeZone:[NSTimeZone systemTimeZone]];
+    NSCalendarUnit units = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+    NSDateComponents * compSelf = [cal components:units fromDate:self];
+    NSDateComponents * compOther = [cal components:units fromDate:date];
 
-    NSDateComponents *compSelf = [cal components:( NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self];
-
-    NSDateComponents *compOther = [cal components:( NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
-
-    return compSelf.year==compOther.year && compSelf.month==compOther.month && compSelf.day==compOther.day;
+    return (compSelf.year == compOther.year && compSelf.month == compOther.month && compSelf.day == compOther.day);
 }
 
 
@@ -367,13 +363,13 @@ static NSInteger cachedThisYear = 0;
     NSCalendar * cal = [NSCalendar currentCalendar];
 
     if (cachedThisYear == 0) {
-        NSDate *today = [NSDate date];
-        NSDateComponents *today_bits = [cal components:NSYearCalendarUnit fromDate:today];
+        NSDate * today = [NSDate date];
+        NSDateComponents * today_bits = [cal components:NSCalendarUnitYear fromDate:today];
         cachedThisYear = today_bits.year;
     }
 
-    NSDateComponents *date_bits = [cal components:NSYearCalendarUnit fromDate:self];
-    return cachedThisYear == date_bits.year;
+    NSDateComponents * date_bits = [cal components:NSCalendarUnitYear fromDate:self];
+    return (cachedThisYear == date_bits.year);
 }
 
 
@@ -433,51 +429,49 @@ static NSInteger cachedThisYear = 0;
     return (days * 24 * 3600) + (hours * 3600) + (minutes * 60) + seconds;
 }
 
-+(NSDate *)dateFromHHMMA:(NSString *)hhmma
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [dateFormatter setCalendar:calendar];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    NSDate *date = [dateFormatter dateFromString:hhmma];
-    return date;
-}
-+(NSTimeInterval)timeIntervalFromHHMMA:(NSString *)hhmma
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    NSDate *start = [dateFormatter dateFromString:@"00:00 am"];
-    NSDate *end = [dateFormatter dateFromString:hhmma];
-    NSTimeInterval interval = [end timeIntervalSinceDate:start];
-    return interval;
+
++(NSDate *)dateFromHHMMA:(NSString *)hhmma {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    dateFormatter.calendar = calendar;
+    dateFormatter.dateFormat = @"hh:mm a";
+    return [dateFormatter dateFromString:hhmma];
 }
 
-+(NSTimeInterval)timeIntervalFromHHMM:(NSString *)hhmm
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm"];
-    NSDate *start = [dateFormatter dateFromString:@"00:00"];
-    NSDate *end = [dateFormatter dateFromString:hhmm];
-    NSTimeInterval interval = [end timeIntervalSinceDate:start];
-    return interval;
-}
-+(NSString *)stringFromHHMMA:(NSDate *)hhmma
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [dateFormatter setCalendar:calendar];
-    [dateFormatter setDateFormat:@"h:mm a"];
-    NSString *value = [dateFormatter stringFromDate:hhmma];
-    return value;
+
++(NSTimeInterval)timeIntervalFromHHMMA:(NSString *)hhmma {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"hh:mm a";
+    NSDate * start = [dateFormatter dateFromString:@"00:00 am"];
+    NSDate * end = [dateFormatter dateFromString:hhmma];
+    return [end timeIntervalSinceDate:start];
 }
 
-+(NSString *)stringFromHHMM:(NSDate *)hhmm
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm"];
-    NSString *value = [dateFormatter stringFromDate:hhmm];
-    return value;
+
++(NSTimeInterval)timeIntervalFromHHMM:(NSString *)hhmm {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm";
+    NSDate * start = [dateFormatter dateFromString:@"00:00"];
+    NSDate * end = [dateFormatter dateFromString:hhmm];
+    return [end timeIntervalSinceDate:start];
 }
+
+
++(NSString *)stringFromHHMMA:(NSDate *)hhmma {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    dateFormatter.calendar = calendar;
+    dateFormatter.dateFormat = @"h:mm a";
+    return [dateFormatter stringFromDate:hhmma];
+}
+
+
++(NSString *)stringFromHHMM:(NSDate *)hhmm {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm";
+    return [dateFormatter stringFromDate:hhmm];
+}
+
 
 +(NSTimeInterval)timeIntervalRoundedTo5Minutes:(NSTimeInterval)ti
 {
