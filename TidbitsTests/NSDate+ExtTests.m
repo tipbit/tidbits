@@ -74,6 +74,16 @@
 }
 
 
+-(void)testStartOfMonth {
+    [self doTestStartOfMonth:@"2015-06-07T01:02:03.647" expected:@"2015-06-01"];
+    [self doTestStartOfMonth:@"2015-06-01T01:02:03.647" expected:@"2015-06-01"];
+    [self doTestStartOfMonth:@"2015-06-30T23:59:59.999" expected:@"2015-06-01"];
+    [self doTestStartOfMonth:@"2015-06-01T00:00:00.000" expected:@"2015-06-01"];
+    [self doTestStartOfMonth:@"2004-02-29T23:59:30.000" expected:@"2004-02-01"];  // Leap year.
+    [self doTestStartOfMonth:@"2004-03-01T00:00:00.000" expected:@"2004-03-01"];  // Leap year.
+}
+
+
 -(void)doTestStartOfMinute:(NSString *)input expected:(NSString *)expected {
     NSDate * i = [NSDate dateFromIso8601:input];
     NSDate * e = [NSDate dateFromIso8601:expected];
@@ -87,6 +97,18 @@
     NSDate * e = [NSDate dateFromIso8601:expected];
 
     XCTAssertEqualObjects(i.endOfMinute, e);
+}
+
+
+-(void)doTestStartOfMonth:(NSString *)input expected:(NSString *)expected {
+    NSDate * iUTC = [NSDate dateFromIso8601:input];
+    NSDate * eUTC = [NSDate dateFromIso8601:expected];
+
+    NSTimeZone * tz = [NSTimeZone systemTimeZone];
+    NSDate * i = [iUTC dateByAddingTimeInterval:-[tz secondsFromGMTForDate:iUTC]];
+    NSDate * e = [eUTC dateByAddingTimeInterval:-[tz secondsFromGMTForDate:eUTC]];
+
+    XCTAssertEqualObjects(i.startOfMonth, e);
 }
 
 

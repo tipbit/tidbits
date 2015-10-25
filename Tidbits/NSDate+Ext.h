@@ -76,6 +76,20 @@
 -(NSDate *)endOfMinute;
 
 
+#if DEBUG
+
+// Only exposed for tests.
+
+/**
+ * @return A new NSDate representing this time, but at YYYY-MM-01 00:00:00.000
+ * (i.e. the very beginning of the month that this time represents)
+ * in the system timezone.
+ */
+-(NSDate *)startOfMonth;
+
+#endif
+
+
 /*!
  @abstract Returns a new NSDate that is on the same day as this one, but at the specified time.
  @param tz May be nil, in which case UTC is used.
