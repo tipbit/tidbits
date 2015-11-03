@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
+#import <Foundation/NSArray.h>
+#import <Foundation/NSDictionary.h>
+#import <Foundation/NSError.h>
+#import <Foundation/NSOperation.h>
+#import <Foundation/NSString.h>
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #import <UIKit/UIApplication.h>
 #endif

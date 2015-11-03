@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 Tipbit, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Foundation/NSString.h>
+#import <Foundation/NSThread.h>
 
 @interface NSThread (Misc)
 

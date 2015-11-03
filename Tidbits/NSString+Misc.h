@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Tipbit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Foundation/NSString.h>
 
 @interface NSString (Misc)
 

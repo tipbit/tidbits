@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Foundation/NSString.h>
+#import <Foundation/NSUUID.h>
 
 @interface NSUUID (Misc)
 

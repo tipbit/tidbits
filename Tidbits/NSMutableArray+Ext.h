@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Tipbit, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Foundation/NSArray.h>
+#import <Foundation/NSDictionary.h>
+#import <Foundation/NSEnumerator.h>
 
 #import "StandardBlocks.h"
 
