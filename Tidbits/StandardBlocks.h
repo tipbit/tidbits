@@ -60,7 +60,10 @@ typedef void (^NSString2Block)(NSString* str1, NSString* str2);
 typedef void (^NSUIntegerBlock)(NSUInteger i);
 typedef void (^NSURLBlock)(NSURL* url);
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 typedef void (^UIActionSheetBlock)(UIActionSheet *sheet);
+#pragma clang diagnostic pop
 typedef void (^UIBackgroundFetchResultBlock)(UIBackgroundFetchResult result);
 typedef void (^FetchResponseBlock)(UIBackgroundFetchResult result, id email);
 typedef void (^UIButtonBlock)(UIButton *button);
