@@ -38,6 +38,8 @@
 #ifndef Tidbits_TBAsserts_h
 #define Tidbits_TBAsserts_h
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 #define TBAssertBody(__func, __cond, __breadcrumb, __desc, ...)                                            \
     (__builtin_expect(!(__cond), 0) ?                                                                      \
@@ -104,11 +106,36 @@
 #endif
 
 
+@interface _TBAssertNotNilBox<__covariant Type>
+
+-(nonnull Type)toNonnull;
+
+@end
+
+
+#define TBAssertNotNil(__x)                                            \
+    ({                                                                 \
+        TBAssert(__x != nil, @"BadNil", @"Invalid nil value " @#__x);  \
+        _TBAssertNotNilBox<typeof(__x)> * __box;                       \
+        (typeof(__box.toNonnull))__x;                                  \
+    })
+
+
+#define TBCAssertNotNil(__x)                                           \
+    ({                                                                 \
+        TBCAssert(__x != nil, @"BadNil", @"Invalid nil value " @#__x); \
+        _TBAssertNotNilBox<typeof(__x)> * __box;                       \
+        (typeof(__box.toNonnull))__x;                                  \
+    })
+
+
 extern void TBAssertsRaise(SEL cmd, id obj, NSString * file, NSInteger line, NSString * desc, ...) NS_FORMAT_FUNCTION(5, 6) __attribute__((noreturn));
 extern void TBAssertsTrack(SEL cmd, id obj, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(6, 7);
 extern void TBAssertsTrackC(NSString * func, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(5, 6);
 extern void TBAssertsTrackAndRaise(SEL cmd, id obj, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(6, 7) __attribute__((noreturn));
 extern void TBAssertsTrackAndRaiseC(NSString * func, NSString * file, NSInteger line, NSString * breadcrumb, NSString * desc, ...) NS_FORMAT_FUNCTION(5, 6) __attribute__((noreturn));
 
+
+NS_ASSUME_NONNULL_END
 
 #endif
