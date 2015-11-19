@@ -219,6 +219,8 @@
 		40CB974C1A4C904900DE58E5 /* LogFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */; };
 		40D188901809122400B23BAC /* NSData+SHA256.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40182C7A18090F820075AA75 /* NSData+SHA256.h */; };
 		40D1F09518875848003BAF58 /* NSSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F09418875848003BAF58 /* NSSet+Misc.m */; };
+		40D8E36E1BFD424800EC5872 /* Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FEBAA1B8807BD001F0DFB /* Reflection.m */; };
+		40D8E36F1BFD424B00EC5872 /* Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 406FEBA91B8807BD001F0DFB /* Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40D9DD1317893D8800C49154 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD1217893D8800C49154 /* FileUtils.m */; };
 		40D9DD15178942FD00C49154 /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40D9DD1117893D8800C49154 /* FileUtils.h */; };
 		40D9DD8B1793BB6900C49154 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D9DD8A1793BB6900C49154 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1510,6 +1512,7 @@
 				40E48BD8198B331E0015C54E /* NSIndexSet+Misc.h in Headers */,
 				40E48BD9198B331E0015C54E /* NSInputStream+Misc.h in Headers */,
 				40E48BDA198B331E0015C54E /* NSJSONSerialization+Misc.h in Headers */,
+				40D8E36F1BFD424B00EC5872 /* Reflection.h in Headers */,
 				40E48BDC198B331E0015C54E /* NSMutableArray+Ext.h in Headers */,
 				40E48BDD198B331E0015C54E /* NSMutableArray+Sorted.h in Headers */,
 				40E48BDE198B331F0015C54E /* NSMutableArray+Stack.h in Headers */,
@@ -2001,6 +2004,7 @@
 				40E48B56198B266E0015C54E /* NSArray+Misc.m in Sources */,
 				40E48B57198B266E0015C54E /* NSBundle+Versions.m in Sources */,
 				40E48B58198B266E0015C54E /* NSData+Base64.m in Sources */,
+				40D8E36E1BFD424800EC5872 /* Reflection.m in Sources */,
 				4050606A1AC905F800308CAF /* NSDateFormatter+Misc.m in Sources */,
 				406133301A814B5B0076F37F /* NSStringPunycodeAdditions.m in Sources */,
 				40E48B59198B266E0015C54E /* NSData+Ext.m in Sources */,
