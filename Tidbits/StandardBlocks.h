@@ -52,6 +52,7 @@ typedef void (^NSMutableArrayBlock)(NSMutableArray* array);
 typedef void (^NSMutableDictionaryBlock)(NSMutableDictionary * dict);
 typedef void (^NSObjectBlock)(NSObject * obj);
 typedef void (^NSOperationQueueBlock)(NSOperationQueue* queue);
+typedef void (^NSSetBlock)(NSSet * set);
 typedef void (^NSStringBlock)(NSString* str);
 typedef void (^NSStringNSArrayBlock)(NSString* str, NSArray* array);
 typedef void (^NSStringNSArrayNSArrayBlock)(NSString* str, NSArray* array1, NSArray* array2);
