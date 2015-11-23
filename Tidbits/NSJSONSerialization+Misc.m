@@ -64,6 +64,44 @@
 }
 
 
++(id)JSONObjectFromFile:(NSString *)filename error:(NSError *__autoreleasing *)error __attribute__((nonnull(1))) {
+    NSParameterAssert(filename);
+
+    NSData * data = [NSData dataWithContentsOfFile:filename options:(NSDataReadingOptions)0 error:error];
+    if (data == nil) {
+        return nil;
+    }
+
+    return [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingOptions)0 error:error];
+}
+
+
++(void)JSONObjectFromFileAsync:(NSString *)filename onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1,2))) {
+    NSParameterAssert(filename);
+    NSParameterAssert(onSuccess);
+
+    dispatchAsyncBackgroundThread(DISPATCH_QUEUE_PRIORITY_DEFAULT, ^{
+        [NSJSONSerialization JSONObjectFromFileAsyncBackground:filename onSuccess:onSuccess onFailure:onFailure];
+    });
+}
+
+
++(void)JSONObjectFromFileAsyncBackground:(NSString *)filename onSuccess:(IdBlock)onSuccess onFailure:(NSErrorBlock)onFailure __attribute__((nonnull(1,2))) {
+    AssertOnBackgroundThread();
+
+    NSError * err = nil;
+    id json = [NSJSONSerialization JSONObjectFromFile:filename error:&err];
+    if (json == nil) {
+        if (onFailure != NULL) {
+            onFailure(err);
+        }
+    }
+    else {
+        onSuccess(json);
+    }
+}
+
+
 +(NSString *)stringWithJSONObject:(id)obj error:(NSError *__autoreleasing *)error {
     return [NSJSONSerialization stringWithJSONObject:obj options:0 error:error];
 }
