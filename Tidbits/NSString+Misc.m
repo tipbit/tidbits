@@ -147,6 +147,37 @@ static NSRegularExpression * stripQuotesRE = nil;
 }
 
 
+-(NSMutableDictionary *)keyValuePairs {
+    return [self keyValuePairsSeparatedBy:@"," and:@"="];
+}
+
+
+-(NSMutableDictionary<NSString *, NSString *> *)keyValuePairsSeparatedBy:(NSString *)pairsSeparator and:(NSString *)kvSeparator {
+    NSMutableDictionary<NSString *, NSString *> * result = [NSMutableDictionary dictionary];
+
+    if (![self isNotWhitespace]) {
+        return result;
+    }
+
+    NSArray<NSString *> * pairs = [self componentsSeparatedByString:pairsSeparator];
+
+    for (NSString * pair in pairs) {
+        NSArray<NSString *> * parts = [pair componentsSeparatedByString:kvSeparator];
+        if (parts.count == 2) {
+            NSString * k = [parts[0] trim];
+            NSString * v = [parts[1] trim];
+            result[k] = v;
+        }
+        else {
+            NSString * k = [pair trim];
+            result[k] = @"";
+        }
+    }
+
+    return result;
+}
+
+
 -(NSString*)trim {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }

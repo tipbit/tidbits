@@ -44,6 +44,28 @@
  */
 -(bool) isAllNumeric;
 
+/**
+ * Equivalent to [self keyValuePairsSeparatedBy:@"," and:@"="].
+ */
+-(NSMutableDictionary<NSString *, NSString *> *)keyValuePairs;
+
+/**
+ * Given that self is a string like "a=b,c=d,e=f", return the dictionary @{@"a": @"b", @"c": @"d", @"e": @"f"}.
+ *
+ * If self is only whitespace, then then the empty dictionary will be returned.
+ *
+ * All keys and values are trimmed of whitespace at both ends.
+ *
+ * If the string contains an invalid pair, e.g. @"a=b=c" or @"a" then the full string will be used as the
+ * key, and the value will be the empty string e.g. @{@"a=b=c": @""} or @{@"a": @""}.
+ *
+ * If keys are duplicated then the earlier one will be overwritten by the latter one.
+ *
+ * @param pairsSeparator The separator between pairs (comma in the example above).
+ * @param kvSeparator The separator between key and value (equals in the example above).
+ */
+-(NSMutableDictionary<NSString *, NSString *> *)keyValuePairsSeparatedBy:(NSString *)pairsSeparator and:(NSString *)kvSeparator;
+
 -(NSString*)trim;
 
 -(unsigned long)unsignedLongValue;

@@ -129,6 +129,28 @@
 }
 
 
+-(void)testKeyValuePairs {
+    [self doTestKeyValuePairs:@"" :@{}];
+    [self doTestKeyValuePairs:@"    " :@{}];
+    [self doTestKeyValuePairs:@"a=b" :@{@"a": @"b"}];
+    [self doTestKeyValuePairs:@"a=b,c=d" :@{@"a": @"b", @"c": @"d"}];
+    [self doTestKeyValuePairs:@"a=b,c=d,e=f" :@{@"a": @"b", @"c": @"d", @"e": @"f"}];
+    [self doTestKeyValuePairs:@"a= b ,c =d, e=f" :@{@"a": @"b", @"c": @"d", @"e": @"f"}];
+    [self doTestKeyValuePairs:@"a=" :@{@"a": @""}];
+    [self doTestKeyValuePairs:@"a = b = c" :@{@"a = b = c": @""}];
+    [self doTestKeyValuePairs:@"  a  " :@{@"a": @""}];
+    [self doTestKeyValuePairs:@"  a  b  " :@{@"a  b": @""}];
+    [self doTestKeyValuePairs:@"a=b,c=d,a=f" :@{@"a": @"f", @"c": @"d"}];
+}
+
+
+-(void)doTestKeyValuePairs:(NSString *)input :(NSDictionary *)expected {
+    NSMutableDictionary * result = [input keyValuePairs];
+    XCTAssertIsKindOf(result, NSMutableDictionary);
+    XCTAssertEqualObjects(result, expected);
+}
+
+
 -(void)testStringBySanitizingFilenameEmpty {
     XCTAssertEqualObjects([@"" stringBySanitizingFilename], @"");
 }
