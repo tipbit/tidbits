@@ -27,6 +27,14 @@ typedef enum {
  */
 extern NSMutableArray * reflectionGetPropertyNames(Class cls, CStringGetBoolBlock __nullable predicate);
 
+/**
+ * @param predicate A predicate that is applied to the attribute declaration string of each property
+ * (c.f. property_getAttributes).  Return YES to include the property in the result.
+ * @return The keys are the names of each property in the full class heirarchy that match the given predicate.
+ * The corresponding value is the raw Objective-C type for the property.
+ */
+extern NSMutableDictionary<NSString *, NSString *> * reflectionGetPropertyNamesAndTypes(Class cls, CStringGetBoolBlock __nullable predicate);
+
 extern BOOL reflectionPropertyAttributeStringMatches(const char * attributeString, ReflectionMatch isObject, ReflectionMatch isReadonly, ReflectionMatch isWeak);
 
 
