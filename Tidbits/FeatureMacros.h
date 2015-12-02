@@ -20,6 +20,7 @@
 #define IS_IOS8_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_7_1)
 #define IS_IOS9_OR_GREATER (floor(NSFoundationVersionNumber) >  NSFoundationVersionNumber_iOS_8_3)
 
+#define IS_PORTRAIT (UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication.statusBarOrientation))
 #define IS_LANDSCAPE (UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))
 
 #endif
