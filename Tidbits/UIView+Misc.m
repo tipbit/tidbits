@@ -293,7 +293,7 @@ static void replaceActions(UIView * oldSelf, UIView * newSelf, UIView * view) {
 + (CGSize)screenSize
 {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    if (!IS_IOS8_OR_GREATER && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+    if (!IS_IOS8_OR_GREATER && IS_LANDSCAPE) {
         return CGSizeMake(screenSize.height, screenSize.width);
     }
     return screenSize;
