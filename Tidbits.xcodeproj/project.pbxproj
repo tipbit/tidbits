@@ -126,6 +126,10 @@
 		4079641019C63614003315A9 /* NSMutableIndexSet+Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */; };
 		4079641219C63905003315A9 /* NSMutableIndexSet+MiscTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */; };
 		407ADD461AAA297000BBE477 /* TBTestHelpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4006C52A18559C6200B2F22A /* TBTestHelpers.h */; };
+		408237681C0F7A8600C92E85 /* MutableSortedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 408237661C0F7A8600C92E85 /* MutableSortedDictionary.h */; };
+		408237691C0F7A8600C92E85 /* MutableSortedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 408237671C0F7A8600C92E85 /* MutableSortedDictionary.m */; };
+		4082376A1C0F7A8600C92E85 /* MutableSortedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 408237671C0F7A8600C92E85 /* MutableSortedDictionary.m */; };
+		4082376F1C0F7FE600C92E85 /* MutableSortedDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4082376E1C0F7FE600C92E85 /* MutableSortedDictionaryTests.m */; };
 		408D9C701A1857E0003C5ABC /* UTITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 408D9C6F1A1857E0003C5ABC /* UTITests.m */; };
 		408D9C741A185970003C5ABC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D9C731A185970003C5ABC /* MobileCoreServices.framework */; };
 		408E885C1768DEF6001B61E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408E885B1768DEF6001B61E6 /* Foundation.framework */; };
@@ -748,6 +752,9 @@
 		4079640E19C63614003315A9 /* NSMutableIndexSet+Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+Misc.h"; sourceTree = "<group>"; };
 		4079640F19C63614003315A9 /* NSMutableIndexSet+Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+Misc.m"; sourceTree = "<group>"; };
 		4079641119C63905003315A9 /* NSMutableIndexSet+MiscTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+MiscTests.m"; sourceTree = "<group>"; };
+		408237661C0F7A8600C92E85 /* MutableSortedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableSortedDictionary.h; sourceTree = "<group>"; };
+		408237671C0F7A8600C92E85 /* MutableSortedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableSortedDictionary.m; sourceTree = "<group>"; };
+		4082376E1C0F7FE600C92E85 /* MutableSortedDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableSortedDictionaryTests.m; sourceTree = "<group>"; };
 		408D9C6F1A1857E0003C5ABC /* UTITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTITests.m; sourceTree = "<group>"; };
 		408D9C731A185970003C5ABC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		408E88581768DEF6001B61E6 /* libTidbits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTidbits.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1140,6 +1147,8 @@
 				404557831A255A97009FEF2F /* LoggingMacrosWrappers.h */,
 				400C95441852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.h */,
 				400C95451852E9DC0095B9DC /* MPMoviePlayerViewController+Ext.m */,
+				408237661C0F7A8600C92E85 /* MutableSortedDictionary.h */,
+				408237671C0F7A8600C92E85 /* MutableSortedDictionary.m */,
 				40E343B31785FF73001A93E9 /* OperationManager.h */,
 				40E343B41785FF73001A93E9 /* OperationManager.m */,
 				400133A81B71489100045203 /* RangeDictionary.h */,
@@ -1189,6 +1198,7 @@
 				402E777118A6DB9D007176E2 /* GTMNSString+URLArgumentsTests.m */,
 				402E777718A740A3007176E2 /* GTMNSString+XMLTests.m */,
 				40CB974B1A4C904900DE58E5 /* LogFormatterTests.m */,
+				4082376E1C0F7FE600C92E85 /* MutableSortedDictionaryTests.m */,
 				406FA38D1805A5B700C408CE /* NSArray+MapTests.m */,
 				40DE5181181C9E1400371475 /* NSArray+MiscTests.m */,
 				402E776B18A62595007176E2 /* NSData+FooTests.m */,
@@ -1488,6 +1498,7 @@
 				40E48BC0198B331E0015C54E /* Enumerate.h in Headers */,
 				40E48BC1198B331E0015C54E /* FeatureMacros.h in Headers */,
 				40E48BC2198B331E0015C54E /* FileUtils.h in Headers */,
+				408237681C0F7A8600C92E85 /* MutableSortedDictionary.h in Headers */,
 				406133311A814B600076F37F /* NSStringPunycodeAdditions.h in Headers */,
 				40E48BC3198B331E0015C54E /* IdleState.h in Headers */,
 				40E48BC4198B331E0015C54E /* InlineTiming.h in Headers */,
@@ -1912,6 +1923,7 @@
 				18E71B9E198C1F770060DEC9 /* NSObject+Extras.m in Sources */,
 				18F1E613195E6969008E3161 /* TPKeyboardAvoidingTableView.m in Sources */,
 				40182C7C18090F820075AA75 /* NSData+SHA256.m in Sources */,
+				408237691C0F7A8600C92E85 /* MutableSortedDictionary.m in Sources */,
 				409091861804961B00D0C951 /* RunLoopFuture.m in Sources */,
 				D8A75A151B681AD800AF796B /* TBBlockOperation.m in Sources */,
 				408F67CD1782CABE00E974AD /* UIImage+Resize.m in Sources */,
@@ -1958,6 +1970,7 @@
 				402E777418A70560007176E2 /* GTMNSString+HTMLTests.m in Sources */,
 				4006C68618121345007DBC6D /* NSString+MiscTests.m in Sources */,
 				402E776A18A61E94007176E2 /* NSSet+MiscTests.m in Sources */,
+				4082376F1C0F7FE600C92E85 /* MutableSortedDictionaryTests.m in Sources */,
 				40C2C4461829904100205EBB /* SRVResolverTests.m in Sources */,
 				408D9C701A1857E0003C5ABC /* UTITests.m in Sources */,
 				405AE492190DFE9D006F2BF1 /* NSJSONSerialization+MiscTests.m in Sources */,
@@ -1993,6 +2006,7 @@
 				40E48B4A198B266E0015C54E /* Breadcrumbs.m in Sources */,
 				40E48B4B198B266E0015C54E /* CPUTime.m in Sources */,
 				40E48B4C198B266E0015C54E /* Dispatch.m in Sources */,
+				4082376A1C0F7A8600C92E85 /* MutableSortedDictionary.m in Sources */,
 				40B11F411A1F3B6E00EA3DA8 /* TBAsserts.m in Sources */,
 				40E48B4E198B266E0015C54E /* Enumerate.m in Sources */,
 				40E48B4F198B266E0015C54E /* FileUtils.m in Sources */,
