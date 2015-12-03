@@ -121,7 +121,7 @@ BOOL reflectionPropertyAttributeStringMatches(const char * attributeString, Refl
         }
     }
 
-    for (NSUInteger i = 1; i < attrs_arr.count - 1; i++) {
+    for (NSUInteger i = 1; i < attrs_arr.count; i++) {
         NSString * attr = attrs_arr[i];
         if ([attr isEqualToString:@"R"]) {
             if (isReadonly == ReflectionMatchRequireNo) {
